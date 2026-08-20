@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>美股科技板块前一交易日行情日报 | 华泰期货</title>
+  <meta name="description" content="美股科技板块前一交易日行情日报 · 盘前版" />
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <style>
+    :root {
+      /* 配色：纯白 + 浅蓝 + 黑 */
+      --blue:        #1f6fb2;
+      --blue-deep:   #155a94;
+      --blue-soft:   #eaf3fb;
+      --blue-mist:   #f4f9fd;
+      --blue-border: #d8e6f3;
+      --ink:         #1a1a1a;
+      --ink-soft:    #4a5560;
+      --muted:       #8a949e;
+      --line:        #e6ebf0;
+      --white:       #ffffff;
+      --up:          #d64541;   /* 涨 · 红 */
+      --down:        #16a34a;   /* 跌 · 绿 */
+      --flat:        #6b7280;
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      color: var(--ink);
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+                   -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ===== 顶栏 ===== */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #ffffff;
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .topbar img.logo { height: 22px; width: auto; display: block; }
+    .topbar .brand { font-size: 13px; color: var(--ink-soft); letter-spacing: .02em; }
+    .topbar .brand b { color: var(--blue-deep); }
+    .topbar .spacer { flex: 1; }
+    .topbar nav a { font-size: 13px; color: var(--ink-soft); margin-left: 16px; }
+    .topbar nav a:hover { color: var(--blue); }
+
+    /* ===== 报头 ===== */
+    .cover {
+      max-width: 980px;
+      margin: 26px auto 0;
+      padding: 0 24px;
+    }
+    .cover-card {
+      background: linear-gradient(180deg, #ffffff 0%, var(--blue-mist) 100%);
+      border: 1px solid var(--blue-border);
+      border-top: 4px solid var(--blue);
+      border-radius: 4px;
+      padding: 34px 40px 28px;
+    }
+    .cover-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .pill {
+      display: inline-block;
+      padding: 2px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 3px;
+      letter-spacing: .05em;
+    }
+    .pill-blue  { background: var(--blue-soft); color: var(--blue-deep); }
+    .pill-gray  { background: #f0f3f6; color: var(--ink-soft); }
+    .cover h1 { font-size: 27px; margin: 0 0 8px; font-weight: 700; letter-spacing: -.01em; }
+    .cover .subtitle { font-size: 14px; color: var(--ink-soft); margin: 0 0 22px; }
+    .cover-info {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      border-top: 1px solid var(--blue-border);
+      padding-top: 18px;
+    }
+    .cover-info .k { font-size: 11px; color: var(--muted); letter-spacing: .08em; margin-bottom: 4px; }
+    .cover-info .v { font-size: 14px; color: var(--ink); font-weight: 500; }
+
+    /* ===== 正文布局 ===== */
+    .page {
+      max-width: 980px;
+      margin: 22px auto 60px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 200px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+    .toc {
+      position: sticky;
+      top: 64px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 14px 12px;
+      font-size: 13px;
+    }
+    .toc .toc-title {
+      font-size: 11px; color: var(--muted); letter-spacing: .12em;
+      text-transform: uppercase; margin-bottom: 8px; font-weight: 600;
+    }
+    .toc a { display: block; color: var(--ink-soft); padding: 4px 0; line-height: 1.45; }
+    .toc a:hover { color: var(--blue); text-decoration: none; }
+    .toc a .dot { color: var(--blue); margin-right: 6px; }
+
+    .content {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 34px 40px 42px;
+      min-width: 0;
+    }
+
+    section { padding: 20px 0 16px; border-bottom: 1px solid var(--line); scroll-margin-top: 72px; }
+    section:first-of-type { padding-top: 6px; }
+    section:last-of-type { border-bottom: none; padding-bottom: 0; }
+
+    h2.sec-title {
+      font-size: 19px;
+      font-weight: 700;
+      margin: 0 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h2.sec-title .bar {
+      width: 4px; height: 18px; background: var(--blue); border-radius: 2px; flex-shrink: 0;
+    }
+    h2.sec-title .no { font-size: 12px; color: var(--blue); font-weight: 700; }
+
+    h3 { font-size: 15px; font-weight: 700; margin: 20px 0 8px; }
+    p { margin: 8px 0 12px; }
+
+    /* ===== 指数卡片 ===== */
+    .index-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin: 12px 0 8px;
+    }
+    .index-card {
+      background: var(--blue-mist);
+      border: 1px solid var(--blue-border);
+      border-radius: 4px;
+      padding: 10px 14px;
+    }
+    .index-card .nm { font-size: 12px; color: var(--ink-soft); }
+    .index-card .cd { font-size: 11px; color: var(--muted); }
+    .index-card .chg { font-size: 17px; font-weight: 700; margin-top: 4px; }
+
+    /* ===== 涨跌色 ===== */
+    .up   { color: var(--up); }
+    .down { color: var(--down); }
+    .flat { color: var(--flat); }
+
+    /* ===== 超涨超跌提示 ===== */
+    .alert-box {
+      border: 1px solid var(--blue-border);
+      border-left: 4px solid var(--blue);
+      background: var(--blue-mist);
+      border-radius: 4px;
+      padding: 14px 18px;
+      margin: 12px 0;
+    }
+    .alert-box .al-head { font-weight: 700; font-size: 14px; margin-bottom: 8px; }
+    .alert-box ul { margin: 0; padding-left: 18px; }
+    .alert-box li { margin: 2px 0; font-size: 13.5px; color: var(--ink-soft); }
+
+    .muted-note {
+      background: #f7f9fb;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 10px 14px;
+      color: var(--muted);
+      font-size: 13.5px;
+      margin: 12px 0;
+    }
+
+    /* ===== 表格 ===== */
+    .table-wrap { overflow-x: auto; margin: 12px 0 16px; border: 1px solid var(--line); border-radius: 4px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px; background: #fff; }
+    th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--line); }
+    th { background: var(--blue-mist); color: var(--ink); font-weight: 600; font-size: 13px; }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover { background: #fafcfe; }
+    td.num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+    th.num { text-align: right; }
+
+    /* ===== 新闻条目 ===== */
+    .news-item {
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 14px 18px;
+      margin: 12px 0;
+      background: #fff;
+    }
+    .news-item .n-title { font-size: 14.5px; font-weight: 700; color: var(--ink); }
+    .news-item .n-meta {
+      font-size: 12.5px; color: var(--muted);
+      display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 6px 0 8px;
+    }
+    .news-item .n-meta b { color: var(--ink-soft); font-weight: 600; }
+    .tag {
+      display: inline-block; font-size: 11px; font-weight: 600;
+      padding: 0 8px; border-radius: 3px; letter-spacing: .04em;
+    }
+    .tag-official { background: var(--blue-soft); color: var(--blue-deep); }
+    .tag-media   { background: #eef7ee; color: #2f7d3a; }
+    .tag-industry{ background: #f2f2f2; color: var(--ink-soft); }
+    .impact {
+      border-top: 1px dashed var(--line); margin-top: 8px; padding-top: 8px;
+      font-size: 13px; color: var(--ink-soft);
+    }
+    .impact .imp-row { display: flex; gap: 8px; margin: 2px 0; }
+    .impact .imp-label { color: var(--muted); flex-shrink: 0; min-width: 64px; }
+    .badge {
+      display: inline-block; font-size: 11px; font-weight: 700; padding: 0 8px; border-radius: 3px;
+    }
+    .badge-pos { background: #fdeceb; color: var(--up); }
+    .badge-neg { background: #e7f6ec; color: var(--down); }
+    .badge-neu { background: #f0f3f6; color: var(--ink-soft); }
+
+    /* ===== 交易逻辑 ===== */
+    .logic-card {
+      border: 1px solid var(--blue-border);
+      border-left: 4px solid var(--blue);
+      border-radius: 4px;
+      padding: 12px 16px;
+      margin: 10px 0;
+      background: var(--blue-mist);
+    }
+    .logic-card .l-title { font-weight: 700; font-size: 14px; }
+    .logic-card .l-text { font-size: 13.5px; color: var(--ink-soft); margin-top: 4px; }
+
+    /* ===== 页脚 ===== */
+    .footer {
+      max-width: 980px; margin: 0 auto 40px; padding: 20px 24px;
+      text-align: center; font-size: 12px; color: var(--muted); line-height: 1.8;
+    }
+    .footer .disc { max-width: 760px; margin: 0 auto; border-top: 1px solid var(--line); padding-top: 14px; }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 840px) {
+      .page { grid-template-columns: 1fr; }
+      .toc { position: static; }
+      .content { padding: 24px 20px 30px; }
+      .cover-card { padding: 24px 20px 22px; }
+      .cover h1 { font-size: 21px; }
+      .cover-info { grid-template-columns: repeat(2, 1fr); }
+      .topbar nav { display: none; }
+    }
+    @media print {
+      .topbar, .toc { display: none; }
+      .page { grid-template-columns: 1fr; max-width: 100%; padding: 0; }
+      .content { border: none; padding: 0; }
+      section { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 顶栏 -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <img src="assets/logo.png" alt="华泰期货" class="logo" />
+      <div class="brand">华泰期货 · <b>研究</b></div>
+      <div class="spacer"></div>
+      <nav>
+        <a href="#overview">市场概览</a>
+        <a href="#stocks">重点公司</a>
+        <a href="#news">新闻</a>
+        <a href="#logics">交易逻辑</a>
+        <a href="#watchlist">关注事项</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- 报头 -->
+  <div class="cover">
+    <div class="cover-card" id="cover-card"></div>
+  </div>
+
+  <!-- 正文 -->
+  <div class="page">
+    <aside class="toc" id="toc"></aside>
+    <main class="content" id="content"></main>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="disc" id="disc"></div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script>
+    (function () {
+      const D = window.REPORT_DATA;
+      if (!D) { document.getElementById('content').innerHTML = '<p>未找到 data.js 数据，请检查文件。</p>'; return; }
+
+      /* ---- 涨跌色 ---- */
+      function chgClass(v) {
+        const s = (v || '').trim();
+        if (!s || s === '0.00%' || s === '-0.00%') return 'flat';
+        if (s.startsWith('-')) return 'down';
+        if (s.startsWith('+') || /^\d/.test(s)) return 'up';
+        return 'flat';
+      }
+
+      /* ---- 报头 ---- */
+      const meta = D.meta || {};
+      document.getElementById('cover-card').innerHTML =
+        '<div class="cover-meta">' +
+          '<span class="pill pill-blue">' + (meta.tag || '每日市场跟踪') + '</span>' +
+          '<span class="pill pill-gray">盘前版</span>' +
+        '</div>' +
+        '<h1>' + (meta.title || '') + '</h1>' +
+        '<p class="subtitle">' + (meta.subtitle || '') + '</p>' +
+        '<div class="cover-info">' +
+          '<div class="item"><div class="k">报告日期</div><div class="v">' + (meta.reportDate || '—') + '</div></div>' +
+          '<div class="item"><div class="k">对应交易日</div><div class="v">' + (meta.tradeDate || '—') + '</div></div>' +
+          '<div class="item"><div class="k">研究机构</div><div class="v">' + (meta.author || '—') + '</div></div>' +
+          '<div class="item"><div class="k">报告类型</div><div class="v">每日市场跟踪</div></div>' +
+        '</div>';
+
+      /* ---- 目录 ---- */
+      const tocItems = [
+        ['overview', '一、市场概览'],
+        ['alerts',   '二、超涨/超跌提示'],
+        ['stocks',   '三、重点公司行情表'],
+        ['news',     '四、重要科技与政策新闻'],
+        ['logics',   '五、3 个交易逻辑'],
+        ['watchlist','六、未来关注事项']
+      ];
+      document.getElementById('toc').innerHTML =
+        '<div class="toc-title">目录 Contents</div>' +
+        tocItems.map(function (it) {
+          return '<a href="#' + it[0] + '"><span class="dot">·</span>' + it[1] + '</a>';
+        }).join('');
+
+      /* ---- 正文 ---- */
+      const h = [];
+      const sec = function (id, title, inner) {
+        return '<section id="' + id + '">' +
+          '<h2 class="sec-title"><span class="bar"></span>' + title + '</h2>' +
+          inner + '</section>';
+      };
+
+      /* 一、市场概览 */
+      h.push(sec('overview', '一、市场概览',
+        '<p>' + (D.overview && D.overview.text || '') + '</p>' +
+        (function () {
+          const idx = (D.overview && D.overview.indices) || [];
+          if (!idx.length) return '';
+          return '<div class="index-grid">' + idx.map(function (i) {
+            return '<div class="index-card" data-code="' + i.code + '">' +
+              '<div class="nm">' + i.name + '</div>' +
+              '<div class="cd">' + i.code + '</div>' +
+              '<div class="chg ' + chgClass(i.change) + '">' + i.change + '</div>' +
+              '</div>';
+          }).join('') + '</div>';
+        })()
+      ));
+
+      /* 二、超涨/超跌提示 */
+      const alerts = (D.alerts || []).filter(function (a) { return a && a.direction && a.name; });
+      let alertInner;
+      if (alerts.length) {
+        alertInner = alerts.map(function (a) {
+          return '<div class="alert-box">' +
+            '<div class="al-head ' + (a.direction === '超涨' ? 'up' : 'down') + '">' +
+              a.name + '（' + a.code + '）｜' + a.direction +
+            '</div>' +
+            '<ul>' +
+              '<li>前一交易日涨跌幅：<b class="chg" data-code="' + a.code + '">' + a.change + '</b></li>' +
+              '<li>近 5 个交易日表现：' + a.fiveDay + '</li>' +
+              '<li>近期是否创阶段新高/新低：' + a.newHighLow + '</li>' +
+              '<li>成交量是否明显放大：' + a.volume + '</li>' +
+              '<li>主要触发原因：' + a.reason + '</li>' +
+              '<li>对后续走势的潜在影响：' + a.impact + '</li>' +
+            '</ul></div>';
+        }).join('');
+      } else {
+        alertInner = '<div class="muted-note">前一交易日重点科技股未出现需要单独提示的明显超涨或超跌个股。</div>';
+      }
+      h.push(sec('alerts', '二、超涨 / 超跌个股提示', alertInner));
+
+      /* 三、重点公司行情表 */
+      const stocks = D.stocks || [];
+      h.push(sec('stocks', '三、重点公司行情表',
+        '<div class="table-wrap"><table>' +
+        '<thead><tr><th>公司</th><th>股票代码</th><th class="num">前一交易日表现</th><th>主要驱动因素</th></tr></thead>' +
+        '<tbody>' + stocks.map(function (s) {
+          return '<tr data-code="' + s.code + '"><td><b>' + s.name + '</b></td><td>' + s.code + '</td>' +
+            '<td class="num ' + chgClass(s.change) + '">' + s.change + '</td>' +
+            '<td>' + s.driver + '</td></tr>';
+        }).join('') + '</tbody></table></div>'
+      ));
+
+      /* 四、新闻 */
+      const news = D.news || [];
+      const newsInner = news.map(function (n, i) {
+        const tagCls = n.type === '官方' ? 'tag-official' : (n.type === '行业媒体' ? 'tag-industry' : 'tag-media');
+        let dirBadge = '';
+        if (n.impact && n.impact.direction) {
+          const dir = n.impact.direction;
+          dirBadge = '<span class="badge ' +
+            (dir === '利好' ? 'badge-pos' : (dir === '利空' ? 'badge-neg' : 'badge-neu')) + '">' + dir + '</span>';
+        }
+        return '<div class="news-item">' +
+          '<div class="n-title">' + (i + 1) + '. ' + n.title + '</div>' +
+          '<div class="n-meta">' +
+            '<span><b>来源：</b>' + n.source + '</span>' +
+            '<span><b>发布时间：</b>' + n.time + '</span>' +
+            '<span class="tag ' + tagCls + '">' + n.type + '</span>' +
+          '</div>' +
+          '<div class="n-meta"><span><b>原文标题：</b>' + n.originalTitle + '</span></div>' +
+          (n.link ? '<div class="n-meta"><span><b>原文链接：</b><a href="' + n.link + '" target="_blank" rel="noopener">查看原文</a></span>' +
+            (n.url ? '<span><b>URL：</b><span style="font-size:11px;color:var(--muted)">' + n.url + '</span></span>' : '') + '</div>' : '') +
+          '<div style="font-size:13.5px;color:var(--ink-soft)">' + n.summary + '</div>' +
+          (n.impact ? '<div class="impact">' +
+            '<div class="imp-row"><span class="imp-label">市场影响</span>' + dirBadge + '</div>' +
+            '<div class="imp-row"><span class="imp-label">涉及公司</span>' + n.impact.companies + '</div>' +
+            '<div class="imp-row"><span class="imp-label">涉及行业</span>' + n.impact.industry + '</div>' +
+            '<div class="imp-row"><span class="imp-label">影响逻辑</span>' + n.impact.logic + '</div>' +
+          '</div>' : '') +
+        '</div>';
+      }).join('');
+      h.push(sec('news', '四、重要科技与政策新闻', newsInner || '<div class="muted-note">今日暂无需要重点提示的新闻。</div>'));
+
+      /* 五、交易逻辑 */
+      const logics = D.logics || [];
+      h.push(sec('logics', '五、当日最值得关注的 3 个交易逻辑',
+        logics.map(function (l, i) {
+          return '<div class="logic-card"><div class="l-title">' + (i + 1) + '. ' + l.title + '</div>' +
+            '<div class="l-text">' + l.text + '</div></div>';
+        }).join('')
+      ));
+
+      /* 六、关注事项 */
+      const wl = D.watchlist || [];
+      h.push(sec('watchlist', '六、未来 1—3 个交易日关注事项',
+        '<div class="table-wrap"><table>' +
+        '<thead><tr><th style="width:22%">日期</th><th>事件</th><th>可能影响</th></tr></thead>' +
+        '<tbody>' + wl.map(function (w) {
+          return '<tr><td>' + w.date + '</td><td>' + w.event + '</td><td>' + w.impact + '</td></tr>';
+        }).join('') + '</tbody></table></div>'
+      ));
+
+      document.getElementById('content').innerHTML = h.join('');
+
+      /* 页脚 */
+      document.getElementById('disc').textContent = D.disclaimer || '';
+
+      /* 平滑滚动 */
+      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          const t = document.querySelector(a.getAttribute('href'));
+          if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+        });
+      });
+
+      document.title = (meta.title || '美股科技日报') + ' | 华泰期货';
+    })();
+  </script>
+  <script src="live.js"></script>
+</body>
+</html>
