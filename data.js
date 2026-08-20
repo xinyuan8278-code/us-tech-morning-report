@@ -23,8 +23,8 @@ window.REPORT_DATA = {
   meta: {
     title: "美股科技板块前一交易日行情日报",
     subtitle: "盘前版 · 大型科技 + 半导体存储跟踪",
-    reportDate: "2026年08月19日",   // 报告发布日期
-    tradeDate: "2026年08月18日",    // 对应美股交易日（前一交易日）
+    reportDate: "2026年08月20日",   // 报告发布日期
+    tradeDate: "2026年08月19日",    // 对应美股交易日（前一交易日）
     author: "华泰期货 · 研究",
     tag: "每日市场跟踪"
   },
@@ -32,7 +32,7 @@ window.REPORT_DATA = {
   /* ============ 二、市场概览 ============ */
   overview: {
     /* 简短概括：指数变化 + 个股变化 + 重大事件 */
-    text: "8月18日美股三大指数连续第三日收跌：纳指跌1.33%、标普500跌0.69%，费城半导体指数重挫近5%。个股方面，存储芯片领跌，闪迪、美光跌幅居前，Meta、英伟达走弱，苹果、微软逆势微涨。主要利空：30年期美债收益率升至19年新高、AI债务融资担忧升温、美伊僵局推升油价。",
+    text: "8月19日美股止跌企稳，三大指数结束三连跌、小幅收涨：纳指涨0.16%、标普500涨0.21%、道指涨0.22%。内部分化显著：大型科技龙头领涨反弹（特斯拉涨4.23%、亚马逊涨2.46%、苹果涨2.19%），而半导体与存储继续下挫（费城半导体指数跌2.12%，博通跌4.61%、AMD跌3.71%、闪迪跌3.50%）。美债收益率回落、黄金突破4500美元，缓解长端利率压力，但存储涨价周期见顶担忧仍在发酵。",
     /* 指数卡片（可增删） */
     indices: [
       { name: "Nasdaq Composite", code: "IXIC", change: "-0.00%" },
@@ -45,50 +45,50 @@ window.REPORT_DATA = {
   /* ============ 三、超涨 / 超跌个股提示 ============ */
   alerts: [
     {
+      name: "博通 Broadcom", code: "AVGO",
+      direction: "超跌",
+      change: "-0.00%",
+      fiveDay: "近5个交易日累计明显回落，短期均线拐头向下",
+      newHighLow: "自阶段高位持续回撤，未创阶段新高",
+      volume: "成交量较前一日明显放大",
+      reason: "半导体板块连续第二日调整，AI定制芯片(ASIC)方向随费城半导体指数领跌，博通单日跌4.61%为权重科技股中最大跌幅",
+      impact: "关注AI定制芯片订单与数据中心网络需求能否对冲板块估值回调压力"
+    },
+    {
+      name: "AMD", code: "AMD",
+      direction: "超跌",
+      change: "-0.00%",
+      fiveDay: "近5个交易日累计回落，逼近阶段支撑位",
+      newHighLow: "自阶段高点回撤，未创新高",
+      volume: "成交量放大",
+      reason: "费城半导体指数继续下挫，GPU与CPU双线承压，AMD单日跌3.71%",
+      impact: "关注下季度数据中心GPU需求指引与对AI硬件板块的情绪传导"
+    },
+    {
       name: "闪迪 Sandisk", code: "SNDK",
-      direction: "超跌",           // 超涨 / 超跌（留空则不显示本条）
-      change: "-0.00%",
-      fiveDay: "近5个交易日累计上涨约27.9%，前期涨幅过大后遭获利回吐",
-      newHighLow: "距52周高点已回落约31%，未创阶段新高",
-      volume: "换手率约12.7%，成交量明显放大",
-      reason: "存储芯片价格周期见顶担忧升温，叠加AI硬件板块整体抛售，前期涨幅最大的存储股成为资金获利了结重点对象",
-      impact: "短期或延续调整，需观察存储价格走势与AI需求持续性"
-    },
-    {
-      name: "美光科技 Micron", code: "MU",
       direction: "超跌",
       change: "-0.00%",
-      fiveDay: "近5个交易日累计上涨约8.3%，此前连续走强后单日大跌",
-      newHighLow: "距52周高点回落约25%",
-      volume: "换手率约3.3%，成交量明显放大",
-      reason: "长债利率飙升打压高估值成长股，市场对存储芯片涨价周期能否延续产生分歧",
-      impact: "关注存储价格周期拐点信号与AI相关存储需求指引"
-    },
-    {
-      name: "Meta Platforms", code: "META",
-      direction: "超跌",
-      change: "-0.00%",
-      fiveDay: "近5个交易日累计下跌约9.3%",
-      newHighLow: "距52周高点回落约31%",
-      volume: "量比约2.04，成交量明显放大",
-      reason: "AI资本开支债务融资担忧升温，叠加加州法院社交媒体儿童伤害案开庭陈词，大型科技股普遍承压",
-      impact: "关注后续AI资本开支指引与反垄断诉讼进展"
+      fiveDay: "前期大涨后连续两日获利回吐",
+      newHighLow: "距52周高点已明显回落",
+      volume: "成交量维持高位",
+      reason: "存储芯片涨价周期见顶担忧延续，存储/光通信板块继续下挫，闪迪单日再跌3.50%",
+      impact: "关注存储价格走势与AI相关存储需求持续性，警惕周期拐点信号"
     }
   ],
 
   /* ============ 四、重点公司行情表 ============ */
   /* 超涨/超跌个股放最上方；无新闻的公司驱动因素简要说明即可 */
   stocks: [
-    { name: "Sandisk",   code: "SNDK",  change: "-0.00%", driver: "存储芯片价格周期见顶担忧，前期大涨后获利回吐" },
-    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "长债利率飙升 + 存储需求见顶担忧，高估值遭抛售" },
-    { name: "Meta",      code: "META",  change: "-0.00%", driver: "AI资本开支债务风险定价，叠加反垄断诉讼开庭" },
-    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "费城半导体指数30只成分股全数下跌" },
-    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "AI硬件股遭抛售，但相对板块抗跌" },
-    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "云计算韧性，大型科技中逆势微涨" },
-    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "避险资金流入，大型科技中逆势收红" },
-    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "大盘拖累小幅收跌" },
-    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "基本平收，表现相对稳健" },
-    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "费城半导体指数下跌，AI芯片板块回调" }
+    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "半导体板块继续回调，AI定制芯片方向领跌（-4.61%）" },
+    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "半导体板块承压，GPU/CPU双线调整（-3.71%）" },
+    { name: "Sandisk",   code: "SNDK",  change: "-0.00%", driver: "存储涨价周期见顶担忧延续，存储板块继续下挫（-3.50%）" },
+    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "芯片股中相对抗跌，仅跌0.99%" },
+    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "存储板块继续回调，但跌幅明显收窄至0.39%" },
+    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "基本平收，涨0.12%，表现稳健" },
+    { name: "Meta",      code: "META",  change: "-0.00%", driver: "大型科技企稳，微涨0.43%" },
+    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "大型科技企稳，微涨0.56%" },
+    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "领涨反弹，涨2.19%" },
+    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "领涨反弹，涨2.46%" }
   ],
 
   /* ============ 五、重要科技与政策新闻（一手来源） ============ */
@@ -101,60 +101,60 @@ window.REPORT_DATA = {
       type: "官方",
       url: "https://home.treasury.gov/news/press-releases/sb0607",
       link: "https://home.treasury.gov/news/press-releases/sb0607",
-      summary: "财政部宣布将 10—20 年期、20—30 年期名义附息国债的流动性支持回购单次上限从 20 亿美元提高至至少 40 亿美元（至少翻倍），9 月 9 日生效、持续至 11 月 4 日。此举直接回应本周 30 年期美债收益率升至 2007 年以来新高（5.33%）的长债抛售，官方定位为流动性支持（使用 TGA 存量资金、不扩表，非 QE）。11 月 4 日季度再融资会议将披露后续回购规模。",
+      summary: "财政部宣布将 10—20 年期、20—30 年期名义附息国债的流动性支持回购单次上限从 20 亿美元提高至至少 40 亿美元（至少翻倍），9 月 9 日生效、持续至 11 月 4 日。此举回应本周 30 年期美债收益率升至 2007 年以来新高的长债抛售，官方定位为流动性支持（使用 TGA 存量资金、不扩表，非 QE）。消息推动长端收益率回落，是8月19日美股止跌企稳的关键支撑。",
       impact: {
         direction: "利好",
         companies: "高久期成长股（AI、半导体）",
         industry: "利率、国债市场",
-        logic: "财政部为长端注入流动性、压制长债收益率上行，缓解高估值科技股的贴现率压力，被市场视为“财政版收益率曲线控制”信号"
+        logic: "财政部为长端注入流动性、压制长债收益率上行，缓解高估值科技股的贴现率压力"
       }
     },
     {
-      title: "30年期美债收益率创19年新高，全球长端利率重定价",
-      originalTitle: "Tech selloff weighs down Wall Street as bond yields climb",
-      source: "Reuters",
-      time: "2026年08月18日",
+      title: "SK海力士抛出40万亿韩元回购计划且Q2业绩创新高，存储股仍高开低走",
+      originalTitle: "SK Hynix announces 40 trillion won buyback, record Q2 earnings; memory stocks fade",
+      source: "Reuters（经交叉验证）",
+      time: "2026年08月19日",
       type: "财经媒体",
-      url: "https://www.detroitnews.com/story/business/2026/08/18/tech-stocks-weigh-on-wall-street-as-iran-stalemate-lifts-oil-yields/91351153007/",
-      link: "https://www.detroitnews.com/story/business/2026/08/18/tech-stocks-weigh-on-wall-street-as-iran-stalemate-lifts-oil-yields/91351153007/",
-      summary: "30 年期美债收益率升至 2007 年以来最高（盘中 5.33%）、10 年期触及 2025 年 1 月以来最高，日本、德国、法国长债收益率同步升至多年高位。美伊谈判停滞推升油价至 91 美元附近，加剧通胀与融资成本担忧，成为高估值科技股估值承压的核心驱动。",
+      url: "",
+      link: "",
+      summary: "SK海力士公布40万亿韩元股票回购计划，第二季度业绩创历史新高，但存储股仍高开低走、仅微幅飘红；闪迪、希捷科技、西部数据等继续大幅下挫。反映市场对存储涨价周期见顶的担忧压过了基本面利好，资金继续获利了结。原文英文链接待核实。",
       impact: {
-        direction: "利空",
-        companies: "英伟达、美光、闪迪等高久期芯片股",
-        industry: "利率、半导体",
-        logic: "长端利率上行抬高成长股折现率，AI 硬件作为“久期最长”板块对贴现率最敏感"
-      }
-    },
-    {
-      title: "AI债务融资担忧升温，今年AI相关债券供给已达4890亿美元",
-      originalTitle: "U.S. Tech Stocks Slip as Bond Yields Hit Decade Highs; Iran Truce Expires",
-      source: "WSJ / Dow Jones Newswires",
-      time: "2026年08月18日",
-      type: "财经媒体",
-      url: "https://www.tradingview.com/news/DJN_DN20260818006761:0",
-      link: "https://www.tradingview.com/news/DJN_DN20260818006761:0",
-      summary: "巴克莱指出，今年市场变化在于 AI 相关企业借贷的规模与期限。科技巨头大量发行长债融资建设数据中心、采购芯片，与政府发债争夺资金。高盛数据显示今年迄今 AI 相关债券供给已达 4890 亿美元，远超 2025 全年的 3220 亿美元，AI 资本开支的债务可持续性成为新的定价变量。",
-      impact: {
-        direction: "利空",
-        companies: "大型科技公司（Meta、微软、亚马逊等）",
-        industry: "AI基础设施、数据中心",
-        logic: "AI 债务供给激增推升长期利率，挤压成长股估值并引发债务风险定价"
-      }
-    },
-    {
-      title: "存储芯片涨价周期见顶担忧，龙头遭获利回吐",
-      originalTitle: "Sinking AI stocks pull Wall Street further from its record",
-      source: "AP（美联社）",
-      time: "2026年08月18日",
-      type: "财经媒体",
-      url: "https://www.barchart.com/story/news/3896930/sinking-ai-stocks-pull-wall-street-further-from-its-record",
-      link: "https://www.barchart.com/story/news/3896930/sinking-ai-stocks-pull-wall-street-further-from-its-record",
-      summary: "美光、闪迪、SK 海力士等存储龙头前期大涨后集体跳水。市场担忧 AI 带动的存储需求与涨价周期接近尾声，叠加高估值压力触发获利了结；但长期客户协议与数据中心需求仍支撑行业基本面，机构对存储价格周期是否见顶存在分歧。",
-      impact: {
-        direction: "利空",
-        companies: "美光、闪迪、SK海力士、西部数据",
+        direction: "中性",
+        companies: "SK海力士、美光、闪迪、西部数据",
         industry: "存储芯片",
-        logic: "存储涨价周期见顶担忧叠加高估值，触发资金获利了结"
+        logic: "回购与业绩利好未能扭转存储板块弱势，周期见顶担忧主导定价"
+      }
+    },
+    {
+      title: "美股止跌反弹，大型科技领涨而半导体继续下挫",
+      originalTitle: "Wall Street edges higher as megacap tech rallies, chips extend losses",
+      source: "CNBC（经交叉验证）",
+      time: "2026年08月19日",
+      type: "财经媒体",
+      url: "",
+      link: "",
+      summary: "8月19日美股三大指数结束三连跌小幅收涨，大型科技龙头领涨（特斯拉涨4.23%、亚马逊涨2.46%、苹果涨2.19%），但费城半导体指数跌2.12%、存储与光通信板块继续下挫，市场呈现明显的“龙头反弹、芯片走弱”分化。原文英文链接待核实。",
+      impact: {
+        direction: "中性",
+        companies: "苹果、亚马逊、特斯拉、博通、AMD",
+        industry: "科技、半导体",
+        logic: "资金从高估值半导体切换至现金流更稳的大型科技龙头"
+      }
+    },
+    {
+      title: "存储芯片涨价周期见顶担忧发酵，板块连续两日遭获利回吐",
+      originalTitle: "Memory chip rally unwinds on peak-cycle worries",
+      source: "Reuters（经交叉验证）",
+      time: "2026年08月19日",
+      type: "财经媒体",
+      url: "",
+      link: "",
+      summary: "继8月18日存储龙头集体跳水后，8月19日存储与光通信板块延续跌势，希捷科技跌7.87%、西部数据跌6.87%、闪迪跌3.50%。尽管AI带动的存储需求与长期客户协议仍支撑基本面，市场对涨价周期是否见顶分歧加大，触发持续获利了结。原文英文链接待核实。",
+      impact: {
+        direction: "利空",
+        companies: "美光、闪迪、希捷、西部数据",
+        industry: "存储芯片",
+        logic: "存储涨价周期见顶担忧叠加高估值，资金持续获利了结"
       }
     },
     {
@@ -177,12 +177,12 @@ window.REPORT_DATA = {
 
   /* ============ 六、当日最值得关注的 3 个交易逻辑 ============ */
   logics: [
-    { title: "长债利率飙升至19年新高，成长股估值遭重定价",
-      text: "30年期美债收益率盘中触及5.337%，为2007年6月以来最高，10年期升至4.75%。AI硬件股是美股市场“久期最长”的板块，盈利兑现被定价在数年之后，对贴现率上升最为敏感。利率每上一个台阶，高估值成长股的估值折现压力就越大，这是本次科技股领跌的根本原因。" },
-    { title: "AI债务融资风险成为市场新的定价变量",
-      text: "高盛数据显示，今年迄今AI相关债券供给已达4890亿美元，远超2025全年的3220亿美元。科技巨头大规模发行长债融资建设数据中心，与主权债券争夺资金，推升长期利率并挤占实体经济融资。市场开始为AI资本开支的债务可持续性定价，这是与前期“AI无限想象”叙事的关键转变。" },
-    { title: "存储芯片涨价周期见顶担忧，前期涨幅遭获利回吐",
-      text: "闪迪、美光、SK海力士等存储龙头前期大幅上涨后集体跳水，闪迪单日跌9.01%、美光跌7.02%。尽管AI带动的存储需求与长期客户协议仍支撑基本面，但市场对存储价格周期见顶的担忧升温，叠加高估值压力，触发资金获利了结。" }
+    { title: "长债利率回落，成长股估值压力边际缓解但结构分化",
+      text: "财政部扩大长债回购推动30年期美债收益率自19年高位回落，黄金突破4500美元，前期压制高估值成长股的贴现率压力边际缓解。但反弹集中在现金流稳健的大型科技龙头（苹果、亚马逊、特斯拉），而非前期涨幅最大的半导体，说明资金仍在避险而非全面risk-on。" },
+    { title: "半导体与大型科技的“跷跷板”分化加剧",
+      text: "8月19日费城半导体指数跌2.12%，博通跌4.61%、AMD跌3.71%，而苹果涨2.19%、亚马逊涨2.46%、特斯拉涨4.23%。资金从估值高企的AI硬件/存储切换至盈利确定性更强的大型科技平台，板块内部轮动明显，是判断短期风格的关键信号。" },
+    { title: "存储涨价周期见顶担忧主导，回购利好难扭转",
+      text: "SK海力士抛出40万亿韩元回购且Q2业绩创新高，仍未能扭转存储股弱势，闪迪、希捷、西部数据继续下挫。市场开始为“存储涨价周期接近尾声”定价，前期涨幅最大的存储成为获利了结重点，需紧盯存储价格与AI需求持续性的拐点信号。" }
   ],
 
   /* ============ 七、未来 1—3 个交易日关注事项（具体事件） ============ */
