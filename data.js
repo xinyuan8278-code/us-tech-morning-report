@@ -23,8 +23,8 @@ window.REPORT_DATA = {
   meta: {
     title: "美股科技板块前一交易日行情日报",
     subtitle: "盘前版 · 大型科技 + 半导体存储跟踪",
-    reportDate: "2026年08月21日",   // 报告发布日期
-    tradeDate: "2026年08月20日",    // 对应美股交易日（前一交易日）
+    reportDate: "2026年08月22日",   // 报告发布日期
+    tradeDate: "2026年08月21日",    // 对应美股交易日（前一交易日）
     author: "华泰期货 · 研究",
     tag: "每日市场跟踪"
   },
@@ -32,7 +32,7 @@ window.REPORT_DATA = {
   /* ============ 二、市场概览 ============ */
   overview: {
     /* 简短概括：指数变化 + 个股变化 + 重大事件 */
-    text: "8月20日美股全线回落，纳指跌1.00%、标普500跌0.87%、道指跌1.32%，回吐前一日财政部扩大回购带来的涨幅。长债收益率反弹、油价大涨、沃尔玛美国同店销售创六年新低共同压制风险偏好。板块严重分化：大型科技普跌（亚马逊-2.16%、苹果-1.75%），存储芯片逆势大涨（美光+3.97%、闪迪+2.02%），受美光百亿研究实验室与韩系存储厂商股东回报提振。",
+    text: "8月21日美股全线反弹，纳指涨0.43%、标普500涨0.43%、道指涨0.98%，纳指100终结五连跌。长债收益率高位压制成长股，但医疗、金融、贵金属与加密板块走强，黄金重返4600美元、比特币连涨五日。科技七巨头涨跌互现：谷歌+1.22%、博通+1.21%、AMD+0.81%领涨，英伟达-0.98%领跌；存储股高位整固。下周聚焦英伟达财报与杰克逊霍尔年会。",
     /* 指数卡片（可增删） */
     indices: [
       { name: "Nasdaq Composite", code: "IXIC", change: "-0.00%" },
@@ -43,152 +43,124 @@ window.REPORT_DATA = {
   },
 
   /* ============ 三、超涨 / 超跌个股提示 ============ */
-  alerts: [
-    {
-      name: "美光科技 Micron", code: "MU",
-      direction: "超涨",
-      change: "-0.00%",
-      fiveDay: "近5个交易日累计上涨2.58%，扭转此前两日的下跌趋势",
-      newHighLow: "自阶段高点回撤后强势反弹，逼近阶段高位",
-      volume: "成交明显放大，换手率达2.23%",
-      reason: "美光宣布未来十年投入100亿美元建设美光研究实验室，叠加SK海力士40万亿韩元回购与三星拟超100万亿韩元股东回报计划，存储板块逆势大涨，美光单日涨3.97%，显著跑赢纳指（-1.00%）",
-      impact: "存储涨价周期逻辑重新获得资金认可，关注AI存储需求持续性与股东回报计划的落地节奏"
-    }
-  ],
+  alerts: [],
 
   /* ============ 四、重点公司行情表 ============ */
   /* 超涨/超跌个股放最上方；无新闻的公司驱动因素简要说明即可 */
   stocks: [
-    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "100亿美元研究实验室+存储板块反弹，领涨+3.97%" },
-    { name: "Sandisk",   code: "SNDK",  change: "-0.00%", driver: "存储板块反弹，韩系厂商回购带动（+2.02%）" },
-    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "半导体企稳微涨（+0.65%），GPU/CPU双线止跌" },
-    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "半导体企稳微涨（+0.43%），AI定制芯片止跌" },
-    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "芯片龙头相对抗跌，仅跌0.33%" },
-    { name: "Meta",      code: "META",  change: "-0.00%", driver: "基本平收（-0.04%），前期跌幅较大后企稳" },
-    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "大型科技普跌，小幅收跌0.47%" },
-    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "大型科技普跌，收跌1.17%" },
-    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "大型科技领跌（-1.75%），消费走弱拖累" },
-    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "大型科技领跌（-2.16%），消费走弱拖累" }
+    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "AI/云业务领涨，自研TPU与广告韧性支撑，反弹+1.22%" },
+    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "超600亿美元AI债务融资预期提振，定制AI芯片(ASIC)需求，涨+1.21%" },
+    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "服务器CPU与AI加速器需求，止跌反弹+0.81%" },
+    { name: "Meta",      code: "META",  change: "-0.00%", driver: "前期大跌后企稳，反弹+0.75%" },
+    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "云计算与AI稳健，随大盘反弹+0.43%" },
+    { name: "Sandisk",   code: "SNDK",  change: "-0.00%", driver: "存储高位整固，AI闪存需求支撑，微跌-0.28%" },
+    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "消费与AWS承压，收跌-0.57%" },
+    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "消费走弱拖累，收跌-0.63%" },
+    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "前日大涨后高位整固，微跌-0.77%" },
+    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "下周财报前获利回吐，领跌-0.98%" }
   ],
 
   /* ============ 五、重要科技与政策新闻（一手来源） ============ */
   news: [
     {
-      title: "美光宣布100亿美元建设「美光研究实验室」，押注AI时代存储技术",
-      originalTitle: "Micron Unveils Micron Research Labs, a U.S.-Based Long-Horizon Innovation Hub to Shape the Future of Memory and AI",
-      source: "美光科技（Micron）官方新闻稿",
-      time: "2026年08月20日",
-      type: "官方",
-      url: "https://investors.micron.com/news/press-release/2026/Micron-Unveils-Micron-Research-Labs-a-U-S--Based-Long-Horizon-Innovation-Hub-to-Shape-the-Future-of-Memory-and-AI/default.aspx",
-      link: "https://investors.micron.com/news/press-release/2026/Micron-Unveils-Micron-Research-Labs-a-U-S--Based-Long-Horizon-Innovation-Hub-to-Shape-the-Future-of-Memory-and-AI/default.aspx",
-      summary: "美光宣布在爱达荷州博伊西设立美光研究实验室，计划未来十年投入100亿美元，联合高校、政府、初创企业与产业生态，聚焦核心存储技术、先进存算架构、封装与下一代半导体制造，是美国首个专注存储的研究机构。英伟达、苹果、应用材料等高管及美国商务部长、白宫科技政策办主任公开支持。此举叠加此前250亿美元本土制造投资，强化其美国唯一先进存储制造商的地位，直接提振存储板块。",
-      impact: {
-        direction: "利好",
-        companies: "美光、闪迪、SK海力士",
-        industry: "存储芯片",
-        logic: "强化AI存储需求与技术领先叙事，支撑存储板块估值"
-      }
-    },
-    {
-      title: "SK海力士40万亿韩元回购落地，三星拟推超100万亿韩元股东回报",
-      originalTitle: "Samsung plans $72 billion shareholder return programme amid AI chip boom",
+      title: "美股周五全面反弹：纳指涨0.43%，黄金重返4600美元，加密概念股暴涨",
+      originalTitle: "Wall St rises in broad rebound; yields push markets towards weekly declines",
       source: "Reuters",
-      time: "2026年08月20日",
+      time: "2026年08月21日",
       type: "财经媒体",
-      url: "https://finance.yahoo.com/markets/stocks/articles/samsung-plans-72-billion-shareholder-121126943.html",
-      link: "https://finance.yahoo.com/markets/stocks/articles/samsung-plans-72-billion-shareholder-121126943.html",
-      summary: "SK海力士周三宣布回购并注销40万亿韩元（约286亿美元）股份，并将2025—2027年累计自由现金流股东回报比例提升至50%以上；三星电子据报拟于8月底董事会批准超100万亿韩元（约718亿美元）股东回报计划，含特别股息。两大存储巨头在AI存储超级周期下产生创纪录现金流，股东回报计划点燃存储板块情绪，韩股SK海力士涨逾12%、三星涨逾9%，美股存储股随之大涨。",
+      url: "https://www.kitco.com/news/off-the-wire/2026-08-21/wall-st-rises-broad-rebound-yields-push-markets-towards-weekly",
+      link: "https://www.kitco.com/news/off-the-wire/2026-08-21/wall-st-rises-broad-rebound-yields-push-markets-towards-weekly",
+      summary: "8月21日美股三大指数反弹，标普500、纳指均涨0.43%，道指涨0.98%，医疗、金融板块领涨；Robinhood涨近13%、Coinbase涨9.8%、Strategy涨7.2%，比特币升至5月末以来新高。但标普与纳指本周仍将终结三周连涨，长端美债收益率高企、财政可持续性担忧压制成长股。富兰克林邓普顿策略师指出，长端利率若出现可持续回落，将成为AI等成长板块的顺风。",
       impact: {
-        direction: "利好",
-        companies: "美光、闪迪、SK海力士",
-        industry: "存储芯片",
-        logic: "巨额回购传递「存储涨价周期未终结」信号，缓解周期见顶担忧"
-      }
-    },
-    {
-      title: "美股三大指数收跌：长债收益率反弹、油价大涨叠加沃尔玛财报拖累",
-      originalTitle: "Wall Street sinks as bond yields rise, Walmart results disappoint",
-      source: "Reuters",
-      time: "2026年08月20日",
-      type: "财经媒体",
-      url: "https://www.aol.com/articles/us-stock-futures-muted-bond-101757000.html",
-      link: "https://www.aol.com/articles/us-stock-futures-muted-bond-101757000.html",
-      summary: "8月20日美股三大指数全线收跌，道指跌1.32%、标普500跌0.87%、纳指跌1.00%。财政部扩大回购带来的债市涨势不到24小时便消退，10年期美债收益率升至4.71%、30年期升至5.25%；美国原油涨至87美元上方、布油突破93美元加剧通胀担忧；沃尔玛财报不及预期重挫9.2%，拖累消费板块。能源与房地产是唯二上涨板块，加密货币概念股逆势大涨。",
-      impact: {
-        direction: "利空",
+        direction: "中性",
         companies: "大型科技、半导体",
         industry: "全市场",
-        logic: "利率、油价、消费三重逆风压制高估值成长股"
+        logic: "长端利率与风险偏好博弈，单日反弹但周线仍跌"
       }
     },
     {
-      title: "美联储7月纪要偏鹰：数位官员主张加息，「许多」认为通胀不降需收紧",
-      originalTitle: "Fed policymakers' inflation concerns increased at July meeting, minutes show",
-      source: "Reuters",
-      time: "2026年08月19日",
+      title: "博通洽谈超600亿美元AI芯片债务融资，总额或达千亿美元",
+      originalTitle: "Broadcom Seeks More Than $60 Billion in Latest AI Debt Deal",
+      source: "Bloomberg",
+      time: "2026年08月20日",
       type: "财经媒体",
-      url: "https://www.aol.com/articles/fed-policymakers-inflation-concerns-increased-180421000.html",
-      link: "https://www.aol.com/articles/fed-policymakers-inflation-concerns-increased-180421000.html",
-      summary: "美联储7月28—29日会议纪要显示，通胀担忧加深：3位委员反对维持利率、主张加息25个基点，「数位」与会者支持加息，「许多」认为若通胀不降至2%目标需进一步收紧。会议以9:3维持利率于3.50%—3.75%。纪要还披露主席沃什提议将年度政策会议从8次减至6次（2026年内不变）。利率期货显示市场押注10月或12月重启加息，纪要并警示AI高估值与国债波动风险。",
+      url: "https://www.bloomberg.com/news/articles/2026-08-20/broadcom-seeks-more-than-60-billion-in-latest-ai-debt-deal",
+      link: "https://www.bloomberg.com/news/articles/2026-08-20/broadcom-seeks-more-than-60-billion-in-latest-ai-debt-deal",
+      summary: "博通正与多家贷款机构洽谈超600亿美元债务融资，用于AI芯片融资交易，惠及Anthropic等公司；拟议方案含约300亿美元次级债，博通为600—700亿美元优先担保债提供担保，总额或达千亿美元。黑石、阿波罗拟参与。继6月350亿美元Anthropic算力融资后，AI基建正通过SPV结构进入债务市场、成为独立资产类别，同时也引发市场对'卖方担保敞口'的担忧。",
+      impact: {
+        direction: "利好",
+        companies: "博通、Anthropic、英伟达",
+        industry: "AI芯片、数据中心",
+        logic: "AI基建债务化融资扩围，强化定制ASIC需求与资本开支叙事"
+      }
+    },
+    {
+      title: "三星周五召开董事会，讨论逾700亿美元股东回报计划",
+      originalTitle: "Samsung board set to discuss huge shareholder return package on Friday",
+      source: "Reuters",
+      time: "2026年08月21日",
+      type: "财经媒体",
+      url: "https://www.aol.com/articles/samsung-elec-convene-board-meeting-021335000.html",
+      link: "https://www.aol.com/articles/samsung-elec-convene-board-meeting-021335000.html",
+      summary: "三星电子周五下午召开董事会讨论新股东回报方案，媒体预计规模超100万亿韩元（约720亿美元），含特别股息、回购与注销。SK海力士本周已宣布40万亿韩元（约286亿美元）回购并注销。AI存储超级周期下，两大存储巨头年底净现金合计将达2630亿美元，远超英伟达。周五三星涨3.5%、SK海力士涨4.4%，提振存储板块情绪。",
+      impact: {
+        direction: "利好",
+        companies: "三星、SK海力士、美光、闪迪",
+        industry: "存储芯片",
+        logic: "存储超级周期现金流兑现为股东回报，缓解周期见顶担忧"
+      }
+    },
+    {
+      title: "三星代工价格最高上调15%，TSMC产能满载外溢订单",
+      originalTitle: "Samsung raises advanced foundry prices by up to 15% as AI demand fills its 4nm lines",
+      source: "Reuters",
+      time: "2026年08月21日",
+      type: "财经媒体",
+      url: "https://finance.yahoo.com/technology/ai/articles/samsung-raises-advanced-foundry-prices-161553482.html",
+      link: "https://finance.yahoo.com/technology/ai/articles/samsung-raises-advanced-foundry-prices-161553482.html",
+      summary: "三星自7月起将4nm(SF4)、5nm(SF5)代工新订单价格上调10%—15%，8nm上调近10%，中国客户涨幅最高。TSMC先进制程产能已满载——3nm预订至2027年、2nm已被苹果、英伟达、AMD锁定，三星成为唯一可承接2nm溢出的代工厂。代工涨价叠加存储涨价，验证AI芯片供应链'量价齐升'，半导体景气延续。",
+      impact: {
+        direction: "利好",
+        companies: "三星、台积电、英伟达、AMD、苹果",
+        industry: "半导体代工",
+        logic: "先进制程供不应求，代工涨价强化半导体景气"
+      }
+    },
+    {
+      title: "美债回购'药效'遭质疑：不改赤字路径，长端收益率高位压制成长股",
+      originalTitle: "US stock futures rise after previous session's selloff",
+      source: "Reuters",
+      time: "2026年08月21日",
+      type: "财经媒体",
+      url: "https://www.kitco.com/news/off-the-wire/2026-08-21/us-stock-futures-rise-after-previous-sessions-selloff",
+      link: "https://www.kitco.com/news/off-the-wire/2026-08-21/us-stock-futures-rise-after-previous-sessions-selloff",
+      summary: "财政部扩大长债回购后收益率仅短暂回落，荷宝(Rabobank)指出财政部回购须以新发债融资，'既不削减债务、也不改变赤字路径'，周四长债反弹难以持续。30年期美债收益率周内触及2007年以来新高。下周焦点转向美国7月PCE数据与美联储主席沃什杰克逊霍尔讲话，英伟达财报亦将公布，利率与AI两条主线同时面临检验。",
       impact: {
         direction: "利空",
         companies: "高估值科技股、半导体",
-        industry: "利率、AI",
-        logic: "加息预期升温与「AI资产重估」警示压制风险偏好"
-      }
-    },
-    {
-      title: "美国财政部将长债回购规模至少翻倍，9月9日起执行",
-      originalTitle: "Treasury Announces Increased Sizes of Nominal Long-End Liquidity Support Buybacks Beginning September 9",
-      source: "美国财政部（U.S. Treasury）",
-      time: "2026年08月19日",
-      type: "官方",
-      url: "https://home.treasury.gov/news/press-releases/sb0607",
-      link: "https://home.treasury.gov/news/press-releases/sb0607",
-      summary: "美国财政部宣布将10—20年期、20—30年期名义附息国债的流动性支持回购单次上限从20亿美元至少提高至40亿美元（至少翻倍），9月9日生效、持续至11月4日。此举旨在回应30年期美债收益率升至2007年以来新高的长债抛售，官方定位为流动性支持（使用TGA存量资金、不扩表，非QE）。8月19日推动长端收益率回落，但8月20日收益率即重新走高，显示结构性抛压仍在。",
-      impact: {
-        direction: "中性",
-        companies: "高久期成长股（AI、半导体）",
         industry: "利率、国债市场",
-        logic: "短期压制长债收益率、缓解贴现率压力，但药效短暂"
-      }
-    },
-    {
-      title: "美国联邦债务突破40万亿美元，贝森特称单次回购规模「或超40亿」",
-      originalTitle: "Trading Day: Can't get no relief",
-      source: "Reuters",
-      time: "2026年08月20日",
-      type: "财经媒体",
-      url: "https://finance.yahoo.com/markets/articles/trading-day-cant-no-relief-210231072.html",
-      link: "https://finance.yahoo.com/markets/articles/trading-day-cant-no-relief-210231072.html",
-      summary: "美国联邦政府债务史上首次突破40万亿美元，十年间翻倍，本财年利息支出已达1.17万亿美元。财政部长贝森特表示单次长债回购规模「可能超过」已公布的40亿美元，但强调长债收益率未反映基本面；分析师指出回购类似「先回购再增发」，难从根本上改变供给压力。财政部干预被市场视为变种「特朗普看跌期权」，其对美联储控通胀的影响也引发争议。",
-      impact: {
-        direction: "利空",
-        companies: "高估值科技股",
-        industry: "利率、财政",
-        logic: "财政可持续性担忧推高长端风险溢价，压制成长股估值"
+        logic: "财政可持续性担忧推高期限溢价，压制成长股估值"
       }
     }
   ],
 
   /* ============ 六、当日最值得关注的 3 个交易逻辑 ============ */
   logics: [
-    { title: "长债收益率「一日游」：财政部回购药效短暂，成长股估值压力反复",
-      text: "财政部扩大长债回购仅带来一天缓解，8月20日10年期收益率反弹至4.71%、30年期回升至5.25%，几乎收复前日全部跌幅。回购并非削减债务总量，而是期限结构调整，在40万亿美元债务与巨额利息支出背景下，市场对财政可持续性的担忧难以消除。高久期科技成长股的贴现率压力随之反复，是当日大型科技普跌的核心驱动。" },
-    { title: "存储板块独立行情：巨额股东回报与美光研发投入逆转周期见顶担忧",
-      text: "SK海力士40万亿韩元回购、三星拟超100万亿韩元股东回报，叠加美光100亿美元研究实验室，三重利好集中落地，直接反驳了此前两日的「存储涨价周期见顶」叙事。美光+3.97%、闪迪+2.02%领涨，显著跑赢纳指。巨额回购传递出产业龙头对内存定价韧性的信心，资金快速回补存储与光通信板块，形成与大盘的明显分化。" },
-    { title: "美联储偏鹰纪要+AI资产重估警示，货币政策收紧预期升温",
-      text: "美联储7月纪要显示通胀担忧加深，3位委员已主张加息，利率期货押注10月或12月重启加息。纪要罕见地就AI高估值与国债波动风险发出警示，若市场下调对AI企业盈利前景的评估，可能引发资产广泛重定价并收紧金融环境。在油价上行推升通胀、长债收益率高位震荡的背景下，高估值AI硬件的贴现率与盈利持续性双重承压。" }
+    { title: "AI 资本开支的「债务化融资」成为新主线",
+      text: "博通洽谈超600亿美元（总额或达千亿）AI芯片债务融资，联合黑石、阿波罗以SPV结构为Anthropic等提供算力；叠加英伟达本周5000亿美元基建融资平台，AI基建正从科技公司资产负债表大规模转向债务市场，成为独立资产类别。这既强化了定制ASIC与GPU的长期需求，也引发对'卖方担保敞口'的担忧——美银已下调博通债券评级。" },
+    { title: "存储/代工「量价齐升」，龙头现金流兑现为股东回报",
+      text: "三星周五董事会讨论逾700亿美元股东回报，SK海力士40万亿韩元回购落地，三星代工价同步上调15%，TSMC先进制程满载外溢。存储超级周期带来的创纪录现金流正在通过回购、特别股息兑现，同时代工涨价验证半导体供应链供不应求，共同支撑美光、闪迪等高估值存储股高位运行。" },
+    { title: "长端利率仍是成长股估值「总开关」",
+      text: "财政部扩大回购不改赤字路径，30年期美债收益率周内触及2007年以来新高，长端抛压未除。下周美国7月PCE、美联储主席沃什杰克逊霍尔讲话、英伟达财报三大事件将决定利率与AI两条主线的走向，高久期科技成长股的贴现率压力能否缓解，取决于长端能否有效回落。" }
   ],
 
   /* ============ 七、未来 1—3 个交易日关注事项（具体事件） ============ */
   watchlist: [
-    { date: "08月24日", event: "美国财长贝森特新闻发布会，公布对伊朗「经济孤立」措施细节", impact: "地缘风险与油价，影响通胀预期与市场风险偏好" },
-    { date: "08月25日", event: "Zoom Communications 财报（盘后）", impact: "AI SaaS 与企业软件需求信号" },
+    { date: "08月24日", event: "美国财长贝森特新闻发布会，披露对伊朗「经济战」制裁细节", impact: "地缘风险与油价，影响通胀预期与市场风险偏好" },
     { date: "08月26日", event: "NVIDIA 2027财年Q2财报（盘后）", impact: "AI 芯片需求与数据中心资本开支的风向标，将定调整个 AI 硬件板块" },
-    { date: "08月26日", event: "Salesforce 财报（盘后，预计）", impact: "企业 AI 软件需求与云计算支出信号" },
     { date: "08月27—29日", event: "Jackson Hole 全球央行年会，美联储主席 Warsh 8月28日发表讲话", impact: "关注对通胀、长债利率与货币政策路径的表态" },
-    { date: "08月底", event: "三星电子董事会会议，拟批准超100万亿韩元股东回报计划", impact: "存储板块股东回报与情绪延续" },
+    { date: "08月28日", event: "美国7月PCE物价指数（美联储首选通胀指标，预计）", impact: "决定市场对美联储加息/降息路径的定价" },
+    { date: "08月底", event: "三星电子董事会批准股东回报计划细节", impact: "存储板块股东回报与情绪延续" },
     { date: "09月02日", event: "Broadcom 财报（盘后，预计）", impact: "AI 定制芯片(ASIC)与数据中心网络需求信号" }
   ],
 
