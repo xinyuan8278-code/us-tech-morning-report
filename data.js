@@ -23,7 +23,7 @@ window.REPORT_DATA = {
   meta: {
     title: "美股科技板块前一交易日行情日报",
     subtitle: "盘前版 · 大型科技 + 半导体存储跟踪",
-    reportDate: "2026年08月23日",   // 报告发布日期
+    reportDate: "2026年08月24日",   // 报告发布日期
     tradeDate: "2026年08月21日",    // 对应美股交易日（前一交易日）
     author: "华泰期货 · 研究",
     tag: "每日市场跟踪"
@@ -32,7 +32,7 @@ window.REPORT_DATA = {
   /* ============ 二、市场概览 ============ */
   overview: {
     /* 简短概括：指数变化 + 个股变化 + 重大事件 */
-    text: "8月21日美股反弹，道指涨0.98%、纳指与标普均涨0.43%，纳指100终结五连跌；但周线仍跌（标普-1.43%、纳指-2.05%）。长债收益率高位（30年期触及2007年以来新高）压制成长股，资金转向金融、贵金属与加密，黄金重返4600美元。七巨头分化：谷歌+1.22%、博通+1.21%、AMD+0.81%领涨，英伟达-0.98%领跌。下周聚焦英伟达财报、杰克逊霍尔与7月PCE。",
+    text: "8月21日美股反弹，纳指、标普均涨0.43%、纳指100涨0.33%，但周线仍跌（标普-1.43%、纳指-2.05%）。长债收益率高位压制成长股，资金转向金融与贵金属。七巨头分化：谷歌+1.22%、博通+1.21%、AMD+0.81%领涨，英伟达-0.98%领跌。周末消息面聚焦英伟达AI服务器涨价超15%、与SK海力士/美光签存储长约。本周聚焦英伟达财报、7月PCE与杰克逊霍尔沃什讲话。",
     /* 指数卡片（可增删） */
     indices: [
       { name: "Nasdaq Composite", code: "IXIC", change: "-0.00%" },
@@ -48,34 +48,82 @@ window.REPORT_DATA = {
   /* ============ 四、重点公司行情表 ============ */
   /* 超涨/超跌个股放最上方；无新闻的公司驱动因素简要说明即可 */
   stocks: [
-    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "AI/云业务领涨，自研TPU与广告韧性支撑，反弹+1.22%" },
+    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "AI/云与自研TPU支撑，广告韧性，领涨反弹+1.22%" },
     { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "超600亿美元AI债务融资预期提振，定制AI芯片(ASIC)需求，涨+1.21%" },
-    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "服务器CPU与AI加速器需求，止跌反弹+0.81%" },
+    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "服务器CPU与MI系列加速器需求，止跌反弹+0.81%" },
     { name: "Meta",      code: "META",  change: "-0.00%", driver: "前期大跌后企稳，反弹+0.75%" },
     { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "云计算与AI稳健，随大盘反弹+0.43%" },
     { name: "Sandisk",   code: "SNDK",  change: "-0.00%", driver: "存储高位整固，AI闪存需求支撑，微跌-0.28%" },
     { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "消费与AWS承压，收跌-0.57%" },
-    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "消费走弱拖累，收跌-0.63%" },
+    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "消费走弱叠加Vision Pro/Siri裁员消息，收跌-0.63%" },
     { name: "Micron",    code: "MU",    change: "-0.00%", driver: "前日大涨后高位整固，微跌-0.77%" },
-    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "下周财报前获利回吐，领跌-0.98%" }
+    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "财报前获利回吐，AI服务器涨价与循环融资担忧，领跌-0.98%" }
   ],
 
   /* ============ 五、重要科技与政策新闻（一手来源） ============ */
   news: [
     {
-      title: "美股周五全面反弹：道指涨0.98%，纳指、标普涨0.43%，黄金重返4600美元",
-      originalTitle: "Wall St rises in broad rebound; yields push markets towards weekly declines",
-      source: "Reuters",
-      time: "2026年08月21日",
-      type: "财经媒体",
-      url: "https://www.kitco.com/news/off-the-wire/2026-08-21/wall-st-rises-broad-rebound-yields-push-markets-towards-weekly",
-      link: "https://www.kitco.com/news/off-the-wire/2026-08-21/wall-st-rises-broad-rebound-yields-push-markets-towards-weekly",
-      summary: "8月21日美股三大指数反弹，道指涨0.98%报53277.01点，标普500与纳指均涨0.43%；但周线仍收跌——标普跌1.43%、纳指跌2.05%，终结三周连涨。资金从高久期成长股转向金融、医疗、贵金属与加密板块：现货黄金周涨逾5%重返4600美元，比特币周涨逾20%、连续五日上涨。30年期美债收益率周内触及2007年以来新高，是压制科技成长股估值、导致本周大盘震荡的核心驱动。",
+      title: "英伟达AI服务器明年起涨价超15%：内存成本飙升，成本压力沿供应链传导",
+      originalTitle: "Nvidia reportedly warns biggest customers of 15% price hikes on AI servers — memory costs continue to soar",
+      source: "Tom's Hardware（转引 Bloomberg）",
+      time: "2026年08月23日",
+      type: "行业媒体",
+      url: "https://www.tomshardware.com/pc-components/dram/nvidia-reportedly-warns-biggest-customers-of-15-percent-price-hikes-on-ai-servers",
+      link: "https://www.tomshardware.com/pc-components/dram/nvidia-reportedly-warns-biggest-customers-of-15-percent-price-hikes-on-ai-servers",
+      summary: "据彭博援引知情人士，因DRAM成本飙升，英伟达已通知微软、谷歌、甲骨文等大客户：搭载其AI芯片的服务器价格将上涨超15%，明年年初出货的Vera Rubin与Grace Blackwell系统率先生效，涨幅取决于芯片代际与内存配置。这印证存储三巨头（三星、SK海力士、美光）空前议价权，也意味着即便毛利率75%的英伟达也不愿再自行消化成本。涨价推高AI数据中心总拥有成本，加剧市场对AI基建投资回报的担忧。",
       impact: {
         direction: "中性",
-        companies: "大型科技、半导体",
-        industry: "全市场",
-        logic: "长端利率与风险偏好博弈，单日反弹但周线仍跌"
+        companies: "英伟达、存储三巨头、云厂商",
+        industry: "AI芯片、存储、数据中心",
+        logic: "存储成本沿供应链传导，利好存储链、施压AI基建成本与ROI"
+      }
+    },
+    {
+      title: "英伟达与SK海力士、美光签多年DRAM/HBM供应长约，锁定Vera Rubin存储供给",
+      originalTitle: "Nvidia Reportedly Secures DRAM and HBM Memory Supply From SK Hynix and Micron Until 2028",
+      source: "eTeknix（转引 Edgewater Research）",
+      time: "2026年08月21日",
+      type: "行业媒体",
+      url: "https://www.eteknix.com/nvidia-reportedly-secures-dram-and-hbm-memory-supply-from-sk-hynix-and-micron-until-2028/",
+      link: "https://www.eteknix.com/nvidia-reportedly-secures-dram-and-hbm-memory-supply-from-sk-hynix-and-micron-until-2028/",
+      summary: "半导体供应链研究机构Edgewater Research报告显示，英伟达已与SK海力士、美光签署多年期HBM及DRAM供应协议，为Vera Rubin平台锁定存储供给，行业合约正从一年期转向3—5年长约。即便英伟达已下调Rubin的DRAM配置预期，仍选择长约锁货，凸显其对2027—2028年DRAM持续供不应求的判断。存储价格高位运行获得需求端确认，利好美光、闪迪等存储龙头。",
+      impact: {
+        direction: "利好",
+        companies: "美光、闪迪、SK海力士、三星",
+        industry: "存储芯片",
+        logic: "长约锁定印证存储超级周期延续，强化龙头景气与议价权"
+      }
+    },
+    {
+      title: "苹果Vision Pro与Siri团队裁员约200人，战略重心转向AI眼镜",
+      originalTitle: "Apple Cuts Jobs in Siri, Vision Pro Immersive Video and Gaming Teams",
+      source: "Bloomberg",
+      time: "2026年08月21日",
+      type: "财经媒体",
+      url: "https://www.bloomberg.com/news/articles/2026-08-21/apple-cuts-jobs-in-siri-vision-pro-immersive-video-and-gaming-teams",
+      link: "https://www.bloomberg.com/news/articles/2026-08-21/apple-cuts-jobs-in-siri-vision-pro-immersive-video-and-gaming-teams",
+      summary: "据彭博Mark Gurman报道，苹果在Siri与Vision Pro团队合计裁员约200人：Vision Pro游戏团队基本解散、沉浸式视频团队缩减（每集制作成本数百万美元但装机量有限），Siri团队则因向基于大模型的Siri AI（iOS 27）迁移而重构。苹果称此举为按产品组合变化重组团队，并新增AI相关岗位。战略重心正从高价头显转向2027年AI智能眼镜，Vision Pro 2最早或于2028年推出。",
+      impact: {
+        direction: "中性",
+        companies: "苹果",
+        industry: "消费电子、AI终端",
+        logic: "苹果收缩头显、加码AI眼镜与Siri AI，长期影响硬件产品结构"
+      }
+    },
+    {
+      title: "英伟达财报前瞻：Jefferies押注营收950亿美元、Q3指引1080亿，「循环融资」成焦点",
+      originalTitle: "Jefferies Drops Hot Take on Nvidia Before Earnings",
+      source: "Jefferies（经 GuruFocus/TradingView）",
+      time: "2026年08月22日",
+      type: "财经媒体",
+      url: "https://www.tradingview.com/news/gurufocus:eb8996b36094b:0-jefferies-drops-hot-take-on-nvidia-before-earnings",
+      link: "https://www.tradingview.com/news/gurufocus:eb8996b36094b:0-jefferies-drops-hot-take-on-nvidia-before-earnings",
+      summary: "Jefferies分析师Blayne Curtis预计英伟达8月26日盘后公布的Q2营收达950亿美元（高于920.7亿一致预期），Q3指引1080亿美元（高于共识约43亿），并预计Vera Rubin四季度开始放量、年底前出货超1.3万机架。但他同时警告，英伟达对OpenAI相关融资可能重燃循环融资担忧——即英伟达支持的融资最终回流购买其GPU。高预期下，财报仅超预期或已不足以支撑估值。",
+      impact: {
+        direction: "中性",
+        companies: "英伟达及AI硬件链",
+        industry: "AI芯片、数据中心",
+        logic: "财报定调AI资本开支可持续性，循环融资担忧升温"
       }
     },
     {
@@ -86,7 +134,7 @@ window.REPORT_DATA = {
       type: "财经媒体",
       url: "https://www.bloomberg.com/news/articles/2026-08-20/broadcom-seeks-more-than-60-billion-in-latest-ai-debt-deal",
       link: "https://www.bloomberg.com/news/articles/2026-08-20/broadcom-seeks-more-than-60-billion-in-latest-ai-debt-deal",
-      summary: "博通正与黑石、阿波罗等机构洽谈逾600亿美元债务融资，为Anthropic等公司采购AI芯片与算力提供资金；含约300亿美元次级债后总额或达千亿美元，将成为迄今规模最大的SPV融资。博通为600—700亿美元优先担保债提供部分担保，延续6月350亿美元AI XPV平台模式。这标志着AI基建资本开支正从科技公司资产负债表大规模转向债务市场，但也引发市场对'卖方担保敞口'与CDS走阔的担忧。",
+      summary: "博通正与黑石、阿波罗等机构洽谈逾600亿美元债务融资，为Anthropic等公司采购AI芯片与算力提供资金；含约300亿美元次级债后总额或达千亿美元，将成为迄今规模最大的SPV融资。博通为600—700亿美元优先担保债提供部分担保，延续6月350亿美元AI XPV平台模式。这标志AI基建资本开支正从科技公司资产负债表大规模转向债务市场，但也引发市场对卖方担保敞口与CDS走阔的担忧。",
       impact: {
         direction: "利好",
         companies: "博通、Anthropic、英伟达",
@@ -95,105 +143,58 @@ window.REPORT_DATA = {
       }
     },
     {
-      title: "财政部扩大长债回购被指'小号扭曲操作'：不改赤字路径，长端利率高位压制成长股",
-      originalTitle: "Bonds Twist Again, Despite a Vow of Treasury Buybacks",
-      source: "Barron's",
-      time: "2026年08月20日",
-      type: "财经媒体",
-      url: "https://www.tradingview.com/news/DJN_DN20260820006922:0",
-      link: "https://www.tradingview.com/news/DJN_DN20260820006922:0",
-      summary: "财政部宣布自9月9日起将10—30年期国债单次回购规模翻倍至至少40亿美元（持续至11月4日），30年期收益率一度触及2007年以来新高5.34%后回落约10个基点至5.18%—5.19%。但回购须以新发债融资，'既不削减债务也不改变赤字路径'，国债总额已破40万亿美元，Evercore等机构指其'最多是极小幅的扭曲操作'，长端抛压难根本缓解。这是本周压制高久期成长股估值的核心宏观变量。",
-      impact: {
-        direction: "利空",
-        companies: "高估值科技股、半导体",
-        industry: "利率、国债市场",
-        logic: "财政可持续性担忧推高期限溢价，压制成长股估值"
-      }
-    },
-    {
-      title: "英伟达8月26日财报前瞻：华尔街押注营收最高达950亿美元，AI开支迎'压力测试'",
-      originalTitle: "Nvidia Stock Has One Week to Prove the AI Spending Boom Is Still Alive",
-      source: "24/7 Wall St.",
+      title: "三星董事会审议逾720亿美元股东回报，存储超级周期现金兑现",
+      originalTitle: "Samsung board set to discuss huge shareholder return package on Friday",
+      source: "Reuters（经 MarketScreener）",
       time: "2026年08月21日",
       type: "财经媒体",
-      url: "https://247wallst.com/investing/2026/08/21/nvidia-stock-has-one-week-to-prove-the-ai-spending-boom-is-still-alive",
-      link: "https://247wallst.com/investing/2026/08/21/nvidia-stock-has-one-week-to-prove-the-ai-spending-boom-is-still-alive",
-      summary: "英伟达将于8月26日盘后公布2027财年Q2财报，管理层指引营收910亿美元±2%、非GAAP毛利率约75%，花旗预计930亿美元、瑞银预计940—950亿美元，Jefferies更预计950亿美元并看Q3指引1080亿美元。市场关注点已从'能否超预期'转向Blackwell/Rubin爬坡进度、毛利率与'循环融资'风险。财报将是AI基础设施资本开支可持续性的关键检验，也是下周全球市场最大单一事件。",
+      url: "https://in.marketscreener.com/news/samsung-elec-to-convene-board-meeting-friday-afternoon-to-discuss-shareholder-return-plan-says-sour-ce7859d3d18afe2c",
+      link: "https://in.marketscreener.com/news/samsung-elec-to-convene-board-meeting-friday-afternoon-to-discuss-shareholder-return-plan-says-sour-ce7859d3d18afe2c",
+      summary: "三星周五董事会审议新股东回报方案，媒体预计超100万亿韩元（约720亿美元），含特别股息、回购与注销；SK海力士本周已宣布40万亿韩元回购注销。AI存储超级周期下，两大存储巨头年底净现金合计约2630亿美元，现金流正兑现为股东回报，缓解存储周期见顶担忧。叠加三星代工价上调10—15%、英伟达AI服务器涨价，存储与代工量价齐升格局进一步强化。",
       impact: {
-        direction: "中性",
-        companies: "英伟达及AI硬件链",
-        industry: "AI芯片、数据中心",
-        logic: "财报定调AI资本开支可持续性，高预期下波动风险上升"
+        direction: "利好",
+        companies: "三星、SK海力士、美光、闪迪",
+        industry: "存储芯片、半导体代工",
+        logic: "存储超级周期现金流兑现为股东回报，强化板块景气"
       }
     },
     {
-      title: "美联储主席沃什8月28日杰克逊霍尔首秀，抗通胀公信力面临检验",
+      title: "杰克逊霍尔前瞻：沃什8月28日发表主席首秀演讲，主题「金融创新」",
       originalTitle: "Jackson Hole Is a Forum For Warsh's Fed Vision",
-      source: "Barron's",
+      source: "Barron's（经 TradingView Dow Jones）",
       time: "2026年08月22日",
       type: "财经媒体",
       url: "https://www.tradingview.com/news/DJN_DN20260821008689:0",
       link: "https://www.tradingview.com/news/DJN_DN20260821008689:0",
-      summary: "新任美联储主席沃什将于8月28日（美东时间上午10点）在杰克逊霍尔年会发表上任后首次主旨演讲。在通胀连续五年高于2%目标、联邦基金利率维持3.50%—3.75%的背景下，沃什此前削减前瞻指引、拒绝给出利率路径的'沉默'已引发市场对美联储公信力的质疑。前费城联储主席哈克、Evercore的卡西拉吉等警告，若演讲仍停留在空泛承诺而不给出可验证的抗通胀反应函数，长期限美债收益率可能继续上行，冲击成长股。",
+      summary: "美联储主席沃什将于8月28日（美东上午10点）在杰克逊霍尔年会发表上任后首次主旨演讲，今年主题为金融创新对支付与政策的影响。在通胀连续五年高于2%、30年期美债收益率触及2007年以来新高背景下，市场关注沃什是否给出可验证的抗通胀反应函数；若仍停留在空泛承诺，长端利率或继续上行冲击成长股。此前7月议息会议他削减前瞻指引，已引发市场对美联储公信力的质疑。",
       impact: {
         direction: "中性",
         companies: "全市场、高久期科技股",
         industry: "货币政策、利率",
         logic: "决定长端利率与成长股估值方向，市场定价对措辞高度敏感"
       }
-    },
-    {
-      title: "三星董事会周五讨论逾720亿美元股东回报，存储超级周期现金兑现",
-      originalTitle: "Samsung board set to discuss huge shareholder return package on Friday",
-      source: "Reuters",
-      time: "2026年08月21日",
-      type: "财经媒体",
-      url: "https://in.marketscreener.com/news/samsung-elec-to-convene-board-meeting-friday-afternoon-to-discuss-shareholder-return-plan-says-sour-ce7859d3d18afe2c",
-      link: "https://in.marketscreener.com/news/samsung-elec-to-convene-board-meeting-friday-afternoon-to-discuss-shareholder-return-plan-says-sour-ce7859d3d18afe2c",
-      summary: "三星电子周五下午召开董事会讨论新股东回报方案，媒体预计规模超100万亿韩元（约720亿美元），含特别股息、回购与注销；SK海力士本周已宣布40万亿韩元（约286亿美元）回购注销。AI存储超级周期下，两大存储巨头年底净现金合计将达2630亿美元，远超英伟达的约1020亿美元。周五三星涨3.5%、SK海力士涨4.4%，存储板块现金流兑现为股东回报，缓解周期见顶担忧。",
-      impact: {
-        direction: "利好",
-        companies: "三星、SK海力士、美光、闪迪",
-        industry: "存储芯片",
-        logic: "存储超级周期现金流兑现为股东回报，强化板块景气"
-      }
-    },
-    {
-      title: "三星先进制程代工价格最高上调15%，TSMC满载外溢订单",
-      originalTitle: "Samsung raises advanced foundry prices by up to 15% as AI demand fills its 4nm lines",
-      source: "Reuters",
-      time: "2026年08月21日",
-      type: "财经媒体",
-      url: "https://finance.yahoo.com/technology/ai/articles/samsung-raises-advanced-foundry-prices-161553482.html",
-      link: "https://finance.yahoo.com/technology/ai/articles/samsung-raises-advanced-foundry-prices-161553482.html",
-      summary: "三星自7月起将4nm、5nm代工新订单价格上调10%—15%，8nm上调近10%，中国客户涨幅最高。TSMC先进制程产能已满载——3nm预订至2027年、2nm已被苹果、英伟达、AMD锁定，三星成为唯一可承接溢出的代工厂。代工涨价叠加存储涨价，验证AI芯片供应链'量价齐升'，半导体景气延续。",
-      impact: {
-        direction: "利好",
-        companies: "三星、台积电、英伟达、AMD、苹果",
-        industry: "半导体代工",
-        logic: "先进制程供不应求，代工涨价强化半导体景气"
-      }
     }
   ],
 
   /* ============ 六、当日最值得关注的 3 个交易逻辑 ============ */
   logics: [
-    { title: "AI 资本开支的「债务化融资」成为新主线",
-      text: "博通洽谈超600亿美元（总额或达千亿）AI芯片债务融资，联合黑石、阿波罗以SPV结构为Anthropic等提供算力；叠加英伟达本周5000亿美元基建融资平台，AI基建正从科技公司资产负债表大规模转向债务市场，成为独立资产类别。这既强化了定制ASIC与GPU的长期需求，也引发对'卖方担保敞口'的担忧——博通CDS已创历史新高。" },
-    { title: "存储/代工「量价齐升」，龙头现金流兑现为股东回报",
-      text: "三星周五董事会讨论逾720亿美元股东回报，SK海力士40万亿韩元回购落地，三星代工价同步上调15%，TSMC先进制程满载外溢。存储超级周期带来的创纪录现金流正在通过回购、特别股息兑现，同时代工涨价验证半导体供应链供不应求，共同支撑美光、闪迪等高估值存储股高位运行。" },
+    { title: "内存「量价齐升 + 供给锁定」成为存储板块新主线",
+      text: "英伟达AI服务器因DRAM成本飙升涨价超15%，并与SK海力士、美光签多年长约锁定存储供给，叠加三星逾720亿美元股东回报与代工涨价，存储超级周期从需求端到成本端全面验证。DRAM合约价Q2环比涨58%—63%，供给紧张或延续至2027—2028年，美光、闪迪等龙头现金流与议价权同步扩张。" },
+    { title: "AI资本开支「债务化 + 循环融资」风险成为关键变量",
+      text: "博通超600亿美元AI债务融资、英伟达5000亿美元基建融资平台，令AI基建加速转向债务市场；同时英伟达对OpenAI融资担保引发循环融资担忧——支持的资金最终回流购买其GPU。Jefferies已明确提示该风险，财报季若AI公司收入不及预期，债务化融资的卖方担保敞口与CDS走阔可能成为新的脆弱点。" },
     { title: "长端利率仍是成长股估值「总开关」",
-      text: "财政部扩大回购不改赤字路径，30年期美债收益率周内触及2007年以来新高，长端抛压未除。下周英伟达财报、7月PCE、美联储主席沃什杰克逊霍尔讲话三大事件将决定利率与AI两条主线的走向，高久期科技成长股的贴现率压力能否缓解，取决于长端能否有效回落。" }
+      text: "30年期美债收益率周内触及2007年以来新高，财政部回购不改赤字路径，长端抛压未除。本周英伟达财报、7月PCE（8/26）、美联储主席沃什杰克逊霍尔讲话（8/28）三大事件将决定利率与AI两条主线的走向，高久期科技成长股的贴现率压力能否缓解，取决于长端能否有效回落。" }
   ],
 
   /* ============ 七、未来 1—3 个交易日关注事项（具体事件） ============ */
   watchlist: [
-    { date: "08月24日", event: "美国财长贝森特新闻发布会，披露对伊朗「经济战」制裁细节", impact: "地缘风险与油价，影响通胀预期与市场风险偏好" },
-    { date: "08月26日", event: "NVIDIA 2027财年Q2财报（盘后）", impact: "AI 芯片需求与数据中心资本开支的风向标，将定调整个 AI 硬件板块" },
-    { date: "08月27—29日", event: "Jackson Hole 全球央行年会（美联储主席沃什 8月28日上午10点发表主旨演讲）", impact: "关注对通胀、长债利率与货币政策路径的表态" },
-    { date: "08月28日", event: "美国7月PCE物价指数（美联储首选通胀指标，预计）", impact: "决定市场对美联储加息/降息路径的定价" },
+    { date: "08月25日", event: "美国8月谘商会消费者信心指数、6月房价指数", impact: "消费与住房数据，影响对经济韧性的定价" },
+    { date: "08月26日", event: "美国7月PCE物价指数 + Q2 GDP终值（修订）", impact: "美联储首选通胀指标，决定9月FOMC加息/降息路径定价" },
+    { date: "08月26日", event: "NVIDIA 2027财年Q2财报（盘后）", impact: "AI芯片需求与数据中心资本开支的风向标，定调AI硬件板块" },
+    { date: "08月27日", event: "Marvell 2027财年Q2财报（盘后）", impact: "定制ASIC与AI光互连需求信号，检验高估值能否兑现" },
+    { date: "08月27—29日", event: "Jackson Hole 全球央行年会（沃什 8月28日上午10点主旨演讲）", impact: "关注对通胀、长债利率与货币政策路径的表态" },
     { date: "08月底", event: "三星电子董事会批准股东回报计划细节", impact: "存储板块股东回报与情绪延续" },
-    { date: "09月02日", event: "Broadcom 财报（盘后，预计）", impact: "AI 定制芯片(ASIC)与数据中心网络需求信号" }
+    { date: "09月02日", event: "Broadcom 财报（盘后，预计）", impact: "AI定制芯片(ASIC)与数据中心网络需求信号" }
   ],
 
   /* ============ 八、页脚免责声明 ============ */
