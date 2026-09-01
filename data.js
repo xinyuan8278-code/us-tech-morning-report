@@ -23,8 +23,8 @@ window.REPORT_DATA = {
   meta: {
     title: "美股科技板块前一交易日行情日报",
     subtitle: "盘前版 · 大型科技 + 半导体存储跟踪",
-    reportDate: "2026年08月31日",   // 报告发布日期
-    tradeDate: "2026年08月28日",    // 对应美股交易日（前一交易日）
+    reportDate: "2026年09月01日",   // 报告发布日期
+    tradeDate: "2026年08月31日",    // 对应美股交易日（前一交易日）
     author: "华泰期货 · 研究",
     tag: "每日市场跟踪"
   },
@@ -32,7 +32,7 @@ window.REPORT_DATA = {
   /* ============ 二、市场概览 ============ */
   overview: {
     /* 简短概括：指数变化 + 个股变化 + 重大事件 */
-    text: "8月28日美股科技股明显分化：美联储主席沃什杰克逊霍尔讲话偏鹰，9月加息概率升至约56%，美债收益率与美元齐升，纳指-0.52%、标普-0.25%、费半跌逾3%。半导体遭获利回吐：英伟达财报后回吐-4.57%、Marvell暴跌逾10%、AMD-2.33%；非硬件大型科技逆势走强，亚马逊+3.97%、谷歌+1.74%、微软+1.68%、苹果+1.63%。资金从AI硬件切向云与软件。",
+    text: "8月31日美股科技股分化：美伊再度交火推升油价（布油站上90美元）与长端美债收益率，三大指数小跌——道指-0.70%、纳指-0.12%、标普-0.33%，费半逆势+0.48%。资金从云巨头轮动至存储/半导体：闪迪+5.5%（MSCI纳入生效被动买盘）、美光+2.77%、英伟达+1.48%（35亿美元入股联发科）；亚马逊-2.5%（FTC联合22州起诉）领跌大型科技。",
     /* 指数卡片（可增删） */
     indices: [
       { name: "Nasdaq Composite", code: "IXIC", change: "-0.00%" },
@@ -45,136 +45,151 @@ window.REPORT_DATA = {
   /* ============ 三、超涨 / 超跌个股提示 ============ */
   alerts: [
     {
-      name: "NVIDIA",
-      code: "NVDA",
-      direction: "超跌",
+      name: "Sandisk",
+      code: "SNDK",
+      direction: "超涨",
       change: "-0.00%",
-      fiveDay: "财报后剧烈反转：8/27财报+8.74%后，8/28回吐-4.57%（8/24 -2.91%、8/25 +2.19%、8/26 -1.59%、8/27 +8.74%、8/28 -4.57%），单日振幅约5.4%（229.26高至216.81低）",
-      newHighLow: "未创新低，收217.55仍高于财报前（8/26收209.66），距5月历史高点236.26约8.6%",
-      volume: "成交约1.95亿股，较前一交易日2.99亿股缩量约35%，属缩量回调而非恐慌性抛售",
-      reason: "美联储主席沃什杰克逊霍尔讲话偏鹰、9月加息概率升至约56%推升美债收益率，叠加财报后+8.74%的获利了结与'卖新闻'情绪；半导体板块整体承压（费半跌逾3%、Marvell跌逾10%、ARM跌逾6%）",
-      impact: "短期进入财报后高位整固，AI资本开支叙事未变，但利率上行与存储成本传导（CFO预警存储'极端定价'）制约估值扩张空间"
+      fiveDay: "尾盘急拉创近月单日最大涨幅：8/24 1493.12 → 8/25 -0.83%（1480.77）→ 8/26 +1.26%（1499.37）→ 8/27 -0.96%（1484.95）→ 8/28 持平（1484.98）→ 8/31 +5.50%（1566.70），日内由微跌状态在尾盘45分钟直线拉升收涨5.5%",
+      newHighLow: "未创阶段新高，收1566.70美元仍较6月22日历史高点2354.39美元低约33%，属前期超跌后的强势反弹而非创新高",
+      volume: "成交2338万股，约为前一交易日（814万股）的2.9倍，换手率15.97%，尾盘45分钟放量急拉、资金面特征明显",
+      reason: "MSCI世界指数8月季度审议将闪迪列为最大新纳入成分股、8/31收盘生效，被动指数资金尾盘集中扫货，叠加AI存储超级周期下NAND/企业级SSD涨价预期延续、企业级AI闪存高毛利转型与HBF新标准等多重利好共振",
+      impact: "尾盘指数调仓属交易性买盘，短期或部分回吐；中期方向取决于AI存储涨价周期与长协锁利逻辑能否兑现"
     }
   ],
 
   /* ============ 四、重点公司行情表 ============ */
   /* 超涨/超跌个股放最上方；无新闻的公司驱动因素简要说明即可 */
   stocks: [
-    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "财报后获利回吐-4.57%，沃什鹰派讲话推升美债收益率、压制高估值成长股，成交431亿美元仍居全市场第一，短期高位整固" },
-    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "Azure云需求强劲，资金从AI硬件切向有稳定现金流的云巨头，逆势涨1.68%逼近年内高位" },
-    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "消费电子防御属性+Apple TV+提价利好服务业务，逆半导体下跌涨1.63%" },
-    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "AWS与英伟达加码200万颗GPU扩容、Evercore上调目标价至355美元，Q2 AWS营收+37%创18季最快，涨3.97%领涨大型科技" },
-    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "自研TPU与谷歌云，受益于定制芯片叙事（谷歌与Marvell大单），涨1.74%" },
-    { name: "Meta",      code: "META",  change: "-0.00%", driver: "广告与AI商业化稳健，非硬件巨头获资金避险买入，涨1.21%" },
-    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "定制ASIC与AI网络龙头随半导体板块承压-0.74%，Marvell暴跌引发的定制芯片估值疑虑波及，表现相对抗跌" },
-    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "二线AI算力股遭获利了结-2.33%，沃什鹰派讲话+利率上行压制长久期资产，ARK减仓AMD转配博通" },
-    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "存储板块相对抗跌-0.27%，英伟达CFO'存储极端定价'与供应瓶颈言论支撑存储景气预期" },
-    { name: "Sandisk",   code: "SNDK",  change: "-0.00%", driver: "NAND存储高位整固，收平于1484.98，存储供需与涨价周期预期下波动收敛" }
+    { name: "Sandisk",   code: "SNDK",  change: "-0.00%", driver: "MSCI世界指数纳入生效被动买盘+AI存储超级周期NAND涨价，尾盘45分钟直线拉升，放量收涨5.5%领涨全市场" },
+    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "投资联发科35亿美元深化NVLink Fusion合作、绑定定制XPU生态，AI算力主线回暖，涨1.48%" },
+    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "大型科技股获利回吐、油价与长端美债收益率上行压制估值，跌1.22%" },
+    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "消费电子随大盘与通胀担忧走弱，跌0.89%" },
+    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "FTC联合22州起诉亚马逊操纵广告竞价、涉数百亿美元，跌2.5%创一个多月最大跌幅、领跌大型科技" },
+    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "资金从云巨头轮动至存储/能源板块，跌2.09%" },
+    { name: "Meta",      code: "META",  change: "-0.00%", driver: "大型科技股获利了结，跌0.98%" },
+    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "定制ASIC随半导体温和反弹涨0.42%，但联发科借助英伟达NVLink Fusion挑战其定制芯片地位构成潜在竞争压力" },
+    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "二线AI算力股随半导体回暖涨1.10%，存储与算力轮动中相对抗跌" },
+    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "存储超级周期NAND/DRAM涨价延续，HBM/DRAM龙头涨2.77%" }
   ],
 
   /* ============ 五、重要科技与政策新闻（一手来源） ============ */
   news: [
     {
-      title: "美联储主席沃什杰克逊霍尔演讲偏鹰：价格稳定仍是首要任务，AI被视作'新生产要素'",
-      originalTitle: "In Our Time — Remarks by Chair Kevin Warsh at 'Financial Innovation: Implications for Payments and Policy'",
-      source: "美联储官方（federalreserve.gov）",
-      time: "2026年08月28日",
+      title: "FTC联合22州起诉亚马逊：指控其7年暗中操纵广告竞价、多收数百亿美元",
+      originalTitle: "FTC, States Sue Amazon Over Secret Ad Surcharge Scheme",
+      source: "美国联邦贸易委员会（ftc.gov）",
+      time: "2026年08月31日",
       type: "官方",
-      url: "https://www.federalreserve.gov/newsevents/speech/files/warsh20260828a.pdf",
-      link: "https://www.federalreserve.gov/newsevents/speech/files/warsh20260828a.pdf",
-      summary: "沃什在杰克逊霍尔全球央行年会发表主旨演讲，表示若美联储无法确信潜在通胀正以'清晰且足够快的速度'回落至2%目标，则'还有很多工作要做'。他强调价格稳定是当前首要任务，通胀已连续65个月高于2%目标，并指出金融环境并不具明显限制性。沃什未给出传统前瞻指引，而是阐述'更安静、更有目的性沟通'的央行治理理念。他还专门谈及AI，称其发展速度超预期、有望成为'新的生产要素'，将影响生产率、资本投入与货币政策传导。",
+      url: "https://www.ftc.gov/news-events/news/press-releases/2026/08/ftc-states-sue-amazon-over-secret-ad-surcharge-scheme",
+      link: "https://www.ftc.gov/news-events/news/press-releases/2026/08/ftc-states-sue-amazon-over-secret-ad-surcharge-scheme",
+      summary: "FTC与22个州总检察长联合起诉亚马逊，指控其7年多来在站内搜索广告竞价中暗中加价：对外宣称运行“二价拍卖”（仅支付第二名出价+1美分），实际通过内部“软底价/代理二价”机制，约80%情况下按广告主自身出价收费，实为变相一价拍卖。涉及超100万品牌与卖家（含超50万中小企业），累计多收或达数百亿美元。FTC主席Ferguson称“不能让这种欺骗继续”，这是特朗普政府下对大型科技平台广告黑箱的最新一次执法。",
       impact: {
         direction: "利空",
-        companies: "全市场、半导体、AI硬件链",
-        industry: "货币政策、利率",
-        logic: "鹰派表态推升美债收益率与加息预期，压制长久期、高估值成长股贴现率"
+        companies: "亚马逊、大型科技",
+        industry: "反垄断、数字广告",
+        logic: "亚马逊当日跌2.5%、创一个多月最大跌幅，广告业务（AWS之外第二大利润引擎）面临合规与诉讼风险"
       }
     },
     {
-      title: "沃什讲话后美股收跌、美元与美债收益率齐升，9月加息概率跳升至55.7%",
-      originalTitle: "Stocks fall while dollar, bond yields rise as Warsh prompts rate hike bets",
-      source: "Reuters（经 Channel NewsAsia 转载）",
-      time: "2026年08月28日",
-      type: "财经媒体",
-      url: "https://www.channelnewsasia.com/business/stocks-fall-while-dollar-bond-yields-rise-warsh-prompts-rate-hike-bets-6346686",
-      link: "https://www.channelnewsasia.com/business/stocks-fall-while-dollar-bond-yields-rise-warsh-prompts-rate-hike-bets-6346686",
-      summary: "沃什讲话后，CME FedWatch显示9月加息概率从前一日的35.4%跳升至55.7%。美股小幅收跌：道指-0.02%、标普-0.25%、纳指-0.52%，科技与公用事业领跌，罗素2000跌1.4%。债市反应更剧烈：2年期美债收益率升12.79bp至4.36%、10年期升5.6bp至4.728%，美元指数涨0.61%至99.71。避险资产亦承压：现货黄金跌3.19%至4454.52美元、比特币跌3.34%。市场将沃什'承认金融环境不具限制性+强调通胀仍是关切'解读为偏鹰，并视为其通过利率渠道应对通胀的信号。",
-      impact: {
-        direction: "利空",
-        companies: "全市场、半导体、高估值成长股",
-        industry: "利率、汇率、贵金属",
-        logic: "利率与美元双升压缩成长股估值，资金转向有稳定现金流的大型云巨头"
-      }
-    },
-    {
-      title: "Marvell暴跌逾10%：谷歌定制芯片大单收入确认时点令市场失望",
-      originalTitle: "Marvell raises annual forecasts, but shares fall as Google deal questions linger",
-      source: "Reuters（经 ET Electronics 转载）",
-      time: "2026年08月28日",
-      type: "财经媒体",
-      url: "http://electronics.economictimes.indiatimes.com/news/semiconductors/marvell-raises-annual-forecasts-but-shares-fall-as-google-deal-questions-linger/133581595",
-      link: "http://electronics.economictimes.indiatimes.com/news/semiconductors/marvell-raises-annual-forecasts-but-shares-fall-as-google-deal-questions-linger/133581595",
-      summary: "Marvell虽上调FY2027营收预测至约120亿美元（+45%，原约115亿）、FY2028至约180亿美元（原约165亿），但市场聚焦其与谷歌定制芯片大单（至FY2033最高1200亿美元、使谷歌成为其最大股东之一）的收入兑现节奏。CEO Matt Murphy称截至FY2028的定制收入目标已部分计入谷歌贡献、FY2029才会显著放量。摩根士丹利指出'预期本已因谷歌大单被抬高'。该股今年因AI定制芯片几乎翻倍，财报后暴跌逾10%，显示定制芯片高估值对收入兑现节奏极度敏感。",
-      impact: {
-        direction: "利空",
-        companies: "Marvell、博通等定制芯片，AI硬件",
-        industry: "定制ASIC、AI算力",
-        logic: "谷歌大单利好已部分定价，定制芯片高估值需要更清晰的收入放量路径"
-      }
-    },
-    {
-      title: "亚马逊逆势大涨近4%：AWS与英伟达加码200万颗GPU扩容，AI云需求兑现",
-      originalTitle: "Amazon Jumps 4% on Expanded AWS Chip Deal: Why Is NVIDIA Falling 4%?",
-      source: "24/7 Wall St（行业媒体）",
-      time: "2026年08月28日",
-      type: "行业媒体",
-      url: "https://247wallst.com/investing/2026/08/28/amazon-jumps-4-on-expanded-aws-chip-deal-why-is-nvidia-falling-4/",
-      link: "https://247wallst.com/investing/2026/08/28/amazon-jumps-4-on-expanded-aws-chip-deal-why-is-nvidia-falling-4/",
-      summary: "AWS与英伟达宣布2027-2028年额外部署200万颗GPU（Blackwell Ultra/Rubin系列）扩容AI基础设施，总承诺超300万颗。Q2 AWS营收+37%至422亿美元、创18季最快，CEO Andy Jassy称AI与芯片业务年化运行率均已超250亿美元。Evercore ISI将亚马逊目标价从315美元上调至355美元。当日亚马逊逆势涨近4%，而作为供应商的英伟达反跌4%，反映市场认为AI基建利润正从上游芯片向下游云平台转移。",
+      title: "英伟达35亿美元入股联发科：深化NVLink Fusion合作，共建边缘到云端AI计算平台",
+      originalTitle: "NVIDIA and MediaTek Deepen Long-Standing Partnership to Build AI Edge to Cloud Computing Platforms",
+      source: "NVIDIA官方新闻室（nvidianews.nvidia.com）",
+      time: "2026年08月31日",
+      type: "官方",
+      url: "https://nvidianews.nvidia.com/news/nvidia-and-mediatek-deepen-long-standing-partnership-to-build-ai-edge-to-cloud-computing-platforms",
+      link: "https://nvidianews.nvidia.com/news/nvidia-and-mediatek-deepen-long-standing-partnership-to-build-ai-edge-to-cloud-computing-platforms",
+      summary: "NVIDIA宣布投资35亿美元认购联发科可转债，深化双方在AI基础设施、边缘AI与车用三大领域合作。联发科将采用NVLink Fusion平台，帮助hyperscaler、云服务商与前沿模型开发商开发定制XPU并接入NVIDIA NVLink机架级AI工厂；双方继续开发多代RTX Spark/DGX Spark PC芯片。联发科借此挑战博通、迈威尔在定制ASIC领域的地位。英伟达当日涨1.48%。",
       impact: {
         direction: "利好",
-        companies: "亚马逊、英伟达，云平台",
-        industry: "云计算、AI基础设施",
-        logic: "AI需求兑现为云收入，资金从AI硬件轮动至有客户承诺的云平台巨头"
+        companies: "英伟达、联发科、半导体",
+        industry: "AI基础设施、定制芯片",
+        logic: "英伟达通过开放NVLink生态绑定定制芯片客户，对冲大客户自研芯片分流，巩固其AI硬件平台标准地位"
       }
     },
     {
-      title: "英伟达财报后'卖新闻'回吐4.57%，成交431亿美元仍居全市场第一",
-      originalTitle: "Nvidia's $43.17B Trading Volume Claims Top Spot Despite 4.57% Pullback",
-      source: "AInvest（行业媒体）",
+      title: "MSCI 8月指数审议：闪迪成MSCI世界指数最大新纳入成分股，8月31日收盘生效",
+      originalTitle: "MSCI Equity Indexes August 2026 Index Review",
+      source: "MSCI官方（ir.msci.com）",
+      time: "2026年08月12日（2026年08月31日收盘生效）",
+      type: "官方",
+      url: "https://ir.msci.com/node/22896",
+      link: "https://ir.msci.com/node/22896",
+      summary: "MSCI公布8月季度指数审议结果：MSCI ACWI新增55只、剔除92只证券，其中按总市值计，闪迪（SanDisk）、Carpenter Technology、ATI为MSCI世界指数新增前三大成分股，所有调整于8月31日收盘后生效。闪迪作为全球NAND前五，被纳入后吸引大量被动指数资金在尾盘集中买入，当日尾盘45分钟从约1460美元直线拉升至1566.70美元，收涨5.5%、成交放量近3倍。",
+      impact: {
+        direction: "利好",
+        companies: "闪迪、存储",
+        industry: "指数、被动资金",
+        logic: "纳入MSCI世界指数带来被动资金流入，但属交易性买盘，短期或部分回吐；中期看存储景气与基本面"
+      }
+    },
+    {
+      title: "美伊时隔一月再度交火：美军打击拉腊克岛、伊朗报复袭击约旦美军基地，布油站上90美元",
+      originalTitle: "Oil jumps over 2% after US attack on Iran's Larak Island",
+      source: "Reuters（经 SAMAA TV 转载）",
+      time: "2026年08月31日",
+      type: "财经媒体",
+      url: "https://www.samaa.tv/2087356039-oil-jumps-over-2-after-us-attack-on-iran-s-larak-island",
+      link: "https://www.samaa.tv/2087356039-oil-jumps-over-2-after-us-attack-on-iran-s-larak-island",
+      summary: "美军周日打击霍尔木兹海峡内伊朗拉腊克岛两处火箭发射装置（称其为布雷做准备，为7月底以来首次对伊打击），伊朗随即报复袭击约旦两处美军空军基地。冲突进入第六个月，霍尔木兹海峡周末可见商船降至每日5艘。布伦特原油+2.51%至90.31美元、WTI+2.19%至85.23美元。财长贝森特称美国或每周对伊发布新次级制裁。DBS能源研究主管认为“更可能是受控对抗而非持续升级”，油价或在85-95美元区间震荡。",
+      impact: {
+        direction: "利空",
+        companies: "全市场、高估值成长股",
+        industry: "地缘政治、油价、通胀",
+        logic: "油价上行重燃通胀担忧、推升长端美债收益率，压制高估值成长股贴现率；能源股逆势走强"
+      }
+    },
+    {
+      title: "WSJ：美股三大指数收跌、长端美债收益率续升，AI高估值股进入“证明给我看”阶段",
+      originalTitle: "U.S. Stocks Fall as Iran War Inflation Heats Up — Update",
+      source: "华尔街日报/道琼斯新闻（经 TradingView 转载，作者 Rob Curran）",
+      time: "2026年08月31日",
+      type: "财经媒体",
+      url: "https://www.tradingview.com/news/DJN_DN20260831007569:0",
+      link: "https://www.tradingview.com/news/DJN_DN20260831007569:0",
+      summary: "道指-374.09点（-0.70%）至53185.90、标普-0.33%至7686.14、纳指-0.12%至26370.89。油价+2.8%至85.76美元，10年期美债收益率+3.6bp至4.757%、30年期+4.1bp至5.248%（近期长端收益率跟随油价上行）。高盛CEO所罗门称长端利率飙升“值得关注但尚非紧急”。策略师J.D. Joyce称AI芯片与大型科技在财报季后进入“show-me market”。加州公用事业因山火责任条款调整暴跌（PG&E -20%、爱迪生国际-23%）。",
+      impact: {
+        direction: "利空",
+        companies: "全市场、AI高估值股",
+        industry: "利率、通胀、市场情绪",
+        logic: "长端收益率与油价双升压制高估值成长股，AI板块从“财报驱动”转向“验证驱动”"
+      }
+    },
+    {
+      title: "存储超级周期延续：NAND/DRAM涨价致美光、闪迪业绩暴增，供需紧张短期难解",
+      originalTitle: "A Once-in-a-Decade Buying Opportunity: Sandisk and Micron Shares Are Dirt Cheap and Look Primed to Skyrocket",
+      source: "The Motley Fool（财经/行业媒体）",
       time: "2026年08月28日",
       type: "行业媒体",
-      url: "https://www.ainvest.com/news/nvidia-43-17b-trading-volume-claims-top-spot-4-57-pullback-2608/",
-      link: "https://www.ainvest.com/news/nvidia-43-17b-trading-volume-claims-top-spot-4-57-pullback-2608/",
-      summary: "英伟达8/27财报后暴涨8.7%、市值增约4420亿美元，8/28出现经典'卖新闻'式获利回吐，收跌4.57%至217.55美元，成交431亿美元仍居全市场第一。数据中心营收890亿美元、超大规模客户销售+102%至487亿美元，AI Cloud/Enterprise/Industrial（ACIE）板块同比+138%至403亿美元。CEO黄仁勋称实际需求高于70%指引、受存储与电力供给瓶颈制约；CFO克雷斯此前暂停部分面向AI云公司的融资计划以管理资产负债表风险。分析师认为英伟达前瞻PE约28.8倍仍偏低。",
+      url: "https://www.fool.com/investing/2026/08/28/a-once-in-a-decade-buying-opportunity-sandisk-and/",
+      link: "https://www.fool.com/investing/2026/08/28/a-once-in-a-decade-buying-opportunity-sandisk-and/",
+      summary: "AI数据中心对DRAM与NAND需求近乎无限而产能受限，存储芯片价格飙升。闪迪为2026年标普500表现最强个股（年内涨近600%）、美光第四（近250%）。TrendForce数据显示全球前五大NAND厂商Q2营收环比+77%至688.7亿美元。新增产能预计2027年底至2028年才逐步释放，存储供需紧张短期难解。当日美光+2.77%、闪迪+5.5%，存储链整体领涨半导体。",
       impact: {
-        direction: "中性",
-        companies: "英伟达，半导体，AI硬件",
-        industry: "AI芯片、数据中心",
-        logic: "财报利好兑现后高位整固，利率上行与存储成本传导是短期压制因素"
+        direction: "利好",
+        companies: "美光、闪迪、存储链",
+        industry: "存储、半导体",
+        logic: "存储进入“量价齐升”超级周期，供给受限下厂商获得定价权，是当日存储板块逆势走强的核心驱动"
       }
     }
   ],
 
   /* ============ 六、当日最值得关注的 3 个交易逻辑 ============ */
   logics: [
-    { title: "利率重回舞台中央：沃什偏鹰讲话成为压制高估值成长股的'总开关'",
-      text: "沃什杰克逊霍尔讲话明确价格稳定仍是首要任务，未给前瞻指引但被市场解读为偏鹰，9月加息概率从35%跳升至约56%，2年期美债收益率单日升近13bp至4.36%、10年期升至4.728%、美元指数涨0.6%。利率与贴现率上行直接压制长久期、高估值资产——半导体与AI硬件首当其冲（费半跌逾3%、英伟达-4.6%、Marvell-10%），而拥有稳定自由现金流的大型云巨头（亚马逊、微软、谷歌）相对抗跌甚至逆势上涨，体现了'估值敏感度'在科技板块内部的分化。" },
-    { title: "AI交易从'硬件独占'转向'云与定制芯片'双线叙事，利润分配之争加剧",
-      text: "当日亚马逊因AWS与英伟达200万颗GPU扩容、Q2 AWS营收+37%而逆势大涨近4%，而作为供应商的英伟达反跌4%、Marvell因谷歌定制芯片收入节奏失望暴跌10%。这揭示市场核心矛盾已从'AI需求是否持续'转向'AI算力利润如何在芯片商与云平台之间分配'：上游硬件高估值对收入兑现节奏极度敏感，下游云平台因锁定客户承诺而被重新定价。" },
-    { title: "英伟达财报'卖新闻'与存储供应瓶颈，标志AI硬件从普涨进入分化",
-      text: "英伟达财报后+8.74%次日回吐4.57%，成交431亿美元仍居首位，属典型利好兑现后的获利了结，基本面叙事未变。但管理层预警存储'极端定价'与电力供给瓶颈正在制约供给端，说明AI硬件链正从'量价齐升'转向'供应约束下的利润再分配'，这也是存储股（美光-0.27%、闪迪持平）当日相对抗跌而算力龙头承压的深层原因。" }
+    { title: "地缘与利率重回台前：美伊交火→油价→通胀预期→长端收益率，压制高估值科技股",
+      text: "美伊时隔一个月再度交火，布油站上90美元、WTI涨2.8%，重燃通胀担忧，10年期美债收益率续升3.6bp至4.757%、30年期至5.248%。长端收益率与油价双升直接压制长久期、高估值资产，资金从云巨头（亚马逊、谷歌跌超2%）撤向能源与存储，AI高估值股进入策略师所称“show-me market”——财报利好兑现后需以数据证明估值合理性。" },
+    { title: "存储成为AI链新瓶颈：NAND/DRAM涨价超级周期，存储链逆势领涨",
+      text: "闪迪+5.5%（MSCI纳入生效点火）、美光+2.77%领涨半导体，存储从GPU的“配套设施”升级为“AI战略硬通货”。英伟达CFO此前预警存储供应瓶颈将延续至2028财年底，TrendForce预计存储占云厂商资本开支比重将由47%升至2027年的68%。供给受限下存储厂商重获定价权，成为当日科技股分化中资金确定性最高的方向。" },
+    { title: "定制芯片竞争白热化：英伟达35亿美元入股联发科对冲自研芯片分流，博通/迈威尔承压",
+      text: "英伟达投资联发科35亿美元并开放NVLink Fusion生态，本质是把潜在的定制XPU“对手”转化为自己平台的“伙伴”，以对冲大客户（亚马逊、谷歌、微软）自研芯片的分流。联发科借此直接挑战博通、迈威尔在定制ASIC领域的地位。AI算力利润分配的博弈从“硬件vs云”进一步深入到“定制芯片”细分赛道，博通当日仅微涨0.42%、相对滞涨。" }
   ],
 
   /* ============ 七、未来 1—3 个交易日关注事项（具体事件） ============ */
   watchlist: [
-    { date: "09月01日", event: "美国8月ISM制造业PMI、7月JOLTS职位空缺", impact: "检验高利率下实体制造业韧性，若价格分项走强或强化加息预期、压制成长股" },
-    { date: "09月02日", event: "博通（Broadcom）2026财年Q3财报（盘后），AI营收约160亿美元指引为焦点", impact: "检验AI定制芯片与网络设备需求成色，以及与谷歌定制芯片合作地位是否稳固" },
+    { date: "09月01日", event: "美国8月ISM制造业PMI、7月JOLTS职位空缺", impact: "检验高利率与油价上行下实体制造业韧性，若价格分项走强或强化加息预期、压制成长股" },
+    { date: "09月02日", event: "博通（Broadcom）2026财年Q3财报（盘后），AI营收约160亿美元指引为焦点", impact: "检验AI定制芯片与网络设备需求成色，以及联发科挑战下定制芯片竞争格局" },
     { date: "09月04日", event: "美国劳工部8月非农就业报告（NFP）", impact: "美联储9月FOMC前最具决定性的数据，定调加息路径，直接影响科技成长股贴现率" },
     { date: "09月07日", event: "美国劳动节（Labor Day），美股休市", impact: "长假前资金趋于谨慎，短期波动或收敛" },
-    { date: "09月15-16日", event: "美联储FOMC议息会议", impact: "CME FedWatch显示9月加息概率约56%，政策定调影响高估值成长股估值" },
-    { date: "09月30日", event: "美光科技（Micron）Q4财报", impact: "存储涨价周期与HBM供需的关键验证，影响存储板块（美光、闪迪）定价" },
-    { date: "10月06日", event: "Marvell投资者日", impact: "管理层将披露谷歌定制芯片收入放量路径与2029财年目标细节，决定定制芯片叙事走向" }
+    { date: "09月15-16日", event: "美联储FOMC议息会议", impact: "市场对9月加息路径的定价，影响高估值成长股估值锚" },
+    { date: "09月30日", event: "美光科技（Micron）Q4财报", impact: "存储涨价周期与HBM供需的关键验证，影响存储板块（美光、闪迪）定价" }
   ],
 
   /* ============ 八、页脚免责声明 ============ */
