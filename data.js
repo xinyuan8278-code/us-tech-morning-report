@@ -23,8 +23,8 @@ window.REPORT_DATA = {
   meta: {
     title: "美股科技板块前一交易日行情日报",
     subtitle: "盘前版 · 大型科技 + 半导体存储跟踪",
-    reportDate: "2026年09月01日",   // 报告发布日期
-    tradeDate: "2026年08月31日",    // 对应美股交易日（前一交易日）
+    reportDate: "2026年09月02日",   // 报告发布日期
+    tradeDate: "2026年09月01日",    // 对应美股交易日（前一交易日）
     author: "华泰期货 · 研究",
     tag: "每日市场跟踪"
   },
@@ -32,7 +32,7 @@ window.REPORT_DATA = {
   /* ============ 二、市场概览 ============ */
   overview: {
     /* 简短概括：指数变化 + 个股变化 + 重大事件 */
-    text: "8月31日美股科技股分化：美伊再度交火推升油价（布油站上90美元）与长端美债收益率，三大指数小跌——道指-0.70%、纳指-0.12%、标普-0.33%，费半逆势+0.48%。资金从云巨头轮动至存储/半导体：闪迪+5.5%（MSCI纳入生效被动买盘）、美光+2.77%、英伟达+1.48%（35亿美元入股联发科）；亚马逊-2.5%（FTC联合22州起诉）领跌大型科技。",
+    text: "9月1日美股科技股普跌：美伊冲突升级、美军新一轮空袭伊朗推升油价（WTI+5.2%、布油+4.6%），叠加美联储鹰派信号，10年期美债收益率创2025年1月以来新高、9月加息概率升至65%，压制高估值科技股。道指-0.79%、纳指-1.03%、标普-0.71%、费半-2.10%。存储/半导体领跌（美光-2.64%、AMD-2.36%）；苹果+2.61%（Ternus正式接任CEO）逆势领涨；戴尔盘后因AI服务器业绩创纪录大涨约8%。",
     /* 指数卡片（可增删） */
     indices: [
       { name: "Nasdaq Composite", code: "IXIC", change: "-0.00%" },
@@ -43,152 +43,141 @@ window.REPORT_DATA = {
   },
 
   /* ============ 三、超涨 / 超跌个股提示 ============ */
-  alerts: [
-    {
-      name: "Sandisk",
-      code: "SNDK",
-      direction: "超涨",
-      change: "-0.00%",
-      fiveDay: "尾盘急拉创近月单日最大涨幅：8/24 1493.12 → 8/25 -0.83%（1480.77）→ 8/26 +1.26%（1499.37）→ 8/27 -0.96%（1484.95）→ 8/28 持平（1484.98）→ 8/31 +5.50%（1566.70），日内由微跌状态在尾盘45分钟直线拉升收涨5.5%",
-      newHighLow: "未创阶段新高，收1566.70美元仍较6月22日历史高点2354.39美元低约33%，属前期超跌后的强势反弹而非创新高",
-      volume: "成交2338万股，约为前一交易日（814万股）的2.9倍，换手率15.97%，尾盘45分钟放量急拉、资金面特征明显",
-      reason: "MSCI世界指数8月季度审议将闪迪列为最大新纳入成分股、8/31收盘生效，被动指数资金尾盘集中扫货，叠加AI存储超级周期下NAND/企业级SSD涨价预期延续、企业级AI闪存高毛利转型与HBF新标准等多重利好共振",
-      impact: "尾盘指数调仓属交易性买盘，短期或部分回吐；中期方向取决于AI存储涨价周期与长协锁利逻辑能否兑现"
-    }
-  ],
+  alerts: [],
 
   /* ============ 四、重点公司行情表 ============ */
   /* 超涨/超跌个股放最上方；无新闻的公司驱动因素简要说明即可 */
   stocks: [
-    { name: "Sandisk",   code: "SNDK",  change: "-0.00%", driver: "MSCI世界指数纳入生效被动买盘+AI存储超级周期NAND涨价，尾盘45分钟直线拉升，放量收涨5.5%领涨全市场" },
-    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "投资联发科35亿美元深化NVLink Fusion合作、绑定定制XPU生态，AI算力主线回暖，涨1.48%" },
-    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "大型科技股获利回吐、油价与长端美债收益率上行压制估值，跌1.22%" },
-    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "消费电子随大盘与通胀担忧走弱，跌0.89%" },
-    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "FTC联合22州起诉亚马逊操纵广告竞价、涉数百亿美元，跌2.5%创一个多月最大跌幅、领跌大型科技" },
-    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "资金从云巨头轮动至存储/能源板块，跌2.09%" },
-    { name: "Meta",      code: "META",  change: "-0.00%", driver: "大型科技股获利了结，跌0.98%" },
-    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "定制ASIC随半导体温和反弹涨0.42%，但联发科借助英伟达NVLink Fusion挑战其定制芯片地位构成潜在竞争压力" },
-    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "二线AI算力股随半导体回暖涨1.10%，存储与算力轮动中相对抗跌" },
-    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "存储超级周期NAND/DRAM涨价延续，HBM/DRAM龙头涨2.77%" }
+    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "美债收益率上行压制AI高估值，随半导体板块回调跌1.51%" },
+    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "大型科技随利率上行承压，油价推升通胀与加息担忧，跌1.24%" },
+    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "John Ternus正式接任CEO（15年来首次换帅）、库克转任执行主席，9/9新品发布会临近，逆势涨2.61%" },
+    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "油价上涨推升成本与通胀担忧，大型科技集体回调，跌1.87%" },
+    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "大型科技获利回吐，高估值受长端收益率压制，跌1.28%" },
+    { name: "Meta",      code: "META",  change: "-0.00%", driver: "大型科技中相对抗跌，逆势小幅上涨1.08%" },
+    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "定制ASIC相对抗跌微跌0.18%，9/2盘后Q3财报临近市场观望" },
+    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "半导体板块集体回调，二线AI算力股受美债收益率压制领跌2.36%" },
+    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "存储板块高位获利回吐、前期涨幅过大，领跌半导体跌2.64%" },
+    { name: "Sandisk",   code: "SNDK",  change: "-0.00%", driver: "前日MSCI纳入被动买盘大涨5.5%后获利回吐，存储股集体回落跌1.90%" }
   ],
 
   /* ============ 五、重要科技与政策新闻（一手来源） ============ */
   news: [
     {
-      title: "FTC联合22州起诉亚马逊：指控其7年暗中操纵广告竞价、多收数百亿美元",
-      originalTitle: "FTC, States Sue Amazon Over Secret Ad Surcharge Scheme",
-      source: "美国联邦贸易委员会（ftc.gov）",
-      time: "2026年08月31日",
-      type: "官方",
-      url: "https://www.ftc.gov/news-events/news/press-releases/2026/08/ftc-states-sue-amazon-over-secret-ad-surcharge-scheme",
-      link: "https://www.ftc.gov/news-events/news/press-releases/2026/08/ftc-states-sue-amazon-over-secret-ad-surcharge-scheme",
-      summary: "FTC与22个州总检察长联合起诉亚马逊，指控其7年多来在站内搜索广告竞价中暗中加价：对外宣称运行“二价拍卖”（仅支付第二名出价+1美分），实际通过内部“软底价/代理二价”机制，约80%情况下按广告主自身出价收费，实为变相一价拍卖。涉及超100万品牌与卖家（含超50万中小企业），累计多收或达数百亿美元。FTC主席Ferguson称“不能让这种欺骗继续”，这是特朗普政府下对大型科技平台广告黑箱的最新一次执法。",
-      impact: {
-        direction: "利空",
-        companies: "亚马逊、大型科技",
-        industry: "反垄断、数字广告",
-        logic: "亚马逊当日跌2.5%、创一个多月最大跌幅，广告业务（AWS之外第二大利润引擎）面临合规与诉讼风险"
-      }
-    },
-    {
-      title: "英伟达35亿美元入股联发科：深化NVLink Fusion合作，共建边缘到云端AI计算平台",
-      originalTitle: "NVIDIA and MediaTek Deepen Long-Standing Partnership to Build AI Edge to Cloud Computing Platforms",
-      source: "NVIDIA官方新闻室（nvidianews.nvidia.com）",
-      time: "2026年08月31日",
-      type: "官方",
-      url: "https://nvidianews.nvidia.com/news/nvidia-and-mediatek-deepen-long-standing-partnership-to-build-ai-edge-to-cloud-computing-platforms",
-      link: "https://nvidianews.nvidia.com/news/nvidia-and-mediatek-deepen-long-standing-partnership-to-build-ai-edge-to-cloud-computing-platforms",
-      summary: "NVIDIA宣布投资35亿美元认购联发科可转债，深化双方在AI基础设施、边缘AI与车用三大领域合作。联发科将采用NVLink Fusion平台，帮助hyperscaler、云服务商与前沿模型开发商开发定制XPU并接入NVIDIA NVLink机架级AI工厂；双方继续开发多代RTX Spark/DGX Spark PC芯片。联发科借此挑战博通、迈威尔在定制ASIC领域的地位。英伟达当日涨1.48%。",
-      impact: {
-        direction: "利好",
-        companies: "英伟达、联发科、半导体",
-        industry: "AI基础设施、定制芯片",
-        logic: "英伟达通过开放NVLink生态绑定定制芯片客户，对冲大客户自研芯片分流，巩固其AI硬件平台标准地位"
-      }
-    },
-    {
-      title: "MSCI 8月指数审议：闪迪成MSCI世界指数最大新纳入成分股，8月31日收盘生效",
-      originalTitle: "MSCI Equity Indexes August 2026 Index Review",
-      source: "MSCI官方（ir.msci.com）",
-      time: "2026年08月12日（2026年08月31日收盘生效）",
-      type: "官方",
-      url: "https://ir.msci.com/node/22896",
-      link: "https://ir.msci.com/node/22896",
-      summary: "MSCI公布8月季度指数审议结果：MSCI ACWI新增55只、剔除92只证券，其中按总市值计，闪迪（SanDisk）、Carpenter Technology、ATI为MSCI世界指数新增前三大成分股，所有调整于8月31日收盘后生效。闪迪作为全球NAND前五，被纳入后吸引大量被动指数资金在尾盘集中买入，当日尾盘45分钟从约1460美元直线拉升至1566.70美元，收涨5.5%、成交放量近3倍。",
-      impact: {
-        direction: "利好",
-        companies: "闪迪、存储",
-        industry: "指数、被动资金",
-        logic: "纳入MSCI世界指数带来被动资金流入，但属交易性买盘，短期或部分回吐；中期看存储景气与基本面"
-      }
-    },
-    {
-      title: "美伊时隔一月再度交火：美军打击拉腊克岛、伊朗报复袭击约旦美军基地，布油站上90美元",
-      originalTitle: "Oil jumps over 2% after US attack on Iran's Larak Island",
-      source: "Reuters（经 SAMAA TV 转载）",
-      time: "2026年08月31日",
+      title: "美伊冲突再度升级：美军新一轮空袭伊朗革命卫队，油价大涨、WTI创5周新高",
+      originalTitle: "Oil prices settle up more than $4 a barrel on renewed US-Iran fighting",
+      source: "路透社（Reuters，经 Euronext Live 转载）",
+      time: "2026年09月01日",
       type: "财经媒体",
-      url: "https://www.samaa.tv/2087356039-oil-jumps-over-2-after-us-attack-on-iran-s-larak-island",
-      link: "https://www.samaa.tv/2087356039-oil-jumps-over-2-after-us-attack-on-iran-s-larak-island",
-      summary: "美军周日打击霍尔木兹海峡内伊朗拉腊克岛两处火箭发射装置（称其为布雷做准备，为7月底以来首次对伊打击），伊朗随即报复袭击约旦两处美军空军基地。冲突进入第六个月，霍尔木兹海峡周末可见商船降至每日5艘。布伦特原油+2.51%至90.31美元、WTI+2.19%至85.23美元。财长贝森特称美国或每周对伊发布新次级制裁。DBS能源研究主管认为“更可能是受控对抗而非持续升级”，油价或在85-95美元区间震荡。",
+      url: "https://live.euronext.com/en/financial-news/oil-prices-settle-more-4-barrel-renewed-us-iran-fighting",
+      link: "https://live.euronext.com/en/financial-news/oil-prices-settle-more-4-barrel-renewed-us-iran-fighting",
+      summary: "美军中央司令部9月1日美东时间12时对伊朗境内伊斯兰革命卫队目标发动新一轮空袭，称此前革命卫队企图袭击霍尔木兹海峡商船及美军人员。特朗普称打击'正当'，若伊朗报复将'以更强、更高层级'回击。布伦特原油+4.6%收94.65美元、WTI+5.2%收90.22美元，均创约5周新高；霍尔木兹海峡可见商船降至每日5艘，柴油期货创52个月新高。",
       impact: {
         direction: "利空",
         companies: "全市场、高估值成长股",
         industry: "地缘政治、油价、通胀",
-        logic: "油价上行重燃通胀担忧、推升长端美债收益率，压制高估值成长股贴现率；能源股逆势走强"
+        logic: "油价上行重燃通胀担忧、推升长端美债收益率，压制高估值科技股贴现率，能源股逆势走强"
       }
     },
     {
-      title: "WSJ：美股三大指数收跌、长端美债收益率续升，AI高估值股进入“证明给我看”阶段",
-      originalTitle: "U.S. Stocks Fall as Iran War Inflation Heats Up — Update",
-      source: "华尔街日报/道琼斯新闻（经 TradingView 转载，作者 Rob Curran）",
-      time: "2026年08月31日",
+      title: "全球债市遭'完美风暴'：10年期美债收益率创2025年1月以来新高，9月加息概率升至65%",
+      originalTitle: "Bond Yields Surge as Oil Prices Fuel Inflation Worries — Update",
+      source: "华尔街日报/道琼斯新闻（经 Morningstar 转载）",
+      time: "2026年09月01日",
       type: "财经媒体",
-      url: "https://www.tradingview.com/news/DJN_DN20260831007569:0",
-      link: "https://www.tradingview.com/news/DJN_DN20260831007569:0",
-      summary: "道指-374.09点（-0.70%）至53185.90、标普-0.33%至7686.14、纳指-0.12%至26370.89。油价+2.8%至85.76美元，10年期美债收益率+3.6bp至4.757%、30年期+4.1bp至5.248%（近期长端收益率跟随油价上行）。高盛CEO所罗门称长端利率飙升“值得关注但尚非紧急”。策略师J.D. Joyce称AI芯片与大型科技在财报季后进入“show-me market”。加州公用事业因山火责任条款调整暴跌（PG&E -20%、爱迪生国际-23%）。",
+      url: "https://www.morningstar.com/news/dow-jones/202609012083/bond-yields-surge-as-oil-prices-fuel-inflation-worries-update",
+      link: "https://www.morningstar.com/news/dow-jones/202609012083/bond-yields-surge-as-oil-prices-fuel-inflation-worries-update",
+      summary: "美伊冲突推升通胀预期，叠加美联储主席沃什上周杰克逊霍尔鹰派讲话，全球债市遭抛售：10年期美债收益率升至4.79%（2025年1月以来新高），日本10年国债破3%创30年新高，德国10年3.364%、英国30年国债创1998年来新高。货币市场定价美联储9月16日加息25bp概率升至65%（沃什讲话前仅约三分之一）。",
       impact: {
         direction: "利空",
         companies: "全市场、AI高估值股",
-        industry: "利率、通胀、市场情绪",
-        logic: "长端收益率与油价双升压制高估值成长股，AI板块从“财报驱动”转向“验证驱动”"
+        industry: "利率、通胀、债券市场",
+        logic: "长端收益率上行直接压制长久期高估值资产，AI板块从财报驱动转向验证驱动"
       }
     },
     {
-      title: "存储超级周期延续：NAND/DRAM涨价致美光、闪迪业绩暴增，供需紧张短期难解",
-      originalTitle: "A Once-in-a-Decade Buying Opportunity: Sandisk and Micron Shares Are Dirt Cheap and Look Primed to Skyrocket",
-      source: "The Motley Fool（财经/行业媒体）",
-      time: "2026年08月28日",
-      type: "行业媒体",
-      url: "https://www.fool.com/investing/2026/08/28/a-once-in-a-decade-buying-opportunity-sandisk-and/",
-      link: "https://www.fool.com/investing/2026/08/28/a-once-in-a-decade-buying-opportunity-sandisk-and/",
-      summary: "AI数据中心对DRAM与NAND需求近乎无限而产能受限，存储芯片价格飙升。闪迪为2026年标普500表现最强个股（年内涨近600%）、美光第四（近250%）。TrendForce数据显示全球前五大NAND厂商Q2营收环比+77%至688.7亿美元。新增产能预计2027年底至2028年才逐步释放，存储供需紧张短期难解。当日美光+2.77%、闪迪+5.5%，存储链整体领涨半导体。",
+      title: "美联储理事巴尔放鹰：若通胀降温不足将'果断加息'，9月加息押注升温",
+      originalTitle: "US Fed's Michael Barr warns central bank may need to raise rates if inflation stays high",
+      source: "路透社（Reuters，经 The Economic Times 转载）",
+      time: "2026年09月01日",
+      type: "财经媒体",
+      url: "https://m.economictimes.com/markets/us-stocks/wall-street-guide/us-feds-michael-barr-warns-central-bank-may-need-to-raise-rates-if-inflation-stays-high/amp_articleshow/133688340.cms",
+      link: "https://m.economictimes.com/markets/us-stocks/wall-street-guide/us-feds-michael-barr-warns-central-bank-may-need-to-raise-rates-if-inflation-stays-high/amp_articleshow/133688340.cms",
+      summary: "美联储理事巴尔在Second Chance Lending论坛预讲稿中表示，'通胀已连续五年多过高'，若通胀未显示足够降温迹象，'应果断加息'；若数据趋势表明通胀正朝2%回落，则可多花时间评估。他指出AI投资支撑经济、就业稳定，但整体通胀3.7%、核心3.3%仍远超2%目标。巴尔为FOMC永久投票委员，其鹰派表态进一步推升市场对9月加息的押注。",
+      impact: {
+        direction: "利空",
+        companies: "全市场、成长股",
+        industry: "货币政策、利率",
+        logic: "美联储内部鹰派声音增强，9月15-16日FOMC前通胀数据（9/11 CPI）成为是否加息的关键依据"
+      }
+    },
+    {
+      title: "戴尔Q2财报创纪录：AI服务器订单609亿美元、积压950亿，全年营收指引上调250亿至1920亿，盘后大涨",
+      originalTitle: "Dell Technologies Delivers Second Quarter Fiscal 2027 Financial Results",
+      source: "戴尔科技官方投资者关系（investors.delltechnologies.com）",
+      time: "2026年09月01日",
+      type: "官方",
+      url: "https://investors.delltechnologies.com/news-releases/news-release-details/dell-technologies-delivers-second-quarter-fiscal-2027-financial",
+      link: "https://investors.delltechnologies.com/news-releases/news-release-details/dell-technologies-delivers-second-quarter-fiscal-2027-financial",
+      summary: "戴尔2027财年Q2（截至7/31）营收470亿美元、同比+58%创纪录，非GAAP每股收益7.04美元（预期约4.90美元）。AI优化服务器营收164亿美元、同比+100%，当季AI服务器订单609亿美元、季末积压950亿美元均创新高。公司将全年营收指引由1670亿上调250亿至1920亿美元（同比+69%），AI服务器全年指引由600亿上调至740亿美元。盘后股价一度大涨约8-11%。",
       impact: {
         direction: "利好",
-        companies: "美光、闪迪、存储链",
-        industry: "存储、半导体",
-        logic: "存储进入“量价齐升”超级周期，供给受限下厂商获得定价权，是当日存储板块逆势走强的核心驱动"
+        companies: "戴尔、英伟达、存储、服务器链",
+        industry: "AI基础设施、数据中心",
+        logic: "AI资本开支仍在加速兑现、验证AI硬件需求成色，与当日半导体股价回调形成背离，或为9/2芯片股提供支撑"
+      }
+    },
+    {
+      title: "苹果正式换帅：John Ternus接任CEO（15年来首次），库克转任执行主席，股价逆势涨2.6%",
+      originalTitle: "Why Is Apple Stock Up Today?",
+      source: "The Motley Fool",
+      time: "2026年09月01日",
+      type: "行业媒体",
+      url: "https://www.fool.com/investing/2026/09/01/why-is-apple-stock-up-today",
+      link: "https://www.fool.com/investing/2026/09/01/why-is-apple-stock-up-today",
+      summary: "苹果9月1日完成15年来首次CEO更迭：硬件工程高级副总裁John Ternus正式接替蒂姆·库克出任第八任CEO，库克转任董事会执行主席并继续负责与全球政策制定者沟通（苹果4月20日已公布该接班计划）。Ternus上任首场大考为9月9日秋季发布会，预计推出iPhone 18及首款折叠屏iPhone。苹果当日逆势涨2.61%。",
+      impact: {
+        direction: "利好",
+        companies: "苹果、消费电子",
+        industry: "管理层变更、产品周期",
+        logic: "换帅落地消除不确定性，市场聚焦9/9新品能否支撑其高估值（Rosenblatt目标价303美元仍低于现价）"
+      }
+    },
+    {
+      title: "半导体/存储普跌：美债收益率上行压制AI高估值，费半跌逾2%、美光/AMD领跌",
+      originalTitle: "Stock Market Today, Sept. 1: Intel Falls on Chip Stock Pressure",
+      source: "Nasdaq / The Motley Fool",
+      time: "2026年09月01日",
+      type: "财经媒体",
+      url: "https://www.nasdaq.com/articles/stock-market-today-sept-1-intel-falls-chip-stock-pressure",
+      link: "https://www.nasdaq.com/articles/stock-market-today-sept-1-intel-falls-chip-stock-pressure",
+      summary: "美债收益率上行、通胀与9月加息预期升温，压制高估值半导体股：费城半导体指数跌2.14%，AMD-2.36%、高通-2.27%、阿斯麦-1.82%、闪迪-1.90%、英伟达-1.51%、英特尔-0.60%。存储股（美光-2.64%）高位获利回吐。英特尔近期200亿美元股权增发引发稀释担忧，但代工亏损已开始收窄。",
+      impact: {
+        direction: "利空",
+        companies: "半导体、存储、英伟达、AMD、美光",
+        industry: "利率、估值",
+        logic: "高估值半导体对利率最敏感，宏观（利率+通胀）成为短期主导变量，需待9/11 CPI与9/15-16 FOMC明朗"
       }
     }
   ],
 
   /* ============ 六、当日最值得关注的 3 个交易逻辑 ============ */
   logics: [
-    { title: "地缘与利率重回台前：美伊交火→油价→通胀预期→长端收益率，压制高估值科技股",
-      text: "美伊时隔一个月再度交火，布油站上90美元、WTI涨2.8%，重燃通胀担忧，10年期美债收益率续升3.6bp至4.757%、30年期至5.248%。长端收益率与油价双升直接压制长久期、高估值资产，资金从云巨头（亚马逊、谷歌跌超2%）撤向能源与存储，AI高估值股进入策略师所称“show-me market”——财报利好兑现后需以数据证明估值合理性。" },
-    { title: "存储成为AI链新瓶颈：NAND/DRAM涨价超级周期，存储链逆势领涨",
-      text: "闪迪+5.5%（MSCI纳入生效点火）、美光+2.77%领涨半导体，存储从GPU的“配套设施”升级为“AI战略硬通货”。英伟达CFO此前预警存储供应瓶颈将延续至2028财年底，TrendForce预计存储占云厂商资本开支比重将由47%升至2027年的68%。供给受限下存储厂商重获定价权，成为当日科技股分化中资金确定性最高的方向。" },
-    { title: "定制芯片竞争白热化：英伟达35亿美元入股联发科对冲自研芯片分流，博通/迈威尔承压",
-      text: "英伟达投资联发科35亿美元并开放NVLink Fusion生态，本质是把潜在的定制XPU“对手”转化为自己平台的“伙伴”，以对冲大客户（亚马逊、谷歌、微软）自研芯片的分流。联发科借此直接挑战博通、迈威尔在定制ASIC领域的地位。AI算力利润分配的博弈从“硬件vs云”进一步深入到“定制芯片”细分赛道，博通当日仅微涨0.42%、相对滞涨。" }
+    { title: "地缘与利率重回主导：美伊冲突→油价→通胀预期→美债收益率创新高→压制高估值科技股",
+      text: "美伊时隔数日再度交火，美军新一轮空袭伊朗革命卫队，WTI+5.2%、布油+4.6%均创5周新高，重燃通胀担忧；叠加沃什鹰派讲话与巴尔'果断加息'表态，10年期美债收益率升至4.79%（2025年1月以来新高），9月加息概率升至65%。长端收益率与油价双升直接压制长久期高估值资产，资金从半导体/存储撤向能源，科技股整体承压。" },
+    { title: "AI硬件需求验证与股价回调背离：戴尔AI服务器订单/积压创新高、上调全年指引",
+      text: "戴尔盘后财报显示AI服务器订单609亿、积压950亿美元均创纪录，全年营收指引一次性上调250亿美元至1920亿、AI服务器指引上调至740亿，印证AI资本开支仍在加速兑现。这与当日半导体板块因利率担忧而集体回调形成鲜明背离，提示宏观（利率）短期主导股价，但产业基本面（AI需求）依然强劲，或为回调后的芯片股提供支撑。" },
+    { title: "存储高位整固：超级周期基本面未变，但前期涨幅过大引发获利回吐",
+      text: "美光-2.64%、闪迪-1.90%，存储成为当日半导体重灾区。闪迪前日因MSCI纳入被动买盘大涨5.5%、年内累计涨幅巨大，资金在高位集中止盈；美光同样面临前期涨幅过大后的技术性回吐。存储'量价齐升'超级周期（AI数据中心NAND/DRAM涨价、供给受限）基本面未变，短期回调更多是估值与筹码层面的整固，需观察9/30美光Q4财报验证。" }
   ],
 
   /* ============ 七、未来 1—3 个交易日关注事项（具体事件） ============ */
   watchlist: [
-    { date: "09月01日", event: "美国8月ISM制造业PMI、7月JOLTS职位空缺", impact: "检验高利率与油价上行下实体制造业韧性，若价格分项走强或强化加息预期、压制成长股" },
-    { date: "09月02日", event: "博通（Broadcom）2026财年Q3财报（盘后），AI营收约160亿美元指引为焦点", impact: "检验AI定制芯片与网络设备需求成色，以及联发科挑战下定制芯片竞争格局" },
-    { date: "09月04日", event: "美国劳工部8月非农就业报告（NFP）", impact: "美联储9月FOMC前最具决定性的数据，定调加息路径，直接影响科技成长股贴现率" },
+    { date: "09月02日", event: "博通（Broadcom）2026财年Q3财报（盘后），AI定制芯片约160亿美元营收指引为焦点", impact: "检验AI定制芯片与网络设备需求成色，以及联发科借英伟达NVLink Fusion挑战下定制芯片竞争格局" },
+    { date: "09月04日", event: "美国劳工部8月非农就业报告（NFP）", impact: "美联储9月FOMC前最具决定性的就业数据，定调加息路径，直接影响科技成长股贴现率" },
     { date: "09月07日", event: "美国劳动节（Labor Day），美股休市", impact: "长假前资金趋于谨慎，短期波动或收敛" },
-    { date: "09月15-16日", event: "美联储FOMC议息会议", impact: "市场对9月加息路径的定价，影响高估值成长股估值锚" },
+    { date: "09月09日", event: "苹果秋季发布会，预计发布iPhone 18及首款折叠屏iPhone", impact: "John Ternus接任CEO后首场产品大考，检验苹果AI与硬件创新能否支撑高估值" },
+    { date: "09月11日", event: "美国8月CPI（消费者价格指数）数据", impact: "9月FOMC前最关键通胀数据，直接决定是否加息，市场押注9月加息概率约65%" },
+    { date: "09月15-16日", event: "美联储FOMC议息会议", impact: "市场定价9月加息25bp概率约65%，影响高估值成长股估值锚" },
     { date: "09月30日", event: "美光科技（Micron）Q4财报", impact: "存储涨价周期与HBM供需的关键验证，影响存储板块（美光、闪迪）定价" }
   ],
 
