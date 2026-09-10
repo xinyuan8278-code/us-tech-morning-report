@@ -23,8 +23,8 @@ window.REPORT_DATA = {
   meta: {
     title: "美股科技板块前一交易日行情日报",
     subtitle: "盘前版 · 大型科技 + 半导体存储跟踪",
-    reportDate: "2026年09月09日",   // 报告发布日期（周三）
-    tradeDate: "2026年09月08日",    // 对应美股交易日（前一交易日，劳动节后首个完整交易日）
+    reportDate: "2026年09月10日",   // 报告发布日期（周四）
+    tradeDate: "2026年09月09日",    // 对应美股交易日（前一交易日，周三）
     author: "华泰期货 · 研究",
     tag: "每日市场跟踪"
   },
@@ -32,7 +32,7 @@ window.REPORT_DATA = {
   /* ============ 二、市场概览 ============ */
   overview: {
     /* 简短概括：指数变化 + 个股变化 + 重大事件 */
-    text: "9月8日美股三大指数集体收跌：道指-1.18%、标普500-0.58%、纳指-0.32%，费城半导体（SOXX）逆势+1.6%。中东油轮袭击升级推升油价逼近百元、加剧通胀与加息担忧（9月加息概率约58%），大型科技与软件股承压；但AI硬件与半导体逆势走强——AMD+5.90%（Citi会议AI展望）、博通+2.98%、英特尔+9.05%，存储股高位回吐（美光-1.61%、闪迪-0.12%）。高通与亚马逊达成AI芯片合作，最高600亿美元采购。",
+    text: "9月9日美股三大指数连续第三日收跌：道指-0.77%、标普500-0.48%、纳指-0.64%，费城半导体(SOXX)逆势+0.68%。财政部60亿美元长债回购不及预期、油价破百，10年期美债收益率升至4.84%创2023年11月来新高，压制风险偏好。但AI主线局部强势：Meta+6.55%（发布AI智能体Muse）、AMD+3.04%、美光+2.75%；谷歌-2.28%、亚马逊-1.78%领跌。苹果发布首款折叠屏iPhone Duo。",
     /* 指数卡片（可增删） */
     indices: [
       { name: "Nasdaq Composite", code: "IXIC", change: "-0.00%" },
@@ -45,133 +45,149 @@ window.REPORT_DATA = {
   /* ============ 三、超涨 / 超跌个股提示 ============ */
   alerts: [
     {
-      name: "AMD",
-      code: "AMD",
+      name: "Meta Platforms",
+      code: "META",
       direction: "超涨",
       change: "-0.00%",
-      fiveDay: "9/1收盘459.61 → 9/8收盘505.74，近5个交易日累计约+10.0%，连续走高",
-      newHighLow: "创阶段新高，收于505.74美元，逼近历史高位",
-      volume: "明显放大，9/8成交2816.7万股，约为前一交易日（1967.9万股）的1.43倍",
-      reason: "在Citi 2026全球TMT会议上给出乐观AI展望：2030年AI市场可达2万亿美元、数据中心业务2027年翻倍至约700亿美元，MI450三季度出货、Q4爬坡，并宣布Meta、OpenAI、Anthropic为重要AI客户；Citi分析师Atif Malik重申买入、目标价575美元",
-      impact: "AI算力与服务器CPU双主线共振，股价创阶段新高；但估值已高（P/E约122倍），后续走势取决于数据中心收入兑现与毛利率表现"
+      fiveDay: "9/4收盘616.77 → 9/9收盘653.69，近5个交易日累计约+6.0%，逆势连续走高",
+      newHighLow: "创阶段新高，收于653.69美元，为近5个交易日最高收盘",
+      volume: "明显放大，9/9成交3590.1万股，约为前一交易日（1891.0万股）的1.9倍",
+      reason: "9/8正式发布个人AI智能体Muse，可自主代表用户发送邮件、购物、预订行程，首席AI官Alexandr Wang称使用量已\u201c远超预期\u201d；瑞穗证券上调至\u201c跑赢大盘\u201d、目标价750美元，KeyBanc给予\u201c增持\u201d、目标价780美元",
+      impact: "AI智能体商业化打开第二增长曲线，推动Meta重回年初以来高位；后续关注Muse订阅转化率与AI资本开支回报能否兑现"
     }
   ],
 
   /* ============ 四、重点公司行情表 ============ */
   /* 超涨/超跌个股放最上方；无新闻的公司驱动因素简要说明即可 */
   stocks: [
-    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "大盘承压+获利回吐，跌2.01%，为科技巨头中跌幅居前；收购Hugging Face（约129亿美元）利好未抵宏观压力" },
-    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "油价上涨、加息预期升温压制大型软件股，跌1.15%" },
-    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "大型科技股随大盘回落，跌1.17%；9/9发布会前市场观望" },
-    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "消费科技承压，微跌0.60%；与高通达成AI芯片合作、利好AWS自研芯片" },
-    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "基本持平（-0.03%），大型平台股相对抗跌" },
-    { name: "Meta",      code: "META",  change: "-0.00%", driver: "大盘走弱拖累，跌0.53%" },
-    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "定制ASIC主题升温（高通-亚马逊合作印证）+半导体板块走强，涨2.98%" },
-    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "Citi会议乐观AI展望（2万亿AI TAM、数据中心2027翻倍至700亿），涨5.90%领涨芯片股" },
-    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "存储股冲高后获利回吐，跌1.61%；Goldman称存储正突破夏季下行趋势（尚处初期）" },
-    { name: "Sandisk",   code: "SNDK",  change: "-0.00%", driver: "高位整固，微跌0.12%；NAND超级周期延续但短线获利了结" }
+    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "9/10除息日前获利了结+大盘承压，跌0.91%；129.3亿美元收购Hugging Face强化AI软件栈" },
+    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "大型软件股随利率上行走弱，微跌0.47%" },
+    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "秋季发布会发布首款折叠屏iPhone Duo，股价盘中\u201c过山车\u201d后微跌0.28%" },
+    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "大型科技股领跌，跌1.78%；云厂商资本开支前景受利率上行压制" },
+    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "科技七巨头中跌幅居前（-2.28%），大盘与利率压力叠加" },
+    { name: "Meta",      code: "META",  change: "-0.00%", driver: "发布个人AI智能体Muse、使用量远超预期，逆势+6.55%，标普500最大涨幅个股之一" },
+    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "半导体板块分化、定制ASIC主题短线降温，跌1.13%" },
+    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "AI硬件主线韧性，连续第二日上涨+3.04%，收于521.10美元" },
+    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "HBM产能年底翻倍至约10万片/月，存储景气延续，涨2.75%至1027.77美元" },
+    { name: "Sandisk",   code: "SNDK",  change: "-0.00%", driver: "存储板块整体走强，NAND超级周期延续，涨1.51%至1764.17美元" }
   ],
 
   /* ============ 五、重要科技与政策新闻（一手来源） ============ */
   news: [
     {
-      title: "中东油轮袭击升级、油价逼近百元：美股三大指数集体收跌，美联储9月加息概率约58%",
-      originalTitle: "Wall Street down, oil up as inflation, Middle East worries persist",
-      source: "Reuters（路透社，经 Euronext Live 转载原文）",
-      time: "2026年09月08日",
+      title: "美国财政部60亿美元长债回购（三倍扩容）不及预期，10年期美债收益率升至4.84%创2023年11月来新高",
+      originalTitle: "U.S. Treasury Plans $6 Billion 10- to 20-Year Bond Buyback — Update",
+      source: "Dow Jones Newswires（道琼斯通讯社，经 Morningstar 转载原文）",
+      time: "2026年09月09日",
       type: "财经媒体",
-      url: "https://live.euronext.com/en/financial-news/wall-street-down-oil-inflation-middle-east-worries-persist",
-      link: "https://live.euronext.com/en/financial-news/wall-street-down-oil-inflation-middle-east-worries-persist",
-      summary: "9月8日美股三大指数集体收跌：道指-1.18%、标普-0.58%、纳指-0.32%，MSCI全球指数-0.55%。核心驱动是中东局势升级——也门胡塞武装袭击沙特能源设施，美军随后摧毁5艘伊朗原油运输船，布伦特原油涨2.13%至99.07美元、WTI涨2.82%至94.05美元，油价逼近百元推升通胀担忧。10年期美债收益率报4.8%（逼近2023年11月来高位），货币市场定价美联储9月16日加息概率约58%；欧洲央行周四（9/10）几乎确定加息25bp，日本央行下周加息预期升温、日元创两年最大单周涨幅（近4%），套息交易平仓放大全球风险资产波动。周五（9/11）CPI是议息前决定性变量。",
+      url: "https://www.morningstar.com/news/dow-jones/202609096829/us-treasury-plans-6-billion-10-to-20-year-bond-buyback-update",
+      link: "https://www.morningstar.com/news/dow-jones/202609096829/us-treasury-plans-6-billion-10-to-20-year-bond-buyback-update",
+      summary: "美国财政部9/9宣布周四（9/10）回购至多60亿美元10-20年期国债，为常规规模的3倍（上月指引\u201c至少翻倍\u201d至40亿美元）。但市场反应负面：10年期收益率升至4.84%（2023年11月来最高）、30年期升至5.29%、2年期升至4.42%。财政部长贝森特称无法改变国债均衡价格、目标是\u201c放慢\u201d波动；RSM首席经济学家Brusuelas等指出干预规模过小，难以扭转投资者对通胀与财政可持续性的担忧。",
       impact: {
         direction: "利空",
-        companies: "全市场、高估值成长股",
-        industry: "能源、通胀、利率",
-        logic: "油价经通胀渠道强化加息预期、压制长久期成长股估值；但纳指跌幅(-0.32%)远小于道指(-1.18%)，AI/半导体主线相对抗跌"
+        companies: "全市场、高估值长久期成长股",
+        industry: "利率、财政政策、通胀",
+        logic: "无风险收益率上行压低股票估值锚，财政部干预力度不及预期强化了长端利率高位预期"
       }
     },
     {
-      title: "AMD在Citi会议给出乐观AI展望：2030年AI市场2万亿美元、数据中心业务2027年翻倍至700亿美元",
-      originalTitle: "AMD Stock Jumps Over 5% Today on Bullish AI Outlook",
-      source: "TipRanks（行业媒体）",
-      time: "2026年09月08日",
-      type: "行业媒体",
-      url: "https://www.tipranks.com/news/amd-stock-amd-jumps-over-6-today-on-bullish-ai-outlook",
-      link: "https://www.tipranks.com/news/amd-stock-amd-jumps-over-6-today-on-bullish-ai-outlook",
-      summary: "AMD股价周二涨超5%（收涨5.90%），驱动是公司在Citi 2026全球TMT会议上给出更乐观的AI展望：预计到2030年AI相关市场机会可达2万亿美元；数据中心业务2027年将翻倍至约700亿美元营收，其中AI GPU预计贡献低400亿美元区间，其余由服务器CPU贡献。MI450已从三季度开始出货、Q4爬坡、2027年一季度再上台阶；AMD宣布Meta、OpenAI、Anthropic为重要AI客户。公司同时上调服务器CPU市场空间预期（2030年达2200亿美元），并提示先进制程晶圆、HBM与先进封装供给紧张，已锁定290-300亿美元采购承诺。Citi分析师Atif Malik重申买入、目标价575美元。",
-      impact: {
-        direction: "利好",
-        companies: "AMD、英伟达产业链",
-        industry: "AI算力、服务器CPU、半导体",
-        logic: "数据中心+AI双主线驱动AMD创阶段新高，印证AI资本开支景气延续"
-      }
-    },
-    {
-      title: "高通与亚马逊达成AI芯片合作：最高600亿美元采购+40亿认股权证，定制ASIC与1.6T光互联",
-      originalTitle: "Qualcomm strikes AI chip deal with Amazon, offers right to buy about $4 billion in stock",
-      source: "Reuters（路透社，经 The Economic Times 转载原文）",
-      time: "2026年09月08日",
+      title: "油价破百叠加中东局势升级：布伦特站上100美元，美股三大指数连续第三日收跌",
+      originalTitle: "Oil, Treasury yields turn higher as stocks falter",
+      source: "Reuters（路透社，经 Euronext Live 转载原文）",
+      time: "2026年09月09日",
       type: "财经媒体",
-      url: "https://economictimes.indiatimes.com/tech/artificial-intelligence/qualcomm-strikes-ai-chip-deal-with-amazon-offers-right-to-buy-about-4-billion-in-stock/articleshow/133932526.cms",
-      link: "https://economictimes.indiatimes.com/tech/artificial-intelligence/qualcomm-strikes-ai-chip-deal-with-amazon-offers-right-to-buy-about-4-billion-in-stock/articleshow/133932526.cms",
-      summary: "高通周二宣布与亚马逊建立多代际AI数据中心芯片合作，聚焦AWS数据中心内的AI推理工作负载，长期采购规模最高可达600亿美元。作为协议一部分，高通向亚马逊发行认股权证，允许其以每股161.26美元固定价格购买最多2500万股（价值约40亿美元），权证随采购里程碑分批归属。双方还将联合开发最高1.6Tbps的光互连解决方案。这是高通继Meta、微软之后获得的又一超大规模客户，目标2029年数据中心芯片收入达150亿美元。此前Marvell与谷歌签署类似定制AI芯片协议（最高122亿美元认股权证），\"采购换股权\"模式在AI供应链扩散。高通收涨约3-4%。",
+      url: "https://live.euronext.com/en/financial-news/oil-treasury-yields-turn-higher-stocks-falter",
+      link: "https://live.euronext.com/en/financial-news/oil-treasury-yields-turn-higher-stocks-falter",
+      summary: "布伦特原油周三站上100美元（7月24日来首次），WTI收96.05美元(+3.25%)、布伦特收101.21美元(+3.36%)。导火索是中东局势升级——伊朗称向驻约旦美军基地发射弹道导弹、双方互袭船只，引发供给担忧。三大指数连续第三日收跌：道指-0.77%、标普-0.48%、纳指-0.64%。市场聚焦周五PPI/CPI与下周三FOMC（交易员对加息与按兵不动的定价接近五五开、加息概率约60-70%）。",
       impact: {
-        direction: "利好",
-        companies: "高通、亚马逊、博通（定制ASIC对标）、光互连产业链",
-        industry: "AI芯片、定制ASIC、光通信",
-        logic: "印证超大规模云厂商加码自研定制芯片、寻求英伟达之外的选择，定制ASIC与光互连主题升温"
+        direction: "利空",
+        companies: "全市场、消费与运输板块",
+        industry: "能源、通胀、地缘政治",
+        logic: "油价经通胀渠道强化央行加息预期，压制风险资产与成长股估值；但纳指相对道指抗跌，AI主线仍有韧性"
       }
     },
     {
-      title: "芯片股逆势上涨：Goldman称存储股突破夏季下行趋势，英特尔High-NA EUV里程碑，英伟达收购Hugging Face",
-      originalTitle: "Why Are Micron, AMD, Nvidia and Intel Stocks Rising Today? Here's What's Driving the Chip Rally, September 8",
-      source: "TipRanks（行业媒体）",
-      time: "2026年09月08日",
-      type: "行业媒体",
-      url: "https://www.tipranks.com/news/why-are-micron-amd-nvidia-and-intel-stocks-rising-today-heres-whats-driving-the-chip-rally",
-      link: "https://www.tipranks.com/news/why-are-micron-amd-nvidia-and-intel-stocks-rising-today-heres-whats-driving-the-chip-rally",
-      summary: "在美股期货走低、油价逼近百元的背景下，芯片板块仍逆势走强。Goldman Sachs指出美光、闪迪等存储股正突破整个夏季的下跌趋势、且尚处初期，叠加美光9月30日财报催化，SK海力士(+4.83%)、三星同步走强。英特尔大涨9.05%——英特尔代工与ASML宣布High-NA EUV技术已累计加工超100万片晶圆，用于18A制程Panther Lake，先进制程进展获认可。英伟达则以约129.3亿美元收购Hugging Face、强化AI软件栈，CEO黄仁勋强调AI算力需求强劲（OpenAI GPT-6 Astra训练动用超10万Grace Blackwell系统、另有40万GPU即将上线）。存储板块内部分化：希捷+6.49%、SK海力士+4.83%、西部数据+2.14%，美光-1.61%、闪迪-0.12%。",
+      title: "Meta正式推出个人AI智能体Muse，使用量远超预期，股价逆势大涨6.55%",
+      originalTitle: "Introducing Muse: The World's First Personal AI Agent Built for Everyone",
+      source: "Meta Newsroom（官方新闻稿）",
+      time: "2026年09月09日",
+      type: "官方",
+      url: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+      link: "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+      summary: "Meta于9/8正式推出个人AI智能体Muse，可自主代表用户发送邮件、购物、预订行程，运行于独立云端虚拟机（VM），用户可授权接入邮箱、日历、支付、健康等应用并随时撤销权限；免费提供多数功能，另有订阅套餐。首席AI官Alexandr Wang称使用量已\u201c远超预期\u201d。9/9股价逆势+6.55%至653.69美元，为标普500最大涨幅个股之一，瑞穗上调至\u201c跑赢大盘\u201d750美元、KeyBanc\u201c增持\u201d780美元。",
       impact: {
         direction: "利好",
-        companies: "英特尔、AMD、英伟达、美光、闪迪、ASML",
-        industry: "半导体、存储、AI算力",
-        logic: "AI需求+存储涨价周期+先进制程共同驱动费半逆势+1.3%，凸显\"AI硬件强于软件\"的结构分化"
+        companies: "Meta、AI智能体产业链",
+        industry: "AI智能体、消费互联网",
+        logic: "AI从\u201c聊天工具\u201d走向\u201c可执行任务的个人智能体\u201d，订阅商业模式打开第二增长曲线，对冲市场对AI资本开支回报的担忧"
       }
     },
     {
-      title: "Citi顶级分析师重申AMD买入、目标价575美元：数据中心业务明年翻倍、Helios 2027量超预期",
-      originalTitle: "AMD Stock Forecast: Top Citi Analyst Remains Bullish on New Growth Targets",
-      source: "TipRanks（行业媒体 / 财经博客）",
-      time: "2026年09月08日",
+      title: "苹果发布首款折叠屏iPhone Duo：A20 Pro芯片、1999美元起，10月23日发售",
+      originalTitle: "Apple unveils iPhone Duo",
+      source: "Apple 官方新闻稿（经 Business Wire）",
+      time: "2026年09月09日",
+      type: "官方",
+      url: "https://www.businesswire.com/news/home/20260909447182/en/",
+      link: "https://www.businesswire.com/news/home/20260909447182/en/",
+      summary: "苹果9/9发布首款折叠屏iPhone Duo，内屏7.6英寸/外屏5.4英寸Super Retina XDR，搭载A20 Pro芯片（2nm、6核CPU较A19 Pro快20%、7核GPU快40%、双16核神经引擎），5级钛金属机身+逾100部件铰链、IP68防水，起售价1999美元，10/16预订、10/23发售（覆盖70余国家）。同场发布iPhone 18 Pro/Pro Max、AirPods 5、Apple Watch 12。这是新CEO John Ternus主持的首场发布会。",
+      impact: {
+        direction: "中性",
+        companies: "苹果、果链供应链",
+        industry: "消费电子、折叠屏、端侧AI",
+        logic: "折叠屏新形态是iPhone近十年最大迭代，但初期供应受限（有报道称日产量仅数百部），对业绩的实质拉动需待2027财年兑现"
+      }
+    },
+    {
+      title: "美光HBM产能年底翻倍至约10万片/月，存储与光通信板块逆势走强",
+      originalTitle: "Micron's HBM push points to a far larger production base",
+      source: "Economic Times（ET CIO，行业媒体）",
+      time: "2026年09月09日",
       type: "行业媒体",
-      url: "https://blog.tipranks.com/amd-stock-forecast-top-citi-analyst-remains-bullish-on-new-growth-targets",
-      link: "https://blog.tipranks.com/amd-stock-forecast-top-citi-analyst-remains-bullish-on-new-growth-targets",
-      summary: "Citi分析师Atif Malik在与AMD CFO Jean Hu、IR负责人Matt Ramsay会面后重申买入评级、目标价575美元。Malik指出AMD上调长期展望：AI与加速计算驱动下，2030年总可服务市场达2万亿美元；数据中心业务明年翻倍以上（MI450本季出货、Q4及2027年爬坡）；Helios机架级系统进展顺利，2027年出货量已高于管理层早期预估；AMD披露Meta及两家AI实验室三大锚定客户，订单均高于初始协议。服务器CPU方面，AMD将2030年TAM由250亿大幅上调至2200亿美元，企业服务器业务Q2同比+70%，目标拿下50%份额（对应1000亿美元）。AMD全年CPU收入下半年预计同比+80%以上。",
+      url: "https://ciosea.economictimes.indiatimes.com/news/strategy-and-management/microns-hbm-push-points-to-a-far-larger-production-base/133843205",
+      link: "https://ciosea.economictimes.indiatimes.com/news/strategy-and-management/microns-hbm-push-points-to-a-far-larger-production-base/133843205",
+      summary: "行业消息（Electronic Times）称美光计划到2026年底将HBM月产能提升至约10万片晶圆，较去年的4-5万片接近翻倍，台湾与新加坡为主要制造/封装基地；HBM4 12层（36GB）已量产、配套英伟达Vera Rubin平台。9/9存储与光通信逆势走强：SK海力士+7.05%创新高、美光+2.75%、闪迪+1.51%、西部数据+1.04%，迈威尔+4.26%带动光通信（Lumentum、康宁上涨）。",
       impact: {
         direction: "利好",
-        companies: "AMD",
-        industry: "AI算力、服务器CPU",
-        logic: "分析师上调评级与目标价强化AMD AI/服务器双主线逻辑，支撑股价创阶段新高"
+        companies: "美光、闪迪、SK海力士、迈威尔",
+        industry: "存储芯片、HBM、光通信",
+        logic: "HBM仍是AI供应链最紧缺环节，产能扩张+涨价周期共同支撑存储估值；但集中扩产集中在2026年底-2027年，需关注供需反转风险"
+      }
+    },
+    {
+      title: "英伟达9月10日除息，此前129.3亿美元收购Hugging Face强化AI软件栈",
+      originalTitle: "Market Street Wealth Management Advisors LLC Increases Holdings in NVIDIA Corporation NVDA",
+      source: "MarketBeat（行业媒体）",
+      time: "2026年09月09日",
+      type: "行业媒体",
+      url: "https://www.marketbeat.com/instant-alerts/filing-market-street-wealth-management-advisors-llc-increases-holdings-in-nvidia-corporation-nvda-2026-09-08",
+      link: "https://www.marketbeat.com/instant-alerts/filing-market-street-wealth-management-advisors-llc-increases-holdings-in-nvidia-corporation-nvda-2026-09-08",
+      summary: "英伟达9/10为除息日（每股派息0.25美元、10/1发放），9/9收跌0.91%报223.67美元。公司此前宣布以约129.3亿美元收购AI开源平台Hugging Face，分析师视为将芯片+CUDA软件与开源模型生态整合、巩固AI护城河。黄仁勋此前表示OpenAI GPT-6 Astra训练动用超10万套Grace Blackwell系统、另有约40万GPU即将上线，AI算力需求持续强劲。",
+      impact: {
+        direction: "中性",
+        companies: "英伟达",
+        industry: "AI算力、AI软件生态",
+        logic: "收购强化软件栈中长期竞争力；短期受除息日与大盘利率压力影响，情绪偏中性"
       }
     }
   ],
 
   /* ============ 六、当日最值得关注的 3 个交易逻辑 ============ */
   logics: [
-    { title: "利率与油价双重压制：CPI前风险偏好承压，但AI主线相对抗跌",
-      text: "油价逼近百元（中东油轮袭击升级）+10年期美债收益率4.8%+9月加息概率约58%，共同压制风险资产，大型科技与软件股（英伟达-2.01%、苹果-1.17%、微软-1.15%）领跌；但纳指跌幅(-0.32%)远小于道指(-1.18%)、费半逆势+1.3%，显示AI/半导体主线与宏观利率脱敏。9/11 CPI是决定性变量，若超预期将进一步压制长久期成长股估值。" },
-    { title: "定制ASIC与\"采购换股权\"模式扩散：云厂商寻求英伟达之外的第二条路",
-      text: "高通-亚马逊600亿合作（40亿认股权证）延续Marvell-谷歌(122亿)、AMD-OpenAI(最高10%股权)模式，定制ASIC主题升温——博通+2.98%、高通+3%，1.6T光互连受益。云厂商通过定制芯片强化议价与自研能力，AI芯片竞争格局生变，博通等ASIC龙头与光互连产业链成为受益方。" },
-    { title: "AI硬件与半导体逆势：AMD领涨、存储高位分化，产业景气独立于利率",
-      text: "AMD+5.90%（Citi会议2万亿AI TAM、数据中心2027翻倍至700亿）、英特尔+9.05%、费半+1.3%，AI资本开支叙事独立于利率上行；但存储股高位获利回吐（美光-1.61%、闪迪-0.12%），Goldman称突破下行趋势尚处初期，需9/30美光财报验证涨价周期与HBM放量。" }
+    { title: "利率与油价双重压制 vs AI主线韧性：资金在\u201c利率敏感\u201d与\u201cAI景气\u201d间分化",
+      text: "财政部60亿美元回购不及预期、油价破百，共同推升10年期美债收益率至4.84%（2023年11月来新高），压制长久期成长股，大型科技与软件股（谷歌-2.28%、亚马逊-1.78%）领跌。但纳指(-0.64%)抗跌于道指(-0.77%)、费半逆势+0.68%，Meta、存储、AI硬件局部强势，显示资金并未全面撤离科技，而是在利率敏感资产与AI景气资产之间做结构性切换。9/11 CPI是决定性变量。" },
+    { title: "AI智能体商业化成为新的催化主线：Meta Muse与苹果Siri AI共振",
+      text: "Meta发布个人AI智能体Muse、使用量\u201c远超预期\u201d，带动股价+6.55%重回年初高位；苹果同日以Siri AI+Apple Intelligence押注端侧智能体，两大巨头同步将AI从\u201c对话工具\u201d推向\u201c可执行任务的个人智能体\u201d，订阅模式打开第二增长曲线。这是继AI算力（英伟达）之后，市场对\u201cAI商业化兑现\u201d叙事的一次集中定价，可能成为大型科技股估值的新锚。" },
+    { title: "存储超级周期+HBM供需紧张延续：产能扩张与涨价周期并行",
+      text: "美光HBM产能年底翻倍至约10万片/月、HBM4 12层量产（配套Vera Rubin），SK海力士+7%创新高、美光+2.75%、闪迪+1.51%，存储/光通信逆势走强，独立于大盘。HBM仍是AI供应链最紧缺环节，涨价+扩产同步推进；但三家大厂产能集中释放时点均在2026年底-2027年，需以9/30美光财报与后续需求数据验证涨价周期持续性，警惕2027年供需反转风险。" }
   ],
 
   /* ============ 七、未来 1—3 个交易日关注事项（具体事件） ============ */
   watchlist: [
-    { date: "09月09日", event: "苹果'Surprise and Shine'秋季发布会（iPhone 18 Pro/Pro Max + 首款折叠iPhone Ultra）+ 财政部扩大版长债回购首次操作（10年期国债拍卖390亿）", impact: "苹果折叠屏与AI创新能否对冲估值压力；长债回购落地影响收益率曲线" },
-    { date: "09月10日", event: "美国8月PPI + Oracle、Adobe 盘后财报 + 欧洲央行（ECB）议息（预计加息25bp）", impact: "PPI为9月通胀先行指标；Oracle（6380亿美元积压订单）检验AI/企业软件景气；ECB加息收紧全球流动性" },
-    { date: "09月11日", event: "美国8月CPI数据（9月FOMC前最后通胀数据）", impact: "静默期内加息与否的决定性依据，当前加息押注约58%" },
-    { date: "09月15-16日", event: "美联储FOMC议息会议", impact: "市场定价9/16加息25bp概率约58%，影响高估值成长股估值锚" },
+    { date: "09月10日", event: "美国8月PPI + Oracle、Adobe盘后财报 + 欧洲央行(ECB)议息（预计加息25bp）+ 英伟达除息日", impact: "PPI为9月通胀先行指标；Oracle检验AI/企业软件景气；ECB加息收紧全球流动性" },
+    { date: "09月11日", event: "美国8月CPI数据（9月FOMC前最后通胀数据）", impact: "加息与否的决定性依据，当前交易员对加息与按兵不动的定价接近五五开" },
+    { date: "09月12日", event: "iPhone 18 Pro / Pro Max 开启预订", impact: "新机预售数据检验高端需求与苹果供应链预期" },
+    { date: "09月15-16日", event: "美联储FOMC议息会议", impact: "市场定价加息概率约60-70%，决定高估值成长股估值锚" },
     { date: "09月30日", event: "美光科技（Micron）Q4财报", impact: "存储涨价周期与HBM供需的关键验证，影响存储板块（美光、闪迪）定价" }
   ],
 
