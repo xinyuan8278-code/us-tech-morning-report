@@ -1,6 +1,7 @@
 /**
  * ============================================================
  *  美股科技板块前一交易日行情日报 —— 数据文件（每日只需改这里）
+ *  （2026-09-16 更新：对应美股交易日 2026-09-15）
  * ============================================================
  *  使用说明：
  *  1. 打开本文件，替换下方各字段的值即可生成当日日报。
@@ -23,8 +24,8 @@ window.REPORT_DATA = {
   meta: {
     title: "美股科技板块前一交易日行情日报",
     subtitle: "盘前版 · 大型科技 + 半导体存储跟踪",
-    reportDate: "2026年09月14日",   // 报告发布日期（周一）
-    tradeDate: "2026年09月11日",    // 对应美股交易日（前一交易日，周五）
+    reportDate: "2026年09月16日",   // 报告发布日期（周三）
+    tradeDate: "2026年09月15日",    // 对应美股交易日（前一交易日，周二）
     author: "华泰期货 · 研究",
     tag: "每日市场跟踪"
   },
@@ -32,7 +33,7 @@ window.REPORT_DATA = {
   /* ============ 二、市场概览 ============ */
   overview: {
     /* 简短概括：指数变化 + 个股变化 + 重大事件 */
-    text: "9月11日美股三大指数终结四连跌：纳指+0.96%、标普+0.86%、道指+0.98%，费半+1.8%。8月CPI整体符合预期、核心同比降至64个月新低2.4%，油价回落（WTI破100美元）推动风险偏好修复，9月加息概率升至约87%。AI硬件领涨（戴尔+12%、AMD+2.5%），存储分化（闪迪-3.5%）。",
+    text: "9月15日美股三大指数延续跌势：纳指-0.78%、标普-0.45%、道指-0.63%，标普创8月以来新低。FOMC议息会议召开、定价加息25bp概率超90%；10年期美债收益率破5%创2007年新高，油价飙升（WTI+4.4%至$105.83）。半导体企稳反弹（AMD+2.19%），大型科技普跌（亚马逊-2.02%、微软-1.64%）。",
     /* 指数卡片（可增删） */
     indices: [
       { name: "Nasdaq Composite", code: "IXIC", change: "-0.00%" },
@@ -49,146 +50,130 @@ window.REPORT_DATA = {
       code: "SNDK",
       direction: "超跌",
       change: "-0.00%",
-      fiveDay: "9/9盘中创阶段新高1807.22 → 9/10收1692.59（-4.06%）→ 9/11收1633.35（-3.50%），自高点两日回落约9.6%",
-      newHighLow: "9/9盘中触及1807.22阶段新高后连续两日回落，9/11收1633.35为近一周低点",
-      volume: "明显放大，9/11成交937.1万股，较前一交易日（873.7万股）放大约7.3%，放量下跌",
-      reason: "NAND存储高位获利了结延续，闪迪（-3.50%）、希捷（-3%）、西部数据（-3%）与AI硬件普涨（戴尔+12%、AMD+2.5%）走势背离；戴尔财报指出DRAM/NAND仍是最大供应瓶颈，短期涨价预期已部分兑现",
-      impact: "存储超级周期长期逻辑未变，但NAND高位品种对利率与获利了结更敏感；需以9/30美光财报验证涨价周期持续性"
+      fiveDay: "9/11收1633.35 → 9/14收1551.99（-4.98%）→ 9/15收1530.90（-1.36%），近5个交易日累计-11.92%",
+      newHighLow: "距52周高点2354.39已回落约35%，近20日-14.32%、近60日-29.93%，处于深度回调通道下沿",
+      volume: "9/15成交687万股、量比0.71，未明显放量，抛压边际减弱",
+      reason: "NAND存储高位获利了结延续；Anthropic CEO Amodei呼吁放缓AI、美债收益率破5%与加息预期升温，高估值品种持续去杠杆；费半整体已企稳（+0.4%），存储（SNDK/MU）明显弱于AI算力（AMD+2.19%、高通+4.25%）",
+      impact: "存储超级周期长期逻辑未变，但高位品种对利率与获利了结更敏感；需以9/30美光财报验证涨价周期持续性"
     }
   ],
 
   /* ============ 四、重点公司行情表 ============ */
   /* 超涨/超跌个股放最上方；无新闻的公司驱动因素简要说明即可 */
   stocks: [
-    { name: "Sandisk",   code: "SNDK",  change: "-0.00%", driver: "NAND存储获利回吐延续，跌3.50%至1633.35美元，与AI硬件普涨走势背离（超跌提示）" },
-    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "科技七巨头中表现最弱，微跌0.03%至218.29美元；戴尔称已率先出货基于NVIDIA Vera Rubin平台的机架系统" },
-    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "大型软件股随大盘反弹，涨0.65%至495.63美元" },
-    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "折叠屏iPhone Duo热度延续，涨1.74%至332.27美元；iPhone 18 Pro于9/12开启预订" },
-    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "可选消费板块领涨，涨1.94%至256.78美元" },
-    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "通信服务板块领涨，涨1.77%至338.50美元" },
-    { name: "Meta",      code: "META",  change: "-0.00%", driver: "大型科技普涨，涨0.57%至648.03美元，AI商业化叙事获支撑" },
-    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "定制ASIC随半导体反弹，涨0.32%至361.99美元" },
-    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "AI算力股反弹领涨半导体，涨2.49%至516.13美元；Oracle/戴尔财报验证AI资本开支" },
-    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "DRAM存储企稳，微跌0.22%至975.26美元；戴尔称DRAM/NAND仍是供应瓶颈支撑涨价逻辑" }
+    { name: "Sandisk",   code: "SNDK",  change: "-0.00%", driver: "NAND存储高位回调延续，跌1.36%至1530.90美元，自9/9高点累跌约15%（超跌提示）" },
+    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "AI算力股随半导体企稳，涨0.57%至212.17美元；但受AI放缓警告与利率上行压制，5日仍累跌5.9%" },
+    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "大型科技普跌，跌1.64%至497.12美元；同日宣布季度股息上调8%至0.98美元" },
+    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "随利率上行走低，跌0.52%至331.34美元" },
+    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "科技权重中领跌，跌2.02%至248.42美元；非必需消费板块受加息预期压制领跌（-1.76%）" },
+    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "通信服务与科技权重走低，跌1.26%至344.98美元" },
+    { name: "Meta",      code: "META",  change: "-0.00%", driver: "科技七巨头中逆势走强，涨0.70%至670.24美元，近10日+17.1%表现最强" },
+    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "定制ASIC随大盘走低，跌1.58%至339.27美元，5日累跌7.95%" },
+    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "AI算力股反弹领涨半导体，涨2.19%至504.20美元；费半企稳（+0.4%）" },
+    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "DRAM存储企稳，微涨0.39%至927.60美元；5日仍-7.26%，弱于AI算力" }
   ],
 
   /* ============ 五、重要科技与政策新闻（一手来源） ============ */
   news: [
     {
-      title: "美国8月CPI环比+0.4%符合预期，核心同比降至64个月新低2.4%，9月加息概率升至约87%",
-      originalTitle: "CPI for all items increases 0.4% in August; gasoline rises",
-      source: "美国劳工统计局 BLS（官方）",
-      time: "2026年09月11日",
-      type: "官方",
-      url: "https://www.bls.gov/cpi/news.htm",
-      link: "https://www.bls.gov/cpi/news.htm",
-      summary: "美国劳工统计局9/11公布，8月CPI环比+0.4%（7月+0.1%）、同比+3.4%与7月持平，均符合预期；汽油环比+3.9%贡献逾三分之一涨幅；核心CPI环比+0.3%（高于预期0.2%）、同比+2.4%（前值2.5%，创64个月新低）。数据为9月FOMC前最后一份主要通胀指标，CME FedWatch显示9月15-16日加息25bp概率升至约87-90%。",
+      title: "美股三大指数收跌、标普创8月以来新低，市场聚焦周三FOMC加息决议",
+      originalTitle: "Wall Street ends lower as oil spikes and the benchmark Treasury yield breaches 5%",
+      source: "Reuters（路透社）",
+      time: "2026年09月15日",
+      type: "财经媒体",
+      url: "https://www.thenewstribune.com/news/nation-world/national/article317247747.html",
+      link: "https://www.thenewstribune.com/news/nation-world/national/article317247747.html",
+      summary: "9月15日道指-0.63%至52090、标普-0.45%至7585（创8月以来新低）、纳指-0.77%至25983。美债收益率升破5%（2007年来新高）、油价飙升、以及AI发展放缓担忧共同压制风险偏好；FOMC已召开，市场定价周三加息25bp概率超95%（一个月前仅33.1%），为三年多来首次加息。",
       impact: {
         direction: "中性偏利空",
-        companies: "全市场、高估值长久期成长股",
-        industry: "利率、通胀、货币政策",
-        logic: "核心环比略热强化9月加息预期、推升无风险收益率，但核心同比回落叠加油价缓和缓解通胀恐慌"
-      }
-    },
-    {
-      title: "油价周五回落：WTI跌破100美元、布伦特回落至104美元，中东外长寻求霍尔木兹临时安排",
-      originalTitle: "Oil prices poised to end week above $100 for first time since May",
-      source: "Reuters（路透社，经 Offshore Technology 转载原文）",
-      time: "2026年09月11日",
-      type: "财经媒体",
-      url: "https://finance.yahoo.com/energy/articles/oil-prices-poised-end-week-105344992.html",
-      link: "https://finance.yahoo.com/energy/articles/oil-prices-poised-end-week-105344992.html",
-      summary: "周五WTI收跌约1.8%至100.60美元、布伦特跌约2.5%至104.32美元，本周仍累涨逾10%。《金融时报》报道中东外长正寻求与伊朗就霍尔木兹海峡航运达成临时安排，缓解供应中断担忧；此前胡塞武装控制也门莫卡港、霍尔木兹单日过境船舶降至7艘。油价回落缓解能源通胀与加息恐慌，成为美股反弹关键触发。",
-      impact: {
-        direction: "利好",
         companies: "全市场、高估值成长股",
-        industry: "能源、通胀、地缘政治",
-        logic: "油价回落缓解能源通胀与加息恐慌，推动风险偏好修复、科技股超跌反弹"
+        industry: "利率、货币政策、能源通胀",
+        logic: "加息预期升温+美债收益率破5%压缩成长股估值，能源板块逆势领涨、科技与非必需消费领跌"
       }
     },
     {
-      title: "美股科技板块反弹终结四连跌：纳指+0.96%、费半+1.8%，AI硬件领涨、存储分化",
-      originalTitle: "Markets News, Sept. 11, 2026: Stocks Finish Week Lower; Indexes Jump Friday as Oil Prices Pull Back; CPI Inflation Matches Expectations",
-      source: "Investopedia（英文财经媒体）",
-      time: "2026年09月11日",
+      title: "10年期美债收益率升破5%创2007年以来新高，30年期亦创2007年高点",
+      originalTitle: "10-year Treasury yield hits highest level since 2007",
+      source: "CNBC",
+      time: "2026年09月15日",
       type: "财经媒体",
-      url: "https://www.investopedia.com/stock-market-today-dow-jones-s-and-p-500-09112026-12115543",
-      link: "https://www.investopedia.com/stock-market-today-dow-jones-s-and-p-500-09112026-12115543",
-      summary: "周五道指+0.98%、标普500+0.86%、纳指+0.96%，终结四连跌；通信服务、可选消费、信息技术领涨，HPE+12.4%、戴尔+12%。费半+1.8%，Intel、AMD涨约2.5%；存储分化，DRAM ETF+1%，闪迪-3.5%、希捷-3%、西部数据-3%。本周道指-1.6%、标普-0.8%、纳指-0.7%；10年期美债收益率盘中触及4.98%（2023年10月以来最高）。",
-      impact: {
-        direction: "中性偏利好",
-        companies: "戴尔、HPE、AMD、Intel 等AI硬件",
-        industry: "半导体、AI基础设施、存储",
-        logic: "AI资本开支兑现主线领涨、终结四连跌，但周线仍收跌、存储分化显示高位品种获利了结压力"
-      }
-    },
-    {
-      title: "戴尔科技AI服务器积压达950亿美元、上调全年指引至1920亿美元，周五股价大涨近12%创历史新高",
-      originalTitle: "Dell Technologies Delivers Second Quarter Fiscal 2027 Financial Results",
-      source: "Dell Technologies 官方新闻稿（Business Wire）",
-      time: "2026年09月11日",
-      type: "官方",
-      url: "https://investors.delltechnologies.com/news-releases/news-release-details/dell-technologies-delivers-second-quarter-fiscal-2027-financial",
-      link: "https://investors.delltechnologies.com/news-releases/news-release-details/dell-technologies-delivers-second-quarter-fiscal-2027-financial",
-      summary: "戴尔2027财年Q2营收470亿美元（+58%）、non-GAAP EPS 7.04美元（+203%）；AI优化服务器营收164亿（+100%）、单季订单609亿、季末积压950亿均创纪录；全年营收指引由1670亿上调至1920亿（+69%）、AI服务器指引由600亿上调至740亿。COO Jeff Clarke称DRAM/NAND仍是最大供应瓶颈。业绩叠加Oracle财报带动AI硬件，戴尔周五涨近12%至567.75美元创历史新高。",
-      impact: {
-        direction: "利好",
-        companies: "戴尔、NVIDIA、AI服务器供应链",
-        industry: "AI服务器、数据中心、存储",
-        logic: "AI服务器订单与积压创新高、上调指引验证AI资本开支→营收兑现，驱动AI硬件估值修复"
-      }
-    },
-    {
-      title: "Oracle Q1财报：云基础设施收入+121%、RPO达6640亿美元，盘后大涨后周五回落近2%",
-      originalTitle: "Oracle Announces Q1 Results Driven by Triple Digit Growth in Cloud Infrastructure Revenues",
-      source: "Oracle 官方新闻稿 / SEC 8-K",
-      time: "2026年09月10日",
-      type: "官方",
-      url: "https://investor.oracle.com/investor-news/news-details/2026/Oracle-Announces-Q1-Results-Driven-by-Triple-Digit-Growth-in-Cloud-Infrastructure-Revenues/default.aspx",
-      link: "https://investor.oracle.com/investor-news/news-details/2026/Oracle-Announces-Q1-Results-Driven-by-Triple-Digit-Growth-in-Cloud-Infrastructure-Revenues/default.aspx",
-      summary: "Oracle 2027财年Q1营收193亿美元（+30%），云基础设施收入+121%至74亿，本季新增AI云合同超300亿，剩余履约义务(RPO)升至6640亿（同比+2090亿）。Q1资本开支285亿致自由现金流转负（-54亿），并完成200亿美元股权增发。财报9/10盘后公布后大涨约7%，9/11盘中回落近2%，但持续提振AI基础设施情绪。",
-      impact: {
-        direction: "利好",
-        companies: "Oracle、AI云与数据中心产业链",
-        industry: "云计算、AI基础设施",
-        logic: "云基础设施+121%、RPO 6640亿验证企业AI云需求强劲，但资本开支激增致自由现金流转负是潜在隐忧"
-      }
-    },
-    {
-      title: "密歇根大学9月消费者信心骤降至47.8历史次低，通胀预期升温，10年期美债收益率触及4.98%",
-      originalTitle: "Stocks Post Relief Rally as Core CPI Plunges to 64-Month Low: Sept. 11, 2026",
-      source: "Interactive Brokers（Traders Insight，英文财经媒体）",
-      time: "2026年09月11日",
-      type: "财经媒体",
-      url: "https://www.interactivebrokers.com/campus/traders-insight/ibkr-economic-landscape/stocks-post-relief-rally-as-core-cpi-plunges-to-64-month-low/",
-      link: "https://www.interactivebrokers.com/campus/traders-insight/ibkr-economic-landscape/stocks-post-relief-rally-as-core-cpi-plunges-to-64-month-low/",
-      summary: "密歇根大学9月消费者信心初值降至47.8，远低于预期的51、也低于8月的51.7，创有记录以来第二低；1年期通胀预期由4.0%升至4.6%、5年期由3.3%升至3.4%，反映高油价与加息预期压制家庭信心。与此同时10年期美债收益率盘中触及4.98%（2023年10月以来最高），显示债市仍在定价通胀粘性与潜在加息。",
+      url: "https://www.cnbc.com/2026/09/15/10-year-treasury-yield-rises-to-highest-since-2007.html",
+      link: "https://www.cnbc.com/2026/09/15/10-year-treasury-yield-rises-to-highest-since-2007.html",
+      summary: "10年期美债收益率升至5.041%（2007年7月来最高）、30年期5.401%（2007年6月来最高）、2年期4.688%（2024年7月来最高）。伊朗冲突推升油价、FOMC加息预期升温（市场定价超94%概率加息25bp）共同推升收益率；WTI与10年期收益率一个月滚动相关性升至0.96。",
       impact: {
         direction: "利空",
-        companies: "全市场、消费板块",
-        industry: "通胀预期、消费者信心",
-        logic: "消费者信心骤降叠加通胀预期升温强化滞胀担忧，与油价回落形成对冲，提示加息路径不确定性"
+        companies: "全市场、高估值成长股、利率敏感资产",
+        industry: "利率、债市、估值",
+        logic: "无风险收益率上行抬升贴现率，压制科技成长股估值，并传导至抵押贷款与企业融资成本"
+      }
+    },
+    {
+      title: "油价大涨：WTI+4.4%破$105、布伦特+2.9%至$108.75，沙特输油管遭袭、Yanbu装载暂停",
+      originalTitle: "Oil settles $3 higher on Yanbu disruption, Saudi cargo cancellations",
+      source: "Reuters（路透社）",
+      time: "2026年09月15日",
+      type: "财经媒体",
+      url: "https://www.channelnewsasia.com/business/oil-prices-rise-saudi-pipeline-outage-fresh-attacks-raise-supply-concerns-6384666",
+      link: "https://www.channelnewsasia.com/business/oil-prices-rise-saudi-pipeline-outage-fresh-attacks-raise-supply-concerns-6384666",
+      summary: "布伦特收涨2.9%至108.75美元、WTI涨4.4%至105.83美元，双双创5月19日来最高。沙特东-西输油管遭胡塞武装袭击后，红海Yanbu港装载暂停、部分欧洲9月货取消；霍尔木兹海峡过境船舶降至4艘。高盛警告布伦特或升破120美元，能源通胀正向更广泛物价传导。",
+      impact: {
+        direction: "利空（对科技/成长股）",
+        companies: "全市场、高估值成长股",
+        industry: "能源、通胀、地缘政治",
+        logic: "油价上行推升通胀预期、强化加息压力，利好能源板块但压制成长股估值"
+      }
+    },
+    {
+      title: "Anthropic CEO Amodei呼吁放缓AI模型能力迭代，Altman与Musk响应，重估AI资本开支",
+      originalTitle: "Anthropic boss Dario Amodei calls for AI slowdown, Altman and Musk agree",
+      source: "ABC News（美联社 AP）",
+      time: "2026年09月12日",
+      type: "财经媒体",
+      url: "https://www.abc.net.au/news/2026-09-13/anthropic-ceo-calls-for-slower-ai-development/107147650",
+      link: "https://www.abc.net.au/news/2026-09-13/anthropic-ceo-calls-for-slower-ai-development/107147650",
+      summary: "Anthropic CEO Dario Amodei 9/12发文《We Must Pace the Frontier》呼吁放缓AI模型能力提升节奏，担忧6-12个月内AI智能体可能'接管整个互联网'；OpenAI的Altman、xAI的Musk均表态支持。该呼吁叠加AI资本开支可持续性质疑，是周一费半重挫近6%、周二半导体情绪波动的核心诱因。",
+      impact: {
+        direction: "利空（短期情绪）",
+        companies: "NVIDIA、AMD、Broadcom 等AI算力链",
+        industry: "AI、半导体、数据中心",
+        logic: "若AI放缓预期发酵将抑制AI芯片需求与资本开支预期，压缩AI硬件估值；但市场对'放缓能否兑现'仍存分歧"
+      }
+    },
+    {
+      title: "微软上调季度股息8%至每股0.98美元，延续年度派息增长",
+      originalTitle: "Microsoft announces quarterly dividend increase",
+      source: "Microsoft 官方新闻（Microsoft Source）",
+      time: "2026年09月15日",
+      type: "官方",
+      url: "https://news.microsoft.com/source/2026/09/15/microsoft-announces-quarterly-dividend-increase-7/",
+      link: "https://news.microsoft.com/source/2026/09/15/microsoft-announces-quarterly-dividend-increase-7/",
+      summary: "微软董事会宣布季度股息每股0.98美元，较上季0.91美元上调7美分（+8%），12月10日派发、11月19日为除息日；同时宣布2026年度股东大会于12月8日举行。在AI资本开支高企背景下，同步提高派息显示云与软件核心业务的现金流韧性。",
+      impact: {
+        direction: "中性偏利好",
+        companies: "Microsoft",
+        industry: "云计算、软件、股东回报",
+        logic: "高AI资本开支周期中同步提高派息，验证核心现金流韧性，对大型科技整体情绪提供支撑"
       }
     }
   ],
 
   /* ============ 六、当日最值得关注的 3 个交易逻辑 ============ */
   logics: [
-    { title: "通胀数据“表面符合、核心回落”，市场在加息预期与风险偏好修复间摆动",
-      text: "8月CPI整体同比+3.4%符合预期、核心同比降至64个月新低2.4%，但核心环比+0.3%略超预期；叠加油价周五回落（WTI跌破100美元），市场一面将9月加息概率上调至约87-90%，一面risk-on修复前期超跌，纳指终结四连跌。核心通胀回落+能源缓和暗示“通胀见顶”，是下跌市中的关键转折信号，9/16 FOMC是决定性变量。" },
-    { title: "AI资本开支→营收兑现：Oracle与戴尔财报验证AI基础设施景气，驱动AI硬件领涨",
-      text: "Oracle云基础设施收入+121%、RPO达6640亿美元，戴尔AI服务器积压950亿美元、全年指引上调至1920亿，共同验证AI资本开支正加速转化为营收，且预付款+订单结构缓解现金消耗担忧。这驱动戴尔(+12%)、HPE(+12%)、AMD(+2.5%)、Intel(+2.5%)领涨，成为高利率环境下科技股的新估值锚。" },
-    { title: "存储板块内部分化：DRAM企稳、NAND回吐，供应瓶颈支撑长期涨价逻辑",
-      text: "闪迪(-3.5%)、希捷(-3%)、西部数据(-3%)继续回吐，而美光(-0.22%)、SK海力士(+1%)企稳，DRAM与NAND走势分化。戴尔财报明确指出DRAM/NAND仍是最大供应瓶颈，支撑涨价逻辑；但高位品种对利率与获利了结更敏感，短期估值承压，需以9/30美光财报验证涨价周期持续性。" }
+    { title: "FOMC加息前夕：美债收益率破5%、油价破$105，市场在通胀粘性与风险偏好间承压",
+      text: "9/15 FOMC议息会议首日，市场定价9/16加息25bp概率超90%（一个月前仅33%）。10年期美债收益率升破5%创2007年新高，油价因沙特输油管遭袭、霍尔木兹受阻飙升至$105上方，能源通胀正'渗入其他板块'。标普创8月以来新低、高估值成长股领跌，资金在决议前高度防御，利率路径与点阵图是核心变量。" },
+    { title: "AI放缓警告冲击半导体情绪，算力与存储走势分化",
+      text: "Anthropic CEO Amodei 9/12发文呼吁放缓AI模型能力迭代，Altman、Musk响应，叠加AI资本开支可持续性担忧，周一费半重挫近6%；9/15费半企稳反弹0.4%（高通+4.25%、AMD+2.19%），但存储（SNDK-1.36%、MU+0.39%）仍明显弱于AI算力，显示资金在AI链内部再平衡，而非全面撤离。" },
+    { title: "能源通胀传导链条：油价→美债收益率→贴现率→高估值科技股",
+      text: "沙特东-西输油管遭袭、Yanbu装载暂停，布伦特升至$108.75，高盛警告或升破$120；油价与10年期美债收益率相关性升至0.96，推升无风险利率并压缩成长股估值。9/15能源板块+2.26%领涨、科技与非必需消费领跌，防御性交易主导盘面，决议后利率路径与中东局势是决定科技股估值锚的关键。" }
   ],
 
   /* ============ 七、未来 1—3 个交易日关注事项（具体事件） ============ */
   watchlist: [
-    { date: "09月15-16日", event: "美联储FOMC议息会议（9月16日公布利率决议与经济预测）", impact: "市场定价9月加息25bp概率约87-90%，若落地为2023年来首次加息，直接锚定高估值成长股" },
-    { date: "09月16日", event: "FOMC利率决议 + 主席沃什(Kevin Warsh)新闻发布会", impact: "点阵图与声明措辞决定年内是否再加息（市场定价年底前两次加息）" },
+    { date: "09月16日", event: "美联储FOMC利率决议 + 主席Kevin Warsh新闻发布会（美东时间9/16 14:00，北京时间9/17凌晨）", impact: "市场定价加息25bp概率超90%，若落地为三年多来首次加息，点阵图与声明措辞直接锚定高估值成长股" },
+    { date: "09月16日", event: "美国8月零售销售数据（与FOMC决议同日公布）", impact: "检验家庭消费动能，与加息决议叠加，影响年内后续加息路径定价" },
     { date: "09月30日", event: "美光科技（Micron）Q4财报", impact: "存储涨价周期与HBM供需的关键验证，影响DRAM/NAND板块定价" },
-    { date: "09月底", event: "美国8月核心PCE通胀数据（BEA）", impact: "美联储2%目标最关注指标，核心PCE预计升至3.2%-3.3%" },
-    { date: "近期", event: "中东霍尔木兹海峡航运临时安排谈判进展", impact: "决定油价与通胀预期走向，间接影响加息路径与风险偏好" }
+    { date: "09月底", event: "美国8月核心PCE通胀数据（BEA）", impact: "美联储2%目标最关注指标，能源传导下核心PCE走向是加息路径关键" },
+    { date: "近期", event: "中东霍尔木兹海峡通航与沙特东-西输油管修复进展", impact: "决定油价与通胀预期走向，间接影响加息路径与风险偏好" }
   ],
 
   /* ============ 八、页脚免责声明 ============ */
