@@ -1,7 +1,7 @@
 /**
  * ============================================================
  *  美股科技板块前一交易日行情日报 —— 数据文件（每日只需改这里）
- *  （2026-09-18 更新：对应美股交易日 2026-09-17）
+ *  （2026-09-20 更新：对应美股交易日 2026-09-18）
  * ============================================================
  *  使用说明：
  *  1. 打开本文件，替换下方各字段的值即可生成当日日报。
@@ -24,8 +24,8 @@ window.REPORT_DATA = {
   meta: {
     title: "美股科技板块前一交易日行情日报",
     subtitle: "盘前版 · 大型科技 + 半导体存储跟踪",
-    reportDate: "2026年09月18日",   // 报告发布日期（周五）
-    tradeDate: "2026年09月17日",    // 对应美股交易日（前一交易日，周四）
+    reportDate: "2026年09月20日",   // 报告发布日期（周日）
+    tradeDate: "2026年09月18日",    // 对应美股交易日（前一交易日，周五）
     author: "华泰期货 · 研究",
     tag: "每日市场跟踪"
   },
@@ -33,7 +33,7 @@ window.REPORT_DATA = {
   /* ============ 二、市场概览 ============ */
   overview: {
     /* 简短概括：指数变化 + 个股变化 + 重大事件 */
-    text: "9月17日美股三大指数集体反弹：纳指+1.69%至26418点、标普+1.14%至7638点、道指+0.61%，终结三连跌。美联储9/16加息25bp落地后，10年期美债收益率跌破5%（4.94%）、布伦特原油回落至104.82美元，风险偏好回暖。半导体领涨（费半+3.1%）：AMD+6.36%、闪迪+6.21%、美光+5.50%，大型科技普涨（英伟达+2.54%、亚马逊+2.13%）。",
+    text: "9月18日美股三大指数涨跌不一：纳指+0.39%至26522点、标普+0.17%至7650点、道指-0.18%至51683点；10年期美债收益率重回5.00%（2023年以来首次），压制整体市场。存储芯片逆势领涨（费半+2.78%）：闪迪+10.99%、美光+3.92%、AMD+2.70%、博通+2.97%；大型科技分化（英伟达+1.34%、Meta-2.43%）。",
     /* 指数卡片（可增删） */
     indices: [
       { name: "Nasdaq Composite", code: "IXIC", change: "-0.00%" },
@@ -46,155 +46,165 @@ window.REPORT_DATA = {
   /* ============ 三、超涨 / 超跌个股提示 ============ */
   alerts: [
     {
-      name: "AMD / 超威半导体",
-      code: "AMD",
-      direction: "超涨",
-      change: "-0.00%",
-      fiveDay: "9/11收516.13 → 9/14收493.41（AI放缓担忧重挫）→ 9/15收504.20 → 9/16收512.50 → 9/17收545.09（+6.36%），近5个交易日累计+5.61%",
-      newHighLow: "收545.09美元，逼近52周高点584.73美元（距离约-6.8%），创近期阶段新高",
-      volume: "9/17成交2846万股，高于20日均量约2510万股，较前日（2232万股）放大约27%",
-      reason: "Nebius宣布10/1起上调GPU云算力价格（AMD EPYC Genoa CPU费率+25%、Genoa内存+41%），印证AI算力需求强劲；叠加美联储加息落地、油价与美债收益率回落，AI算力股领涨半导体",
-      impact: "AI算力需求与提价逻辑强化AMD数据中心叙事（Q2数据中心营收同比+107%）；但估值处高位，需关注后续财报兑现与AI资本开支持续性"
-    },
-    {
       name: "SanDisk / 闪迪",
       code: "SNDK",
       direction: "超涨",
       change: "-0.00%",
-      fiveDay: "9/11收1633.35 → 9/14收1551.99 → 9/15收1530.90 → 9/16收1519.97（阶段低点）→ 9/17收1614.39（+6.21%），近5个交易日累计-1.16%（超跌后强反弹）",
-      newHighLow: "9/16触及近期阶段低点1519.97后V型反弹，仍处历史高位回调区间下沿",
-      volume: "9/17成交848万股，较前日（742万股）放大约14%",
-      reason: "周一AI放缓担忧引发的NAND存储抛售告一段落，存储涨价周期预期（花旗预计存储短缺延续至2031）叠加SK海力士-英特尔美国建厂谈判，存储板块集体反弹",
-      impact: "NAND存储超级周期叙事回暖，但需以9/30美光财报验证涨价持续性；高位品种对利率与获利了结仍较敏感"
-    },
-    {
-      name: "Micron / 美光",
-      code: "MU",
-      direction: "超涨",
-      change: "-0.00%",
-      fiveDay: "9/11收975.26 → 9/14收924.03 → 9/15收927.60 → 9/16收926.55（阶段低点）→ 9/17收977.50（+5.50%），近5个交易日累计+0.23%",
-      newHighLow: "9/16触及阶段低点926.55后强劲反弹，收复前期AI放缓抛售大部分失地",
-      volume: "9/17成交2209万股，较前日（2021万股）放大约9%",
-      reason: "DRAM/HBM存储涨价与AI算力需求共振，花旗预计DRAM供给缺口2027-2028年扩大（需求+30%以上、供给仅+19%-22%），存储板块领涨",
-      impact: "DRAM/HBM供需紧张支撑涨价周期，9/30财报为关键验证；台湾厂员工利润分成谈判存扰动风险"
+      fiveDay: "9/11收1633.35 → 9/14收1551.99 → 9/15收1530.90 → 9/16收1519.97（阶段低点）→ 9/17收1614.39（+6.21%）→ 9/18收1791.82（+10.99%），自9/16低点两日累计+17.9%",
+      newHighLow: "收1791.82美元，收复9/9以来全部回调并逼近阶段新高，处于历史高位区间",
+      volume: "尾盘放量拉升，单日市值增加约151亿美元（具体成交股数暂无可靠数据）",
+      reason: "存储超级周期同日集中兑现：美光高管称有意义的新增内存供应要到2028年才爬坡；苹果接受三星2027Q1存储涨价30-40%；铠侠-闪迪314亿美元日本扩产；SK海力士Solidigm考虑在美建NAND厂。NAND涨价+供应紧缺叙事共振，闪迪作为NAND纯标的弹性最大",
+      impact: "存储涨价周期进一步确认，但两日+17.9%急涨后短线波动加大，需以9/30美光财报验证涨价持续性；高位品种对利率（10年期美债重回5%）与获利了结仍较敏感"
     }
   ],
 
   /* ============ 四、重点公司行情表 ============ */
   /* 超涨/超跌个股放最上方；无新闻的公司驱动因素简要说明即可 */
   stocks: [
-    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "AI算力领涨，+6.36%至545.09美元（超涨）；Nebius上调GPU云价格（AMD CPU费率+25%）印证AI需求，逼近52周高点584.73美元" },
-    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "DRAM/HBM存储强反弹，+5.50%至977.50美元（超涨）；存储涨价周期+SK海力士-英特尔美国建厂谈判提振" },
-    { name: "Sandisk",   code: "SNDK",  change: "-0.00%", driver: "NAND存储超跌反弹，+6.21%至1614.39美元（超涨）；花旗预计存储短缺延续至2031" },
-    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "AI算力龙头随板块走强，+2.54%至219.34美元；Nebius上调英伟达GPU云价格（B300+21%）" },
-    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "大型科技普涨，+1.52%至497.75美元；云与软件现金流韧性支撑" },
-    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "随大盘反弹，+1.38%至337.00美元" },
-    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "科技权重走强，+2.13%至251.19美元；非必需消费板块领涨（+1.43%）" },
-    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "随科技板块反弹，+1.30%至347.33美元" },
-    { name: "Meta",      code: "META",  change: "-0.00%", driver: "科技七巨头齐涨，+1.34%至682.31美元，近10日相对仍强" },
-    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "定制ASIC随半导体反弹，+2.29%至347.30美元" }
+    { name: "SanDisk",   code: "SNDK",  change: "-0.00%", driver: "NAND存储领涨，+10.99%至1791.82美元（超涨）；美光称新增供应2028年才爬坡+苹果接受三星涨价，存储涨价周期集中兑现" },
+    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "DRAM/NAND存储强势，+3.92%至约1016美元；美光高管称有意义新增内存供应2028年才爬坡，供需长期紧缺" },
+    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "半导体普涨，+2.70%至约560美元；费半+2.78%，AI算力与存储需求共振" },
+    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "定制ASIC随半导体走强，+2.97%至约358美元" },
+    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "AI龙头走强，+1.34%至约222美元；黄仁勋称明年芯片销量将翻倍" },
+    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "大型科技分化，-0.80%至约494美元；10年期美债重回5%压制估值" },
+    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "随大盘窄幅波动，-0.26%至约336美元" },
+    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "科技权重相对抗跌，+1.00%至约254美元" },
+    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "随大盘小幅上涨，+0.64%至约350美元" },
+    { name: "Meta",      code: "META",  change: "-0.00%", driver: "科技七巨头中表现最弱，-2.43%至约666美元；利率上行压力" }
   ],
 
   /* ============ 五、重要科技与政策新闻（一手来源） ============ */
   news: [
     {
-      title: "美联储加息25个基点至3.75%-4.00%，为2023年7月以来首次加息",
-      originalTitle: "Federal Reserve issues FOMC statement",
-      source: "Federal Reserve（美联储官网）",
-      time: "2026年09月16日",
-      type: "官方",
-      url: "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
-      link: "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
-      summary: "FOMC以12-0一致投票将联邦基金利率目标区间上调25bp至3.75%-4.00%，为2023年7月以来首次加息。声明称经济活动稳健扩张、通胀仍处高位，本次行动将支持通胀'更快地'回落至2%目标；点阵图显示18名官员中16人预计年内还将再加息一次。",
+      title: "美光高管：有意义的新增内存供应要到2028年才爬坡，供需平衡时间不明",
+      originalTitle: "Micron Executive Says Meaningful New Memory Supply May Not Arrive Until 2028",
+      source: "Guru3D（英文科技媒体，报道 Six Five Summit 2026）",
+      time: "2026年09月18日",
+      type: "行业媒体",
+      url: "https://www.guru3d.com/story/micron-executive-says-meaningful-new-memory-supply-may-not-arrive-until-2028/",
+      link: "https://www.guru3d.com/story/micron-executive-says-meaningful-new-memory-supply-may-not-arrive-until-2028/",
+      summary: "美光前执行副总裁兼首席商务官、现任CEO高级顾问Sumit Sadana在Six Five Summit 2026表示，当前内存短缺已覆盖所有市场领域，客户需求预测仍在持续上修；即使供应商全力扩产，真正有意义的新增供应要到2028年才会开始爬坡，供需何时恢复平衡'看不到明确时间'。他指AI系统性能越来越取决于内存容量、性能与带宽，存储正从标准化周期品变为决定系统性能的核心部件。",
       impact: {
-        direction: "中性偏利好",
-        companies: "全市场、利率敏感成长股",
-        industry: "货币政策、利率、估值",
-        logic: "加息'靴子落地'消除不确定性、重树美联储抗通胀信誉，长端收益率回落缓解成长股估值压力，但偏鹰点阵图仍约束上行空间"
+        direction: "利好",
+        companies: "美光（MU）、闪迪（SNDK）、存储链",
+        industry: "存储、半导体、AI",
+        logic: "供应紧缺周期被权威产业高管确认，强化存储涨价与长期景气叙事，是当日存储板块爆发的最直接催化"
       }
     },
     {
-      title: "美股三大指数集体反弹收涨，纳指+1.7%领涨，终结三连跌",
-      originalTitle: "World stocks rebound, Treasury yields retreat after Fed, BoE decisions",
-      source: "Reuters（路透社）",
+      title: "黄仁勋：英伟达明年芯片销量将翻倍，AI需求跨行业扩散",
+      originalTitle: "Jensen Huang forecasts Nvidia chip sales to double in 2027",
+      source: "Bloomberg / Quartz（经 Yahoo Finance）",
       time: "2026年09月17日",
       type: "财经媒体",
-      url: "https://www.macon.com/news/business/article317275424.html",
-      link: "https://www.macon.com/news/business/article317275424.html",
-      summary: "纳指+1.7%至26418点、标普+1.1%至7638点、道指+0.61%至51778点，终结三连跌。科技、非必需消费、公用事业领涨，必需消费与金融拖累。10年期美债收益率回落6.55bp至4.939%、布伦特原油跌近1%至104.82美元，初请失业金降至19.6万（近1969年低位），市场对加息落地及抗通胀信誉回归感到宽慰。",
+      url: "https://finance.yahoo.com/technology/ai/articles/jensen-huang-forecasts-nvidia-chip-114738472.html",
+      link: "https://finance.yahoo.com/technology/ai/articles/jensen-huang-forecasts-nvidia-chip-114738472.html",
+      summary: "英伟达CEO黄仁勋在苏格兰查尔斯三世国王召集的AI峰会上表示，随着AI渗透医疗、制造、金融服务等行业，公司明年芯片销量将达到今年的两倍，当前瓶颈是产能而非需求。此前英伟达预计截至2028年1月财年营收增长约70%（约6730亿美元），若供应充足营收甚至可能翻倍。黄仁勋同时强调企业应确保AI产品在发布前经过严格测试、不安全应暂缓。",
       impact: {
         direction: "利好",
-        companies: "全市场、科技股、半导体",
-        industry: "利率、能源、风险偏好",
-        logic: "油价与长端收益率同步回落释放成长股估值压力，AI/半导体领涨，风险偏好全面修复（VIX降至15.44）"
+        companies: "英伟达（NVDA）、半导体链",
+        industry: "AI、半导体、数据中心",
+        logic: "AI需求指引上修，对冲'AI放缓'担忧，提振AI硬件与存储链情绪，支撑芯片股普涨"
       }
     },
     {
-      title: "10年期美债收益率回落至4.946%，重新跌破5%关键位",
-      originalTitle: "10-Year Treasury Yield Falls to 4.946% — Data Talk",
-      source: "Dow Jones Newswires（道琼斯通讯社）",
-      time: "2026年09月17日",
+      title: "SK海力士Solidigm考虑在美建NAND厂，纽约州领先候选",
+      originalTitle: "SK Hynix's Solidigm Eyes New York Site for US NAND Factory",
+      source: "Reuters（经 Financial News）",
+      time: "2026年09月18日",
       type: "财经媒体",
-      url: "https://www.morningstar.com/news/dow-jones/202609176772/10-year-treasury-yield-falls-to-4946-data-talk",
-      link: "https://www.morningstar.com/news/dow-jones/202609176772/10-year-treasury-yield-falls-to-4946-data-talk",
-      summary: "10年期美债收益率当日下跌5.7bp至4.946%，脱离9/16创下的52周高点5.003%，结束连涨，为8月25日以来最大单日跌幅。5%是重要心理与估值分界线，收益率回落至5%下方直接缓解高估值成长股的贴现率压力，是当日科技股强反弹的核心驱动。",
+      url: "https://www.financial-news.co.uk/sk-hynixs-solidigm-eyes-new-york-site-for-us-nand-factory",
+      link: "https://www.financial-news.co.uk/sk-hynixs-solidigm-eyes-new-york-site-for-us-nand-factory",
+      summary: "路透援引三名知情人士称，SK海力士美国子公司Solidigm正考虑在美国建设NAND闪存工厂，纽约州北部为领先候选地。若落地将是Solidigm首个美国生产基地，可降低对大连唯一NAND厂的依赖，并规避美国对华关税与设备出口管制；美国商务部长卢特尼克曾威胁对韩台企业加征最高100%关税。SK海力士回应称'正在评估，尚无具体计划'，SK海力士周五收涨约6.4%。",
       impact: {
         direction: "利好",
-        companies: "全市场、高估值成长股",
-        industry: "利率、债市、估值",
-        logic: "无风险收益率下行抬升成长股估值倍数，为科技板块反弹提供估值锚；但收益率仍在历史高位，反弹持续性待观察"
-      }
-    },
-    {
-      title: "Nebius上调GPU云算力价格，AI算力需求强劲，AMD/英伟达领涨",
-      originalTitle: "Why AMD Stock Jumped Today",
-      source: "The Motley Fool（美国财经媒体）",
-      time: "2026年09月17日",
-      type: "财经媒体",
-      url: "https://www.fool.com/investing/2026/09/17/why-amd-stock-jumped-63-today",
-      link: "https://www.fool.com/investing/2026/09/17/why-amd-stock-jumped-63-today",
-      summary: "云计算服务商Nebius通知客户自10/1起上调按需算力价格：英伟达GPU涨17%-21%（B300+21%）、AMD EPYC Genoa CPU费率+25%、内存+41%。提价以真金白银印证AI算力需求持续旺盛，AMD当日+6.36%、英伟达+2.54%；AMD Q2数据中心营收同比+107%至67亿美元。",
-      impact: {
-        direction: "利好",
-        companies: "AMD、NVIDIA、AI算力链",
-        industry: "AI、半导体、云计算",
-        logic: "云计算厂商提价表明AI算力供不应求，对冲'AI放缓'担忧，强化AI硬件资本开支与提价叙事"
-      }
-    },
-    {
-      title: "SK海力士与英特尔洽谈在美生产存储芯片，英特尔大涨",
-      originalTitle: "Intel Shares Rise Premarket on Report of SK Hynix U.S. Manufacturing Talks",
-      source: "Dow Jones Newswires（道琼斯通讯社）",
-      time: "2026年09月16日",
-      type: "财经媒体",
-      url: "https://www.morningstar.com/news/dow-jones/202609162127/intel-shares-rise-premarket-on-report-of-sk-hynix-us-manufacturing-talks",
-      link: "https://www.morningstar.com/news/dow-jones/202609162127/intel-shares-rise-premarket-on-report-of-sk-hynix-us-manufacturing-talks",
-      summary: "路透援引三名知情人士称，SK海力士正与英特尔洽谈在美生产存储芯片，方案包括租用英特尔俄亥俄州晶圆厂部分产能，或与大型云厂商成立合资公司。若达成将是SK海力士首次在美生产存储芯片，助力特朗普政府芯片本土化；英特尔9/17大涨7.67%，费半+3.1%。",
-      impact: {
-        direction: "利好",
-        companies: "Intel、SK海力士、存储链（MU/SNDK）",
+        companies: "SK海力士、存储链（MU/SNDK）、半导体设备",
         industry: "半导体制造、存储、产业政策",
-        logic: "存储短缺背景下产能本土化提速，强化存储超级周期与半导体设备/制造投资逻辑，提振费半情绪"
+        logic: "存储产能本土化+供给约束强化存储超级周期与美国本土制造叙事，提振存储与设备链情绪"
+      }
+    },
+    {
+      title: "中国长鑫存储（CXMT）拟进军NAND闪存，北京建研发产线",
+      originalTitle: "China's CXMT eyes NAND flash expansion as AI drives memory shortage",
+      source: "Reuters（经 TechNode Global）",
+      time: "2026年09月18日",
+      type: "财经媒体",
+      url: "https://technode.global/2026/09/18/china-cxmt-nand-flash-expansion-ai-memory-shortage/",
+      link: "https://technode.global/2026/09/18/china-cxmt-nand-flash-expansion-ai-memory-shortage/",
+      summary: "路透援引知情人士称，中国DRAM龙头长鑫存储（CXMT）计划在北京新厂建设NAND闪存研发产线，进军由三星、SK海力士、美光主导的闪存市场，并已与包括一家AI存储初创在内的潜在客户接洽。行业高管预计AI服务器内存短缺至少持续到2027年；TrendForce预计NAND紧张要到明年下半年才缓解。CXMT此前于7月IPO募资约86亿美元。",
+      impact: {
+        direction: "中性偏利好存储",
+        companies: "CXMT、三星、SK海力士、美光",
+        industry: "存储、半导体、供应链",
+        logic: "新进入者印证全球NAND供给紧张、涨价周期延续，短期强化存储景气；中长期增加供给端竞争"
+      }
+    },
+    {
+      title: "苹果接受三星2027年一季度存储涨价，DRAM/NAND价格上调30-40%",
+      originalTitle: "iPhone prices may rise again in 2027; Samsung's latest memory deal could be the reason",
+      source: "DigiTimes（经 Business Today）",
+      time: "2026年09月18日",
+      type: "财经媒体",
+      url: "https://www.businesstoday.in/technology/news/story/iphone-prices-may-rise-again-in-2027-samsungs-latest-memory-deal-could-be-the-reason-556351-2026-09-18",
+      link: "https://www.businesstoday.in/technology/news/story/iphone-prices-may-rise-again-in-2027-samsungs-latest-memory-deal-could-be-the-reason-556351-2026-09-18",
+      summary: "据DigiTimes报道，苹果已接受三星2027年一季度的存储涨价方案，DRAM约2美元/Gb、NAND约0.33美元/Gb，较2026年三季度上涨约30-40%。三星、SK海力士、美光正将产能优先转向HBM与AI服务器内存，挤压手机用DRAM/NAND供给。苹果近年持续涨价（iPhone 18 Pro已较上代贵100美元），存储成本或进一步传导至终端售价。",
+      impact: {
+        direction: "利好存储供应商",
+        companies: "三星、SK海力士、美光（MU）",
+        industry: "存储、消费电子、供应链",
+        logic: "存储涨价从服务器向消费电子全品类传导，印证供给全面紧缺，强化存储提价周期与定价权转移"
+      }
+    },
+    {
+      title: "美股周五涨跌不一：半导体领涨纳指、标普，10年期美债收益率重回5%",
+      originalTitle: "How major US stock indexes fared Friday 9/18/2026",
+      source: "AP / Reuters（经 AOL）",
+      time: "2026年09月18日",
+      type: "财经媒体",
+      url: "https://www.aol.com/articles/major-us-stock-indexes-fared-201659199.html",
+      link: "https://www.aol.com/articles/major-us-stock-indexes-fared-201659199.html",
+      summary: "美股周五收盘涨跌不一：标普+0.17%至7650.50、道指-0.18%至51682.64、纳指+0.39%至26522.55，罗素2000跌0.5%。半导体反弹推动纳指与标普走高，但多数个股下跌、道指收低（单周-1.7%创3月以来最大）。10年期美债收益率升至5.00%（本周一度创2023年以来首次），布伦特原油跌破102后回升至103美元上方。",
+      impact: {
+        direction: "中性偏空",
+        companies: "全市场、利率敏感成长股",
+        industry: "利率、债市、估值",
+        logic: "无风险利率重回5%压制整体估值，但存储/半导体结构性强势，市场呈'指数平稳、板块极端分化'格局"
+      }
+    },
+    {
+      title: "铠侠与闪迪计划在日本投资逾310亿美元扩产NAND，强化存储领导地位",
+      originalTitle: "Kioxia and Sandisk to Invest Over $31 Billion in Japan, Extending Leadership in Memory Industry",
+      source: "StorageNewsletter（存储行业媒体）",
+      time: "2026年09月15日",
+      type: "行业媒体",
+      url: "https://www.storagenewsletter.com/2026/09/15/kioxia-and-sandisk-to-invest-over-31-billion-in-japan-extending-leadership-in-memory-industry",
+      link: "https://www.storagenewsletter.com/2026/09/15/kioxia-and-sandisk-to-invest-over-31-billion-in-japan-extending-leadership-in-memory-industry",
+      summary: "铠侠（Kioxia）与闪迪（Sandisk）宣布将在日本四日市与北上工厂合计投资逾310亿美元（约5万亿日元，以政府支持为前提），至2032年持续扩产3D NAND闪存，其中北上新厂投资约113亿美元。双方表示此举为满足AI与数据驱动时代的闪存需求，延续25年合资伙伴关系，并契合日本高市政府的半导体振兴政策。",
+      impact: {
+        direction: "利好存储",
+        companies: "闪迪（SNDK）、铠侠、存储设备链",
+        industry: "存储、半导体制造",
+        logic: "NAND龙头扩产印证AI存储长期需求，闪迪作为合资方直接受益，强化存储长期资本开支与景气叙事"
       }
     }
   ],
 
   /* ============ 六、当日最值得关注的 3 个交易逻辑 ============ */
   logics: [
-    { title: "美联储加息'靴子落地'，美债收益率跌破5%，成长股估值压力缓解",
-      text: "美联储9/16一致加息25bp为三年多来首次，市场真正担忧的是偏鹰点阵图（16/18预计年内再加息一次）。但9/17长端收益率回落——10年期跌破5%至4.94%、30年期5.29%——叠加油价自高位回落，成长股贴现率压力边际缓解，科技领涨、纳指+1.7%终结三连跌。利率路径仍是核心变量，市场定价10月再加息概率约53%。" },
-    { title: "AI算力需求强劲叙事回归：Nebius提价+存储涨价周期，证伪'AI放缓'极端交易",
-      text: "Nebius上调GPU云价格（英伟达GPU+17%-21%、AMD CPU+25%），以提价印证AI算力需求未因'放缓呼声'消退；存储端花旗预计短缺延续至2031、SK海力士-英特尔洽谈美国建厂。AMD+6.36%、美光+5.50%、闪迪+6.21%领涨，周一'AI放缓→硬件需求骤降'的极端交易被证伪，资金重回AI算力与存储主线。" },
-    { title: "油价→美债→贴现率的传导链反向运行，风险偏好修复",
-      text: "前期'油价上行→通胀预期升温→加息压力→10Y破5%→科技估值压缩'的传导链在9/17反向运行：沙特经阿曼转运原油、东-西输油管预计数日内恢复，布伦特回落至104.82美元，油价与长端收益率同步回落，VIX降至15.44。这是当日科技强反弹的宏观主因，但油价仍在100美元上方、中东局势未解，修复能否延续取决于利率与能源变量。" }
+    { title: "存储超级周期逻辑集中兑现：供应紧缺+涨价周期同日共振",
+      text: "美光高管Sadana明确'有意义的新增供应2028年才爬坡'，苹果接受三星2027Q1涨价30-40%，铠侠-闪迪314亿美元扩产、SK海力士Solidigm考虑赴美建厂、CXMT进军NAND——供给紧缺与涨价周期在同日集中兑现，闪迪+10.99%、美光+3.92%领涨，费半+2.78%逆势走强。存储正从'标准化周期品'转向'决定AI系统性能的核心部件'，是当前市场最强势的交易主线。" },
+    { title: "AI需求指引上修对冲'AI放缓'担忧，资金回流硬件与存储主线",
+      text: "黄仁勋'明年芯片销量翻倍'的表态，叠加此前Nebius提价、SK海力士-英特尔洽谈在美建厂，持续证伪'AI放缓→硬件需求骤降'的极端交易。AI算力与存储需求指引同步上修，资金回流AI硬件与存储主线；但10年期美债收益率重回5%（2023年以来首次）仍对高估值成长股形成估值约束，构成'产业强、利率紧'的拉锯。" },
+    { title: "利率重回5% vs 油价回落：宏观变量对科技股的双向拉扯",
+      text: "当日10年期美债收益率升至5.00%，创2023年以来首次，压制整体市场（道指-0.18%、单周-1.7%创3月以来最大跌幅）；但布伦特原油跌破102后回落、WTI跌破96美元，通胀担忧边际缓和。利率上行与油价回落形成对冲，市场呈现'指数平稳、板块极端分化'——资金在有限流动性下从软件与大盘权重轮动至存储/半导体强势板块。" }
   ],
 
   /* ============ 七、未来 1—3 个交易日关注事项（具体事件） ============ */
   watchlist: [
-    { date: "09月18日", event: "日本央行（BOJ）利率决议（市场普遍预期加息至1.25%，创31年新高）", impact: "全球央行收紧共振，若日央行加息或推升全球债券收益率，间接影响美股科技股估值与套息交易" },
-    { date: "09月22日", event: "美国总统特朗普与海湾国家领导人在联合国大会期间会晤（伊朗局势/油价）", impact: "中东局势走向决定油价与通胀预期，直接关联美联储后续加息路径与风险偏好" },
-    { date: "09月30日", event: "美光科技（Micron）Q4财报", impact: "DRAM/HBM存储涨价周期与供需的关键验证，影响存储板块（MU/SNDK）定价" },
-    { date: "10月底", event: "美联储下次FOMC议息会议（市场定价加息25bp概率约53%）", impact: "利率路径与点阵图演变直接锚定高估值成长股估值中枢" }
+    { date: "09月22日", event: "美国总统特朗普与海湾国家领导人在纽约会晤（伊朗局势/油价走向）", impact: "中东局势走向决定油价与通胀预期，直接关联美联储后续加息路径与风险偏好" },
+    { date: "09月30日", event: "美光科技（Micron）FY2025 Q4 财报", impact: "DRAM/HBM/NAND存储涨价周期与供需的关键验证，影响存储板块（MU/SNDK/WDC/STX）定价" },
+    { date: "10月01日", event: "云服务商Nebius上调GPU/AI算力价格正式生效", impact: "AI算力需求与提价逻辑的验证，影响AI硬件（NVDA/AMD）与云计算叙事" },
+    { date: "10月底", event: "美联储下次FOMC议息会议（市场定价10月再加息概率约53%）", impact: "利率路径与点阵图演变直接锚定高估值成长股估值中枢" }
   ],
 
   /* ============ 八、页脚免责声明 ============ */
