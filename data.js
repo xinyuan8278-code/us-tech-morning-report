@@ -1,7 +1,7 @@
 /**
  * ============================================================
  *  美股科技板块前一交易日行情日报 —— 数据文件（每日只需改这里）
- *  （2026-09-20 更新：对应美股交易日 2026-09-18）
+ *  （2026-09-21 更新：对应美股交易日 2026-09-18）
  * ============================================================
  *  使用说明：
  *  1. 打开本文件，替换下方各字段的值即可生成当日日报。
@@ -24,7 +24,7 @@ window.REPORT_DATA = {
   meta: {
     title: "美股科技板块前一交易日行情日报",
     subtitle: "盘前版 · 大型科技 + 半导体存储跟踪",
-    reportDate: "2026年09月20日",   // 报告发布日期（周日）
+    reportDate: "2026年09月21日",   // 报告发布日期（周一）
     tradeDate: "2026年09月18日",    // 对应美股交易日（前一交易日，周五）
     author: "华泰期货 · 研究",
     tag: "每日市场跟踪"
@@ -33,7 +33,7 @@ window.REPORT_DATA = {
   /* ============ 二、市场概览 ============ */
   overview: {
     /* 简短概括：指数变化 + 个股变化 + 重大事件 */
-    text: "9月18日美股三大指数涨跌不一：纳指+0.39%至26522点、标普+0.17%至7650点、道指-0.18%至51683点；10年期美债收益率重回5.00%（2023年以来首次），压制整体市场。存储芯片逆势领涨（费半+2.78%）：闪迪+10.99%、美光+3.92%、AMD+2.70%、博通+2.97%；大型科技分化（英伟达+1.34%、Meta-2.43%）。",
+    text: "9月18日美股三大指数涨跌不一：纳指+0.39%至26522.55、标普+0.17%至7650.50、道指-0.18%至51682.64，费半+2.78%。存储芯片领涨（闪迪+10.99%至1791.82、美光+3.92%、希捷+6.93%、西数+4.13%），大型科技分化（英伟达+1.34%、Meta-2.43%）。10年期美债重回5%压制估值；周一闪迪纳入S&P 100、中美9/24峰会临近构成新催化。",
     /* 指数卡片（可增删） */
     indices: [
       { name: "Nasdaq Composite", code: "IXIC", change: "-0.00%" },
@@ -51,23 +51,23 @@ window.REPORT_DATA = {
       direction: "超涨",
       change: "-0.00%",
       fiveDay: "9/11收1633.35 → 9/14收1551.99 → 9/15收1530.90 → 9/16收1519.97（阶段低点）→ 9/17收1614.39（+6.21%）→ 9/18收1791.82（+10.99%），自9/16低点两日累计+17.9%",
-      newHighLow: "收1791.82美元，收复9/9以来全部回调并逼近阶段新高，处于历史高位区间",
-      volume: "尾盘放量拉升，单日市值增加约151亿美元（具体成交股数暂无可靠数据）",
-      reason: "存储超级周期同日集中兑现：美光高管称有意义的新增内存供应要到2028年才爬坡；苹果接受三星2027Q1存储涨价30-40%；铠侠-闪迪314亿美元日本扩产；SK海力士Solidigm考虑在美建NAND厂。NAND涨价+供应紧缺叙事共振，闪迪作为NAND纯标的弹性最大",
-      impact: "存储涨价周期进一步确认，但两日+17.9%急涨后短线波动加大，需以9/30美光财报验证涨价持续性；高位品种对利率（10年期美债重回5%）与获利了结仍较敏感"
+      newHighLow: "收1791.82美元，收复9/9以来全部回调并逼近阶段新高，仍较6月高点2354.39美元低约24%",
+      volume: "尾盘直线拉升（收盘前三分钟从约+7%拉至+10.99%），单日成交额约301—307亿美元，主要来自追踪标普100基金在9/18收盘前的强制买入",
+      reason: "双重催化同日共振：①9/4标普道琼斯指数公司公告闪迪9/21开盘前正式纳入S&P 100（同时戴尔、Palo Alto、Arista调入，耐克、高露洁等调出），追踪基金须在生效日前收盘完成买入；②存储超级周期集中兑现——美光称新增供应2028年才爬坡、苹果接受三星2027Q1涨价30-40%、铠侠-闪迪314亿美元扩产、SK海力士Solidigm拟在美建厂",
+      impact: "指数纳入带来的被动买盘已部分兑现，9/21生效后短期利多或边际减弱；中长期仍看NAND涨价周期与9/30美光财报验证。两日+17.9%急涨后波动加大，高位品种对利率（10年期美债重回5%）与获利了结仍较敏感"
     }
   ],
 
   /* ============ 四、重点公司行情表 ============ */
   /* 超涨/超跌个股放最上方；无新闻的公司驱动因素简要说明即可 */
   stocks: [
-    { name: "SanDisk",   code: "SNDK",  change: "-0.00%", driver: "NAND存储领涨，+10.99%至1791.82美元（超涨）；美光称新增供应2028年才爬坡+苹果接受三星涨价，存储涨价周期集中兑现" },
+    { name: "SanDisk",   code: "SNDK",  change: "-0.00%", driver: "NAND存储领涨，+10.99%至1791.82美元（超涨）；9/21纳入S&P 100被动买盘+存储涨价周期双重催化，2026年累涨超600%居标普500之最" },
     { name: "Micron",    code: "MU",    change: "-0.00%", driver: "DRAM/NAND存储强势，+3.92%至约1016美元；美光高管称有意义新增内存供应2028年才爬坡，供需长期紧缺" },
     { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "半导体普涨，+2.70%至约560美元；费半+2.78%，AI算力与存储需求共振" },
     { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "定制ASIC随半导体走强，+2.97%至约358美元" },
-    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "AI龙头走强，+1.34%至约222美元；黄仁勋称明年芯片销量将翻倍" },
+    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "AI龙头走强，+1.34%至约222美元；黄仁勋称明年芯片销量将翻倍，且将出席9/24中美峰会国宴" },
     { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "大型科技分化，-0.80%至约494美元；10年期美债重回5%压制估值" },
-    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "随大盘窄幅波动，-0.26%至约336美元" },
+    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "随大盘窄幅波动，-0.26%至约336美元；接受三星2027Q1存储涨价（成本端传导）" },
     { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "科技权重相对抗跌，+1.00%至约254美元" },
     { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "随大盘小幅上涨，+0.64%至约350美元" },
     { name: "Meta",      code: "META",  change: "-0.00%", driver: "科技七巨头中表现最弱，-2.43%至约666美元；利率上行压力" }
@@ -76,25 +76,89 @@ window.REPORT_DATA = {
   /* ============ 五、重要科技与政策新闻（一手来源） ============ */
   news: [
     {
+      title: "闪迪今日正式纳入标普100指数，戴尔、Palo Alto、Arista同步调入",
+      originalTitle: "Sandisk Joins the S&P 100 on Monday -- the Same Day Nike Leaves It",
+      source: "The Motley Fool（经 Nasdaq）",
+      time: "2026年09月19日",
+      type: "财经媒体",
+      url: "https://www.nasdaq.com/articles/sandisk-joins-sp-100-monday-same-day-nike-leaves-it",
+      link: "https://www.nasdaq.com/articles/sandisk-joins-sp-100-monday-same-day-nike-leaves-it",
+      summary: "标普道琼斯指数公司9/4公告，闪迪（SNDK）于9/21开盘前正式纳入标普100，同日戴尔、Palo Alto Networks、Arista Networks调入，耐克、高露洁、西蒙地产、霍尼韦尔航空调出。追踪标普100的基金须在9/18周五收盘前完成强制买入，是当日闪迪尾盘直线拉升+10.99%的直接催化。闪迪2026年累涨超600%（标普500成分股之最），市值约2600亿美元；FY2026营收202.5亿美元（+175%）、数据中心收入+437%、净利114亿美元。",
+      impact: {
+        direction: "利好",
+        companies: "闪迪（SNDK）、戴尔、Palo Alto、Arista",
+        industry: "存储、半导体、指数成分调整",
+        logic: "指数纳入带来被动资金强制买入与机构关注度提升，短期支撑股价；但纳入生效后被动买盘边际减弱，长期仍看NAND涨价周期"
+      }
+    },
+    {
+      title: "贝森特与何立峰纽约会谈：聚焦AI护栏、关税休战与稀土，为9/24峰会铺路",
+      originalTitle: "US Treasury's Bessent, China's He to launch talks on AI, trade, critical minerals",
+      source: "Reuters（经 AOL）",
+      time: "2026年09月20日",
+      type: "财经媒体",
+      url: "https://www.aol.com/articles/us-treasurys-bessent-chinas-launch-050623000.html",
+      link: "https://www.aol.com/articles/us-treasurys-bessent-chinas-launch-050623000.html",
+      summary: "美国财长贝森特与国务院副总理何立峰、美贸易代表格里尔9/20在纽约摩根大通总部举行全天会谈，为9/24特朗普-习近平华盛顿峰会铺路。议题包括11/10到期的中美关税休战、稀土磁体与关键矿产流动，以及AI护栏（开闭源模型）。会后贝森特称会谈\"非常成功\"、提议建立\"美中AI对话\"机制并同意再会；美方指中方稀土履约\"未达标\"，将是峰会讨论重点。",
+      impact: {
+        direction: "中性偏多",
+        companies: "半导体链、稀土链、中概资产",
+        industry: "AI治理、贸易、关键矿产",
+        logic: "若峰会取得关税休战延续或AI治理共识，将缓解芯片出口管制与供应链不确定性，直接提振半导体与中概风险偏好"
+      }
+    },
+    {
+      title: "特朗普与习近平9/24华盛顿峰会：AI、芯片、稀土为焦点，科技巨头CEO出席国宴",
+      originalTitle: "Trump-Xi state dinner: Why America's biggest tech bosses will be at the table",
+      source: "Livemint（综合 Politico）",
+      time: "2026年09月20日",
+      type: "财经媒体",
+      url: "https://www.livemint.com/news/us-news/trumpxi-state-dinner-why-america-s-biggest-tech-bosses-will-be-at-the-table-11789848887821.html",
+      link: "https://www.livemint.com/news/us-news/trumpxi-state-dinner-why-america-s-biggest-tech-bosses-will-be-at-the-table-11789848887821.html",
+      summary: "习近平9/23抵美、9/24与特朗普在白宫举行峰会，为其十年来首次对美国事访问。议题聚焦贸易关税、AI、半导体、稀土矿产、台湾及伊朗战争。英伟达黄仁勋、OpenAI奥特曼、谷歌皮查伊、苹果库克、特斯拉马斯克、戴尔、亚马逊贝索斯等科技巨头高管受邀出席国宴，凸显AI与芯片在两国竞争中的核心地位。市场普遍预期峰会不会有重大突破，最可能结果仍是延续关税休战。",
+      impact: {
+        direction: "中性（关键事件）",
+        companies: "英伟达（NVDA）、半导体链、稀土、中概",
+        industry: "AI、芯片出口管制、贸易、稀土",
+        logic: "峰会结果直接决定芯片出口管制、关税休战（11/10到期）与AI治理走向，是本周全球科技股最大的宏观变量"
+      }
+    },
+    {
+      title: "美国指控六家中国AI企业工业规模\"蒸馏\"美国前沿模型，AI治理成峰会焦点",
+      originalTitle: "US Accuses Six Chinese AI Firms of Copying Models, Bypassing Chip Controls",
+      source: "Tech Times",
+      time: "2026年09月19日",
+      type: "行业媒体",
+      url: "https://techtimes.com/articles/327742/20260919/us-accuses-six-chinese-ai-firms-copying-models-bypassing-chip-controls.htm",
+      link: "https://techtimes.com/articles/327742/20260919/us-accuses-six-chinese-ai-firms-copying-models-bypassing-chip-controls.htm",
+      summary: "美国国家安全局（NSA）、联邦调查局（FBI）与网络安全和基础设施安全局（CISA）9/8联合发布网络安全公告（AA26-251A），指控DeepSeek、月之暗面、阿里、MiniMax、StepFun、Z.AI六家中国AI企业自2024年底以来以\"工业规模、恶意且具针对性\"方式蒸馏美国前沿模型（数十亿token），用于训练自有模型。公告称活动\"可能在中国政府知情下\"进行、强化中国军事与网络攻击能力。中国商务部驳斥指控\"毫无根据\"。",
+      impact: {
+        direction: "中性偏空",
+        companies: "中国AI企业、前沿模型厂商",
+        industry: "AI治理、芯片出口管制",
+        logic: "蒸馏争议暴露芯片管制\"硬件管得住、API管不住\"的结构性漏洞，推升对AI能力输出实施新一轮管制的预期，为峰会AI治理议题埋下张力"
+      }
+    },
+    {
       title: "美光高管：有意义的新增内存供应要到2028年才爬坡，供需平衡时间不明",
       originalTitle: "Micron Executive Says Meaningful New Memory Supply May Not Arrive Until 2028",
-      source: "Guru3D（英文科技媒体，报道 Six Five Summit 2026）",
+      source: "Guru3D（报道 Six Five Summit 2026）",
       time: "2026年09月18日",
       type: "行业媒体",
       url: "https://www.guru3d.com/story/micron-executive-says-meaningful-new-memory-supply-may-not-arrive-until-2028/",
       link: "https://www.guru3d.com/story/micron-executive-says-meaningful-new-memory-supply-may-not-arrive-until-2028/",
-      summary: "美光前执行副总裁兼首席商务官、现任CEO高级顾问Sumit Sadana在Six Five Summit 2026表示，当前内存短缺已覆盖所有市场领域，客户需求预测仍在持续上修；即使供应商全力扩产，真正有意义的新增供应要到2028年才会开始爬坡，供需何时恢复平衡'看不到明确时间'。他指AI系统性能越来越取决于内存容量、性能与带宽，存储正从标准化周期品变为决定系统性能的核心部件。",
+      summary: "美光前执行副总裁兼首席商务官、现任CEO高级顾问Sumit Sadana在Six Five Summit 2026表示，当前内存短缺已覆盖所有市场领域，客户需求预测持续上修；即使供应商全力扩产，真正有意义的新增供应要到2028年才会开始爬坡，供需何时恢复平衡\"看不到明确时间\"。他指AI系统性能越来越取决于内存容量、性能与带宽，存储正从标准化周期品变为决定系统性能的核心部件。",
       impact: {
         direction: "利好",
         companies: "美光（MU）、闪迪（SNDK）、存储链",
         industry: "存储、半导体、AI",
-        logic: "供应紧缺周期被权威产业高管确认，强化存储涨价与长期景气叙事，是当日存储板块爆发的最直接催化"
+        logic: "供应紧缺周期被权威产业高管确认，强化存储涨价与长期景气叙事，是当日存储板块爆发的最直接催化之一"
       }
     },
     {
-      title: "黄仁勋：英伟达明年芯片销量将翻倍，AI需求跨行业扩散",
+      title: "黄仁勋：英伟达明年芯片销量将翻倍，瓶颈在产能而非需求",
       originalTitle: "Jensen Huang forecasts Nvidia chip sales to double in 2027",
-      source: "Bloomberg / Quartz（经 Yahoo Finance）",
+      source: "Bloomberg（经 Yahoo Finance）",
       time: "2026年09月17日",
       type: "财经媒体",
       url: "https://finance.yahoo.com/technology/ai/articles/jensen-huang-forecasts-nvidia-chip-114738472.html",
@@ -104,39 +168,7 @@ window.REPORT_DATA = {
         direction: "利好",
         companies: "英伟达（NVDA）、半导体链",
         industry: "AI、半导体、数据中心",
-        logic: "AI需求指引上修，对冲'AI放缓'担忧，提振AI硬件与存储链情绪，支撑芯片股普涨"
-      }
-    },
-    {
-      title: "SK海力士Solidigm考虑在美建NAND厂，纽约州领先候选",
-      originalTitle: "SK Hynix's Solidigm Eyes New York Site for US NAND Factory",
-      source: "Reuters（经 Financial News）",
-      time: "2026年09月18日",
-      type: "财经媒体",
-      url: "https://www.financial-news.co.uk/sk-hynixs-solidigm-eyes-new-york-site-for-us-nand-factory",
-      link: "https://www.financial-news.co.uk/sk-hynixs-solidigm-eyes-new-york-site-for-us-nand-factory",
-      summary: "路透援引三名知情人士称，SK海力士美国子公司Solidigm正考虑在美国建设NAND闪存工厂，纽约州北部为领先候选地。若落地将是Solidigm首个美国生产基地，可降低对大连唯一NAND厂的依赖，并规避美国对华关税与设备出口管制；美国商务部长卢特尼克曾威胁对韩台企业加征最高100%关税。SK海力士回应称'正在评估，尚无具体计划'，SK海力士周五收涨约6.4%。",
-      impact: {
-        direction: "利好",
-        companies: "SK海力士、存储链（MU/SNDK）、半导体设备",
-        industry: "半导体制造、存储、产业政策",
-        logic: "存储产能本土化+供给约束强化存储超级周期与美国本土制造叙事，提振存储与设备链情绪"
-      }
-    },
-    {
-      title: "中国长鑫存储（CXMT）拟进军NAND闪存，北京建研发产线",
-      originalTitle: "China's CXMT eyes NAND flash expansion as AI drives memory shortage",
-      source: "Reuters（经 TechNode Global）",
-      time: "2026年09月18日",
-      type: "财经媒体",
-      url: "https://technode.global/2026/09/18/china-cxmt-nand-flash-expansion-ai-memory-shortage/",
-      link: "https://technode.global/2026/09/18/china-cxmt-nand-flash-expansion-ai-memory-shortage/",
-      summary: "路透援引知情人士称，中国DRAM龙头长鑫存储（CXMT）计划在北京新厂建设NAND闪存研发产线，进军由三星、SK海力士、美光主导的闪存市场，并已与包括一家AI存储初创在内的潜在客户接洽。行业高管预计AI服务器内存短缺至少持续到2027年；TrendForce预计NAND紧张要到明年下半年才缓解。CXMT此前于7月IPO募资约86亿美元。",
-      impact: {
-        direction: "中性偏利好存储",
-        companies: "CXMT、三星、SK海力士、美光",
-        industry: "存储、半导体、供应链",
-        logic: "新进入者印证全球NAND供给紧张、涨价周期延续，短期强化存储景气；中长期增加供给端竞争"
+        logic: "AI需求指引上修，对冲\"AI放缓\"担忧，提振AI硬件与存储链情绪，支撑芯片股普涨"
       }
     },
     {
@@ -154,57 +186,26 @@ window.REPORT_DATA = {
         industry: "存储、消费电子、供应链",
         logic: "存储涨价从服务器向消费电子全品类传导，印证供给全面紧缺，强化存储提价周期与定价权转移"
       }
-    },
-    {
-      title: "美股周五涨跌不一：半导体领涨纳指、标普，10年期美债收益率重回5%",
-      originalTitle: "How major US stock indexes fared Friday 9/18/2026",
-      source: "AP / Reuters（经 AOL）",
-      time: "2026年09月18日",
-      type: "财经媒体",
-      url: "https://www.aol.com/articles/major-us-stock-indexes-fared-201659199.html",
-      link: "https://www.aol.com/articles/major-us-stock-indexes-fared-201659199.html",
-      summary: "美股周五收盘涨跌不一：标普+0.17%至7650.50、道指-0.18%至51682.64、纳指+0.39%至26522.55，罗素2000跌0.5%。半导体反弹推动纳指与标普走高，但多数个股下跌、道指收低（单周-1.7%创3月以来最大）。10年期美债收益率升至5.00%（本周一度创2023年以来首次），布伦特原油跌破102后回升至103美元上方。",
-      impact: {
-        direction: "中性偏空",
-        companies: "全市场、利率敏感成长股",
-        industry: "利率、债市、估值",
-        logic: "无风险利率重回5%压制整体估值，但存储/半导体结构性强势，市场呈'指数平稳、板块极端分化'格局"
-      }
-    },
-    {
-      title: "铠侠与闪迪计划在日本投资逾310亿美元扩产NAND，强化存储领导地位",
-      originalTitle: "Kioxia and Sandisk to Invest Over $31 Billion in Japan, Extending Leadership in Memory Industry",
-      source: "StorageNewsletter（存储行业媒体）",
-      time: "2026年09月15日",
-      type: "行业媒体",
-      url: "https://www.storagenewsletter.com/2026/09/15/kioxia-and-sandisk-to-invest-over-31-billion-in-japan-extending-leadership-in-memory-industry",
-      link: "https://www.storagenewsletter.com/2026/09/15/kioxia-and-sandisk-to-invest-over-31-billion-in-japan-extending-leadership-in-memory-industry",
-      summary: "铠侠（Kioxia）与闪迪（Sandisk）宣布将在日本四日市与北上工厂合计投资逾310亿美元（约5万亿日元，以政府支持为前提），至2032年持续扩产3D NAND闪存，其中北上新厂投资约113亿美元。双方表示此举为满足AI与数据驱动时代的闪存需求，延续25年合资伙伴关系，并契合日本高市政府的半导体振兴政策。",
-      impact: {
-        direction: "利好存储",
-        companies: "闪迪（SNDK）、铠侠、存储设备链",
-        industry: "存储、半导体制造",
-        logic: "NAND龙头扩产印证AI存储长期需求，闪迪作为合资方直接受益，强化存储长期资本开支与景气叙事"
-      }
     }
   ],
 
   /* ============ 六、当日最值得关注的 3 个交易逻辑 ============ */
   logics: [
-    { title: "存储超级周期逻辑集中兑现：供应紧缺+涨价周期同日共振",
-      text: "美光高管Sadana明确'有意义的新增供应2028年才爬坡'，苹果接受三星2027Q1涨价30-40%，铠侠-闪迪314亿美元扩产、SK海力士Solidigm考虑赴美建厂、CXMT进军NAND——供给紧缺与涨价周期在同日集中兑现，闪迪+10.99%、美光+3.92%领涨，费半+2.78%逆势走强。存储正从'标准化周期品'转向'决定AI系统性能的核心部件'，是当前市场最强势的交易主线。" },
-    { title: "AI需求指引上修对冲'AI放缓'担忧，资金回流硬件与存储主线",
-      text: "黄仁勋'明年芯片销量翻倍'的表态，叠加此前Nebius提价、SK海力士-英特尔洽谈在美建厂，持续证伪'AI放缓→硬件需求骤降'的极端交易。AI算力与存储需求指引同步上修，资金回流AI硬件与存储主线；但10年期美债收益率重回5%（2023年以来首次）仍对高估值成长股形成估值约束，构成'产业强、利率紧'的拉锯。" },
-    { title: "利率重回5% vs 油价回落：宏观变量对科技股的双向拉扯",
-      text: "当日10年期美债收益率升至5.00%，创2023年以来首次，压制整体市场（道指-0.18%、单周-1.7%创3月以来最大跌幅）；但布伦特原油跌破102后回落、WTI跌破96美元，通胀担忧边际缓和。利率上行与油价回落形成对冲，市场呈现'指数平稳、板块极端分化'——资金在有限流动性下从软件与大盘权重轮动至存储/半导体强势板块。" }
+    { title: "存储超级周期叠加指数纳入：闪迪领涨、板块集中兑现",
+      text: "美光Sadana\"新增供应2028年才爬坡\"、苹果接受三星2027Q1涨价30-40%、铠侠-闪迪314亿美元扩产，叠加9/21闪迪纳入S&P 100（9/4公告、基金须在9/18收盘前强制买入），供给紧缺+涨价周期+指数纳入三重催化同日共振，闪迪+10.99%、美光+3.92%领涨，费半+2.78%逆势走强。存储正从\"周期品\"转向\"决定AI性能的核心部件\"，是当前市场最强势的交易主线。" },
+    { title: "中美AI/芯片博弈升温，9/24峰会成为本周最大宏观变量",
+      text: "贝森特-何立峰9/20纽约会谈（AI护栏、关税休战、稀土），叠加美方指控六家中国AI企业\"工业规模蒸馏\"，为9/24特朗普-习近平华盛顿峰会铺路。芯片出口管制、关税休战（11/10到期）、AI治理三大议题直接锚定英伟达、半导体链与稀土/中概资产。峰会结果或决定下周科技板块的风险偏好与估值方向。" },
+    { title: "利率重回5% vs 存储/半导体结构性强势：资金在有限流动性下极端分化",
+      text: "10年期美债收益率升至5.00%（2023年以来首次）压制高估值成长股（Meta-2.43%、微软-0.80%），道指单周-1.7%创3月以来最大跌幅；但存储/半导体结构性强势（费半+2.78%）独立于大盘。资金从软件与大盘权重轮动至存储/半导体，市场呈\"指数平稳、板块极端分化\"格局。" }
   ],
 
   /* ============ 七、未来 1—3 个交易日关注事项（具体事件） ============ */
   watchlist: [
-    { date: "09月22日", event: "美国总统特朗普与海湾国家领导人在纽约会晤（伊朗局势/油价走向）", impact: "中东局势走向决定油价与通胀预期，直接关联美联储后续加息路径与风险偏好" },
+    { date: "09月21日", event: "闪迪（SNDK）正式纳入S&P 100，戴尔/Palo Alto/Arista同步调入、耐克调出（盘前生效）", impact: "被动指数基金调仓完成，闪迪纳入利多边际兑现，关注存储板块短线波动" },
+    { date: "09月23日", event: "中国国家主席习近平抵达美国（十年来首次对美国事访问）", impact: "中美关系与科技/芯片/稀土议题预期升温，影响半导体与中概风险偏好" },
+    { date: "09月24日", event: "特朗普-习近平华盛顿峰会（AI治理、芯片出口管制、关税休战、稀土）", impact: "本周最大宏观变量，结果直接决定芯片出口管制与关税休战走向，锚定科技股估值" },
     { date: "09月30日", event: "美光科技（Micron）FY2025 Q4 财报", impact: "DRAM/HBM/NAND存储涨价周期与供需的关键验证，影响存储板块（MU/SNDK/WDC/STX）定价" },
-    { date: "10月01日", event: "云服务商Nebius上调GPU/AI算力价格正式生效", impact: "AI算力需求与提价逻辑的验证，影响AI硬件（NVDA/AMD）与云计算叙事" },
-    { date: "10月底", event: "美联储下次FOMC议息会议（市场定价10月再加息概率约53%）", impact: "利率路径与点阵图演变直接锚定高估值成长股估值中枢" }
+    { date: "10月底", event: "美联储下次FOMC议息会议（点阵图暗示年内或再加息一次）", impact: "利率路径与点阵图演变直接锚定高估值成长股估值中枢" }
   ],
 
   /* ============ 八、页脚免责声明 ============ */
