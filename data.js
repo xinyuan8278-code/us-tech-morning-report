@@ -1,7 +1,7 @@
 /**
  * ============================================================
  *  美股科技板块前一交易日行情日报 —— 数据文件（每日只需改这里）
- *  （2026-09-30 更新：对应美股交易日 2026-09-29）
+ *  （2026-10-08 更新：对应美股交易日 2026-10-07）
  * ============================================================
  *  使用说明：
  *  1. 打开本文件，替换下方各字段的值即可生成当日日报。
@@ -24,8 +24,8 @@ window.REPORT_DATA = {
   meta: {
     title: "美股科技板块前一交易日行情日报",
     subtitle: "盘前版 · 大型科技 + 半导体存储跟踪",
-    reportDate: "2026年09月30日",   // 报告发布日期（周三）
-    tradeDate: "2026年09月29日",    // 对应美股交易日（前一交易日，周二）
+    reportDate: "2026年10月08日",   // 报告发布日期（周四）
+    tradeDate: "2026年10月07日",    // 对应美股交易日（前一交易日，周三）
     author: "华泰期货 · 研究",
     tag: "每日市场跟踪"
   },
@@ -33,7 +33,7 @@ window.REPORT_DATA = {
   /* ============ 二、市场概览 ============ */
   overview: {
     /* 简短概括：指数变化 + 个股变化 + 重大事件 */
-    text: "9月29日美股小幅收跌：纳指-0.09%、标普-0.17%、道指-0.26%，30年期美债收益率升至5.62%创2002年来新高压制估值，费半逆势+1.32%。Meta推小企业版Muse涨3.24%领涨，苹果因新CEO重组改革跌2.66%；特朗普与OpenAI、谷歌、Meta、英伟达等签署\"超级智能\"自愿安全协议；美释放4000万桶战略储油，油价跌破90美元。",
+    text: "10月7日美股自历史高位小幅回落：纳指-0.22%终结五连涨、标普-0.22%、道指-0.66%，30年期美债收益率触及24年新高、10年期盘中升破5.36%压制估值；费半-1.15%。美光受HBM需求强劲与供货价上调提振逆势涨4.06%领跑，闪迪获花旗重申买入涨1.92%，Meta跌2.38%领跌大型科技。美联储9月会议纪要显示全体一致加息25bp、多数官员倾向年内再加息一次，并明确提及AI基建推升通胀；IEA同意加快释放1亿桶原油储备，油价回落至88美元附近。",
     /* 指数卡片（可增删） */
     indices: [
       { name: "Nasdaq Composite", code: "IXIC", change: "-0.00%" },
@@ -49,166 +49,151 @@ window.REPORT_DATA = {
   /* ============ 四、重点公司行情表 ============ */
   /* 超涨/超跌个股放最上方；无新闻的公司驱动因素简要说明即可 */
   stocks: [
-    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "随大盘小幅回落，-0.72%至227.21美元；黄仁勋出席白宫AI峰会签署\"超级智能\"协议，AI政策面偏友好，但高企长端利率压制估值，资金轮动至半导体设备与存储链" },
-    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "基本持平，-0.05%至508.96美元；纳德拉出席白宫AI峰会，市场聚焦\"行业自我监管\"框架，对微软等AI巨头约束有限" },
-    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "领跌大型科技，-2.66%至329.40美元；彭博报道新CEO特努斯酝酿工程导向重组（精简中层、突破春秋发布周期），叠加美银警告AI购物代理或侵蚀苹果生态" },
-    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "微涨，+0.21%至246.67美元；AWS与AI资本开支仍是核心叙事，特朗普重申支持数据中心扩张利好云计算" },
-    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "小幅回落，-0.53%至340.92美元；皮查伊出席白宫AI峰会签署\"超级智能\"协议，AI Agent竞争（Muse）令市场重估谷歌AI应用布局" },
-    { name: "Meta",      code: "META",  change: "-0.00%", driver: "大型科技领涨，+3.24%至738.79美元；推出面向小企业的Muse AI代理（接入Shopify/QuickBooks/Stripe/Canva等），AI商业化变现叙事强化，缓解算力瓶颈担忧" },
-    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "定制ASIC随半导体走强，+1.58%至355.10美元；费半+1.32%，AI算力与存储需求支撑" },
-    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "基本持平，-0.05%至607.57美元；苏姿丰出席白宫AI峰会，AI算力需求与Agent扩容预期支撑，但高估值与美债收益率压力并存" },
-    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "存储走强，+1.05%至1065.08美元；9/30盘后发布FY2026 Q4财报（一致预期营收约510亿、调整后EPS约31.5），DRAM/NAND涨价与HBM4放量为核心看点" },
-    { name: "SanDisk",   code: "SNDK",  change: "-0.00%", driver: "存储企稳，+0.98%至1729.76美元；NAND涨价周期与美光财报临近支撑，AI企业级存储需求延续" }
+    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "小幅回落，-0.74%至237.47美元；市值逼近6万亿美元后获利了结，但AI需求叙事仍强，SpaceX拟筹400亿美元采购英伟达芯片的报道再度验证GPU需求外溢" },
+    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "基本持平，+0.09%至529.76美元；纳德拉与黄仁勋联合发布搭载英伟达RTX Spark芯片的Surface Laptop Ultra（2599美元起），Windows与Copilot与英伟达生态绑定，本周累涨约3.3%" },
+    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "小幅走强，+0.91%至336.67美元；市场关注10月中旬智能家居产品发布预期，前期新CEO特努斯重组担忧有所消化" },
+    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "大型科技领涨，+1.42%至259.92美元；FCC频谱投票路径或利好卫星直连手机（D2D）业务，AWS云与AI资本开支叙事延续" },
+    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "小幅走强，+0.81%至350.50美元；与Constellation Energy达成3.59GW长期核电协议支撑AI数据中心能源需求，股价本周稳中有升" },
+    { name: "Meta",      code: "META",  change: "-0.00%", driver: "领跌大型科技，-2.38%至721.31美元；Muse AI代理推出一个月后强势上涨后获利回吐，花旗测算Muse至2030年或带来逾270亿美元年收入但短期算力成本承压" },
+    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "定制ASIC微涨，+0.19%至376.51美元；费半-1.15%环境下逆势收红，AI算力与网络芯片需求支撑" },
+    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "小幅回落，-0.55%至645.86美元；前一日创新高后回吐，苏姿丰本周访亚洽谈三星/海力士HBM供应，AI加速器扩产预期支撑估值" },
+    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "成交额居首、放量大涨，+4.06%至1088.00美元；财报后HBM需求强劲、已完成来年大部分HBM供货协议且签约价明显上调，CEO称2027/2028存储供需更紧，花旗看好NAND供应紧张延续" },
+    { name: "SanDisk",   code: "SNDK",  change: "-0.00%", driver: "存储走强，+1.92%至1692.42美元；花旗重申买入、目标价2100美元，认为NAND供应紧张有望持续至2028年，企业级存储与QLC Stargate平台放量" }
   ],
 
   /* ============ 五、重要科技与政策新闻（一手来源） ============ */
   news: [
     {
-      title: "特朗普与OpenAI、谷歌、Meta、英伟达等签署白宫\"超级智能\"协议，AI治理转向行业自我监管",
-      originalTitle: "Trump, top tech firms sign accord to 'self-police' AI development",
-      source: "AP/Reuters（经 Al Jazeera）",
-      time: "2026年09月29日",
-      type: "财经媒体",
-      url: "https://www.aljazeera.com/news/2026/9/29/trump-top-tech-firms-sign-accord-to-self-police-ai-development",
-      link: "https://www.aljazeera.com/news/2026/9/29/trump-top-tech-firms-sign-accord-to-self-police-ai-development",
-      summary: "特朗普9/29在白宫与OpenAI总裁布罗克曼、Anthropic CEO阿莫代伊、Meta扎克伯格、谷歌皮查伊、英伟达黄仁勋等会晤，签署单页《白宫超级智能协议：前沿责任联合承诺》。协议要求前沿AI公司建立四层内控与审计（内部监控、内部验证团队、独立外部审计、董事会委员会），承诺防范AI工具\"非预期入侵或未授权访问系统\"。特朗普称协议\"几乎像一部宪法\"\"道义上有约束力\"，并指示联邦机构以\"超级智能\"替代\"人工智能\"表述；同时重申支持数据中心扩张，并称考虑设立10人AI安全委员会。",
-      impact: {
-        direction: "利好",
-        companies: "OpenAI、谷歌、Meta、英伟达、Anthropic、微软等",
-        industry: "AI、云计算、数据中心",
-        logic: "以行业自愿承诺替代强制性政府监管，短期降低AI监管收紧风险，利好AI资本开支与算力叙事；但\"自我监管\"落地效果存疑，长期或仍面临监管补位"
-      }
-    },
-    {
-      title: "苹果新CEO特努斯酝酿工程导向重组：精简中层、突破春秋发布周期，股价领跌2.66%",
-      originalTitle: "Apple plans engineering-focused overhaul under Ternus, Bloomberg News reports",
-      source: "Reuters（经 Channel News Asia）",
-      time: "2026年09月29日",
-      type: "财经媒体",
-      url: "https://www.channelnewsasia.com/business/apple-plans-engineering-focused-overhaul-under-ternus-bloomberg-news-reports-6419156",
-      link: "https://www.channelnewsasia.com/business/apple-plans-engineering-focused-overhaul-under-ternus-bloomberg-news-reports-6419156",
-      summary: "彭博援引知情人士报道，苹果新任CEO约翰·特努斯（9/1接替库克）正酝酿工程导向重组：减少对传统春秋两季发布会周期的依赖、裁撤部分中层管理岗位以缩短工程师与高管决策链路、并推进降本与寻找新收入来源。报道称硬件工程部门已裁减约6名主管，Siri与Vision Pro团队亦有优化。美银分析师警告Meta的Muse等AI购物代理可能将购买行为移出苹果生态。苹果当日收跌2.66%至329.40美元。",
-      impact: {
-        direction: "利空",
-        companies: "苹果（AAPL）",
-        industry: "消费电子、AI",
-        logic: "管理层重组与AI代理竞争担忧压制情绪；但精简架构若提升产品迭代速度，中期或利好，市场短期聚焦AI时代苹果的竞争力缺口"
-      }
-    },
-    {
-      title: "美国30年期国债收益率升至5.62%创2002年来新高，长端抛售加剧压制成长股估值",
-      originalTitle: "US 30-year treasury yield rises to highest level since 2002",
-      source: "The Straits Times（Reuters）",
-      time: "2026年09月29日",
-      type: "财经媒体",
-      url: "https://www.straitstimes.com/business/us-30-year-treasury-yield-rises-to-highest-level-since-2002",
-      link: "https://www.straitstimes.com/business/us-30-year-treasury-yield-rises-to-highest-level-since-2002",
-      summary: "美国30年期国债收益率9/29连续第六个交易日上行、升破5.61%至2002年以来最高，10年期升至5.25%附近（2007年以来高位）。驱动因素包括中东冲突推升油价带来的通胀焦虑、企业债天量供应（派拉蒙-天舞约320亿美元投资级发债）以及美国国债突破40万亿美元的财政可持续性担忧。纽约联储主席威廉姆斯称\"今年晚些时候再一次上调可能是合适的\"，10月加息预期有所回落。今年美债已累计下跌2.6%。",
+      title: "美联储9月会议纪要：全体一致加息25bp，多数官员预计年内再加息一次，并明确AI基建推升通胀",
+      originalTitle: "Minutes of the Federal Open Market Committee, September 15–16, 2026",
+      source: "Federal Reserve（美联储官网）",
+      time: "2026年10月07日",
+      type: "官方",
+      url: "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260916.htm",
+      link: "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260916.htm",
+      summary: "美联储10月7日公布9月15-16日FOMC会议纪要。纪要显示全体成员一致同意将联邦基金利率目标区间上调25bp至3.75%-4.00%（2023年7月以来首次加息），多数与会者认为\"年底前进一步提高利率目标区间可能是合适的\"。纪要明确将通胀归因于关税、地缘政治推升的能源/投入成本，以及\"AI建设（AI buildout）带动的科技消费品价格上涨\"；部分官员指出AI基建可能使中期总需求超过总供给、给通胀带来上行压力。下次会议定于10月27-28日。",
       impact: {
         direction: "利空（利率）",
         companies: "高估值成长股、半导体、大型科技",
+        industry: "利率、宏观、AI",
+        logic: "纪要确认鹰派基调并首次官方点名AI资本开支推升通胀，强化长端利率上行预期，压制高久期科技股估值；但市场对10月连续加息定价已降至约19%，部分缓解冲击"
+      }
+    },
+    {
+      title: "长端美债收益率续创多年新高，30年期触及24年高位，10年期盘中升破5.36%",
+      originalTitle: "Wall Street ends lower, off record highs, as Treasury yields climb",
+      source: "Reuters（经 Livemint）",
+      time: "2026年10月07日",
+      type: "财经媒体",
+      url: "https://www.livemint.com/market/wall-street-ends-lower-off-record-highs-as-treasury-yields-climb-11791403312250.html",
+      link: "https://www.livemint.com/market/wall-street-ends-lower-off-record-highs-as-treasury-yields-climb-11791403312250.html",
+      summary: "据路透社10月7日报道，长期美债收益率恢复上行，30年期国债收益率触及24年新高、10年期盘中一度升至2002年以来高位，令美股自周二历史收盘高位回落。伊朗战争相关供应担忧推高油价，重燃通胀担忧并延长央行加息周期预期，叠加企业与主权债务攀升，引发全球债市抛售。CME FedWatch显示10月会议连续第二次加息的概率已从一周前的37.6%降至不足20%。美国30年期固定房贷利率升至近三年高位，住宅与房屋建筑板块分别下跌2.3%和2.9%。",
+      impact: {
+        direction: "利空（利率）",
+        companies: "高估值成长股、住宅建筑链、半导体",
         industry: "利率、宏观",
-        logic: "长端利率飙升直接压制高久期成长股估值中枢，是当日纳指、标普回落的主因；威廉姆斯鸽派信号部分缓和10月加息预期，缓解下跌幅度"
+        logic: "长端利率飙升直接压制高久期成长股与芯片股估值，是当日三大指数回落的主因；房贷利率上行同步压制地产链"
       }
     },
     {
-      title: "美国9月消费者信心指数暴跌至81.9创2014年来新低，8月职位空缺降至707.9万",
-      originalTitle: "US consumer confidence near 12-1/2-year low amid labor market fears",
-      source: "Reuters",
-      time: "2026年09月29日",
+      title: "美光HBM需求强劲、供货价上调，CEO称2027/2028存储供需更紧，股价逆势涨4.06%",
+      originalTitle: "Micron Sees Tighter Memory Supply Through FY28",
+      source: "Reuters（经多家行业媒体）",
+      time: "2026年10月07日",
       type: "财经媒体",
-      url: "https://reuters.com/business/us-consumer-confidence-dives-more-than-12-year-low-september-2026-09-29",
-      link: "https://reuters.com/business/us-consumer-confidence-dives-more-than-12-year-low-september-2026-09-29",
-      summary: "美国谘商会9月消费者信心指数大幅下滑6.7点至81.9，为2014年4月以来最低，远低于市场预期的89.2；消费者对未来12个月通胀预期中值升至5.1%，68.4%的消费者预期利率将进一步走高。劳工部数据显示8月职位空缺减少25.6万至707.9万（预期722.5万），职位空缺/失业人数比降至1.01。数据反映中东冲突与高利率下就业市场持续降温。",
-      impact: {
-        direction: "利空（经济）",
-        companies: "消费、零售、大型科技广告业务",
-        industry: "宏观、消费",
-        logic: "信心与职位空缺双弱强化经济放缓预期，理论上缓和加息压力，但就业降温对广告/消费相关科技收入构成隐忧"
-      }
-    },
-    {
-      title: "AT&T与康宁签署超30亿美元光纤多年期协议，AI数据需求驱动光通信板块走强",
-      originalTitle: "AT&T and Corning Team Up to Engineer the Connected World with Fiber",
-      source: "AT&T 官方新闻稿",
-      time: "2026年09月29日",
-      type: "官方",
-      url: "https://about.att.com/story/2026/att-corning-engineer-connected-world.html",
-      link: "https://about.att.com/story/2026/att-corning-engineer-connected-world.html",
-      summary: "AT&T与康宁9/29宣布达成价值逾30亿美元的多年期光纤/光缆供应协议，康宁将为AT&T网络扩张供应光纤，支撑其在2030年前向6000万美国人提供高速宽带。AT&T表示，AI、流媒体与云计算推动数据需求激增，平均每户家庭月流量已超1TB（2016年的5倍）。康宁当日收涨4.70%，带动Lumentum、Coherent等光通信股普涨。",
+      url: "https://www.htelec.com/blog/Memory-Chip-Supply-Tightness-May-Worsen-as-AI-Demand-Absorbs-DRAM-and-NAND-Capacity",
+      link: "https://www.htelec.com/blog/Memory-Chip-Supply-Tightness-May-Worsen-as-AI-Demand-Absorbs-DRAM-and-NAND-Capacity",
+      summary: "美光10月7日放量大涨4.06%至1088.00美元，成交额321.7亿美元居全市场首位。据路透社援引美光9月30日财报电话会，CEO桑杰·梅赫罗特拉表示2027、2028年存储供需将比2026年\"紧张得多\"，公司已完成来年大部分HBM供货协议且签约价明显上调，2027年超75%产量已预订、洽谈重心转向锁定2028年供应。美光已进入HBM4量产出货阶段，数据中心业务收入环比增56%、毛利率达90%；TrendForce预计Q4传统DRAM合同价环比再涨10%-15%。",
       impact: {
         direction: "利好",
-        companies: "康宁（GLW）、AT&T、Lumentum、Coherent、光通信链",
-        industry: "光通信、AI基础设施、宽带",
-        logic: "AI驱动数据流量增长向光纤/光通信基础设施传导，验证AI资本开支从算力向网络互联环节扩散"
+        companies: "美光（MU）、闪迪（SNDK）、SK海力士、三星、存储链",
+        industry: "存储、半导体、AI",
+        logic: "HBM定价权与供给紧张确认，强化存储超级周期叙事，资金从GPU外溢至存储端，是费半回落环境下美光逆势领涨的核心驱动"
       }
     },
     {
-      title: "Meta推出面向小企业的Muse AI代理，接入Shopify、QuickBooks等工具，股价涨3.24%",
-      originalTitle: "Meta expands Muse AI agent for small businesses",
-      source: "Reuters（经 The Star）",
-      time: "2026年09月29日",
+      title: "花旗重申闪迪买入评级、目标价2100美元，认为NAND供应紧张有望持续至2028年",
+      originalTitle: "SanDisk Stock Has Rocketed 580% in 2026 on the AI Memory Shortage",
+      source: "Reuters / Investing.com（评级汇总）",
+      time: "2026年10月07日",
       type: "财经媒体",
-      url: "https://www.thestar.com.my/tech/tech-news/2026/09/29/meta-expands-muse-ai-agent-for-small-businesses",
-      link: "https://www.thestar.com.my/tech/tech-news/2026/09/29/meta-expands-muse-ai-agent-for-small-businesses",
-      summary: "Meta宣布将AI代理Muse扩展至小企业市场，可连接Shopify、QuickBooks、Stripe、Canva、Asana、Slack、Zoom等数十款企业工具，协助商家经营、获客与数据分析。Muse在用户批准前不会发布内容、发送消息或完成购买，大部分用途免费。Muse上线两周下载量约280万次，Meta旨在借此多元化广告以外收入。当日Meta收涨3.24%至738.79美元，领涨大型科技。",
+      url: "https://www.investing.com/equities/sandisk-corp-consensus-estimates",
+      link: "https://www.investing.com/equities/sandisk-corp-consensus-estimates",
+      summary: "闪迪10月7日收涨1.92%至1692.42美元。花旗维持\"买入\"评级、目标价2100美元（10月1日确认），认为NAND供应紧张有望持续至2028年；Rosenblatt 9月22日首予买入、目标价2400美元，Bernstein SocGen目标价高达3000美元。闪迪数据中心营收同比暴增645%、毛利率升至78.4%，已与8家大型数据中心客户签订多年期NAND供货协议、锁定额外约110亿美元收入，并推进QLC Stargate平台放量与BiCS8/BiCS10制程。公司2026年累计涨幅超580%。",
       impact: {
         direction: "利好",
-        companies: "Meta（META）、Shopify、AI应用链",
-        industry: "AI Agent、SaaS、电商",
-        logic: "Meta将AI代理从消费级扩展至商业变现，强化AI商业化叙事；但算力瓶颈与对手（亚马逊屏蔽Muse）竞争仍存不确定性"
+        companies: "闪迪（SNDK）、美光（MU）、存储链",
+        industry: "存储、NAND、AI",
+        logic: "机构持续上调目标价验证NAND结构性短缺与定价权，企业级SSD需求受AI推理与检索驱动高速增长，支撑存储板块整体走强"
       }
     },
     {
-      title: "美国宣布以\"互换\"方式释放最多4000万桶战略储油，油价跌破90美元、通胀压力边际缓和",
-      originalTitle: "Oil Falls as SPR Release Boosts Supply",
-      source: "Trading Economics",
-      time: "2026年09月29日",
-      type: "行业媒体",
-      url: "https://tradingeconomics.com/commodity/crude-oil/news/587818",
-      link: "https://tradingeconomics.com/commodity/crude-oil/news/587818",
-      summary: "美国能源部9/29宣布以\"互换\"方式向市场释放最多4000万桶战略石油储备（SPR），投标截止10/6，该计划未来一年将向储备归还约2亿桶；能源部长赖特暗示进一步投放可能性不大。同时沙特在无人机袭击后恢复东西向管道约一半输送能力。WTI原油收跌3.48%至89.38美元（跌破90）、布伦特跌2.56%至102.59美元。",
+      title: "IEA成员国同意加快释放约1亿桶石油储备并优先投放柴油，油价回落",
+      originalTitle: "IEA members support accelerating release of about 100 mln barrels of oil stocks",
+      source: "Xinhua（新华社英文）",
+      time: "2026年10月07日",
+      type: "财经媒体",
+      url: "https://english.news.cn/20261007/6cb97e800a1f462386424ecb38fc7d09/c.html",
+      link: "https://english.news.cn/20261007/6cb97e800a1f462386424ecb38fc7d09/c.html",
+      summary: "国际能源署（IEA）10月7日发表声明，成员国政府同意\"尽快\"完成3月承诺的石油储备释放，若全部投放市场预计再释放约1亿桶石油；并鉴于柴油市场紧张，同意\"尽可能\"优先投放柴油储备。截至目前，成员国已按3月集体行动释放约3.25亿桶，仍持有约11亿桶公共应急储备（含超2亿桶柴油）。当日WTI原油收跌1.3%至88.28美元、布伦特跌0.38%至100.20美元，油价回落缓解通胀与长端利率压力。",
       impact: {
         direction: "中性偏多（通胀缓解）",
-        companies: "能源、航运；利好高估值成长股",
-        industry: "能源、利率、通胀",
-        logic: "油价回落边际缓解通胀与长端利率压力，对高估值科技股构成支撑；但地缘不确定性（霍尔木兹、美伊谈判）尚未解除"
+        companies: "高估值成长股、半导体、消费科技",
+        industry: "能源、通胀、利率",
+        logic: "油价与柴油供应担忧缓和，边际缓解通胀与长端利率压力，为高估值科技股提供支撑；但地缘（伊朗/霍尔木兹）不确定性尚未解除"
       }
     },
     {
-      title: "美光9/30盘后发布FY2026 Q4财报：一致预期营收约510亿、EPS约31.5美元，成存储周期关键验证",
-      originalTitle: "Micron (MU) Highlights Tech Earnings to Watch This Week",
-      source: "Zacks（经 Nasdaq）",
-      time: "2026年09月29日",
-      type: "财经媒体",
-      url: "https://www.nasdaq.com/articles/micron-mu-highlights-tech-earnings-watch-week",
-      link: "https://www.nasdaq.com/articles/micron-mu-highlights-tech-earnings-watch-week",
-      summary: "美光将于9/30盘后发布2026财年Q4财报。Zacks一致预期营收约508.6亿美元（同比+约350%）、调整后EPS约31.45美元（同比+约938%），HBM需求为核心叙事。摩根大通维持超配、目标价1540美元，称HBM3E/HBM4产能已排至2027年底；市场关注DRAM/NAND定价、HBM4放量及11月季度指引（多头需营收指引达550亿美元以上）。",
+      title: "微软与英伟达联合发布搭载RTX Spark芯片的Surface Laptop Ultra，AI PC商业化再进一步",
+      originalTitle: "Microsoft Puts Nvidia Inside a $2,599 Laptop",
+      source: "Money Morning（行业媒体）",
+      time: "2026年10月08日",
+      type: "行业媒体",
+      url: "https://moneymorning.com/2026/10/08/magnificent-7-weekly-report-october-8-2026",
+      link: "https://moneymorning.com/2026/10/08/magnificent-7-weekly-report-october-8-2026",
+      summary: "微软与英伟达本周联合发布Surface Laptop Ultra，基础款2599美元起、搭载英伟达RTX Spark芯片，高配版统一内存最高128GB、价格近5900美元。黄仁勋与纳德拉在旧金山同台，微软将Windows、Copilot与Surface硬件绑定英伟达芯片。预售10月8日开启、10月16日发货。市场反响积极，微软本周累涨约3.3%、英伟达累涨约4%。此举标志着AI交易叙事从数据中心机架延伸至终端设备，英伟达获得服务器之外的新分发渠道。",
       impact: {
-        direction: "利好（关键验证事件）",
-        companies: "美光（MU）、闪迪（SNDK）、SK海力士、存储链",
-        industry: "存储、半导体、AI",
-        logic: "美光财报验证存储涨价周期与HBM需求持续性，决定存储板块下一步定价；同时9/30核心PCE与10/2非农锚定10月加息路径"
+        direction: "利好",
+        companies: "微软（MSFT）、英伟达（NVDA）、AI PC链",
+        industry: "AI PC、消费电子、半导体",
+        logic: "AI能力下沉至终端设备，拓宽英伟达分销渠道与微软Copilot生态，强化AI商业化从云端向端侧扩散的叙事"
+      }
+    },
+    {
+      title: "SpaceX拟筹资400亿美元采购英伟达芯片，AI算力融资的\"循环式\"债务引发关注",
+      originalTitle: "SpaceX falls after reports of $40 billion financing push",
+      source: "Reuters",
+      time: "2026年10月07日",
+      type: "财经媒体",
+      url: "https://local.newsbreak.com/reuters-555486/4931663627355-trading-day-stocks-bonds-in-delicate-dance",
+      link: "https://local.newsbreak.com/reuters-555486/4931663627355-trading-day-stocks-bonds-in-delicate-dance",
+      summary: "据路透社10月7日报道，马斯克旗下SpaceX正与银行及资产管理公司洽谈约400亿美元融资（含约100亿银行贷款与300亿投资级债券，阿波罗全球管理或牵头），用于采购英伟达AI芯片，融资可能到2027年才完成。消息令SpaceX股价当日收跌约2.6%-2.8%。摩根士丹利此前测算AI数据中心相关表外债务已超3万亿美元，Jim Chanos、Steve Eisman、Michael Burry等资深投资者对AI融资的循环性与不透明性发出警告。",
+      impact: {
+        direction: "中性（需求验证/风险并存）",
+        companies: "SpaceX、英伟达（NVDA）、AI算力链",
+        industry: "AI基础设施、融资、数据中心",
+        logic: "印证AI算力需求从云厂商外溢至新买家、强化英伟达订单叙事，但天量杠杆化融资的循环性也引发AI资本开支可持续性的市场疑虑"
       }
     }
   ],
 
   /* ============ 六、当日最值得关注的 3 个交易逻辑 ============ */
   logics: [
-    { title: "长端利率飙升压制估值，AI与半导体结构性行情对冲",
-      text: "30年期美债收益率连续六日上行、升至5.62%创2002年来新高，10年期5.25%逼近2007年高位，直接压制高久期成长股估值，纳指、标普因此小幅回落。但费半逆势+1.32%，存储（美光/闪迪）、半导体设备（应用材料/科磊/泛林）与光通信（康宁/Lumentum）普涨，显示资金在\"利率承压\"与\"AI产业趋势\"之间分化，结构性做多半导体与AI基础设施。" },
-    { title: "AI治理转向\"行业自我监管\"，政策风险短期出清、利好算力与资本开支",
-      text: "特朗普与OpenAI、谷歌、Meta、英伟达等六大AI巨头签署自愿性\"超级智能\"协议，以四层内控+独立外部审计+董事会委员会替代强制性政府监管，并重申支持数据中心扩张。这短期消除了AI监管收紧风险，利好AI资本开支与算力叙事，是半导体与光通信逆势走强的政策面催化；但\"自我监管\"能否真正落地、后续是否监管补位仍存长期不确定性。" },
-    { title: "存储超级周期临近关键验证：美光财报 + 油价回落缓解通胀",
-      text: "美光9/30盘后财报将验证DRAM/NAND涨价与HBM4放量，是存储板块下一步定价的锚；同时美国释放4000万桶战略储油使WTI跌破90美元、沙特恢复管道输送，油价回落边际缓解通胀与长端利率压力，为高估值科技股与存储板块提供双重支撑。若美光指引超预期，存储超级周期逻辑将进一步强化。" }
+    { title: "长端利率飙升与AI通胀担忧交织，压制高估值成长股估值中枢",
+      text: "30年期美债收益率触及24年新高、10年期盘中升破5.36%，叠加美联储纪要首次官方点名\"AI建设推升通胀\"，强化了利率与AI资本开支之间的负反馈担忧。高久期成长股与芯片股首当其冲，纳指终结五连涨、费半跌1.15%。但市场对10月连续加息定价已降至约19%，显示资金并未全面离场，而是在利率与AI产业趋势之间反复博弈。" },
+    { title: "存储超级周期定价权持续强化，资金从GPU外溢至存储链",
+      text: "美光财报后确认2027/2028存储供需更紧、HBM供货价明显上调，花旗重申闪迪买入并指向NAND紧张延续至2028年。费半整体回落背景下美光逆势放量大涨4.06%、成交额居全市场首位，闪迪涨1.92%。AI资本开支的受益主线正从GPU向DRAM/HBM/NAND存储端传导，存储板块成为利率承压环境下最具alpha的结构性方向。" },
+    { title: "油价回落与地缘不确定性博弈，通胀预期走向决定科技股风险偏好",
+      text: "IEA同意加快释放1亿桶原油储备并优先投放柴油，WTI回落至88美元附近，边际缓解通胀与长端利率压力、为高估值科技股提供支撑。但伊朗战争相关供应风险与霍尔木兹海峡油流受阻仍未解除，若油价再度冲高，将通过通胀-利率链条二次压制科技股估值。油价走势成为下一阶段科技股风险偏好的关键外生变量。" }
   ],
 
   /* ============ 七、未来 1—3 个交易日关注事项（具体事件） ============ */
   watchlist: [
-    { date: "09月30日", event: "美国8月核心PCE、个人收支、ADP就业；盘后美光科技（MU）FY2026 Q4财报（一致预期营收约510亿美元、调整后EPS约31.5美元）", impact: "PCE定调通胀路径；美光财报验证存储超级周期，决定存储板块下一步定价" },
-    { date: "10月01日", event: "美国9月ISM制造业PMI、8月营建支出；盘前埃森哲（ACN）FY2026 Q4财报、Jabil（JBL）财报", impact: "制造业景气与企业IT开支信号，衡量AI咨询与数据中心硬件需求" },
-    { date: "10月02日", event: "美国9月非农就业报告（就业人数/失业率/时薪）", impact: "美联储10月利率路径的关键数据，影响高估值成长股估值" },
-    { date: "10月06日", event: "美国战略石油储备\"互换\"投标截止（最多4000万桶）", impact: "油价与通胀预期走向，间接影响长端利率与科技股风险偏好" }
+    { date: "10月09日", event: "美国9月CPI数据（通胀核心指标，检验AI基建/能源推升通胀的程度）", impact: "决定美联储10月27-28日会议连续加息概率，影响高估值科技股估值" },
+    { date: "10月13日", event: "苹果智能家居产品发布预期（与LG合作，聚焦AI家居生态）", impact: "苹果AI终端商业化进展，影响消费电子与AAPL情绪" },
+    { date: "10月16日", event: "微软Surface Laptop Ultra开始发货（搭载英伟达RTX Spark芯片）", impact: "AI PC商业化落地验证，影响微软/英伟达端侧AI叙事" },
+    { date: "10月21日", event: "特斯拉（TSLA）盘后发布Q3财报（交付48.65万辆已超预期，关注AI/机器人出租车进展）", impact: "检验AI/自动驾驶叙事兑现，影响大型科技情绪" },
+    { date: "10月27-28日", event: "美联储FOMC议息会议（下次利率决议）", impact: "决定是否连续第二次加息，是科技股估值的中期关键变量" }
   ],
 
   /* ============ 八、页脚免责声明 ============ */
