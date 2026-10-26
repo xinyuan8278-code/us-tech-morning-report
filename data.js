@@ -1,7 +1,7 @@
 /**
  * ============================================================
  *  美股科技板块前一交易日行情日报 —— 数据文件（每日只需改这里）
- *  （2026-10-25 更新：对应美股交易日 2026-10-23）
+ *  （2026-10-26 更新：对应美股交易日 2026-10-23）
  * ============================================================
  *  使用说明：
  *  1. 打开本文件，替换下方各字段的值即可生成当日日报。
@@ -24,7 +24,7 @@ window.REPORT_DATA = {
   meta: {
     title: "美股科技板块前一交易日行情日报",
     subtitle: "盘前版 · 大型科技 + 半导体存储跟踪",
-    reportDate: "2026年10月25日",   // 报告发布日期（周日）
+    reportDate: "2026年10月26日",   // 报告发布日期（周一）
     tradeDate: "2026年10月23日",    // 对应美股交易日（前一交易日，周五）
     author: "华泰期货 · 研究",
     tag: "每日市场跟踪"
@@ -33,7 +33,7 @@ window.REPORT_DATA = {
   /* ============ 二、市场概览 ============ */
   overview: {
     /* 简短概括：指数变化 + 个股变化 + 重大事件 */
-    text: "10月23日美股科技板块在周四暴跌后企稳分化：纳指-0.21%（收于25,955点，前一交易日创6月来最大单日跌幅）、标普500-0.52%、道指-1.23%（受美国运通裁员拖累）；费城半导体指数逆势反弹约0.4%~0.6%、标普科技板块+0.35%。大型科技股多数微跌（微软+0.7%、苹果-0.14%、英伟达-0.6%、Meta-1%、谷歌-1.24%），半导体多数收涨（AMD+1.7%、美光+2.5%、高通+1.8%、英特尔+1.7%）。核心变量为油价飙升——胡塞袭击沙特油田叠加美方「或周末打击伊朗」言论，布伦特原油+3.14%至116.72美元（近6个月新高），重燃通胀担忧并推升美债收益率；SpaceX洽谈收购逾8万座蜂窝基站进军第四大无线运营商，AT&T、T-Mobile重挫约8%。",
+    text: "10月23日美股科技板块在周四暴跌后企稳分化：道指-1.23%至52,215.16、标普500-0.52%至7,623.68、纳指-0.21%至25,955.34（前一交易日纳指创6月来最大单日跌幅）；费城半导体指数反弹约0.4%、标普科技板块+0.35%。大型科技股多数微跌（微软+0.66%、苹果-0.14%、英伟达-0.59%、亚马逊-0.95%、Meta-0.96%、谷歌-1.24%），半导体多数收涨（高通+1.78%、AMD+1.74%、英特尔+1.72%、台积电+1.42%），存储分化（SK海力士+4%、美光+2% vs 闪迪/西数-2%~3%）。核心变量为油价飙升——胡塞袭击沙特油田叠加美方「或周末打击伊朗」言论，布伦特+3.14%至116.72美元（近6个月新高）推升通胀与利率担忧。本周进入「关键审判周」：Alphabet、微软（周三10/28）、亚马逊（周四10/29）财报与FOMC决议（10/28）、核心PCE（10/29）将定AI资本开支叙事方向。",
     /* 指数卡片（可增删） */
     indices: [
       { name: "Nasdaq Composite", code: "IXIC", change: "-0.00%" },
@@ -49,45 +49,61 @@ window.REPORT_DATA = {
   /* ============ 四、重点公司行情表 ============ */
   /* 超涨/超跌个股放最上方；无新闻的公司驱动因素简要说明即可 */
   stocks: [
-    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "下跌约0.6%，在前一日-4.40%后跌幅收窄、企稳；AI资本开支回报疑虑持续压制，但黄仁勋「neocloud需求爆棚」表态缓解部分恐慌，下周与Alphabet/微软/亚马逊财报共同成为算力需求验证窗口" },
-    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "逆势上涨约0.7%，为大型科技股中领涨；市场聚焦其下周二盘后财报（AI超大规模厂商资本开支指引核心标的），Azure增长与Copilot变现预期提供支撑" },
-    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "微跌约0.14%，在周四逆势创新高后高位整固；因基本未参与AI基建竞赛、且首款折叠屏iPhone Duo刚刚发售，仍被视为AI波动下的相对避险品种" },
-    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "下跌约0.95%，随大型科技整体走弱；下周盘后财报临近，市场聚焦其AWS增速与AI资本开支指引，前期TorchNeuron开源带动涨势回吐" },
-    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "下跌约1.24%，大型科技股中跌幅居前；下周二盘后财报临近，谷歌云与Gemini AI资本开支回报成为关注焦点，AI开支疑虑压制估值" },
-    { name: "Meta",      code: "META",  change: "-0.00%", driver: "下跌约1%，Q3自由现金流上市以来首次转负引发的抛售有所缓和但未止跌；市场仍消化其资本开支上调至1350亿、拟发C类股募资对AI投入现金吞噬效应的担忧" },
-    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "下跌约0.5%，随费半窄幅波动；周四-4.31%后企稳，定制ASIC与数据中心网络需求叙事等待下周英伟达/大型科技财报验证" },
-    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "反弹约1.7%，在周四-8.10%后超卖修复；半导体板块周五整体企稳，代理式AI算力与数据中心CPU需求预期阶段性回稳" },
-    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "反弹约2.5%，存储板块分化中领涨；周四-6.23%后超卖修复，HBM与数据中心存储需求逻辑仍受AI资本开支疑虑牵制，但短期情绪回暖" },
-    { name: "SanDisk",   code: "SNDK",  change: "-0.00%", driver: "下跌约2%，存储板块走势分化（SK海力士+4%、美光+2.5% vs 西数-3%）；NAND供需与定价前景仍在重新审视中，跟随板块窄幅波动" }
+    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "下跌约0.59%，在前一日-4.40%后跌幅收窄、企稳；AI资本开支回报疑虑持续压制，但黄仁勋「neocloud需求爆棚」表态与Vera Rubin平台HBM4放量预期（SK海力士/三星/美光供应）提供中期支撑，本周三大云厂商财报为算力需求验证窗口" },
+    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "逆势上涨约0.66%，为大型科技股中领涨；市场聚焦周三（10/28）盘后FQ1'27财报，Azure增速（上季+43%）与资本开支指引（2026自然年约1750亿~1900亿美元）是核心变量，Copilot付费席位超3000万提供应用层支撑" },
+    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "微跌约0.14%，在周四逆势创新高后高位整固；因基本未参与AI基建竞赛、且首款折叠屏iPhone Duo刚刚发售，仍被视为AI波动下的相对避险品种，本周无财报事件" },
+    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "下跌约0.95%，随大型科技整体走弱；周四（10/29）盘后Q3财报临近，市场聚焦AWS增速（德银预计Q3 +41%）与资本开支指引（2026年上调至约2200亿美元、2027年或达3300亿），自由现金流转负是主要担忧" },
+    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "下跌约1.24%，大型科技股中跌幅居前；周三（10/28）盘后Q3财报临近，市场预计Google Cloud增速高达93%、2026资本开支指引1950亿~2050亿美元，但算力优先分配给内部DeepMind或引发商业客户流失担忧" },
+    { name: "Meta",      code: "META",  change: "-0.00%", driver: "下跌约0.96%，Q3自由现金流上市以来首次转负引发的抛售有所缓和但未止跌；市场仍消化其资本开支上调至1350亿、拟发C类股募资对AI投入现金吞噬效应的担忧" },
+    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "下跌约0.48%，随费半窄幅波动；周四-4.31%后企稳，定制ASIC与数据中心网络需求叙事等待本周英伟达/大型科技财报验证" },
+    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "反弹约1.74%，在周四-8.10%后超卖修复；半导体板块周五整体企稳，代理式AI算力与数据中心CPU需求预期阶段性回稳，本周财报周中关注其AI加速器需求指引" },
+    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "反弹约2%，存储板块分化中领涨；周四-6.23%后超卖修复，HBM4供货Vera Rubin与SK海力士/三星创纪录业绩（合计营业利润约185万亿韩元）强化存储景气叙事，但股价近月仍累跌约30%" },
+    { name: "SanDisk",   code: "SNDK",  change: "-0.00%", driver: "下跌约2%，存储板块走势分化（SK海力士+4%、美光+2% vs 西数-3%）；NAND供需与定价前景仍在重新审视中，本周将公布Q3财报，市场关注其NAND定价与长期供应协议进展" }
   ],
 
   /* ============ 五、重要科技与政策新闻（一手来源） ============ */
   news: [
     {
-      title: "美股周五收跌终结动荡一周：道指跌1.23%、纳指微跌0.21%，科技股企稳但AI疑虑未消",
-      originalTitle: "Wall Street closes lower to end rocky week",
-      source: "Reuters（经 AOL / MarketScreener 转载）",
-      time: "2026年10月23日",
+      title: "本周进入AI「关键审判周」：Alphabet、微软、亚马逊三大云厂商财报+FOMC决议+PCE将定AI资本开支叙事方向",
+      originalTitle: "AI bull market enters a 'critical judgment week'",
+      source: "GMT Eight（英文财经媒体）",
+      time: "2026年10月26日",
       type: "财经媒体",
-      url: "https://www.aol.com/articles/wall-street-futures-dip-ai-104322000.html",
-      link: "https://www.aol.com/articles/wall-street-futures-dip-ai-104322000.html",
-      summary: "美东时间10月23日，美股三大指数收跌但科技股企稳：道指跌652.82点（-1.23%）至52,215.16、标普500跌39.75点（-0.52%）至7,623.68、纳指跌53.52点（-0.21%）至25,955.34。前一交易日纳指录得6月来最大单日跌幅后，半导体指数反弹约0.4%、标普科技板块涨0.35%。市场仍担忧支撑AI大规模投资的融资成本：Man Group首席市场策略师Kristina Hooper称「对AI交易的质疑仍在发酵，明年AI数据中心建设投资可能低于此前预期」。全周标普500跌0.5%、纳指跌0.7%、道指涨0.4%（连续第三周上涨）。",
+      url: "https://gmteight.com/content/detail/444184",
+      link: "https://gmteight.com/content/detail/444184",
+      summary: "市场正以审慎眼光看待所有AI相关支出。Alpine Macro首席股票策略师Nick Giorgi称「市场不会对斥巨资建设AI基础设施的公司给予无条件信任，这实际上很健康，但仍预示短期阵痛」。本周核心日程：Alphabet（周三10/28盘后，共识营收1279亿美元+24.9%、Google Cloud增速预计93%）、微软（周三盘后，FQ1'27、上季Azure+43%、2026资本开支约1750亿~1900亿美元）、亚马逊（周四10/29盘后，AWS预计+41%、2026资本开支上调至2200亿美元）。叠加FOMC决议（10/28）与核心PCE（10/29），本周将验证「AI烧钱能否兑现回报」。",
       impact: {
-        direction: "中性（科技板块企稳，整体仍承压）",
-        companies: "英伟达、微软、Meta、Alphabet、亚马逊",
-        industry: "AI基础设施、半导体、科技",
-        logic: "科技股在暴跌后企稳，显示AI抛售动能阶段性衰减，但「AI交易质疑」尚未消除，市场焦点转向下周Alphabet/微软/亚马逊三大超大规模厂商的资本开支指引"
+        direction: "中性（关键观察窗口）",
+        companies: "Alphabet、微软、亚马逊、英伟达、Meta",
+        industry: "AI、云计算、半导体",
+        logic: "三大超大规模厂商资本开支指引是本周核心变量，直接决定「AI资本开支放缓」担忧是否坐实，进而主导芯片与云计算板块方向"
+      }
+    },
+    {
+      title: "美联储10月FOMC决议临近：维持利率不变概率约88%、12月加息概率约80%，粘性通胀压制科技股估值",
+      originalTitle: "The Week Ahead: Fed, AI Earnings and PCE Data Test Stock Market Strength",
+      source: "FX Empire（英文财经媒体，援引FedWatch）",
+      time: "2026年10月26日",
+      type: "财经媒体",
+      url: "https://beta.fxempire.com/forecasts/article/the-week-ahead-fed-ai-earnings-and-pce-data-test-stock-market-strength-1242370",
+      link: "https://beta.fxempire.com/forecasts/article/the-week-ahead-fed-ai-earnings-and-pce-data-test-stock-market-strength-1242370",
+      summary: "美联储将于周三（10/28）公布利率决议并举行新闻发布会。美联储9月已自2023年来首次加息以应对高于目标的通胀，9月CPI同比3.7%、核心2.6%。FedWatch显示周三会议维持利率不变概率约88%，而联邦基金期货隐含12月加息概率约80%。本次会议无点阵图，市场关注政策声明与Warsh主席发布会释放的12月政策路径信号。油价飙升（布伦特近116.72美元）与10月制造业PMI（56.0、53个月新高）强化粘性通胀预期，长端利率上行构成高估值科技股的第二条压制主线。",
+      impact: {
+        direction: "利空（高估值科技股，利率/通胀压制）",
+        companies: "英伟达、微软、Meta等高估值科技股",
+        industry: "宏观经济、科技、半导体、利率敏感板块",
+        logic: "若美联储释放继续加息信号，美债收益率与美元走高，通过贴现率抬升压制高估值科技股；核心PCE（10/29）将验证粘性通胀，影响12月加息路径"
       }
     },
     {
       title: "胡塞袭击沙特油田叠加美方「或周末打击伊朗」言论，布伦特原油飙升至近6个月新高",
       originalTitle: "Oil hits highest in nearly six months after Houthi attacks in Saudi Arabia",
-      source: "Reuters（经 AOL / Interactive Investor 转载）",
+      source: "Reuters（经新华财经等英文/通讯社转载）",
       time: "2026年10月23日",
       type: "财经媒体",
-      url: "https://www.aol.com/articles/wall-street-futures-dip-ai-104322000.html",
-      link: "https://www.aol.com/articles/wall-street-futures-dip-ai-104322000.html",
-      summary: "胡塞武装袭击沙特油田，叠加美国驻土耳其大使Tom Barrack称「美国可能最快本周末打击伊朗」的言论，重燃中东能源供应中断担忧。布伦特原油结算价上涨3.55美元（+3.14%）至116.72美元/桶，为4月29日以来最高；WTI涨3.80美元（+3.8%）至103.27美元。全周布伦特涨6%、WTI涨2.3%。油价飙升推升通胀预期，10年期美债收益率回升3.7bp至4.99%（此前周四录得近四年最大单日跌幅）。",
+      url: "https://www.cnfin.com/gs-lb/detail/20261024/4485895_1.html",
+      link: "https://www.cnfin.com/gs-lb/detail/20261024/4485895_1.html",
+      summary: "胡塞武装袭击沙特油田，叠加美国驻土耳其大使Tom Barrack「美国可能最快本周末打击伊朗」言论，重燃中东能源供应中断担忧。10月23日纽约商品交易所12月WTI原油期货涨3.80美元（+3.82%）至103.27美元/桶；伦敦12月布伦特涨3.55美元（+3.14%）至116.72美元/桶（近6个月新高）。油价飙升推升通胀预期，10年期美债收益率回升至约4.99%。标普全球首席商业经济学家Chris Williamson指出油价正传导至各类商品与服务价格，销售价格以逾四年最快速度上涨，暗示CPI未来数月或进一步高于美联储目标。",
       impact: {
         direction: "利空（科技股估值，通胀/利率压制）",
         companies: "英伟达、微软、Meta等高估值科技股",
@@ -96,88 +112,72 @@ window.REPORT_DATA = {
       }
     },
     {
-      title: "SpaceX洽谈收购逾8万座蜂窝基站进军第四大无线运营商，AT&T、T-Mobile重挫约8%",
-      originalTitle: "Telecom shares drop as SpaceX eyes fourth US wireless carrier",
-      source: "Reuters（经 MarketScreener 转载）",
-      time: "2026年10月23日",
+      title: "韩国存储双雄本周公布创纪录业绩：SK海力士、三星合计营业利润约185万亿韩元，HBM4放量成核心驱动",
+      originalTitle: "Samsung Electronics, SK Hynix Unveil Earnings Amid Shareholder Pressure",
+      source: "The Chosun Daily（朝鲜日报英文版）",
+      time: "2026年10月26日",
       type: "财经媒体",
-      url: "https://www.marketscreener.com/news/s-p-500-closes-lower-to-end-rocky-week-ce785cdfdc8bf321",
-      link: "https://www.marketscreener.com/news/s-p-500-closes-lower-to-end-rocky-week-ce785cdfdc8bf321",
-      summary: "据Bloomberg报道，SpaceX正与蜂窝基础设施商洽谈，寻求收购至少80,000座美国蜂窝基站设施，以推进成为第四大无线运营商。TD Cowen分析显示，收购全国网络需逾800亿美元及数十亿后续投入。消息重创电信股：AT&T跌8%、T-Mobile跌7.7%、Verizon跌1.2%，通信服务板块承压；反之铁塔运营商大涨（Crown Castle +9%、American Tower +4%）。SpaceX股价涨1.9%。Bernstein分析师称竞争影响虽「或需数年」，但预期本身将持续压制板块情绪。",
+      url: "https://www.chosun.com/english/industry-en/2026/10/26/HSTVBKD5ZRC6DPJDAEXJQT7MGU",
+      link: "https://www.chosun.com/english/industry-en/2026/10/26/HSTVBKD5ZRC6DPJDAEXJQT7MGU",
+      summary: "三星电子与SK海力士本周将公布Q3正式财报。SK海力士（10/27周二盘后，共识营收96.66万亿韩元、营业利润75.97万亿韩元、营业利润率超75%）与三星（此前预告营业利润107.4万亿韩元、同比+782.5%，首次单季破100万亿）合计营业利润约185万亿韩元（约1390亿美元），创全球存储行业单季盈利纪录。核心驱动为HBM4商业化放量——两家为英伟达Vera Rubin平台供应第六代高带宽内存，HBM4带宽较HBM3E翻倍、功耗降逾40%；标准DRAM合约价Q3上涨13%~18%提供第二层支撑。但尽管业绩强劲，两家股价近月仍累跌约30%，市场关注HBM4E量产进度与长期供应协议（LTA）细节。",
       impact: {
-        direction: "利空（电信，结构性冲击）",
-        companies: "AT&T、T-Mobile、Verizon、Crown Castle、American Tower、SpaceX",
-        industry: "电信、通信基础设施、卫星通信",
-        logic: "SpaceX以频谱+基站资产切入无线运营商市场，若落地将重塑美国电信竞争格局，电信股估值承压、铁塔资产方因出售预期获益"
+        direction: "利好（存储/AI硬件链，但需警惕「利好兑现」）",
+        companies: "SK海力士、三星电子、美光、闪迪、英伟达",
+        industry: "存储芯片、HBM、半导体、AI基础设施",
+        logic: "存储双雄创纪录业绩验证HBM4景气兑现，利好美光、闪迪等存储链条；但市场或视其为「预期内」，且两家谨慎的资本回报策略可能引发对HBM超级周期持续性的疑问"
       }
     },
     {
-      title: "美国运通宣布裁员5%、Q3业绩超预期，股价跌3.7%拖累道指",
-      originalTitle: "American Express falls 3.7% after announcing 5% workforce cut",
-      source: "Reuters（经 MarketScreener 转载）",
+      title: "美股周五收跌终结动荡一周：道指跌1.23%、纳指微跌0.21%，科技股企稳但AI疑虑未消",
+      originalTitle: "Wall Street closes lower to end rocky week",
+      source: "Reuters（经新华财经等通讯社转载）",
       time: "2026年10月23日",
       type: "财经媒体",
-      url: "https://www.marketscreener.com/news/s-p-500-closes-lower-to-end-rocky-week-ce785cdfdc8bf321",
-      link: "https://www.marketscreener.com/news/s-p-500-closes-lower-to-end-rocky-week-ce785cdfdc8bf321",
-      summary: "美国运通（American Express）公布Q3业绩并上调全年利润指引，同时宣布将裁员约5%（打造「更敏捷高效」组织）。尽管业绩超预期，市场聚焦其成本与组织调整信号，股价当日下跌3.7%，成为拖累道指当日跌逾1.2%的重要因素。这一消息与当日金融板块走弱相呼应，折射出企业盈利虽强、但市场对经营效率与成本端的关注升温。",
+      url: "https://www.cnfin.com/gs-lb/detail/20261024/4485895_1.html",
+      link: "https://www.cnfin.com/gs-lb/detail/20261024/4485895_1.html",
+      summary: "美东时间10月23日，美股三大指数收跌但科技股企稳：道指跌652.82点（-1.23%）至52,215.16、标普500跌39.75点（-0.52%）至7,623.68、纳指跌53.52点（-0.21%）至25,955.34。前一交易日纳指录得6月来最大单日跌幅后，标普科技板块涨0.35%、能源板块涨2.51%领涨。Argent Capital投资组合经理Jed Ellerbroek称「过去两周投资者从科技股和数据中心受益股转向避险板块，这种操作完成后没人愿意再这么做」。密歇根大学10月消费者信心终值48（高于初值46.3），1年期通胀预期由4.6%升至4.7%。",
       impact: {
-        direction: "中性偏空（金融/道指权重）",
-        companies: "美国运通",
-        industry: "金融、支付",
-        logic: "大型消费金融企业裁员信号，叠加消费情绪接近纪录低点，边际上削弱「消费韧性」叙事，压制道指与金融板块表现"
+        direction: "中性（科技板块企稳，整体仍承压）",
+        companies: "英伟达、微软、Meta、Alphabet、亚马逊",
+        industry: "AI基础设施、半导体、科技",
+        logic: "科技股在暴跌后企稳，显示AI抛售动能阶段性衰减，但「AI交易质疑」尚未消除，市场焦点转向本周三大超大规模厂商资本开支指引"
       }
     },
     {
-      title: "美国10月制造业PMI升至53个月新高56.0、服务业PMI回落，粘性通胀成核心担忧",
-      originalTitle: "US business activity growth slows slightly in October, manufacturing beats",
-      source: "S&P Global（经 Interactive Investor/Alliance News 转载）",
-      time: "2026年10月23日",
-      type: "财经媒体",
-      url: "https://www.ii.co.uk/news/new-york-market-close-shares-fall-ahead-of-rate-decision-next-week-al1792789188193905600",
-      link: "https://www.ii.co.uk/news/new-york-market-close-shares-fall-ahead-of-rate-decision-next-week-al1792789188193905600",
-      summary: "S&P Global公布的10月美国初步PMI显示：服务业PMI由58.8回落至57.9（符合预期），制造业PMI升至56.0（53个月新高、优于预期的55.6），制造业产出指数微降至55.8。首席商业经济学家Chris Williamson指出，油价飙升正在传导至各类商品与服务价格，供应链瓶颈加剧、订单积压上升，企业更易转嫁成本，结果是「逾四年最快的销售价格上涨」，暗示CPI通胀或在未来数月进一步高于美联储目标。",
+      title: "本周半导体设备与EDA财报开启：Cadence（10/26盘后）、Vertiv（10/28盘前）成AI设计需求先行指标",
+      originalTitle: "Cadence Q3 2026 Earnings Preview: AI Design Demand in Focus",
+      source: "VLSI Korea（英文行业媒体）",
+      time: "2026年10月26日",
+      type: "行业媒体",
+      url: "https://www.vlsi.kr/en/cadence-q3-2026-earnings-preview-en",
+      link: "https://www.vlsi.kr/en/cadence-q3-2026-earnings-preview-en",
+      summary: "EDA龙头Cadence（CDNS）将于周一（10/26）盘后公布Q3财报，共识营收16.1亿美元（+20.3%）、Non-GAAP EPS 2.04美元。市场关注：①代理式AI是否转化为实际用量——其AI Super Agent组合（ChipStack/ViraStack/InnoStack）早期采用强劲，9月新增RTL生成Agent；②81亿美元订单储备能否继续增长（其中42亿将在12个月内转化）；③中国出口管制与许可动态（公司仍受2025年7月与美司法部/BIS和解协议约束）。此外数据中心基础设施供应商Vertiv（10/28盘前）与硬件代工Celestica（10/26盘后）财报将提供AI基建需求的另一切片。",
       impact: {
-        direction: "中性偏空（通胀/利率压制科技估值）",
-        companies: "高估值科技股、利率敏感板块",
-        industry: "宏观经济、科技、半导体",
-        logic: "制造业强劲叠加油价驱动的成本压力上升，强化「粘性通胀」预期，抬升市场对美联储12月加息概率的定价，压制科技股估值贴现率"
-      }
-    },
-    {
-      title: "下周约三分之一标普500公司财报，Alphabet、微软、亚马逊三大AI超大规模厂商资本开支指引成焦点",
-      originalTitle: "Investors eye Alphabet, Microsoft, Amazon earnings as AI capex signals",
-      source: "Reuters（经 AOL 转载）",
-      time: "2026年10月23日",
-      type: "财经媒体",
-      url: "https://www.aol.com/articles/wall-street-futures-dip-ai-104322000.html",
-      link: "https://www.aol.com/articles/wall-street-futures-dip-ai-104322000.html",
-      summary: "下周约三分之一标普500成分股将公布财报，包括Alphabet、微软、亚马逊三家AI超大规模厂商，其资本开支预测将受到华尔街密切关注。在当前市场对「AI烧钱能否兑现回报」的质疑升温背景下，这三家公司的AI资本开支指引被视为验证AI数据中心建设需求是否可持续的关键信号。标普500公司Q3利润预计同比增长逾32%（LSEG IBES数据），强劲盈利增长仍是支撑主要指数年内上涨的根基。",
-      impact: {
-        direction: "中性（关键观察窗口）",
-        companies: "Alphabet、微软、亚马逊、英伟达、Meta",
-        industry: "AI、云计算、半导体",
-        logic: "三大超大规模厂商资本开支指引是下周核心变量，将直接决定「AI资本开支放缓」担忧是否坐实，进而主导芯片与云计算板块方向"
+        direction: "中性偏多（半导体设计/AI基建链先行指标）",
+        companies: "Cadence、Synopsys、Vertiv、Celestica、英伟达",
+        industry: "EDA、半导体设计、AI基础设施",
+        logic: "Cadence订单储备与代理式AI用量、Vertiv/Celestica的数据中心需求，是半导体与AI基建景气度的领先指标，其指引可前瞻验证AI资本开支可持续性"
       }
     }
   ],
 
   /* ============ 六、当日最值得关注的 3 个交易逻辑 ============ */
   logics: [
-    { title: "AI交易从「恐慌抛售」切换至「财报验证」：下周三大超大规模厂商资本开支指引定方向",
-      text: "10月22日AI板块因「烧钱能否兑现回报」的质疑遭重挫（纳指-2.6%），10月23日科技股快速企稳、半导体指数反弹约0.4%，显示恐慌性抛售动能阶段性衰竭。但市场的根本分歧并未解决——Man Group等机构仍担忧「明年AI数据中心建设投资可能低于预期」。真正的裁决权交给下周财报：Alphabet、微软、亚马逊三大AI超大规模厂商的资本开支指引，将直接验证「AI资本开支放缓」是特斯拉/泛林的个案，还是行业性拐点。在指引落地前，AI板块大概率维持高波动、方向未明的震荡。" },
+    { title: "AI交易从「恐慌抛售」切换至「财报验证」：本周三大云厂商资本开支指引与FOMC定方向",
+      text: "10月22日AI板块因「烧钱能否兑现回报」质疑遭重挫（纳指-2.6%），10月23日科技股快速企稳、半导体指数反弹约0.4%，显示恐慌性抛售动能阶段性衰竭，但市场根本分歧并未解决——Alpine Macro等机构明确表态「不会对AI基建巨额投入给予无条件信任」。真正的裁决权交给本周财报：Alphabet（Google Cloud增速预计93%）、微软（Azure上季+43%）、亚马逊（AWS预计+41%）三大超大规模厂商的资本开支指引，叠加周三FOMC决议与周四核心PCE，将一次性验证「AI资本开支放缓」是特斯拉/泛林的个案还是行业性拐点。在指引落地前，AI板块大概率维持高波动、方向未明的震荡。" },
     { title: "油价飙升重燃「粘性通胀」担忧，利率成为压制科技股估值的第二条主线",
-      text: "胡塞袭击沙特油田叠加美方「或周末打击伊朗」言论，推动布伦特原油涨3.14%至116.72美元（近6个月新高）。S&P Global数据显示制造业PMI升至53个月新高、销售价格以逾四年最快速度上涨，10年期美债收益率回升至4.99%。这意味着即便AI需求叙事未变，「油价→通胀→长端利率→贴现率」的传导链正系统性抬高高估值科技股的估值门槛。下周美联储利率决议（预计维持不变，但12月加息概率上升）与油价走势，构成与AI基本面并行的第二条定价主线。" },
-    { title: "SpaceX进军无线运营商引发结构性重定价：科技巨头跨界扩张成为新扰动源",
-      text: "SpaceX洽谈收购逾8万座蜂窝基站、加速成为第四大无线运营商，当日重创AT&T（-8%）、T-Mobile（-7.7%），却推动铁塔股Crown Castle（+9%）、American Tower（+4%）大涨。这一事件揭示当前市场除AI之外的第二条交易线：科技巨头利用资本与频谱资产跨界颠覆传统行业。SpaceX的每一次频谱/基础设施动作，都会通过「预期」而非「现实盈利」先行重定价相关板块，为通信、航天、甚至后续可能的其他传统行业注入持续的结构性不确定性。" }
+      text: "胡塞袭击沙特油田叠加美方「或周末打击伊朗」言论，推动布伦特原油涨3.14%至116.72美元（近6个月新高）。S&P Global数据显示制造业PMI升至53个月新高56.0、销售价格以逾四年最快速度上涨，10年期美债收益率回升至约4.99%。这意味着即便AI需求叙事未变，「油价→通胀→长端利率→贴现率」的传导链正系统性抬高高估值科技股的估值门槛。本周FOMC决议（维持不变概率88%、但12月加息概率约80%）与周四核心PCE，将决定这条宏观主线是否进一步强化。" },
+    { title: "存储「完美财报」验证HBM4景气兑现，但需警惕「利好兑现」与超级周期持续性分歧",
+      text: "SK海力士与三星本周将公布合计约185万亿韩元（约1390亿美元）的创纪录单季营业利润，核心驱动是HBM4为英伟达Vera Rubin平台放量供货。这从供给侧印证了AI硬件链盈利正在兑现，理论上利好美光、闪迪等存储链条。但两点需警惕：其一，尽管业绩创纪录，两家股价近月仍累跌约30%，市场已提前计入「预期」，创纪录业绩未必带来边际增量；其二，两家在AI资本开支高涨背景下选择大规模现金回报而非全力扩产，可能被解读为对HBM超级周期持续性的谨慎，从而弱化存储「量价齐升」叙事的延续性。" }
   ],
 
   /* ============ 七、未来 1—3 个交易日关注事项（具体事件） ============ */
   watchlist: [
-    { date: "10月26日（周一）", event: "Verizon（VZ）、Cadence Design Systems（CDNS）公布Q3财报", impact: "Cadence作为EDA/半导体设计工具龙头，其业绩与指引反映芯片设计需求景气度，是半导体板块的重要领先指标" },
-    { date: "10月27日（周二）盘后", event: "Alphabet（GOOGL）、微软（MSFT）公布Q3财报", impact: "两大AI超大规模厂商的资本开支指引是下周核心变量，将直接验证AI数据中心建设需求是否可持续，主导芯片与云计算板块方向" },
-    { date: "10月28日（周三）", event: "美联储FOMC利率决议（预计维持利率不变）", impact: "油价飙升与粘性通胀背景下，市场关注美联储对12月是否加息的表态，直接压制高估值科技股贴现率" },
-    { date: "10月29日（周四）盘后", event: "亚马逊（AMZN）公布Q3财报", impact: "AWS增速与AI资本开支指引是三大超大规模厂商验证的最后一环，影响AI基础设施投资逻辑" },
-    { date: "下周", event: "约三分之一标普500公司集中披露Q3财报（含英特尔、AMD等半导体）", impact: "半导体与存储公司的业绩与指引，验证HBM/NAND实际需求，判断AI资本开支放缓是行业性还是个案" },
+    { date: "10月26日（周一）", event: "Verizon（盘前）、Cadence（盘后）、Celestica（盘后）公布Q3财报", impact: "Cadence作为EDA龙头，其订单储备与代理式AI用量是半导体设计景气的领先指标；Celestica的数据中心硬件代工需求反映AI基建景气度" },
+    { date: "10月27日（周二）盘后", event: "SK海力士公布Q3正式财报；美联储10月FOMC会议开始", impact: "SK海力士创纪录业绩与HBM4/LTA细节影响美光、闪迪等存储链；FOMC会议开启，市场聚焦12月加息路径信号" },
+    { date: "10月28日（周三）", event: "美联储FOMC利率决议+新闻发布会；Alphabet、微软盘后财报", impact: "FOMC决议（维持不变概率88%）与Warsh主席表态决定12月加息预期；两大云厂商资本开支指引是AI需求验证核心变量" },
+    { date: "10月29日（周四）", event: "美国Q3 GDP初值、9月核心PCE；亚马逊、英特尔盘后财报", impact: "核心PCE验证粘性通胀、影响12月加息路径；亚马逊AWS增速+资本开支指引是三大云厂商验证最后一环，英特尔财报影响半导体制造叙事" },
+    { date: "10月29日（周四）", event: "三星电子公布Q3正式财报", impact: "三星与SK海力士创纪录业绩共同印证HBM4景气兑现，其股东回报与扩产计划影响存储板块情绪" },
     { date: "近期", event: "中东局势（沙特油田遇袭后续）+ 油价与美债收益率走势", impact: "地缘风险与油价波动通过通胀→利率传导链影响科技股估值，是AI基本面之外的宏观扰动主线" }
   ],
 
