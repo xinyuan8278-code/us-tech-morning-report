@@ -1,7 +1,7 @@
 /**
  * ============================================================
  *  美股科技板块前一交易日行情日报 —— 数据文件（每日只需改这里）
- *  （2026-11-02 更新：对应美股交易日 2026-10-30）
+ *  （2026-11-04 更新：对应美股交易日 2026-11-03）
  * ============================================================
  *  使用说明：
  *  1. 打开本文件，替换下方各字段的值即可生成当日日报。
@@ -24,8 +24,8 @@ window.REPORT_DATA = {
   meta: {
     title: "美股科技板块前一交易日行情日报",
     subtitle: "盘前版 · 大型科技 + 半导体存储跟踪",
-    reportDate: "2026年11月02日",   // 报告发布日期（周一）
-    tradeDate: "2026年10月30日",    // 对应美股交易日（前一交易日，周五）
+    reportDate: "2026年11月04日",   // 报告发布日期（周三）
+    tradeDate: "2026年11月03日",    // 对应美股交易日（前一交易日，周二）
     author: "华泰期货 · 研究",
     tag: "每日市场跟踪"
   },
@@ -33,7 +33,7 @@ window.REPORT_DATA = {
   /* ============ 二、市场概览 ============ */
   overview: {
     /* 简短概括：指数变化 + 个股变化 + 重大事件 */
-    text: "10月30日美股三大指数集体重挫、纳指创6月来最大单日跌幅：道指-1.09%至51,770.31、标普500-1.82%至7,580.07、纳指-2.86%至25,437.00，费城半导体指数暴跌7.20%至10,688.80（6月来最大单日跌幅、5月来最低）。核心触发为亚马逊、字母表财报不及预期叠加AI资本开支烧钱担忧，英特尔Q4指引大幅滑坡暴跌28.58%拖累半导体全线，闪迪-13.47%、AMD-10.88%、高通-11.12%。周末消息面进一步发酵：OpenAI将融资目标由300亿下调至约200亿美元、估值降至1.25万亿美元，苹果与阿里巴巴合作将千问集成至Apple智能。本周进入「关键窗口」——11/3美国中期选举、11/6非农、苹果/AMD财报密集来袭。",
+    text: "11月3日（周二、美国中期选举投票日）美股三大指数涨跌不一，科技股与芯片股强势反攻：道指-0.38%至51,786.72、标普500+0.36%至7,568.92、纳指+0.83%至25,372.01，费城半导体指数+2.64%。芯片股终结四连跌，英伟达+2.29%重夺全球市值第一（约4.98万亿美元）、微软+2.70%、亚马逊+2.09%，存储回暖（闪迪+4.78%、美光+2.58%）；苹果因预警存储芯片成本上涨、下调圣诞季毛利率指引而逆势下跌约1.9%。盘后AMD公布Q3财报：营收+45%、数据中心营收同比近翻倍、Q4指引约170亿美元超预期，股价盘后一度涨逾9%。中期选举结果（11/3投票）与周五非农成为本周核心变量。",
     /* 指数卡片（可增删） */
     indices: [
       { name: "Nasdaq Composite", code: "IXIC", change: "-0.00%" },
@@ -44,194 +44,139 @@ window.REPORT_DATA = {
   },
 
   /* ============ 三、超涨 / 超跌个股提示 ============ */
-  alerts: [
-    {
-      name: "Intel",
-      code: "INTC",
-      change: "-0.00%",
-      type: "超跌",
-      reason: "前一交易日暴跌约28.58%至65.76美元，创逾四十年最大单日跌幅，远超科技板块平均（纳指-2.86%、费半-7.20%）。核心触发为Q4营收指引仅150亿-160亿美元、非GAAP EPS 0.25美元，均大幅低于华尔街预期（170.7亿/0.43美元）；CEO陈立武与CFO Zinsner预警内存涨价致PC需求疲软、2026年PC出货量同比下滑约12%、低迷至少持续至2027上半年，叠加以色列工厂爆炸致两周停产、约6亿美元营收损失。"
-    },
-    {
-      name: "SanDisk",
-      code: "SNDK",
-      change: "-0.00%",
-      type: "超跌",
-      reason: "前一交易日暴跌约13.47%至1,150.89美元，连续第二个交易日重挫（10/29已跌5.32%），换手率高达12.13%。尽管盘后Q1财报营收110.31亿美元同比+378%、数据中心业务+1682%、并宣布1拆8，强劲基本面仍未能抵挡存储板块随AI资本开支担忧的集体回调，市场对NAND高估值与价格持续性存疑，存储ETF（DRAM）单月累跌约20%。"
-    },
-    {
-      name: "AMD",
-      code: "AMD",
-      change: "-0.00%",
-      type: "超跌",
-      reason: "前一交易日暴跌约10.88%至504.80美元，跌幅居大型半导体股前列。半导体板块随英特尔Q4指引滑坡与AI资本开支担忧遭遇抛售，费半单日-7.20%创6月来最大跌幅，AMD作为高Beta AI算力标的受情绪冲击最重，此前存储景气带动的反弹完全回吐。"
-    }
-  ],
+  alerts: [],
 
   /* ============ 四、重点公司行情表 ============ */
   /* 超涨/超跌个股放最上方；无新闻的公司驱动因素简要说明即可 */
   stocks: [
-    { name: "Intel",     code: "INTC",  change: "-0.00%", driver: "暴跌约28.58%至65.76美元（超跌提示，创逾四十年最大单日跌幅）；Q4营收指引150-160亿、EPS 0.25美元大幅低于预期，CEO陈立武/CFO预警内存涨价致PC需求疲软（2026年PC出货-12%、低迷至少持续至2027上半年），以色列工厂爆炸致约6亿美元营收损失" },
-    { name: "SanDisk",   code: "SNDK",  change: "-0.00%", driver: "暴跌约13.47%至1,150.89美元（超跌提示）；盘后Q1财报营收110.31亿同比+378%、数据中心+1682%、宣布1拆8，但存储板块随AI资本开支担忧集体回调，NAND高估值与价格持续性受质疑" },
-    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "暴跌约10.88%至504.80美元（超跌提示）；半导体板块随英特尔指引滑坡与AI资本开支担忧遭抛售，高Beta算力标的受情绪冲击最重" },
-    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "下跌约4.22%至204.64美元，总市值跌破5万亿美元；作为S&P 500最大拖累之一，AI资本开支回报质疑压制GPU龙头情绪，费半暴跌7.20%创6月来最大单日跌幅" },
-    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "下跌约1.55%至521.91美元；作为「AI投入仍能产生现金」的代表相对抗跌，但当日发行250亿美元债券加入科技巨头举债扩张行列，投资者对AI烧钱可持续性的担忧蔓延" },
-    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "下跌约1.23%至344.63美元；科技股全线承压，但苹果不直接参与AI基建资本开支竞赛，跌幅显著小于半导体与云计算标的，相对防御" },
-    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "下跌约1.41%至240.35美元；Q3利润与营收不及预期，自由现金流-424亿美元、维持2026年约2200亿资本开支不变，盘后一度跌7%，AI基建巨额投入的回报与现金流引发担忧" },
-    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "下跌约1.40%至279.84美元，延续前一交易日12.6%的创纪录暴跌；Q3营收连续第二季低于预期、AI支出致自由现金流转负，市场担忧AI侵蚀传统搜索业务、AI烧钱难自洽" },
-    { name: "Meta",      code: "META",  change: "-0.00%", driver: "下跌约1.53%至614.99美元；Q3自由现金流同样转负，随AI资本开支担忧整体回调，资金从超大规模云厂商撤出" },
-    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "下跌约5.30%，存储板块随AI资本开支担忧与NAND价格持续性存疑而集体回调；DRAM存储ETF单月累跌约20%，存储「超级周期」遭遇情绪冲击" }
+    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "上涨约2.29%至约204.6美元，终结连续四个交易日下跌，市值约4.98万亿美元、重新夺回全球市值第一；AI硬件股整体反攻，市场从苹果等稳健科技股转向芯片等高风险高Beta标的的「逢低买入」行情" },
+    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "上涨约2.70%领涨七巨头，AI算力需求叠加Azure增长叙事支撑，随芯片与AI基建板块整体反弹" },
+    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "下跌约1.9%至344美元附近，为七巨头最弱；周一盘后Q4财报虽超预期（营收+12%至1144.8亿、EPS 2.10美元），但预警存储芯片成本续涨、圣诞季毛利率指引降至45%-46%，服务营收增速指引8%-9%低于预期" },
+    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "上涨约2.09%，随云计算与AI基建板块反弹，资金回流此前遭抛售的超大规模云厂商" },
+    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "微涨约0.09%，基本持平；前期Q3自由现金流转负引发的抛售情绪暂歇，随大盘企稳" },
+    { name: "Meta",      code: "META",  change: "-0.00%", driver: "上涨约2.33%，随大型科技股与AI算力板块反弹，前期AI资本开支担忧引发的回调暂获修复" },
+    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "上涨约3%+，芯片股集体反攻下领涨半导体，AI定制芯片（ASIC）叙事受AMD财报带动" },
+    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "上涨约3.65%至483.90美元；盘后Q3财报营收133.8亿+45%、数据中心85.5亿同比+97%（占64%）、Q4指引约170亿超预期，股价盘后一度涨逾9%，验证AI支出持续性" },
+    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "上涨约2.58%，存储板块回暖；苹果预警存储成本续涨、采购承诺增加330亿美元，侧面印证NAND/DRAM景气延续" },
+    { name: "SanDisk",   code: "SNDK",  change: "-0.00%", driver: "上涨约4.78%领涨存储，随存储芯片与AI基建情绪修复反弹，NAND超级周期逻辑回归" }
   ],
 
   /* ============ 五、重要科技与政策新闻（一手来源） ============ */
   news: [
     {
-      title: "OpenAI将融资目标由300亿下调至约200亿美元，估值降至1.25万亿美元，AI竞赛进入「资本纪律」时刻",
-      originalTitle: "OpenAI cuts funding target by $10 billion, FT reports",
-      source: "Reuters（英文财经媒体，援引Financial Times）",
-      time: "2026年10月30日",
+      title: "AMD第三季度财报超预期：营收同比+45%、数据中心收入同比近翻倍，Q4指引约170亿美元，盘后一度涨逾9%",
+      originalTitle: "AMD posts record quarter as data center revenue nearly doubles, Q4 guidance tops estimates",
+      source: "Reuters / CNBC（英文财经媒体，经综合一手财报数据交叉核对）",
+      time: "2026年11月3日",
       type: "财经媒体",
-      url: "https://www.aol.com/articles/openai-cuts-funding-target-10-001717000.html",
-      link: "https://www.aol.com/articles/openai-cuts-funding-target-10-001717000.html",
-      summary: "据英国《金融时报》报道，OpenAI已将最新一轮融资目标下调100亿美元，现寻求以1.25万亿美元估值融资约200亿美元，低于上月300亿美元、1.4万亿估值的计划。部分投资者缩减认购额度，本轮「首次交割」预计到位资金不足200亿美元。阿联酋多家投资集团（含国有MGX）预计成最大参与方，OpenAI可租赁该地区新算力；Founders Fund、Coatue、红杉、a16z及软银亦参与。此举发生在科技股遭遇重挫、市场对AI支出规模与回报节奏担忧升温之际，公司急于在对手Anthropic预计11月中旬IPO前锁定投资者。",
+      url: "https://www.cnbc.com/2026/11/03/amd-q3-2026-earnings.html",
+      link: "https://www.cnbc.com/2026/11/03/amd-q3-2026-earnings.html",
+      summary: "AMD于11月3日盘后公布2026财年第三季度业绩：营收133.8亿美元，同比增长45%、环比增长16%，超过此前指引上限；调整后每股收益2.09美元，同比增长74%，超市场预期。数据中心部门收入85.5亿美元，同比增长97%，占总营收约64%，受EPYC服务器CPU与Instinct MI450 GPU需求推动；客户端收入同比+7%、游戏收入同比-40%、嵌入式收入同比+29%。公司预计Q4营收约170亿美元（上下3%），中值同比+66%，明显高于分析师预期。CEO苏姿丰称MI455X GPU开始批量交付、Helios机架级系统Q4放量，AI增长将快于预期。财报发布后AMD盘后一度涨逾9%。",
       impact: {
-        direction: "利空（AI资本开支与估值情绪）",
-        companies: "OpenAI、Anthropic、英伟达及AI基础设施产业链",
-        industry: "AI大模型、云计算、算力基础设施",
-        logic: "头部AI公司下调融资与估值，印证公开市场对AI投入回报的耐心收紧，标志AI竞赛由「估值驱动」转向「资本纪律」，或沿融资—资本开支—设备订单链条传导"
+        direction: "利好（AI算力与半导体景气）",
+        companies: "AMD、英伟达、台积电及AI算力产业链",
+        industry: "GPU、数据中心、服务器CPU、AI基础设施",
+        logic: "AMD数据中心收入近翻倍叠加Q4指引超预期，验证AI资本开支仍在加速释放，缓解市场对AI支出「烧钱不可持续」的担忧，带动盘后芯片股走高"
       }
     },
     {
-      title: "苹果与阿里巴巴合作：千问(Qwen)集成至Apple智能，11月4日开放测试、12月正式面向中国用户",
-      originalTitle: "Alibaba's Qwen AI model to integrate into Apple Intelligence in landmark partnership",
-      source: "Xinhua（新华网英文官方通讯社）",
-      time: "2026年10月31日",
+      title: "美国中期选举投票日美股芯片股反攻，纳指涨0.83%，英伟达重夺全球市值第一",
+      originalTitle: "US stocks mixed on Election Day as chip stocks rebound, Nasdaq rises 0.8%",
+      source: "Reuters（英文财经媒体，经 FX168 / 每日经济新闻 交叉核对）",
+      time: "2026年11月3日",
+      type: "财经媒体",
+      url: "https://www.reuters.com/markets/us/",
+      link: "https://www.reuters.com/markets/us/",
+      summary: "11月3日美国中期选举投票日，三大指数涨跌不一：道指跌0.38%至51,786.72、标普500涨0.36%至7,568.92、纳指涨0.83%至25,372.01，费城半导体指数涨2.64%。芯片股终结此前连续四个交易日下跌：英伟达涨2.29%至约4.98万亿美元市值、重夺全球市值第一；微软涨2.70%、亚马逊涨2.09%、Meta涨2.33%，苹果因存储成本预警逆势跌约1.9%。市场在选举结果揭晓前呈现「逢低买入」风险偏好，资金从苹果等稳健科技股转向芯片等高风险标的。纳指100周一收盘较10月6日历史高点回落超10%，正式进入技术性回调区间。",
+      impact: {
+        direction: "中性偏多（选举不确定性落地前的修复）",
+        companies: "英伟达、微软、亚马逊、AMD、美光",
+        industry: "半导体、AI算力、云计算",
+        logic: "中期选举结果揭晓在即，市场提前定价「利空出尽」；AI芯片股超跌修复与AMD财报催化共振，芯片板块领涨"
+      }
+    },
+    {
+      title: "苹果Q4财报超预期但预警存储芯片成本上涨，下调圣诞季毛利率指引至45%-46%",
+      originalTitle: "Apple warns memory chip costs will squeeze holiday quarter margins",
+      source: "Reuters（英文财经媒体，经环球网/中央社交叉核对）",
+      time: "2026年11月3日",
+      type: "财经媒体",
+      url: "https://www.reuters.com/technology/apple/",
+      link: "https://www.reuters.com/technology/apple/",
+      summary: "苹果公布截至9月26日的2026财年第四季度业绩：营收1144.8亿美元，同比增长12%，超市场预期的1133.9亿；每股收益2.10美元，超预期的1.99美元；毛利率47.9%，高于预期的47.5%。但新任CEO特纳斯（John Ternus）预警存储芯片成本将持续上涨，预计截至12月圣诞季毛利率降至45%-46%，低于本季的47.9%；服务业务营收增速指引为8%-9%，低于市场预期的10.7%。首席财务官Parekh称Siri AI的云端推理成本亦拖累利润率。公司已将iPhone 17部分机型提价100美元、部分MacBook涨价以对冲存储成本。财报后苹果股价盘后一度跌逾4%。",
+      impact: {
+        direction: "利空（苹果利润端），但侧面印证存储景气",
+        companies: "苹果、美光、SK海力士、闪迪",
+        industry: "消费电子、存储器、AI端侧",
+        logic: "存储芯片涨价开始侵蚀终端厂商利润率，印证存储「超级周期」成本传导，利好存储制造商；但苹果毛利率指引下调压制其自身估值"
+      }
+    },
+    {
+      title: "Marvell宣布以全股票方式收购Lumentum，交易隐含企业价值约1150亿美元，押注AI光互连",
+      originalTitle: "Marvell to acquire Lumentum in $11.5 billion all-stock deal to bet on AI optical interconnect",
+      source: "Reuters / Bloomberg（英文财经媒体，经上海证券报交叉核对）",
+      time: "2026年11月2日",
+      type: "财经媒体",
+      url: "https://www.reuters.com/technology/marvell-lumentum/",
+      link: "https://www.reuters.com/technology/marvell-lumentum/",
+      summary: "Marvell于11月2日宣布以全股票方式收购光通信器件制造商Lumentum，Lumentum股东每股可换4.5股Marvell普通股，交易隐含企业价值约1150亿美元、股权价值约1025亿美元，较消息前Lumentum股价溢价约23.9%。交易完成后Marvell现有股东持股约67%、Lumentum股东约33%，预计2028年上半年完成。Marvell CEO Matt Murphy称这是「一代人一次的机会」，合并后公司可服务市场（TAM）将扩大至5500亿美元，预计每年产生超10亿美元成本协同。该交易是AI基础设施链条上「电+光」垂直整合的标志性并购，若完成将成为半导体领域史上最大并购案。",
+      impact: {
+        direction: "中性（短期股价承压，长期战略卡位）",
+        companies: "Marvell、Lumentum、Coherent及光模块产业链",
+        industry: "光通信、CPO/NPO、AI互连、半导体",
+        logic: "交易溢价与股本稀释担忧短期压制双方股价，但标志AI算力从「单点芯片」转向「算力-存储-互连」系统整合，强化光互连长期景气预期"
+      }
+    },
+    {
+      title: "超微电脑Q1营收同比暴增近3倍至199亿美元，上调全财年指引，盘后涨逾7%",
+      originalTitle: "Super Micro Q1 revenue nearly triples to $19.9 billion, raises full-year outlook",
+      source: "Reuters / 每日经济新闻（英文财经媒体交叉核对）",
+      time: "2026年11月3日",
+      type: "财经媒体",
+      url: "https://www.reuters.com/technology/super-micro/",
+      link: "https://www.reuters.com/technology/super-micro/",
+      summary: "超微电脑（Super Micro）11月3日盘后公布2027财年第一财季业绩：净销售199.5亿美元，同比增长约3倍，远超市场预期的约164亿美元；调整后每股收益1.81美元，高于预期的1.23美元。公司上调全财年营收指引至720亿-820亿美元（此前为650亿-720亿），第二财季指引195亿-215亿美元同样超预期。液冷机架式AI集群需求旺盛为主要驱动力。不过GAAP毛利率仅12.7%，盈利能力仍是市场关注重点。财报后股价盘后涨逾7.5%，与AMD财报共同点燃AI硬件板块情绪。",
+      impact: {
+        direction: "利好（AI服务器/硬件景气）",
+        companies: "超微电脑、英伟达、AMD及AI服务器产业链",
+        industry: "AI服务器、液冷、数据中心",
+        logic: "AI服务器需求爆发验证AI资本开支的实物落地，与AMD财报共振，强化「AI支出可持续」叙事"
+      }
+    },
+    {
+      title: "美国9月JOLTS职位空缺752.3万高于预期，10年期美债收益率升至约4.97%",
+      originalTitle: "US job openings rise in September, JOLTS report shows",
+      source: "BLS / Reuters（美国劳工统计局官方 + 英文财经媒体）",
+      time: "2026年11月3日",
       type: "官方",
-      url: "http://chinaview.cn/20261101/773fa2ac33a34a5ca3484d7e5920d094/c.html",
-      link: "http://chinaview.cn/20261101/773fa2ac33a34a5ca3484d7e5920d094/c.html",
-      summary: "苹果与阿里巴巴宣布合作，将阿里千问（Qwen）大模型集成至Apple智能，中国用户可通过Siri、写作工具及视觉智能调用千问的文本与图像理解、内容生成能力。该功能11月4日起随最新iOS开发者Beta版开放测试，12月iOS 27.3正式版面向中国用户推出。用户可自主选择是否开通并决定分享信息，阿里承诺不将用户请求或回复用于模型训练。阿里CEO吴泳铭称千问将依托阿里AI技术深度融入苹果生态。这是全球顶级消费硬件厂商首次在中国市场采用国产大模型作为系统级AI主干。",
+      url: "https://www.bls.gov/news.release/jolts.nr0.htm",
+      link: "https://www.bls.gov/news.release/jolts.nr0.htm",
+      summary: "美国劳工统计局（BLS）公布9月职位空缺和劳动力流动调查（JOLTS）显示，职位空缺数752.3万，高于市场预期，表明劳动力市场仍具韧性。同日，美国国债收益率普遍上行，10年期收益率升至约4.966%（+0.34%），30年期升至约5.334%。强劲就业数据强化美联储「更高更久」利率预期，成为压制高估值科技股贴现率的潜在变量。市场焦点转向周五（11/7）发布的10月非农就业报告，其为美联储12月加息决策（当前隐含概率约75%）的关键依据。",
       impact: {
-        direction: "利好（苹果中国AI落地、国产大模型商业化）",
-        companies: "苹果、阿里巴巴",
-        industry: "消费电子、AI大模型、端侧AI",
-        logic: "苹果中国区AI能力补齐或提振iPhone在华竞争力，同时为国产大模型系统级商业化开辟标志性路径"
-      }
-    },
-    {
-      title: "亚马逊财报烧钱+英特尔预警PC需求疲软，AI繁荣成本冲击全市场，纳指暴跌2.86%",
-      originalTitle: "Amazon burns cash, Intel flags weak PC demand as AI boom's costs ripple across markets",
-      source: "Reuters（英文财经媒体，经The Hindu Business Line转载）",
-      time: "2026年10月30日",
-      type: "财经媒体",
-      url: "https://thehindubusinessline.com/info-tech/amazon-burns-cash-intel-flags-weak-pc-demand-as-ai-booms-costs-ripple-across-markets/article71643385.ece",
-      link: "https://thehindubusinessline.com/info-tech/amazon-burns-cash-intel-flags-weak-pc-demand-as-ai-booms-costs-ripple-across-markets/article71643385.ece",
-      summary: "华尔街对AI繁荣成本的担忧在周四盘后集中爆发。亚马逊Q3业绩显示数据中心支出激增、现金大量消耗，预计假日季营收低于预期；英特尔Q4营收指引大幅低于预期，预警内存芯片短缺推高成本、PC需求放缓至少持续至2027上半年。Alphabet与Meta三季度现金流转负，微软虽为唯一例外却也通过发行250亿美元债券加入举债扩张。费城半导体指数盘后自6月高点累跌约21%。",
-      impact: {
-        direction: "利空（AI资本开支叙事与半导体）",
-        companies: "亚马逊、英特尔、Alphabet、Meta、微软、英伟达",
-        industry: "云计算、半导体、PC、AI基础设施",
-        logic: "AI基建竞赛的现金消耗与回报差距成为市场核心担忧，资金从高估值科技股撤出转向债券避险，半导体指数承压"
-      }
-    },
-    {
-      title: "科技股抛售致美股市值单周蒸发近1万亿美元，AI投资回报遭重估",
-      originalTitle: "Tech sell-off drives US markets down by nearly $1tn after subpar earnings reports",
-      source: "The Guardian / Associated Press（英文财经媒体）",
-      time: "2026年10月30日",
-      type: "财经媒体",
-      url: "https://www.theguardian.com/technology/2026/oct/30/tech-stocks-drop-earnings-report",
-      link: "https://www.theguardian.com/technology/2026/oct/30/tech-stocks-drop-earnings-report",
-      summary: "由大型科技公司财报不及预期引发的抛售，令纳斯达克交易所市值一周蒸发近1万亿美元、一个月蒸发约2万亿美元。标普500周五跌超1%，纳指跌超3%；英特尔暴跌近30%逼近1974年以来最差单日表现，英伟达（市值约5万亿美元）跌3.1%成为标普最大拖累。市场担忧AI数百亿美元投入能否足够快地转化为利润与生产率，叠加高利率或令数据中心建设放缓。",
-      impact: {
-        direction: "利空（科技板块整体）",
-        companies: "英伟达、英特尔、Alphabet、亚马逊、Meta",
-        industry: "AI基础设施、半导体、云计算",
-        logic: "AI投资回报周期与高利率双重压力令「AI交易」遭遇系统性重估，纳指月度累跌约6.45%"
-      }
-    },
-    {
-      title: "英特尔Q4指引大幅滑坡暴跌28.6%，PC需求疲软+以色列工厂爆炸双重打击",
-      originalTitle: "Stocks fall on AI cash burn worries while bonds rally with oil",
-      source: "Reuters（英文财经媒体，经Lufkin Daily News转载）",
-      time: "2026年10月30日",
-      type: "财经媒体",
-      url: "https://lufkindailynews.com/news_reuters/business/tech-giants-spending-spooks-investors-as-bonds-rally/article_9c2e1297-5646-52be-93b1-64481a26e8ff.html",
-      link: "https://lufkindailynews.com/news_reuters/business/tech-giants-spending-spooks-investors-as-bonds-rally/article_9c2e1297-5646-52be-93b1-64481a26e8ff.html",
-      summary: "英特尔股价暴跌28.6%，其Q4营收指引150-160亿美元、非GAAP EPS 0.25美元均低于LSEG预期，并预警PC需求放缓可能延续至明年；同时以色列工厂爆炸导致两周停产、两季度损失约6亿美元营收。抛售蔓延至整个芯片板块，费城半导体指数跌逾7%、触及5月以来最低，创6月底以来最大单日跌幅；标普科技板块跌4.2%。资金涌入美债避险，10年期收益率回落5.8bp至4.931%。",
-      impact: {
-        direction: "利空（英特尔及半导体/PC产业链）",
-        companies: "英特尔、AMD、博通、台积电、高通",
-        industry: "半导体制造、PC、存储器",
-        logic: "英特尔指引滑坡叠加PC需求疲软，强化对半导体需求端放缓的担忧，费半单日-7.20%创6月来最大跌幅"
-      }
-    },
-    {
-      title: "美国Q3 GDP年化增长3.4%超预期，但美联储官员鹰派表态强化「更高更久」利率预期",
-      originalTitle: "Nasdaq 100 Futures Fall More Than 2% as Tech Outlooks Weigh on Markets",
-      source: "EconoTimes（英文财经媒体，援引AP/Reuters/FXStreet）",
-      time: "2026年10月30日",
-      type: "财经媒体",
-      url: "https://econotimes.com/Nasdaq-100-Futures-Fall-More-Than-2-as-Tech-Outlooks-Weigh-on-Markets-1766654",
-      link: "https://econotimes.com/Nasdaq-100-Futures-Fall-More-Than-2-as-Tech-Outlooks-Weigh-on-Markets-1766654",
-      summary: "美国经济分析局（BEA）估算Q3实际GDP年化增长3.4%（Q2为2.2%），由投资、消费与政府支出驱动。同日，圣路易斯联储主席Musalem警告通胀仍过高且广泛，央行需尽快行动防止高物价固化；里士满联储主席Barkin暗示货币政策仍偏紧以遏制粘性通胀。FOMC于10/28以10:2维持利率3.75%-4.00%不变（库克、哈马克主张加息），市场隐含12月加息概率约75%。",
-      impact: {
-        direction: "中性偏空（增长强、通胀热并存）",
-        companies: "高估值科技股整体",
+        direction: "中性偏空（利率敏感的高估值科技股）",
+        companies: "高估值成长科技股整体",
         industry: "宏观经济、利率敏感板块",
-        logic: "强劲增长缓解衰退担忧，但粘性通胀叠加美联储鹰派表态强化「更高更久」预期，高利率持续压制高估值科技股贴现率"
-      }
-    },
-    {
-      title: "纽约股市三大股指30日显著下跌，科技板块遭抛售领跌4.24%",
-      originalTitle: "U.S. stocks tumble amid Big Tech earnings misses, AI spending fears",
-      source: "Xinhua（新华网英文官方通讯社）",
-      time: "2026年10月30日",
-      type: "官方",
-      url: "http://chinaview.cn/20261031/d223ef7bce5e4340a46de391d2fde24e/c.html",
-      link: "http://chinaview.cn/20261031/d223ef7bce5e4340a46de391d2fde24e/c.html",
-      summary: "美国股市周五大幅下跌，连续第二日重挫。道指跌572.25点（-1.09%）至51,770.31，标普500跌140.32点（-1.82%）至7,580.07，纳指跌747.73点（-2.86%）至25,437.00。11大板块六涨五跌，能源（+1.91%）与必需消费品（+1.38%）领涨，科技（-4.24%）领跌。英特尔暴跌28.58%、闪迪暴跌13.47%（尽管超预期财报与1拆8）。布伦特原油升至117.64美元/桶、WTI升至104.12美元，加剧通胀担忧。",
-      impact: {
-        direction: "利空（科技板块）",
-        companies: "英特尔、闪迪、亚马逊、Alphabet、英伟达",
-        industry: "半导体、存储、AI、云计算",
-        logic: "大型科技财报接连不及预期重创AI繁荣信心，叠加油价飙升推升通胀、美联储鹰派表态，科技板块系统性回调"
-      }
-    },
-    {
-      title: "闪迪Q1财报营收同比+378%、数据中心业务+1682%，宣布1拆8仍难阻股价暴跌",
-      originalTitle: "U.S. stocks tumble amid Big Tech earnings misses, AI spending fears",
-      source: "Xinhua（新华网英文官方通讯社）",
-      time: "2026年10月30日",
-      type: "官方",
-      url: "http://chinaview.cn/20261031/d223ef7bce5e4340a46de391d2fde24e/c.html",
-      link: "http://chinaview.cn/20261031/d223ef7bce5e4340a46de391d2fde24e/c.html",
-      summary: "闪迪公布Q1（截至10/2）财报：营收110.31亿美元同比+378%，数据中心业务营收48亿美元同比暴增1682%，受AI基础设施带动的企业级SSD需求推动；非GAAP EPS 49.51美元超预期。公司宣布1拆8股票拆分，新股11/19分配。尽管基本面强劲，投资者对NAND高估值与存储芯片价格持续性存疑，股价当日暴跌13.47%。",
-      impact: {
-        direction: "利好基本面（闪迪/存储），短期受情绪拖累",
-        companies: "闪迪、美光、SK海力士、西部数据",
-        industry: "存储芯片、NAND、数据中心SSD",
-        logic: "数据中心SSD需求爆发验证AI存储景气，但存储板块与AI整体情绪高度联动，NAND超级周期短期遭遇估值回调"
+        logic: "JOLTS超预期暗示就业市场紧俏、通胀压力未消，支撑长端收益率上行，高利率环境持续压制成长股估值"
       }
     }
   ],
 
   /* ============ 六、当日最值得关注的 3 个交易逻辑 ============ */
   logics: [
-    { title: "AI竞赛由「估值驱动」转入「资本纪律」时刻：OpenAI下调融资与估值，公开市场与私募定价同步收敛",
-      text: "OpenAI将融资目标由300亿美元下调至约200亿美元、估值由1.4万亿降至1.25万亿美元，部分投资者缩减认购、首次交割预计不足200亿——这是继亚马逊财报烧钱、Alphabet/Meta自由现金流转负、微软发债250亿之后，AI资本开支「现金流裁决」向私募端的蔓延。市场正从「谁投得多」彻底转向「谁烧得起还得起」，头部AI公司的融资条件同步收紧。这一信号沿「融资—资本开支—设备订单」链条传导，意味着GPU、存储、光模块等AI硬件订单的「估值预期」成分将被重新定价，产业链需区分「确定性订单」与「预期订单」。" },
-    { title: "存储「超级周期」遭遇情绪急刹车：闪迪基本面强劲却暴跌13%，基本面与股价阶段性背离",
-      text: "闪迪Q1营收同比+378%、数据中心业务+1682%并宣布1拆8，美光、SK海力士基本面同样扎实（SK海力士产能售罄至2029），但存储板块当日集体暴跌（闪迪-13.47%、美光-5.30%、西数-7.41%、希捷-7.98%），DRAM存储ETF单月累跌约20%。这印证存储与「AI算力/云厂商现金流」情绪的高度联动：即便供需基本面未变，存储短期仍难脱离AI整体情绪定价。存储超级周期的中期逻辑未变，但短期需警惕AI情绪退潮带来的Beta回撤，基本面与股价的背离反而为中期布局提供观察窗口。" },
-    { title: "政治与宏观双重变量接踵而至：中期选举重定AI数据中心监管路径，非农决定「更高更久」利率走向",
-      text: "11/3美国中期选举将改写AI产业政策预期——民主党若拿下众议院或全面控制国会，数据中心建设面临的能源、环保监管审查风险上升，或压制AI风险偏好；共和党保住则宽松监管延续、AI资本开支叙事可延续。11/6非农报告则是美联储12月加息决策的关键数据（当前隐含概率约75%），「强增长+热通胀+鹰派央行」组合下，高利率与粘性通胀持续压制高估值科技股贴现率。政治不确定性与宏观变量叠加，构成独立于产业基本面之外的第二重压制，本周科技股波动或进一步放大。" }
+    { title: "AI支出「持续性」叙事重新站上风口：AMD数据中心收入近翻倍+超微营收暴增近3倍，对冲「AI烧钱」担忧",
+      text: "周一亚马逊、Alphabet财报引发的「AI资本开支回报存疑」担忧，在周二被AMD与超微电脑的财报迅速对冲。AMD数据中心收入同比+97%、占营收64%，Q4指引约170亿美元超预期；超微电脑Q1营收同比暴增约3倍并上调全年指引。两者共同验证了AI资本开支正在加速转化为硬件厂商的真实收入与订单，市场交易逻辑从「谁烧得起」部分切换回「谁在真实兑现增长」。这一信号对英伟达、博通、台积电及光模块产业链构成直接支撑，芯片股终结四连跌。" },
+    { title: "存储「超级周期」的成本传导开始显现：苹果预警存储涨价侵蚀毛利率，涨价逻辑从供给端走向需求端验证",
+      text: "苹果Q4财报超预期，却因存储芯片成本上涨而下调圣诞季毛利率指引至45%-46%，并透露上季采购承诺增加330亿美元、部分机型提价对冲。这一信号具有双重含义：其一，NAND/DRAM涨价已真实传导至终端厂商成本端，印证存储供需紧张与价格上行周期的确定性；其二，存储涨价的「需求端买单能力」开始承压，若终端需求因涨价走弱，或反噬存储价格弹性。存储板块（闪迪+4.78%、美光+2.58%）当日反弹，但需密切关注涨价对下游出货的抑制效应。" },
+    { title: "中期选举定调AI监管路径，非农决定利率走向：政治与宏观双变量主导本周科技股波动",
+      text: "11/3中期选举结果将改写AI产业政策预期——若民主党横扫国会，数据中心能源/环保监管审查风险上升、AI交易承压；若共和党守住或国会分裂，宽松监管延续、AI资本开支叙事可续。摩根大通测算「蓝色浪潮」概率约66%、标普500预计微跌0.25%至涨0.50%，且限制AI扩张的法案难以跨越总统否决权。11/7非农则是美联储12月加息决策（隐含概率约75%）的关键数据，JOLTS超预期已强化「更高更久」预期。政治不确定性与宏观利率变量叠加，构成独立于产业基本面之外的第二重压制。" }
   ],
 
   /* ============ 七、未来 1—3 个交易日关注事项（具体事件） ============ */
   watchlist: [
-    { date: "11月2日（周一）", event: "美国10月ISM制造业PMI、标普全球制造业PMI终值", impact: "验证制造业与科技硬件需求动能，若PMI走弱将强化半导体需求放缓担忧" },
-    { date: "11月3日（周二）", event: "美国中期选举日（改选众议院全部席位及部分参议院席位）", impact: "选举结果影响AI数据中心监管路径与产业政策方向，民主党若夺回众议院或全面控制，数据中心能源/环保审查风险上升" },
-    { date: "11月4日（周三）", event: "美国10月ISM服务业PMI、苹果-阿里千问集成iOS开发者Beta开放测试", impact: "服务业通胀决定「更高更久」预期走向；苹果中国区AI功能落地开始测试" },
-    { date: "11月5日（周四）", event: "苹果（AAPL）、AMD（AMD）财报；美国初请失业金人数", impact: "苹果财报验证消费电子与AI端侧需求；AMD财报验证AI算力与半导体景气" },
-    { date: "11月6日（周五）", event: "美国10月非农就业报告、失业率与薪资增速", impact: "非农与薪资增速是美联储12月加息决策关键数据，直接影响利率敏感科技股估值" }
+    { date: "11月4日（周三）", event: "美国中期选举结果陆续揭晓；苹果-阿里千问集成iOS开发者Beta开放测试", impact: "选举结果决定AI数据中心监管路径与产业政策方向；苹果中国区AI功能落地开始测试" },
+    { date: "11月5日（周四）", event: "美国10月ISM服务业PMI；美联储主席及多位官员讲话", impact: "服务业通胀决定「更高更久」预期走向；官员表态影响12月加息概率" },
+    { date: "11月6日（周五）", event: "美国10月非农就业报告、失业率与薪资增速", impact: "非农与薪资增速是美联储12月加息决策关键数据，直接影响利率敏感科技股估值" },
+    { date: "11月7日（周六）", event: "（市场消化非农）关注下周英伟达财报临近的业绩预期发酵", impact: "英伟达财报为AI算力景气度关键验证，本周或提前定价" }
   ],
 
   /* ============ 八、页脚免责声明 ============ */
