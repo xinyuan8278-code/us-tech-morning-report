@@ -1,7 +1,7 @@
 /**
  * ============================================================
  *  美股科技板块前一交易日行情日报 —— 数据文件（每日只需改这里）
- *  （2026-11-04 更新：对应美股交易日 2026-11-03）
+ *  （2026-11-06 更新：对应美股交易日 2026-11-05）
  * ============================================================
  *  使用说明：
  *  1. 打开本文件，替换下方各字段的值即可生成当日日报。
@@ -24,8 +24,8 @@ window.REPORT_DATA = {
   meta: {
     title: "美股科技板块前一交易日行情日报",
     subtitle: "盘前版 · 大型科技 + 半导体存储跟踪",
-    reportDate: "2026年11月04日",   // 报告发布日期（周三）
-    tradeDate: "2026年11月03日",    // 对应美股交易日（前一交易日，周二）
+    reportDate: "2026年11月06日",   // 报告发布日期（周五）
+    tradeDate: "2026年11月05日",    // 对应美股交易日（前一交易日，周四）
     author: "华泰期货 · 研究",
     tag: "每日市场跟踪"
   },
@@ -33,7 +33,7 @@ window.REPORT_DATA = {
   /* ============ 二、市场概览 ============ */
   overview: {
     /* 简短概括：指数变化 + 个股变化 + 重大事件 */
-    text: "11月3日（周二、美国中期选举投票日）美股三大指数涨跌不一，科技股与芯片股强势反攻：道指-0.38%至51,786.72、标普500+0.36%至7,568.92、纳指+0.83%至25,372.01，费城半导体指数+2.64%。芯片股终结四连跌，英伟达+2.29%重夺全球市值第一（约4.98万亿美元）、微软+2.70%、亚马逊+2.09%，存储回暖（闪迪+4.78%、美光+2.58%）；苹果因预警存储芯片成本上涨、下调圣诞季毛利率指引而逆势下跌约1.9%。盘后AMD公布Q3财报：营收+45%、数据中心营收同比近翻倍、Q4指引约170亿美元超预期，股价盘后一度涨逾9%。中期选举结果（11/3投票）与周五非农成为本周核心变量。",
+    text: "11月5日（周四）美股遭「AI交易大撤退」血洗，三大指数录2025年4月「解放日」以来最大单日跌幅：纳指-5.52%至24,315（较10月6日历史高点回落约11.9%、正式进入技术性调整区间）、标普500-4.36%至7,353.73、道指-3.44%至51,523.06，费城半导体指数暴跌12.25%（2020年3月来最大单日跌幅），纳指100跌约6.4%，标普500单日市值蒸发约3万亿美元。半导体与存储为重灾区：AMD-17.26%、闪迪-22.26%、美光-17.46%、英特尔-10.33%、英伟达-9.26%。核心触发为美国中期选举民主党横扫国会并夺得多州州长席位，德州候任州长Gina Hinojosa主张立即暂停数据中心建设，市场担忧AI基础设施扩张受阻；叠加高通Q4手机芯片收入-26%、指引偏弱，与苹果70亿美元发债、联储官员释放鹰派信号共振。10月非农（11/6）成下一关键变量。",
     /* 指数卡片（可增删） */
     indices: [
       { name: "Nasdaq Composite", code: "IXIC", change: "-0.00%" },
@@ -44,139 +44,143 @@ window.REPORT_DATA = {
   },
 
   /* ============ 三、超涨 / 超跌个股提示 ============ */
-  alerts: [],
+  alerts: [
+    { name: "SanDisk", code: "SNDK", change: "-0.00%", type: "超跌", reason: "11月5日单日暴跌约22.26%，领跌存储板块；费半暴跌、AI交易大撤退下，高Beta存储股遭最猛烈抛售，距近期高点显著回撤" },
+    { name: "AMD", code: "AMD", change: "-0.00%", type: "超跌", reason: "11月5日单日暴跌约17.26%，回吐11月3日Q3财报超预期后的涨幅；数据中心建设政策不确定性重估AI算力芯片估值" },
+    { name: "Micron", code: "MU", change: "-0.00%", type: "超跌", reason: "11月5日单日暴跌约17.46%，存储「超级周期」交易退潮；涨价边际效应递减+数据中心需求担忧叠加，估值与资金拥挤度双杀" }
+  ],
 
   /* ============ 四、重点公司行情表 ============ */
   /* 超涨/超跌个股放最上方；无新闻的公司驱动因素简要说明即可 */
   stocks: [
-    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "上涨约2.29%至约204.6美元，终结连续四个交易日下跌，市值约4.98万亿美元、重新夺回全球市值第一；AI硬件股整体反攻，市场从苹果等稳健科技股转向芯片等高风险高Beta标的的「逢低买入」行情" },
-    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "上涨约2.70%领涨七巨头，AI算力需求叠加Azure增长叙事支撑，随芯片与AI基建板块整体反弹" },
-    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "下跌约1.9%至344美元附近，为七巨头最弱；周一盘后Q4财报虽超预期（营收+12%至1144.8亿、EPS 2.10美元），但预警存储芯片成本续涨、圣诞季毛利率指引降至45%-46%，服务营收增速指引8%-9%低于预期" },
-    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "上涨约2.09%，随云计算与AI基建板块反弹，资金回流此前遭抛售的超大规模云厂商" },
-    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "微涨约0.09%，基本持平；前期Q3自由现金流转负引发的抛售情绪暂歇，随大盘企稳" },
-    { name: "Meta",      code: "META",  change: "-0.00%", driver: "上涨约2.33%，随大型科技股与AI算力板块反弹，前期AI资本开支担忧引发的回调暂获修复" },
-    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "上涨约3%+，芯片股集体反攻下领涨半导体，AI定制芯片（ASIC）叙事受AMD财报带动" },
-    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "上涨约3.65%至483.90美元；盘后Q3财报营收133.8亿+45%、数据中心85.5亿同比+97%（占64%）、Q4指引约170亿超预期，股价盘后一度涨逾9%，验证AI支出持续性" },
-    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "上涨约2.58%，存储板块回暖；苹果预警存储成本续涨、采购承诺增加330亿美元，侧面印证NAND/DRAM景气延续" },
-    { name: "SanDisk",   code: "SNDK",  change: "-0.00%", driver: "上涨约4.78%领涨存储，随存储芯片与AI基建情绪修复反弹，NAND超级周期逻辑回归" }
+    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "下跌约9.26%，抹平2026年以来全部累计涨幅转跌；AI交易大撤退下，作为AI算力核心标的遭机构集中减持，数据中心建设政策不确定性重估其增长预期" },
+    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "下跌约3.58%，大型科技股普跌；外媒援引知情人士称微软接连撤销Nscale英国租约与得州扩容选项，市场担忧其AI资本开支节奏放缓" },
+    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "下跌约1.53%，七巨头中相对抗跌；同日宣布拟发行约70亿美元投资级债券用于回购与偿债（一年多来首次），资金面稳健、与AI基建发债潮性质不同" },
+    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "下跌约2.19%，超大规模云厂商普跌；数据中心建设监管风险拖累AWS扩张叙事，但相对芯片股抗跌" },
+    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "下跌约2.20%；同日宣布投资170亿美元在怀俄明州建首个数据中心并自担全部电力成本，展现AI资本开支韧性，但整体仍随大盘走弱" },
+    { name: "Meta",      code: "META",  change: "-0.00%", driver: "下跌约3.96%，大型科技股普跌；前期已发行150亿美元美元债用于AI基建，市场对其高额AI资本开支与回报质量存疑" },
+    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "下跌约10.43%，半导体普跌；AI定制芯片（ASIC）叙事受数据中心建设放缓预期压制，高Beta芯片股遭集中抛售" },
+    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "下跌约17.26%，回吐11月3日Q3财报（营收+45%、数据中心+97%）超预期后的涨幅；市场担忧数据中心建设监管收紧将压制Instinct GPU出货前景" },
+    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "下跌约17.46%，存储板块重挫；存储涨价边际效应递减（集邦预计Q4 DRAM合约价涨幅收窄至10%-15%），叠加数据中心需求担忧，高估值存储股遭双杀" },
+    { name: "SanDisk",   code: "SNDK",  change: "-0.00%", driver: "下跌约22.26%领跌存储，为11月5日美股跌幅最大个股之一；NAND「超级周期」交易退潮、资金拥挤度高，AI交易撤退下遭最猛烈抛售" }
   ],
 
   /* ============ 五、重要科技与政策新闻（一手来源） ============ */
   news: [
     {
-      title: "AMD第三季度财报超预期：营收同比+45%、数据中心收入同比近翻倍，Q4指引约170亿美元，盘后一度涨逾9%",
-      originalTitle: "AMD posts record quarter as data center revenue nearly doubles, Q4 guidance tops estimates",
-      source: "Reuters / CNBC（英文财经媒体，经综合一手财报数据交叉核对）",
-      time: "2026年11月3日",
+      title: "美国中期选举民主党横扫国会并夺得多州州长，德州候任州长主张立即暂停数据中心建设，引发AI基础设施股抛售",
+      originalTitle: "Nasdaq posts biggest daily drop in 19 months on fears of AI regulations after Democrats win Congress",
+      source: "Reuters（经 The Straits Times 转载英文原文）",
+      time: "2026年11月5日",
       type: "财经媒体",
-      url: "https://www.cnbc.com/2026/11/03/amd-q3-2026-earnings.html",
-      link: "https://www.cnbc.com/2026/11/03/amd-q3-2026-earnings.html",
-      summary: "AMD于11月3日盘后公布2026财年第三季度业绩：营收133.8亿美元，同比增长45%、环比增长16%，超过此前指引上限；调整后每股收益2.09美元，同比增长74%，超市场预期。数据中心部门收入85.5亿美元，同比增长97%，占总营收约64%，受EPYC服务器CPU与Instinct MI450 GPU需求推动；客户端收入同比+7%、游戏收入同比-40%、嵌入式收入同比+29%。公司预计Q4营收约170亿美元（上下3%），中值同比+66%，明显高于分析师预期。CEO苏姿丰称MI455X GPU开始批量交付、Helios机架级系统Q4放量，AI增长将快于预期。财报发布后AMD盘后一度涨逾9%。",
+      url: "https://www.straitstimes.com/business/companies-markets/nasdaq-posts-biggest-daily-drop-in-19-months-on-fears-of-ai-regulations",
+      link: "https://www.straitstimes.com/business/companies-markets/nasdaq-posts-biggest-daily-drop-in-19-months-on-fears-of-ai-regulations",
+      summary: "11月5日纳指暴跌5.52%，创19个月最大单日跌幅，并确认进入技术性调整区间（较10月6日历史高点回落逾10%）。核心触发为民主党在11月3日中期选举中横扫国会两院、并赢得德州、佐治亚、俄亥俄等多个数据中心重镇州长席位。德州候任州长Gina Hinojosa主张立即暂停数据中心建设并取消开发商税收优惠，市场担忧更严格的许可、电力与水资源监管将拖慢AI基础设施扩张节奏。费城半导体指数跌逾12%，英伟达跌逾9%，数据中心企业IREN、Applied Digital跌逾14%、CoreWeave跌近10%，标普500单日市值蒸发约3万亿美元。",
       impact: {
-        direction: "利好（AI算力与半导体景气）",
-        companies: "AMD、英伟达、台积电及AI算力产业链",
-        industry: "GPU、数据中心、服务器CPU、AI基础设施",
-        logic: "AMD数据中心收入近翻倍叠加Q4指引超预期，验证AI资本开支仍在加速释放，缓解市场对AI支出「烧钱不可持续」的担忧，带动盘后芯片股走高"
+        direction: "利空（AI基础设施与半导体）",
+        companies: "英伟达、AMD、美光、博通、台积电及数据中心/电力产业链",
+        industry: "半导体、AI数据中心、云计算、电力与能源",
+        logic: "民主党胜选改变AI产业政策预期，数据中心建设面临更严监管与更高成本，直接压制依赖「AI资本开支持续扩张」估值的芯片与基础设施股"
       }
     },
     {
-      title: "美国中期选举投票日美股芯片股反攻，纳指涨0.83%，英伟达重夺全球市值第一",
-      originalTitle: "US stocks mixed on Election Day as chip stocks rebound, Nasdaq rises 0.8%",
-      source: "Reuters（英文财经媒体，经 FX168 / 每日经济新闻 交叉核对）",
-      time: "2026年11月3日",
+      title: "美股科技股遭「AI交易大撤退」血洗，纳指跌5.52%，VIX恐慌指数飙升创18个月最大盘中升幅",
+      originalTitle: "Wall Street fear gauge soars as retail traders bolt amid market rout",
+      source: "Reuters（经 The Hindu Business Line 转载英文原文）",
+      time: "2026年11月5日",
       type: "财经媒体",
-      url: "https://www.reuters.com/markets/us/",
-      link: "https://www.reuters.com/markets/us/",
-      summary: "11月3日美国中期选举投票日，三大指数涨跌不一：道指跌0.38%至51,786.72、标普500涨0.36%至7,568.92、纳指涨0.83%至25,372.01，费城半导体指数涨2.64%。芯片股终结此前连续四个交易日下跌：英伟达涨2.29%至约4.98万亿美元市值、重夺全球市值第一；微软涨2.70%、亚马逊涨2.09%、Meta涨2.33%，苹果因存储成本预警逆势跌约1.9%。市场在选举结果揭晓前呈现「逢低买入」风险偏好，资金从苹果等稳健科技股转向芯片等高风险标的。纳指100周一收盘较10月6日历史高点回落超10%，正式进入技术性回调区间。",
+      url: "https://www.thehindubusinessline.com/markets/wall-street-fear-gauge-soars-as-retail-traders-bolt-amid-market-rout/article71671752.ece",
+      link: "https://www.thehindubusinessline.com/markets/wall-street-fear-gauge-soars-as-retail-traders-bolt-amid-market-rout/article71671752.ece",
+      summary: "11月5日美股遭遇大规模抛售，芯片与数据中心相关股票领跌。Cboe波动率指数（VIX）盘中一度升11.75点至8个月高点28.36，创18个月最大盘中升幅；散户投资者当日净卖出超10亿美元，Vanda Research称其为「新冠疫情崩盘以来最大单日个股抛售」。野村预计杠杆ETF当日尾盘需卖出约470亿美元股票进行再平衡，其中大部分来自科技与AI基金。高盛主经纪商报告显示大型多策略对冲基金因重仓AI股而「大幅」亏损。分析师指出，抛售或是对前一交易日大涨的反向平仓与拥挤AI交易的整体去杠杆。",
       impact: {
-        direction: "中性偏多（选举不确定性落地前的修复）",
-        companies: "英伟达、微软、亚马逊、AMD、美光",
-        industry: "半导体、AI算力、云计算",
-        logic: "中期选举结果揭晓在即，市场提前定价「利空出尽」；AI芯片股超跌修复与AMD财报催化共振，芯片板块领涨"
+        direction: "利空（市场情绪与流动性）",
+        companies: "英伟达、AMD、美光及AI算力、数据中心产业链",
+        industry: "半导体、AI基础设施、波动率/衍生品",
+        logic: "散户撤离+杠杆ETF尾盘强平+对冲基金去杠杆三重卖压共振，加剧科技股抛售的自我强化，短期流动性风险上升"
       }
     },
     {
-      title: "苹果Q4财报超预期但预警存储芯片成本上涨，下调圣诞季毛利率指引至45%-46%",
-      originalTitle: "Apple warns memory chip costs will squeeze holiday quarter margins",
-      source: "Reuters（英文财经媒体，经环球网/中央社交叉核对）",
-      time: "2026年11月3日",
+      title: "高通Q4手机芯片收入同比下滑26%、下季指引不及预期，盘后一度跌超7%，存储涨价侵蚀毛利率",
+      originalTitle: "Qualcomm's smartphone chip sales fall short, guidance disappoints as memory costs rise",
+      source: "CNBC / Reuters（英文财经媒体，经多源交叉核对）",
+      time: "2026年11月4日",
       type: "财经媒体",
-      url: "https://www.reuters.com/technology/apple/",
-      link: "https://www.reuters.com/technology/apple/",
-      summary: "苹果公布截至9月26日的2026财年第四季度业绩：营收1144.8亿美元，同比增长12%，超市场预期的1133.9亿；每股收益2.10美元，超预期的1.99美元；毛利率47.9%，高于预期的47.5%。但新任CEO特纳斯（John Ternus）预警存储芯片成本将持续上涨，预计截至12月圣诞季毛利率降至45%-46%，低于本季的47.9%；服务业务营收增速指引为8%-9%，低于市场预期的10.7%。首席财务官Parekh称Siri AI的云端推理成本亦拖累利润率。公司已将iPhone 17部分机型提价100美元、部分MacBook涨价以对冲存储成本。财报后苹果股价盘后一度跌逾4%。",
+      url: "https://www.cnbc.com/quotes/QCOM",
+      link: "https://www.cnbc.com/quotes/QCOM",
+      summary: "高通11月4日盘后公布2026财年第四财季（截至9月）业绩：Non-GAAP营收104.42亿美元（同比-7%）、调整后EPS 2.17美元，略超预期；但核心的手机芯片收入51.37亿美元、同比骤降26%，低于市场预期。公司对2027财年第一财季的调整后EPS指引中值（约2.25美元）亦低于分析师预期。CFO帕尔希瓦拉表示存储芯片涨价推高智能手机物料成本、压制中低端机型出货，公司已于9月全线提价，但毛利率完整修复需待2027财年下半年。公司已与亚马逊及另一超大规模云厂商达成定制芯片协议，数据中心业务2027财年收入年化规模目标70亿美元。财报后高通股价盘后一度跌逾7%。",
       impact: {
-        direction: "利空（苹果利润端），但侧面印证存储景气",
-        companies: "苹果、美光、SK海力士、闪迪",
-        industry: "消费电子、存储器、AI端侧",
-        logic: "存储芯片涨价开始侵蚀终端厂商利润率，印证存储「超级周期」成本传导，利好存储制造商；但苹果毛利率指引下调压制其自身估值"
+        direction: "利空（手机芯片与半导体情绪）",
+        companies: "高通、ARM及手机芯片产业链、存储厂商",
+        industry: "智能手机芯片、数据中心定制芯片、存储器",
+        logic: "手机芯片下滑印证存储涨价对终端需求的抑制，叠加指引偏弱，成为11月5日半导体板块重挫的直接催化之一；但数据中心定制芯片放量提供中期支撑"
       }
     },
     {
-      title: "Marvell宣布以全股票方式收购Lumentum，交易隐含企业价值约1150亿美元，押注AI光互连",
-      originalTitle: "Marvell to acquire Lumentum in $11.5 billion all-stock deal to bet on AI optical interconnect",
-      source: "Reuters / Bloomberg（英文财经媒体，经上海证券报交叉核对）",
-      time: "2026年11月2日",
+      title: "苹果拟发行约70亿美元投资级债券用于回购与偿债，一年多来首次重返美元债市场",
+      originalTitle: "Apple plans about $7 billion bond sale for buybacks and debt repayment",
+      source: "Bloomberg / Reuters（英文财经媒体，经彭博援引知情人士）",
+      time: "2026年11月5日",
       type: "财经媒体",
-      url: "https://www.reuters.com/technology/marvell-lumentum/",
-      link: "https://www.reuters.com/technology/marvell-lumentum/",
-      summary: "Marvell于11月2日宣布以全股票方式收购光通信器件制造商Lumentum，Lumentum股东每股可换4.5股Marvell普通股，交易隐含企业价值约1150亿美元、股权价值约1025亿美元，较消息前Lumentum股价溢价约23.9%。交易完成后Marvell现有股东持股约67%、Lumentum股东约33%，预计2028年上半年完成。Marvell CEO Matt Murphy称这是「一代人一次的机会」，合并后公司可服务市场（TAM）将扩大至5500亿美元，预计每年产生超10亿美元成本协同。该交易是AI基础设施链条上「电+光」垂直整合的标志性并购，若完成将成为半导体领域史上最大并购案。",
+      url: "https://www.bloomberg.com/news/articles/2026-11-05/apple-plans-about-7-billion-bond-sale",
+      link: "https://www.bloomberg.com/news/articles/2026-11-05/apple-plans-about-7-billion-bond-sale",
+      summary: "苹果11月5日启动约70亿美元的美元债发行，为一年多来首次重返投资级债券市场。本次发行分七档、期限2至10年，高盛、美银、德意志银行与摩根大通任联席簿记管理人。所募资金用于一般公司用途，包括股票回购与偿债。与Meta、微软、甲骨文等为AI基建大规模举债不同，分析师指出苹果此举属「机会主义融资」——公司持有约1370亿美元现金、每年经营现金流约1450亿美元，股东回报优先于超大规模AI基建支出。初步定价显示其固息债收益率仅较同期美债高出约0.45—0.8个百分点。",
       impact: {
-        direction: "中性（短期股价承压，长期战略卡位）",
-        companies: "Marvell、Lumentum、Coherent及光模块产业链",
-        industry: "光通信、CPO/NPO、AI互连、半导体",
-        logic: "交易溢价与股本稀释担忧短期压制双方股价，但标志AI算力从「单点芯片」转向「算力-存储-互连」系统整合，强化光互连长期景气预期"
+        direction: "中性（苹果自身信用面稳健）",
+        companies: "苹果",
+        industry: "消费电子、科技公司信用债",
+        logic: "苹果发债用于回购而非AI基建，凸显其与「AI烧钱」叙事的区隔；但科技巨头密集发债推升整体信用债供给，叠加利率环境，对成长股估值构成一定压制"
       }
     },
     {
-      title: "超微电脑Q1营收同比暴增近3倍至199亿美元，上调全财年指引，盘后涨逾7%",
-      originalTitle: "Super Micro Q1 revenue nearly triples to $19.9 billion, raises full-year outlook",
-      source: "Reuters / 每日经济新闻（英文财经媒体交叉核对）",
-      time: "2026年11月3日",
+      title: "联储官员哈马克、巴尔金释放鹰派信号，市场聚焦11月6日10月非农就业报告",
+      originalTitle: "Fed officials hint at further rate hikes, focus shifts to October payrolls",
+      source: "Reuters（英文财经媒体，经 The Straits Times 等转载）",
+      time: "2026年11月5日",
       type: "财经媒体",
-      url: "https://www.reuters.com/technology/super-micro/",
-      link: "https://www.reuters.com/technology/super-micro/",
-      summary: "超微电脑（Super Micro）11月3日盘后公布2027财年第一财季业绩：净销售199.5亿美元，同比增长约3倍，远超市场预期的约164亿美元；调整后每股收益1.81美元，高于预期的1.23美元。公司上调全财年营收指引至720亿-820亿美元（此前为650亿-720亿），第二财季指引195亿-215亿美元同样超预期。液冷机架式AI集群需求旺盛为主要驱动力。不过GAAP毛利率仅12.7%，盈利能力仍是市场关注重点。财报后股价盘后涨逾7.5%，与AMD财报共同点燃AI硬件板块情绪。",
+      url: "https://www.straitstimes.com/business/companies-markets/nasdaq-posts-biggest-daily-drop-in-19-months-on-fears-of-ai-regulations",
+      link: "https://www.straitstimes.com/business/companies-markets/nasdaq-posts-biggest-daily-drop-in-19-months-on-fears-of-ai-regulations",
+      summary: "克利夫兰联储主席哈马克（Beth Hammack）与里士满联储主席巴尔金（Thomas Barkin）11月5日先后暗示未来可能进一步加息。哈马克表示货币政策需转向限制性立场才能及时将通胀拉回2%目标，她上月曾对美联储维持利率不变投出反对票、主张加息；巴尔金则重申支持渐进加息。交易员已预期美联储在9月加息后、12月可能再度加息。市场焦点转向11月6日发布的美国10月非农就业报告，作为12月加息决策的关键依据。此前9月新增就业不及预期。",
       impact: {
-        direction: "利好（AI服务器/硬件景气）",
-        companies: "超微电脑、英伟达、AMD及AI服务器产业链",
-        industry: "AI服务器、液冷、数据中心",
-        logic: "AI服务器需求爆发验证AI资本开支的实物落地，与AMD财报共振，强化「AI支出可持续」叙事"
-      }
-    },
-    {
-      title: "美国9月JOLTS职位空缺752.3万高于预期，10年期美债收益率升至约4.97%",
-      originalTitle: "US job openings rise in September, JOLTS report shows",
-      source: "BLS / Reuters（美国劳工统计局官方 + 英文财经媒体）",
-      time: "2026年11月3日",
-      type: "官方",
-      url: "https://www.bls.gov/news.release/jolts.nr0.htm",
-      link: "https://www.bls.gov/news.release/jolts.nr0.htm",
-      summary: "美国劳工统计局（BLS）公布9月职位空缺和劳动力流动调查（JOLTS）显示，职位空缺数752.3万，高于市场预期，表明劳动力市场仍具韧性。同日，美国国债收益率普遍上行，10年期收益率升至约4.966%（+0.34%），30年期升至约5.334%。强劲就业数据强化美联储「更高更久」利率预期，成为压制高估值科技股贴现率的潜在变量。市场焦点转向周五（11/7）发布的10月非农就业报告，其为美联储12月加息决策（当前隐含概率约75%）的关键依据。",
-      impact: {
-        direction: "中性偏空（利率敏感的高估值科技股）",
+        direction: "利空（利率敏感的高估值科技股）",
         companies: "高估值成长科技股整体",
         industry: "宏观经济、利率敏感板块",
-        logic: "JOLTS超预期暗示就业市场紧俏、通胀压力未消，支撑长端收益率上行，高利率环境持续压制成长股估值"
+        logic: "联储官员鹰派表态强化「更高更久」利率预期，抬升成长股贴现率，叠加中期选举政策不确定性，对科技股估值构成双重压制"
+      }
+    },
+    {
+      title: "谷歌宣布投资170亿美元在怀俄明州建设首个数据中心，并自担全部电力成本",
+      originalTitle: "Google to build $17 billion data center in Wyoming, funding full power costs",
+      source: "Reuters / CNBC（英文财经媒体，经华尔街见闻早餐转载交叉核对）",
+      time: "2026年11月5日",
+      type: "财经媒体",
+      url: "https://www.reuters.com/technology/",
+      link: "https://www.reuters.com/technology/",
+      summary: "谷歌（Alphabet）11月5日宣布投资170亿美元在怀俄明州拉勒米县建设其首个数据中心，合作方包括Tallgrass Energy、Black Hills Energy、美国电力公司及Related Digital。谷歌承诺100%承担数据中心全部电力费用，并覆盖自身增长带来的基础设施建设成本，不转嫁至当地社区或公用事业用户。能源方案采用702兆瓦商业规模燃料电池装置并配套碳捕获与封存，为同类项目中规模最大。此举显示超大规模云厂商仍在推进AI基础设施扩张，与市场对数据中心建设放缓的担忧形成对照。",
+      impact: {
+        direction: "中性偏多（AI资本开支韧性）",
+        companies: "Alphabet/谷歌、电力与能源设备产业链",
+        industry: "AI数据中心、云计算、燃料电池与能源",
+        logic: "谷歌以「自担电力成本」方式化解地方反对与监管阻力，彰显超大规模云厂商AI基建投入的延续性，部分对冲民主党胜选带来的数据中心放缓担忧"
       }
     }
   ],
 
   /* ============ 六、当日最值得关注的 3 个交易逻辑 ============ */
   logics: [
-    { title: "AI支出「持续性」叙事重新站上风口：AMD数据中心收入近翻倍+超微营收暴增近3倍，对冲「AI烧钱」担忧",
-      text: "周一亚马逊、Alphabet财报引发的「AI资本开支回报存疑」担忧，在周二被AMD与超微电脑的财报迅速对冲。AMD数据中心收入同比+97%、占营收64%，Q4指引约170亿美元超预期；超微电脑Q1营收同比暴增约3倍并上调全年指引。两者共同验证了AI资本开支正在加速转化为硬件厂商的真实收入与订单，市场交易逻辑从「谁烧得起」部分切换回「谁在真实兑现增长」。这一信号对英伟达、博通、台积电及光模块产业链构成直接支撑，芯片股终结四连跌。" },
-    { title: "存储「超级周期」的成本传导开始显现：苹果预警存储涨价侵蚀毛利率，涨价逻辑从供给端走向需求端验证",
-      text: "苹果Q4财报超预期，却因存储芯片成本上涨而下调圣诞季毛利率指引至45%-46%，并透露上季采购承诺增加330亿美元、部分机型提价对冲。这一信号具有双重含义：其一，NAND/DRAM涨价已真实传导至终端厂商成本端，印证存储供需紧张与价格上行周期的确定性；其二，存储涨价的「需求端买单能力」开始承压，若终端需求因涨价走弱，或反噬存储价格弹性。存储板块（闪迪+4.78%、美光+2.58%）当日反弹，但需密切关注涨价对下游出货的抑制效应。" },
-    { title: "中期选举定调AI监管路径，非农决定利率走向：政治与宏观双变量主导本周科技股波动",
-      text: "11/3中期选举结果将改写AI产业政策预期——若民主党横扫国会，数据中心能源/环保监管审查风险上升、AI交易承压；若共和党守住或国会分裂，宽松监管延续、AI资本开支叙事可续。摩根大通测算「蓝色浪潮」概率约66%、标普500预计微跌0.25%至涨0.50%，且限制AI扩张的法案难以跨越总统否决权。11/7非农则是美联储12月加息决策（隐含概率约75%）的关键数据，JOLTS超预期已强化「更高更久」预期。政治不确定性与宏观利率变量叠加，构成独立于产业基本面之外的第二重压制。" }
+    { title: "中期选举重塑AI产业政策预期：从「宽松监管」到「数据中心建设受限」，AI交易的核心前提被挑战",
+      text: "11月5日暴跌的本质，是市场对「AI资本开支持续加速」这一核心前提的重新定价。民主党横扫国会并夺得德州、佐治亚、俄亥俄等数据中心重镇州长席位，德州候任州长Gina Hinojosa主张立即暂停数据中心建设、取消开发商税收优惠。德州占美国规划数据中心装机容量近30%，一旦行政暂停落地，将直接冲击芯片、存储、电力与光通信的订单兑现节奏。市场交易的逻辑从「谁烧得起」切换到「建设会不会被叫停」，这是AI算力股估值体系面临的一次根本性重估。" },
+    { title: "存储「超级周期」交易退潮：涨价边际效应递减+需求端买单能力承压，高估值与高拥挤度遭双杀",
+      text: "闪迪-22.26%、美光-17.46%的暴跌，叠加高通手机芯片收入-26%（存储涨价推高手机成本、抑制中低端换机），暴露出存储「超级周期」的内在脆弱性。一方面，集邦咨询预计Q4 DRAM合约价涨幅收窄至10%-15%，涨价边际效应递减；另一方面，存储涨价已真实传导至终端成本端、抑制需求，苹果下调圣诞季毛利率指引即是例证。当「涨价驱动利润」遭遇「涨价反噬需求」，叠加数据中心需求担忧，此前估值与资金高度拥挤的存储股成为最脆弱的抛售标的。" },
+    { title: "利率与流动性双收紧：联储官员鹰派+VIX飙升+杠杆ETF强平，短期市场自我强化下跌风险上升",
+      text: "哈马克、巴尔金两位联储官员释放加息信号，强化「更高更久」利率预期，压制成长股估值；与此同时，VIX单日飙升逾11点至8个月高点、散户单日净卖出超10亿美元、野村预计杠杆ETF尾盘需卖出约470亿美元股票再平衡，形成「波动率上升→系统性策略降仓→进一步抛售」的负反馈。在高估值、高拥挤的AI科技股中，这一流动性风险被放大。短期需警惕波动率驱动的被动抛售延续，直到10月非农数据（11/6）为利率路径提供方向。" }
   ],
 
   /* ============ 七、未来 1—3 个交易日关注事项（具体事件） ============ */
   watchlist: [
-    { date: "11月4日（周三）", event: "美国中期选举结果陆续揭晓；苹果-阿里千问集成iOS开发者Beta开放测试", impact: "选举结果决定AI数据中心监管路径与产业政策方向；苹果中国区AI功能落地开始测试" },
-    { date: "11月5日（周四）", event: "美国10月ISM服务业PMI；美联储主席及多位官员讲话", impact: "服务业通胀决定「更高更久」预期走向；官员表态影响12月加息概率" },
-    { date: "11月6日（周五）", event: "美国10月非农就业报告、失业率与薪资增速", impact: "非农与薪资增速是美联储12月加息决策关键数据，直接影响利率敏感科技股估值" },
-    { date: "11月7日（周六）", event: "（市场消化非农）关注下周英伟达财报临近的业绩预期发酵", impact: "英伟达财报为AI算力景气度关键验证，本周或提前定价" }
+    { date: "11月6日（周五）", event: "美国10月非农就业报告、失业率与薪资增速（北京时间21:30）", impact: "非农与薪资增速是美联储12月加息决策的关键数据，直接决定利率敏感科技股估值方向与抛售是否延续" },
+    { date: "11月6日（周五）", event: "美联储主席及多位官员讲话（哈马克、巴尔金表态后市场关注度上升）", impact: "官员对12月加息的进一步表态将影响「更高更久」预期，扰动成长股贴现率" },
+    { date: "未来1—3个交易日", event: "民主党当选州长（德州Gina Hinojosa等）上任初期行政命令动向", impact: "若德州正式颁布数据中心建设暂停令或取消税收优惠，将进一步压制AI基础设施与芯片、存储、电力产业链" },
+    { date: "近期（11月中下旬）", event: "英伟达财报临近（AI算力景气度关键验证）", impact: "英伟达财报为AI算力需求与「数据中心建设放缓」担忧的关键检验，本周或提前定价" }
   ],
 
   /* ============ 八、页脚免责声明 ============ */
