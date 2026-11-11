@@ -1,7 +1,7 @@
 /**
  * ============================================================
  *  美股科技板块前一交易日行情日报 —— 数据文件（每日只需改这里）
- *  （2026-11-10 更新：对应美股交易日 2026-11-09）
+ *  （2026-11-11 更新：对应美股交易日 2026-11-10）
  * ============================================================
  *  使用说明：
  *  1. 打开本文件，替换下方各字段的值即可生成当日日报。
@@ -24,8 +24,8 @@ window.REPORT_DATA = {
   meta: {
     title: "美股科技板块前一交易日行情日报",
     subtitle: "盘前版 · 大型科技 + 半导体存储跟踪",
-    reportDate: "2026年11月10日",   // 报告发布日期（周二）
-    tradeDate: "2026年11月09日",    // 对应美股交易日（前一交易日，周一）
+    reportDate: "2026年11月11日",   // 报告发布日期（周三）
+    tradeDate: "2026年11月10日",    // 对应美股交易日（前一交易日，周二）
     author: "华泰期货 · 研究",
     tag: "每日市场跟踪"
   },
@@ -33,7 +33,7 @@ window.REPORT_DATA = {
   /* ============ 二、市场概览 ============ */
   overview: {
     /* 简短概括：指数变化 + 个股变化 + 重大事件 */
-    text: "11月9日（周一）美股在经历上周「AI交易大撤退」血洗后强劲反弹，三大指数全线大涨：纳指+2.7%至25,253.14、标普500+2.4%至7,549.94、道指+2.2%（+1104点）至52,389.75，VIX恐慌指数大跌22.3%至19.92。芯片股领涨：AMD+13.26%、Coherent+16.8%、Monolithic Power+16.6%、Teradyne+12.7%；但英伟达逆势下跌4.27%，因CEO黄仁勋承认婚外情丑闻、被指涉中国情报活动，英伟达董事会启动独立调查。油价大跌（WTI-4%、布伦特-5%）提振风险偏好。反弹核心驱动：①上周超跌后的逢低买入与技术性修复；②油价回落缓解通胀压力；③资金在周二10月CPI数据公布前回补仓位。但美联储官员Goolsbee警告「AI数据中心建设正演变为老式需求过热」，12月加息概率仍高于80%，构成反弹空间制约。",
+    text: "11月10日（周二）美股三大指数集体收跌，受超预期的10月CPI与美联储鹰派信号压制：纳指-0.74%至25,065.87、标普500-0.38%至7,520.93、道指-0.30%至52,231.89，费城半导体指数-0.35%。英伟达逆势大跌5.47%至168.89美元（两日累跌超9%），因黄仁勋丑闻持续发酵——The Information报道其关系或涉75亿美元芯片流向中国企业，成交量放大至三个月均值的逾3倍；但AMD+1.30%、博通+3.91%、台积电+2%等芯片股逆势走强，显示抛售主要源于英伟达个股治理风险而非AI需求重估。核心驱动：①10月CPI环比+0.4%（预期+0.3%）、核心+0.3%（预期+0.2%）全面超预期；②美联储理事沃勒鹰派表态（若核心CPI≥0.3%应考虑12月加息50bp），12月加息概率升至约88%；③Anthropic推Claude办公套件进军微软/谷歌腹地；④CoreWeave盘后财报上调全年指引、盘后涨超6%。",
     /* 指数卡片（可增删） */
     indices: [
       { name: "Nasdaq Composite", code: "IXIC", change: "-0.00%" },
@@ -45,126 +45,126 @@ window.REPORT_DATA = {
 
   /* ============ 三、超涨 / 超跌个股提示 ============ */
   alerts: [
-    { name: "AMD", code: "AMD", change: "-0.00%", type: "超涨", reason: "11月9日单日大涨13.26%，领涨大型芯片股；上周17.26%暴跌后连续第二日强劲反弹，回补11月3日Q3财报（营收+45%、数据中心+97%）超预期涨幅，AI交易超跌反弹下高Beta芯片股领涨" },
-    { name: "NVIDIA", code: "NVDA", change: "-0.00%", type: "超跌", reason: "11月9日逆势下跌4.27%，在大盘与芯片股全线反弹中显著跑输；CEO黄仁勋承认婚外情丑闻、被指涉中国情报活动，英伟达董事会11月8日启动独立内部调查，治理与国家安全风险压制股价" }
+    { name: "NVIDIA", code: "NVDA", change: "-0.00%", type: "超跌", reason: "11月10日大跌5.47%至168.89美元，两日累跌超9%，成交量放大至三个月均值的逾3倍；黄仁勋丑闻持续发酵，The Information报道其关系或涉至少75亿美元芯片流向中国企业（含被禁售芯片），三众议院委员会要求其周三前就情报活动作简报，治理与国家安全风险压制股价" },
+    { name: "Broadcom", code: "AVGO", change: "-0.00%", type: "超涨", reason: "11月10日逆势上涨3.91%至331.98美元，在大盘与多数芯片股下跌中显著跑赢；AI定制芯片（ASIC）叙事受英伟达治理风波带来的供应链分散预期提振，资金从英伟达流出转向ASIC/AMD等替代标的" }
   ],
 
   /* ============ 四、重点公司行情表 ============ */
   /* 超涨/超跌个股放最上方；无新闻的公司驱动因素简要说明即可 */
   stocks: [
-    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "逆势下跌4.27%，在大盘与芯片股全线反弹中显著跑输；CEO黄仁勋承认婚外情丑闻、被指涉中国国安部情报活动，董事会11月8日启动独立调查，治理与国家安全风险压制股价" },
-    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "随大盘反弹，大型科技股全线回升；此前微软缩减neocloud合作、优先自建数据中心的AI资本开支结构重估仍是关注焦点" },
-    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "随大盘反弹，七巨头中相对稳健；资金面改善，投资者在超跌后回补核心权重仓位" },
-    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "随大盘反弹，超大规模云厂商情绪修复；AWS资本开支与数据中心监管不确定性仍是中期关注焦点" },
-    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "随大盘反弹，谷歌AI基础设施投入（如怀俄明170亿美元数据中心）展现韧性，通信服务板块领涨" },
-    { name: "Meta",      code: "META",  change: "-0.00%", driver: "随大盘反弹，前期重挫后企稳；同日宣布暂停更新出版商爬取条款（原定11/20生效），回应监管与版权争议" },
-    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "随半导体板块反弹，AI定制芯片（ASIC）叙事修复；超跌后资金回补，但英伟达治理风波或引发AI算力供应链风险重估" },
-    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "大涨13.26%，领涨大型芯片股；上周暴跌后连续第二日反弹，回补11月3日Q3财报（数据中心+97%）超预期涨幅，并承接部分从英伟达流出的资金" },
-    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "随存储与AI硬件板块反弹；HBM/DRAM景气逻辑未变，SIA数据印证存储需求韧性，超跌资金回补" },
-    { name: "SanDisk",   code: "SNDK",  change: "-0.00%", driver: "随存储板块超跌反弹；但NAND「超级周期」交易情绪仍偏谨慎，周线波动率与资金拥挤度仍高" }
+    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "大跌5.47%至168.89美元，两日累跌超9%，成交量放大至三个月均值逾3倍；黄仁勋丑闻发酵，The Information报道其关系或涉75亿美元芯片流向中国企业，三众议院委员会要求周三前作简报，治理与国家安全风险压制股价" },
+    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "下跌约2.2%，盘中一度跌超3%，大型科技股中偏弱；Anthropic推出Claude Sheets/Whiteboards等办公套件，进一步渗透微软主导的办公软件市场，构成竞争压力" },
+    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "小幅下跌约0.62%，七巨头中相对抗跌；10月CPI超预期与加息预期升温压制成长股，但苹果现金流稳健、受AI治理风波波及较小" },
+    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "上涨约1.48%，七巨头中少数收涨；AWS云业务在CPI加息预期升温环境下相对稳健，资金在成长股中寻找确定性" },
+    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "随大盘小幅回调；Anthropic办公套件扩张虽冲击谷歌Docs生态，但谷歌自身AI基础设施投入仍具韧性，市场反应相对温和" },
+    { name: "Meta",      code: "META",  change: "-0.00%", driver: "基本收平，七巨头中表现平稳；前期Muse商业化重估后，市场在CPI与加息预期升温环境下趋于观望" },
+    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "逆势上涨3.91%至331.98美元，芯片股中领涨；英伟达治理风波引发AI算力供应链分散预期，ASIC定制芯片叙事受益，资金从英伟达流出转向替代标的" },
+    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "上涨1.30%至515.21美元，逆势走强；承接部分从英伟达流出的资金，作为GPU第二供应商在供应链分散预期下受益，Q3数据中心+97%的基本面支撑延续" },
+    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "下跌约1%，存储板块整体走弱；SK海力士跌超3%拖累存储情绪，HBM/DRAM景气逻辑未变但短期受加息预期与获利回吐压制" },
+    { name: "SanDisk",   code: "SNDK",  change: "-0.00%", driver: "下跌约2.99%，存储板块超跌后再度走弱；NAND「超级周期」交易情绪受加息预期升温与大盘回调压制，波动率仍高" }
   ],
 
   /* ============ 五、重要科技与政策新闻（一手来源） ============ */
   news: [
     {
-      title: "英伟达CEO黄仁勋承认婚外情丑闻、被指涉中国情报活动，董事会启动独立内部调查，股价逆势大跌4%",
-      originalTitle: "Statement from NVIDIA Board of Directors",
-      source: "NVIDIA投资者关系（官方一手）",
-      time: "2026年11月8日",
+      title: "英伟达大跌5.47%：黄仁勋丑闻升级，The Information报道其关系或涉75亿美元芯片流向中国企业",
+      originalTitle: "Why Nvidia Stock Just Fell Again",
+      source: "The Motley Fool（英文财经媒体一手）",
+      time: "2026年11月10日",
+      type: "财经媒体",
+      url: "https://www.fool.com/investing/2026/11/10/why-nvidia-stock-just-fell-again",
+      link: "https://www.fool.com/investing/2026/11/10/why-nvidia-stock-just-fell-again",
+      summary: "英伟达（NVDA）11月10日大跌5.47%至168.89美元，两日累跌超9%，成交量放大至4.25亿股、为三个月日均值（约1.27亿股）的逾3倍。丑闻持续发酵：据The Information报道，黄仁勋与被指认为中国情报资产的女子的关系，可能帮助至少75亿美元芯片在数年内流向中国企业（含部分对华禁售芯片）；路透称无法独立核实该报道，但黄仁勋须在周三前答复三个众议院委员会的简报要求。分析认为，这是国家安全层面的风险，可能远超近期财报层面的营收影响。",
+      impact: {
+        direction: "利空（公司治理与国家安全风险）",
+        companies: "英伟达及AI算力供应链",
+        industry: "半导体、GPU、AI算力",
+        logic: "丑闻从个人婚外情升级为「涉华芯片流向」的国家安全指控，政治与法律风险显著上升；若指控属实，可能波及英伟达对华业务与监管环境，构成比短期财报更持久的下行风险"
+      }
+    },
+    {
+      title: "美国10月CPI全面超预期（环比+0.4%、核心+0.3%），美联储沃勒鹰派，12月加息概率升至约88%",
+      originalTitle: "Employment Situation / Consumer Price Index - October 2026",
+      source: "美国劳工统计局 BLS（官方一手）",
+      time: "2026年11月10日",
       type: "官方",
-      url: "https://investor.nvidia.com/news/press-release-details/2026/Statement-from-NVIDIA-Board-of-Directors/",
-      link: "https://investor.nvidia.com/news/press-release-details/2026/Statement-from-NVIDIA-Board-of-Directors/",
-      summary: "据《纽约时报》11月8日报道，英伟达创始人兼CEO黄仁勋周日承认与一名女子有婚外情，美国情报官员指认该女子为中国国家安全部间谍。英伟达董事会随即于11月8日发布声明，宣布启动由独立董事委员会（在外部独立律师协助下）主导的独立调查，理由是「近期报道显示黄仁勋已成为外国情报活动的目标」。董事会强调「美国国家与经济安全至关重要」，但表示「无理由相信国家安全或英伟达机密已遭泄露」，并称黄仁勋「全力支持并承诺配合审查」。受此影响，英伟达股价11月9日逆势下跌4.27%，在大盘与芯片股全线反弹中显著跑输。",
+      url: "https://www.bls.gov/news.release/cpi.nr0.htm",
+      link: "https://www.bls.gov/news.release/cpi.nr0.htm",
+      summary: "美国劳工统计局11月10日公布，10月CPI环比上涨0.4%（预期+0.3%、前值+0.6%），剔除食品能源的核心CPI环比上涨0.3%（预期+0.2%、前值+0.3%），全面超预期。受2025年10月联邦政府停摆影响，本次无同比口径。住房价格指数环比+0.3%、食品+0.5%、能源+0.7%，服务通胀粘性突出。美联储理事沃勒同日表示，即便10月通胀改善仍支持12月加息25bp，若核心CPI环比达0.3%左右或更高，应考虑12月一次性加息50bp以维护政策信誉。CME FedWatch显示12月加息25bp概率升至约88.2%、加息50bp概率约11.8%。",
       impact: {
-        direction: "利空（公司治理与国家安全风险，短期压制英伟达）",
-        companies: "英伟达、AMD、博通及AI算力供应链",
-        industry: "半导体、AI算力、GPU",
-        logic: "英伟达CEO个人丑闻叠加「中国情报活动」指控，构成治理与国家安全双重风险，短期压制英伟达股价并可能引发AI算力供应链风险重估；部分资金或转向AMD等竞争对手"
+        direction: "利空（利率敏感的成长科技股）",
+        companies: "高估值成长科技股、AI数据中心/电力产业链整体",
+        industry: "宏观经济、利率敏感板块",
+        logic: "核心通胀顽固叠加沃勒鹰派表态，市场从争论「加不加息」转向「加多少」，短端美债收益率跳升（2年期+16bp至4.71%上方），贴现率抬升直接压制科技股估值"
       }
     },
     {
-      title: "美股周一强劲反弹：纳指+2.7%、标普+2.4%、道指+2.2%，芯片股领涨、VIX大跌22%",
-      originalTitle: "Stock market today: Live updates",
-      source: "CNBC（英文财经媒体一手）",
-      time: "2026年11月9日",
+      title: "美股周二收跌：纳指-0.74%、标普-0.38%，英伟达领跌但芯片股分化，AMD/博通逆势上涨",
+      originalTitle: "Stock Market Today, Nov. 10: Nvidia Stock Plunges 5.5% as CEO Scandal Overshadows Its Upcoming Earnings Report",
+      source: "The Motley Fool（英文财经媒体一手）",
+      time: "2026年11月10日",
       type: "财经媒体",
-      url: "https://www.cnbc.com/2026/11/09/stock-market-today-live-updates.html",
-      link: "https://www.cnbc.com/2026/11/09/stock-market-today-live-updates.html",
-      summary: "11月9日美股在上周「AI交易大撤退」的阴霾后强劲反弹。纳指收涨2.7%至25,253.14点，标普500涨2.4%至7,549.94点，道指涨2.2%（+1104点）至52,389.75点，VIX恐慌指数大跌22.3%至19.92。反弹主因：①上周超跌后的逢低买入与技术性修复；②油价大跌（WTI结算跌逾4%、布伦特跌逾5%）缓解通胀压力；③投资者在周二10月CPI数据公布前回补仓位。芯片股领涨：Coherent涨16.8%、Monolithic Power涨16.6%、AMD涨13.3%、Teradyne涨12.7%；但英伟达因黄仁勋丑闻逆势下跌4%。",
+      url: "https://www.fool.com/coverage/stock-market-today/2026/11/10/stock-market-today-nov-10-nvidia-stock-plunges-5-5-as-ceo-scandal-overshadows-its-upcoming-earnings-report/",
+      link: "https://www.fool.com/coverage/stock-market-today/2026/11/10/stock-market-today-nov-10-nvidia-stock-plunges-5-5-as-ceo-scandal-overshadows-its-upcoming-earnings-report/",
+      summary: "11月10日美股在超预期CPI数据打压下集体收跌：标普500跌0.38%至7,521点、纳指跌0.74%至25,066点、道指跌0.30%至52,232点。但英伟达的大跌显著跑输大盘，而其半导体同行表现明显更优：AMD涨1.30%至515.21美元、博通涨3.91%至331.98美元。这种分化表明，英伟达的抛售更多由公司特定因素（黄仁勋丑闻）驱动，而非市场对AI芯片需求的整体重估。市场高度关注英伟达11月17日财报，届时数据中心营收、利润率与指引将是检验其基本面能否经受住丑闻冲击的关键。",
       impact: {
-        direction: "利好（超跌反弹，风险偏好修复）",
-        companies: "AMD、Coherent、Monolithic Power及半导体产业链",
-        industry: "半导体、AI硬件、科技成长股",
-        logic: "油价回落与超跌修复共同驱动反弹，芯片股领涨显示AI硬件仍是反弹主线；但英伟达缺席反弹、12月加息概率仍高，反弹持续性取决于周二CPI数据"
+        direction: "中性（个股分化，AI需求整体未遭重估）",
+        companies: "英伟达、AMD、博通及半导体产业链",
+        industry: "半导体、AI硬件、数据中心",
+        logic: "AMD/博通逆势上涨印证AI芯片需求未被系统性重估，抛售集中于英伟达个股治理风险；若英伟达11月17日财报强劲，或缓解治理担忧、带动板块修复"
       }
     },
     {
-      title: "10月CPI周二公布、预期headline+0.3%/core+0.2%；美联储Goolsbee警告「AI数据中心建设正演变为老式需求过热」",
-      originalTitle: "A key report for where inflation stood in October comes out Tuesday",
+      title: "Anthropic推出Claude Sheets/Whiteboards办公套件，进军微软、谷歌主导的生产力软件市场",
+      originalTitle: "Anthropic expands Claude with office suite features",
       source: "CNBC（英文财经媒体一手）",
-      time: "2026年11月9日",
+      time: "2026年11月10日",
       type: "财经媒体",
-      url: "https://www.cnbc.com/2026/11/09/october-cpi-report-2026-inflation.html",
-      link: "https://www.cnbc.com/2026/11/09/october-cpi-report-2026-inflation.html",
-      summary: "美国劳工统计局将于11月10日公布10月CPI，道琼斯调查预期整体CPI环比+0.3%、核心CPI环比+0.2%，较9月（整体+0.6%、核心+0.3%）明显放缓，主因汽油价格回落（EIA称10月油价跌逾4%）与住房价格回吐。因2025年政府停摆导致数据缺失，本次无同比口径。芝加哥联储主席Goolsbee周一表示「我们必须正视成本端与通胀端的失败」，并特别指出「AI数据中心建设在我看来正越来越像老式需求过热」，其带来的建筑、电力与设备需求可能加剧通胀。市场对12月加息概率仍高于80%（CME FedWatch）。",
+      url: "https://www.cnbc.com/2026/11/10/anthropic-claude-sheets-whiteboards-office.html",
+      link: "https://www.cnbc.com/2026/11/10/anthropic-claude-sheets-whiteboards-office.html",
+      summary: "Anthropic 11月10日宣布扩展Claude办公功能，推出电子表格Claude Sheets、数字白板Claude Whiteboards，并升级数据分析工具Claude Data及交互式连接器，进一步进入由微软（Office/Excel）和谷歌（Docs/Sheets）主导的生产力软件市场。这是AI原生办公套件对传统巨头腹地的直接渗透，微软股价当日一度跌逾3%、收跌约2.2%，部分反映这一竞争压力。Anthropic正处IPO路演窗口期，估值预期已下调至约1.2万亿—1.3万亿美元。",
       impact: {
-        direction: "中性偏空（利率预期仍是反弹制约）",
-        companies: "高估值成长科技股、AI数据中心/电力产业链",
-        industry: "宏观经济、利率敏感板块、AI基础设施",
-        logic: "CPI虽预期放缓，但Goolsbee将AI数据中心建设与「需求过热」挂钩，意味着AI资本开支高企正成为通胀的新源头，强化「更高更久」利率预期，制约科技股反弹空间"
+        direction: "利空微软/谷歌（竞争压力），中性偏多AI应用生态",
+        companies: "Anthropic、微软、谷歌",
+        industry: "AI大模型应用、生产力软件、云计算",
+        logic: "AI原生办公套件加速渗透，传统Office/Docs护城河面临挑战，微软/谷歌或需加大AI整合投入；同时印证AI应用层商业化的加速落地"
       }
     },
     {
-      title: "油价周一大跌（WTI-4%、布伦特-5%），缓解通胀压力并提振风险资产",
-      originalTitle: "Oil prices fall on Monday, lending market support",
-      source: "CNBC（英文财经媒体一手）",
-      time: "2026年11月9日",
-      type: "财经媒体",
-      url: "https://www.cnbc.com/2026/11/09/stock-market-today-live-updates.html",
-      link: "https://www.cnbc.com/2026/11/09/stock-market-today-live-updates.html",
-      summary: "国际油价11月9日大幅回落，美国西得克萨斯中质原油（WTI）期货结算跌逾4%，布伦特原油期货跌逾5%。油价下跌降低了市场对能源成本推升通胀的担忧，为美股反弹提供了重要支撑。这与美联储官员近期对「关税与伊朗战争推升的通胀」的持续担忧形成对冲——能源价格回落有望部分缓解10月及后续CPI的压力，是周一市场风险偏好修复的关键宏观变量。",
+      title: "CoreWeave盘后财报：Q3营收36.6亿美元超预期、上调全年指引至130—133亿美元，盘后涨超6%",
+      originalTitle: "CoreWeave Reports Third Quarter 2026 Results",
+      source: "CoreWeave（公司官方/英文一手）",
+      time: "2026年11月10日（盘后）",
+      type: "官方",
+      url: "https://www.coreweave.com/news/",
+      link: "https://www.coreweave.com/news/",
+      summary: "AI算力云提供商CoreWeave 11月10日盘后公布第三季度财报：营收36.6亿美元，同比增长168%，高于分析师预期的35.6亿美元；每股亏损1.27美元，好于预期的1.46美元；调整后EBITDA达22.56亿美元、同比+169%，调整后EBITDA利润率62%创近五季最高。公司将2026年全年营收指引由此前的120亿—130亿美元上调至130亿—133亿美元。CEO Michael Intrator称本季营收环比增长超10亿美元、调整后营业利润率提前一季达两位数。财报缓解了市场对其高负债与增长放缓的担忧，盘后股价涨逾6%。",
       impact: {
-        direction: "利好（通胀压力缓解，利多成长股）",
-        companies: "整体科技成长股、能源成本敏感企业",
-        industry: "宏观经济、能源、科技成长股",
-        logic: "油价回落直接缓解通胀预期，与CPI放缓预期共振，短期改善成长股贴现率环境，支撑科技股反弹"
-      }
-    },
-    {
-      title: "微软缩减neocloud合作、优先自建数据中心，AI资本开支结构重估持续发酵",
-      originalTitle: "Microsoft plans to use fewer neoclouds as AI buildout shows signs of strain",
-      source: "CNBC（英文财经媒体一手）",
-      time: "2026年11月6日",
-      type: "财经媒体",
-      url: "https://www.cnbc.com/2026/11/06/microsoft-moves-to-consolidate-its-relationships-with-neoclouds-in-ai.html",
-      link: "https://www.cnbc.com/2026/11/06/microsoft-moves-to-consolidate-its-relationships-with-neoclouds-in-ai.html",
-      summary: "CNBC援引知情人士报道，微软正缩减其「neocloud」（专用AI算力云）合作伙伴名单，聚焦少数关键供应商并优先建设自有数据中心，已决定不续约甲骨文的一项算力协议。CFO Amy Hood在10月财报电话会表示部分GPU云合同延迟至2027年上半年、拖累Azure增长。微软最新季度资本开支及融资租赁达452亿美元。分析认为，借贷成本上升、neocloud债务高企及AI建设放缓担忧正压缩该细分市场，CoreWeave、Nebius、IREN股价过去一个月已跌约一半。",
-      impact: {
-        direction: "中性偏空（neocloud/第三方算力，利多微软自建链）",
-        companies: "微软、甲骨文、CoreWeave、Nebius、IREN及neocloud产业链",
-        industry: "AI云计算、数据中心、GPU算力租赁",
-        logic: "微软「算力回流自建」释放AI资本开支从「量」向「质/自持」切换的信号，利好微软自身与自建设备链，利空高度依赖单一客户的neocloud高负债企业"
+        direction: "利好（neocloud需求验证，缓解AI资本开支担忧）",
+        companies: "CoreWeave及neocloud/AI算力产业链",
+        industry: "AI云计算、GPU算力租赁、数据中心",
+        logic: "CoreWeave超预期营收与上调指引，印证AI算力实际需求仍强劲，部分对冲「AI资本开支空转」与「微软算力回流」的担忧；但高负债与融资成本压力仍是中长期隐忧"
       }
     }
   ],
 
   /* ============ 六、当日最值得关注的 3 个交易逻辑 ============ */
   logics: [
-    { title: "超跌反弹 vs 结构性风险：大盘普涨、芯片领涨，但英伟达缺席暴露AI主线的新裂痕",
-      text: "周一纳指+2.7%、标普+2.4%、道指+2.2%的普涨是上周「AI交易大撤退」后的超跌修复，油价大跌缓解通胀是核心宏观催化。但反弹内部出现分化：AMD+13.26%、Coherent+16.8%、Monolithic Power+16.6%等芯片股领涨，而英伟达因黄仁勋婚外情丑闻+「中国情报活动」指控逆势下跌4.27%。英伟达作为AI算力的「旗手」缺席反弹，说明市场正重新评估AI交易的定价锚——治理风险与供应链集中度风险首次成为显性变量，部分资金转向AMD等竞争对手与二线芯片股。" },
-    { title: "AI资本开支从「增长叙事」转向「通胀叙事」：Goolsbee称数据中心建设「正演变为需求过热」",
-      text: "芝加哥联储主席Goolsbee周一将AI数据中心建设与「老式需求过热」挂钩，指出其带来的建筑、电力与设备需求正成为通胀的新源头。这一表态标志着政策层对AI的叙事从「生产率红利」转向「通胀风险」，叠加微软缩减neocloud、OpenAI/Anthropic估值下修，AI资本开支的「量」与「质」同时承压。若10月CPI（周二公布）印证服务价格粘性、叠加AI基建需求过热，12月加息概率（现>80%）将进一步升温，直接压制高估值成长股与AI基建链。" },
-    { title: "利率与通胀是反弹的天花板：周二CPI是决定短期方向的关键变量",
-      text: "油价回落与CPI预期放缓（headline+0.3%/core+0.2%）是周一反弹的宏观基础，但12月加息概率仍高于80%，「更高更久」的利率预期未改变。BofA经济学家称，若核心CPI未出现「明确偏软」的0.1%环比读数，10月CPI将是12月8-9日FOMC会议前最后一份通胀数据，大概率「锁定」另一次25bp加息。因此，周二CPI既是验证油价回落能否传导至通胀的关键，也是决定本轮超跌反弹能否延续的分水岭——数据偏软则反弹延续，数据偏强则反弹夭折。" }
+    { title: "英伟达个股治理风险 vs AI需求韧性：抛售是「个股事件」而非「板块重估」",
+      text: "11月10日英伟达大跌5.47%、两日累跌超9%，成交量放大至均值逾3倍，但同期AMD+1.30%、博通+3.91%、台积电+2%逆势上涨，芯片板块整体仅费半-0.35%。这种分化清晰表明：市场抛售的是英伟达「黄仁勋丑闻+涉华芯片流向指控」的治理与国家安全风险，而非AI芯片需求本身。CoreWeave盘后超预期财报（营收+168%、上调全年指引）进一步印证AI算力需求仍强。真正的风险在于——若丑闻坐实为「对华违规销售」，英伟达可能面临出口管制合规与监管的持久约束，其作为AI交易「单一旗手」的定价锚正在松动，资金向AMD、博通、台积电等供应链「分散」。" },
+    { title: "通胀粘性回归：10月CPI超预期+沃勒鹰派，12月加息从「是否」转向「加多少」",
+      text: "10月CPI环比+0.4%、核心+0.3%全面超预期，服务通胀粘性突出（住房+0.3%、食品+0.5%），叠加沃勒「核心CPI≥0.3%应考虑加息50bp」的鹰派表态，市场定价从「是否加息」转向「加息幅度」。2年期美债收益率跳升16bp至4.71%上方、10年期重回5%附近，CME FedWatch显示12月加息25bp概率升至约88%、50bp概率约12%。在AI政策不确定性与英伟达治理风险之外，「更高更久」的利率预期重新成为成长股估值的主导压制，短期反弹空间受限。" },
+    { title: "AI应用层加速商业化：Anthropic办公套件 vs 传统巨头，竞争格局进入新阶段",
+      text: "Anthropic推出Claude Sheets/Whiteboards，直接渗透微软Office与谷歌Docs主导的生产力软件市场，当日微软一度跌逾3%。这标志着AI竞争从「模型与算力」延伸至「应用与办公场景」，传统巨头的软件护城河首次面临AI原生产品的系统性挑战。与此同时，Anthropic处IPO路演窗口期、估值已下修至1.2万亿—1.3万亿美元，微软/谷歌或被迫加大AI整合投入以防守。这一逻辑与CoreWeave的算力需求验证形成呼应——AI正从「烧钱基建」转向「应用变现」的竞争，商业模式与盈利兑现能力成为市场重新定价的核心标尺。" }
   ],
 
   /* ============ 七、未来 1—3 个交易日关注事项（具体事件） ============ */
   watchlist: [
-    { date: "11月10日（周二）", event: "美国10月CPI数据（BLS发布，预期整体+0.3%/核心+0.2%，无同比口径）", impact: "12月加息决策前的最后一份通胀数据，直接决定本轮超跌反弹能否延续；数据偏软则反弹延续、偏强则承压" },
-    { date: "11月10日（周二）当周", event: "Anthropic IPO 路演（原定11月9日当周启动，估值预期已下调至1.2万亿—1.3万亿美元）", impact: "若路演延迟或定价大幅折价，将进一步冲击AI资产情绪；S-1中留空的10月营收数据是关键观察点" },
-    { date: "11月10日—13日", event: "CoreWeave、Nebius 季度财报（微软缩减neocloud合作后市场高度关注）", impact: "neocloud财报与指引将检验「微软算力回流」对第三方算力企业的实际冲击，影响AI数据中心产业链" },
-    { date: "持续关注", event: "英伟达独立调查进展（黄仁勋「中国情报活动」指控）", impact: "调查若涉及国家安全或机密泄露的进一步披露，将持续压制英伟达并波及AI算力供应链风险偏好" },
-    { date: "11月中下旬", event: "英伟达财报（叠加治理风波，市场关注度更高）", impact: "英伟达指引是判断AI资本开支真实需求的核心，叠加黄仁勋丑闻后的治理担忧，财报前的定价波动或加剧" }
+    { date: "11月11日（周三）", event: "黄仁勋答复三个众议院委员会简报的最后期限（涉华芯片流向指控）", impact: "若答复引发更多国家安全细节披露，将持续压制英伟达并波及AI算力供应链风险偏好；这是丑闻短期走向的关键节点" },
+    { date: "11月12日（周四）", event: "美国10月PPI、初请失业金数据（BLS发布）", impact: "CPI超预期后，PPI是12月加息幅度（25bp vs 50bp）的另一关键变量，直接决定利率敏感科技股估值方向" },
+    { date: "11月12日—13日", event: "Anthropic IPO 路演与定价（估值预期已下调至1.2万亿—1.3万亿美元）", impact: "若路演延迟或定价大幅折价，将进一步冲击AI资产情绪；其办公套件商业化进展是市场关注焦点" },
+    { date: "11月17日（周二）", event: "英伟达财报（2026财年Q3，叠加黄仁勋丑闻后的治理担忧）", impact: "数据中心营收、利润率与指引是检验英伟达基本面能否经受丑闻冲击的核心；财报强劲或缓解治理担忧、带动芯片板块修复" },
+    { date: "持续关注", event: "英伟达董事会独立调查进展（黄仁勋「中国情报活动」指控）", impact: "调查若坐实对华违规销售或机密泄露，可能触发出口管制合规与监管的持久约束，重塑AI算力供应链格局" }
   ],
 
   /* ============ 八、页脚免责声明 ============ */
