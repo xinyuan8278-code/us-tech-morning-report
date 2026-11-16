@@ -1,7 +1,7 @@
 /**
  * ============================================================
  *  美股科技板块前一交易日行情日报 —— 数据文件（每日只需改这里）
- *  （2026-11-13 更新：对应美股交易日 2026-11-12）
+ *  （2026-11-16 更新：对应美股交易日 2026-11-13）
  * ============================================================
  *  使用说明：
  *  1. 打开本文件，替换下方各字段的值即可生成当日日报。
@@ -24,8 +24,8 @@ window.REPORT_DATA = {
   meta: {
     title: "美股科技板块前一交易日行情日报",
     subtitle: "盘前版 · 大型科技 + 半导体存储跟踪",
-    reportDate: "2026年11月13日",   // 报告发布日期（周五）
-    tradeDate: "2026年11月12日",    // 对应美股交易日（前一交易日，周四）
+    reportDate: "2026年11月16日",   // 报告发布日期（周一）
+    tradeDate: "2026年11月13日",    // 对应美股交易日（前一交易日，周五）
     author: "华泰期货 · 研究",
     tag: "每日市场跟踪"
   },
@@ -33,7 +33,7 @@ window.REPORT_DATA = {
   /* ============ 二、市场概览 ============ */
   overview: {
     /* 简短概括：指数变化 + 个股变化 + 重大事件 */
-    text: "11月12日（周四）美股在英伟达CEO黄仁勋「即日辞职」的冲击下小幅收跌：纳指-0.39%至25,366.09、标普500-0.35%至7,592.40、道指-0.36%至52,297.09，费城半导体指数-0.54%至10,506.67。核心事件是英伟达董事会宣布黄仁勋辞去总裁、CEO及董事职务（即刻生效），CFO科莱特·克雷斯出任临时CEO、Harvey C. Jones任首任董事会主席；英伟达盘中一度暴跌14%、收跌4.34%至166.19美元，市值蒸发约1820亿美元。多家投行罕见下调英伟达评级（Baird/Bernstein目标价从500/400美元砍至200美元、花旗降至225美元），带动AI硬件整体走弱（存储、光通信、设备普跌），但资金轮动至其竞争对手：AMD+5.86%、博通+5.54%领涨，谷歌+1.62%、特斯拉+1.69%上涨。宏观层面12月加息概率升至约91%、10年期美债收益率升至5.1%、油价因特朗普涉伊言论飙升（布伦特+3.3%至95.82美元），压制高估值成长股。",
+    text: "11月13日（周五）美股三大指数走势分化、芯片股再度遭系统性抛售：道指+0.10%至52,347.55、标普500-0.40%至7,561.67、纳指-0.91%至25,136.27，费城半导体指数大跌3.43%至10,146.32。核心驱动是英伟达领导层危机持续发酵——汇丰将英伟达下调至「持有」（目标价170美元），市场对「无黄仁勋的英伟达」定价不确定性升温，抛压从英伟达（-2.01%）扩散至整个半导体链：AMD暴跌8.75%、博通-4.76%、闪迪-5.59%、美光-2.52%、英特尔-2.52%，前期「替代受益」交易亦遭获利回吐。宏观层面10月PPI同比6.5%（2022年11月来新高、略低于预期6.6%）强化美联储鹰派预期，波士顿联储柯林斯暗示将进一步收紧；资金明显转向防御，可口可乐、苹果、礼来创收盘新高。英伟达将于11月17日盘后发布财报，是检验其基本面能否独立于领导层风波的关键试金石。",
     /* 指数卡片（可增删） */
     indices: [
       { name: "Nasdaq Composite", code: "IXIC", change: "-0.00%" },
@@ -45,143 +45,143 @@ window.REPORT_DATA = {
 
   /* ============ 三、超涨 / 超跌个股提示 ============ */
   alerts: [
-    { name: "AMD", code: "AMD", change: "-0.00%", type: "超涨", reason: "11月12日大涨5.86%至585.30美元，为半导体板块最强；英伟达CEO黄仁勋辞职引发AI算力供应链「分散预期」，AMD Instinct平台被视为最接近英伟达GPU的可替代方案，过去5日累涨约21%（BBC），多家投行（Wedbush/XTB）点名其为英伟达动荡最明确的受益者" },
-    { name: "Broadcom", code: "AVGO", change: "-0.00%", type: "超涨", reason: "11月12日上涨5.54%至365.92美元；作为ASIC定制芯片与网络芯片龙头，受益于英伟达领导层危机下的「算力分散」逻辑，且其与Anthropic签订五年约1612亿美元设备租赁合同，IPO估值上调预期形成额外支撑" },
-    { name: "NVIDIA", code: "NVDA", change: "-0.00%", type: "超跌", reason: "11月12日收跌4.34%至166.19美元，盘中一度暴跌14%、市值自去年7月以来首次跌破4万亿美元；黄仁勋辞职是直接触发，叠加Baird/Bernstein/花旗等多家投行罕见下调评级（目标价砍至200/225美元），治理与领导层不确定性成为独立下行风险" }
+    { name: "AMD", code: "AMD", change: "-0.00%", type: "超跌", reason: "11月13日暴跌8.75%至534.06美元，为半导体板块跌幅最大个股；前一交易日因英伟达危机大涨5.86%的「替代受益」交易遭遇集中获利回吐，资金从芯片股整体流出转投防御性板块，AMD成为抛压最重标的" },
+    { name: "SanDisk", code: "SNDK", change: "-0.00%", type: "超跌", reason: "11月13日下跌5.59%至885.01美元，存储板块普跌；AI存储景气预期受英伟达风波压制，闪迪在前一日暴涨13.69%后连续第二日回吐，SK海力士-4.30%、美光-2.52%、西部数据-5%、希捷-3%同步走弱" },
+    { name: "Broadcom", code: "AVGO", change: "-0.00%", type: "超跌", reason: "11月13日下跌4.76%至347.01美元，光通信与网络芯片板块普跌（Lumentum/康宁/Coherent/Ciena均跌超4%-6%）；英伟达危机引发的「算力分散」逻辑暂时退潮，前期连涨后的ASIC龙头遭获利了结" }
   ],
 
   /* ============ 四、重点公司行情表 ============ */
   /* 超涨/超跌个股放最上方；无新闻的公司驱动因素简要说明即可 */
   stocks: [
-    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "大涨5.86%至585.30美元，半导体板块领涨；英伟达黄仁勋辞职引发AI算力供应链「分散预期」，AMD Instinct平台被视为最接近的GPU替代方案，过去5日累涨约21%，获Wedbush等机构点名为英伟达动荡最明确的受益者" },
-    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "上涨5.54%至365.92美元；ASIC定制芯片+网络芯片龙头，受益于英伟达领导层危机下的算力分散逻辑，叠加与Anthropic五年约1612亿美元设备租赁合同及IPO估值上调预期" },
-    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "收跌4.34%至166.19美元，盘中一度暴跌14%、市值一度跌破4万亿美元；黄仁勋辞去CEO并退出董事会（CFO克雷斯任临时CEO）为核心触发，叠加多家投行罕见下调评级，治理与继任不确定性压制估值" },
-    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "微涨0.36%，七巨头中相对抗跌；英伟达风波主要冲击AI硬件与算力链，微软作为多元云+软件巨头受波及有限，Azure/AI应用层需求叙事相对独立" },
-    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "微跌0.14%，交投清淡；特朗普发文建议苹果前CEO库克接替黄仁勋引发关注，但苹果自身不依赖英伟达GPU，受AI算力链风波影响有限" },
-    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "上涨0.48%，大型科技中偏强；作为超大规模云厂商，同时采购英伟达GPU与自研芯片（Trainium），在算力供应链分散逻辑下相对中性偏正面" },
-    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "上涨1.62%，七巨头中表现最强；谷歌自研TPU在英伟达危机下被市场视为算力替代选项之一（XTB点名谷歌与博通为潜在受益者），AI芯片自主可控叙事升温" },
-    { name: "Meta",      code: "META",  change: "-0.00%", driver: "下跌0.82%，大型科技中偏弱；AI硬件回调拖累板块情绪，Meta作为高资本开支AI投入方，在12月加息概率升至91%的高利率环境下估值承压" },
-    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "下跌约1%（盘初一度跌约3%）；存储板块随AI硬件整体走弱，英伟达风波与Nebius财报不及预期（-16.84%）压制HBM/DRAM景气预期，短期资金从存储获利了结" },
-    { name: "SanDisk",   code: "SNDK",  change: "-0.00%", driver: "下跌超4%（盘初一度跌7%）；NAND存储在前一日暴涨13.69%后回吐，英伟达风波与AI硬件情绪转弱触发获利了结，存储「超级周期」叙事暂时降温" }
+    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "暴跌8.75%至534.06美元，半导体板块跌幅最大；前一日「替代受益」交易（+5.86%）遭集中获利回吐，英伟达风波引发的抛压从个股扩散至整个芯片链，AMD成为获利了结最重标的" },
+    { name: "SanDisk",   code: "SNDK",  change: "-0.00%", driver: "下跌5.59%至885.01美元；存储板块随AI硬件整体走弱，NAND「超级周期」叙事在英伟达危机下暂时降温，前日暴涨13.69%后连续回吐，SK海力士/美光/西数/希捷同步下跌" },
+    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "下跌4.76%至347.01美元；ASIC定制芯片+网络芯片龙头，「算力分散」逻辑退潮叠加光通信板块普跌（Coherent-6%+、康宁-4%+），前期连涨后的获利回吐压力显现" },
+    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "收跌2.01%至162.85美元，连续第六周下跌（创2012年来最长连跌、本周累跌12.7%、市值一周蒸发约5730亿美元）；汇丰下调至「持有」（目标价170美元），市场聚焦11月17日盘后财报对「无黄仁勋的英伟达」的定价" },
+    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "微涨0.17%至523.88美元，市值约3.89万亿美元退居美股第三；全球性服务中断（Teams/Outlook/Copilot在逾70国中断）致歉并称故障与网络攻击无关，但股价几乎未受冲击" },
+    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "上涨0.39%至356.27美元，刷新收盘历史新高、重回全球市值第一；作为「谨慎回避AI投资」的科技避险代表，资金在芯片股抛售中流入苹果等防御性龙头" },
+    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "下跌0.29%，大型科技中相对抗跌；AWS云计算叙事与AI芯片风波关联度较低，但整体科技板块情绪承压，跟随大盘小幅回落" },
+    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "下跌0.98%至295.77美元；谷歌自研TPU的「算力替代」逻辑暂时降温，前期受益英伟达危机的资金获利了结，跟随科技板块走弱" },
+    { name: "Meta",      code: "META",  change: "-0.00%", driver: "上涨2.90%至641.69美元，为大型科技中表现最强；市场关注其在意大利因未经同意读取用户相册被罚8.05亿欧元（约59亿元），但股价受广告基本盘支撑逆势走强" },
+    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "下跌2.52%至778.31美元；存储板块随AI硬件抛售整体走弱，HBM/DRAM景气预期受英伟达风波压制，SK海力士ADR-4.30%带动存储芯片股普跌" }
   ],
 
   /* ============ 五、重要科技与政策新闻（一手来源） ============ */
   news: [
     {
-      title: "英伟达宣布CEO黄仁勋辞职即刻生效，CFO科莱特·克雷斯出任临时CEO，并首设董事会主席",
-      originalTitle: "NVIDIA Announces CEO Transition",
-      source: "NVIDIA Newsroom（公司官网，官方一手）",
-      time: "2026年11月12日",
+      title: "汇丰下调英伟达至「持有」、目标价从365美元砍至170美元，担忧CEO继任不确定性压制估值",
+      originalTitle: "HSBC cuts Nvidia to Hold on CEO succession uncertainty",
+      source: "Reuters / CNBC（英文财经媒体一手，汇丰研报）",
+      time: "2026年11月13日",
+      type: "财经媒体",
+      url: "https://www.tradingeconomics.com/united-states/stock-market/news/601256",
+      link: "https://www.tradingeconomics.com/united-states/stock-market/news/601256",
+      summary: "汇丰分析师Frank Lee将英伟达评级从「买入」下调至「持有」，目标价从365美元大幅砍至170美元，理由是CEO继任存在高度不确定性，认为「在永久性继任者确定并证明执行力之前，英伟达股价将持续疲弱」。汇丰同时警告，若出口管制进一步收紧，可能使英伟达2028财年盈利预期下调约13%。这是继Baird、Bernstein、Evercore ISI、Truist、Melius等之后又一家下调英伟达评级的大行，华尔街「几乎一致看多」格局加速瓦解。",
+      impact: {
+        direction: "利空（机构信心持续松动，估值锚进一步下移）",
+        companies: "英伟达及AI硬件产业链、neocloud生态（CoreWeave/Nebius等）",
+        industry: "GPU、AI加速计算、数据中心",
+        logic: "汇丰降级将英伟达风险进一步定性为「领导层/继任」而非「AI需求」，目标价砍半反映估值倍数压缩；但需明确这是分析师观点，11月17日财报将检验基本面能否独立于治理风波"
+      }
+    },
+    {
+      title: "美股周五芯片股再遭抛售：纳指-0.91%、费半-3.43%，英伟达危机拖累整个半导体链",
+      originalTitle: "US Stocks Fall Amid Renewed Chipmakers Selloff",
+      source: "Trading Economics（英文财经数据媒体一手）",
+      time: "2026年11月13日",
+      type: "财经媒体",
+      url: "https://www.tradingeconomics.com/united-states/stock-market/news/601256",
+      link: "https://www.tradingeconomics.com/united-states/stock-market/news/601256",
+      summary: "美股周五因芯片股新一轮抛售多数收跌：标普500跌0.4%、纳指跌1.2%（收25,136.27）、道指微涨51点至52,347.55。芯片股在英伟达危机触发的又一波下跌中拖累大盘——英伟达跌2%、博通跌4.9%、AMD跌8.7%、美光跌2.5%。思科虽上调2027财年指引仍跌6.2%，应用材料虽录得创纪录营收仍跌2.8%。最新PPI数据显示能源价格推升核心行业工厂成本，强化市场对本轮周期美联储多次加息的预期。",
+      impact: {
+        direction: "利空（芯片股系统性抛压，AI交易进入考验期）",
+        companies: "英伟达、AMD、博通、美光、思科、应用材料等半导体产业链",
+        industry: "半导体、AI基础设施、光通信",
+        logic: "英伟达危机从个股风险演变为整个芯片链的系统性抛售，叠加高PPI强化加息预期，AI交易在英伟达财报前进入「观望+防御」模式；思科/应用材料「业绩亮眼仍下跌」显示市场风险偏好急剧收缩"
+      }
+    },
+    {
+      title: "美国10月PPI同比上涨6.5%、创2022年11月来新高，美联储官员暗示进一步收紧",
+      originalTitle: "US producer prices rise 6.5% year-over-year in October, highest since Nov 2022",
+      source: "BLS / Reuters（美国劳工统计局官方一手）",
+      time: "2026年11月13日",
       type: "官方",
-      url: "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition",
-      link: "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition",
-      summary: "英伟达董事会宣布，黄仁勋已辞去总裁、首席执行官及董事会成员职务，即刻生效。现任执行副总裁兼首席财务官科莱特·克雷斯（Colette Kress）同意出任临时CEO，并在正式继任者确定前继续兼任CFO；董事会启动正式CEO遴选，将同时考虑内部与外部候选人。同时，董事会任命哈维·C·琼斯（Harvey C. Jones，Synopsys前CEO）为首任董事会主席。克雷斯自2013年9月加入英伟达，此前在思科、微软等公司有近25年财务高管经验。英伟达重申将于11月17日（周二）如期发布2027财年Q3财报。此次变动是英伟达成立33年来首次CEO更迭。",
+      url: "https://www.tradingeconomics.com/united-states/stock-market/news/616262",
+      link: "https://www.tradingeconomics.com/united-states/stock-market/news/616262",
+      summary: "美国劳工统计局13日公布，10月最终需求生产者价格指数（PPI）环比上涨0.3%（低于预期0.4%），同比上涨6.5%（高于9月的6.3%，为2022年11月以来最高，略低于预期6.6%）。核心PPI同比持平于5.0%、环比上涨0.3%。食品价格大涨及运输与仓储成本攀升是主要推手。波士顿联储主席柯林斯当日表示「货币政策清晰的方向是走高，预计很快会有一些额外的收紧」，并称合适的政策可能比此前预期「更为收紧」。市场强化了对美联储本轮周期多次加息的预期，10年期美债收益率升至5.12%附近，继续压制成长股与芯片股估值。",
       impact: {
-        direction: "利空（治理与继任不确定性，短期冲击）",
-        companies: "英伟达及AI算力产业链、neocloud生态（CoreWeave/Nebius等）",
-        industry: "GPU、AI加速计算、数据中心",
-        logic: "黄仁勋辞职叠加此前的个人丑闻与国安调查传闻，使英伟达面临「领导人空缺+治理不确定性」双重风险；其通过投资neocloud、绑定客户与政治关系构建的「循环融资」生态或受冲击，短期压制AI硬件整体估值，但芯片需求与产品路线图短期不受影响"
+        direction: "利空（通胀黏性+鹰派信号，压制高估值成长股）",
+        companies: "英伟达、AMD等芯片股及高估值AI资产、neocloud高杠杆企业",
+        industry: "宏观利率、半导体、AI基础设施",
+        logic: "PPI同比创近四年新高强化「更高更久」利率预期，与英伟达领导层危机形成双重压制；对依赖高杠杆融资的CoreWeave、Nebius等neocloud而言，融资成本抬升与AI叙事降温可能形成共振"
       }
     },
     {
-      title: "美股周四小幅收跌：纳指-0.39%、费半-0.54%，英伟达CEO辞职撼动AI交易，AMD/博通逆势大涨",
-      originalTitle: "U.S. stocks close lower as Nvidia CEO exit rattles AI trade",
-      source: "Xinhua English（新华社英文，官方通讯社）",
-      time: "2026年11月12日",
+      title: "「大空头」Michael Burry加倍做空纳指100并重建半导体ETF看跌仓位，警告AI热潮或成「牛市陷阱」",
+      originalTitle: "Michael Burry doubles Nasdaq 100 short, warns AI rally may be a bull trap",
+      source: "Yahoo Finance / Reuters（英文财经媒体一手）",
+      time: "2026年11月14日",
+      type: "财经媒体",
+      url: "https://finance.biggo.com/news/27d81b45-36f3-405c-938b-5ccfdceb7a71",
+      link: "https://finance.biggo.com/news/27d81b45-36f3-405c-938b-5ccfdceb7a71",
+      summary: "电影《大空头》原型Michael Burry于11月12日趁纳指100反弹至27,000点附近，将其看跌期权仓位翻倍，并重新建立VanEck半导体ETF看跌期权头寸（行权时间设在2027年初）。Burry将纳指100在10月6日创下的阶段高点类比为2000年互联网泡沫顶部，认为AI热潮可能正在形成新一轮「牛市陷阱」，预判芯片股与科技板块将在2027年年中前出现显著回调。针对英伟达CEO黄仁勋离职事件，Burry建议投资者「离场」，认为领导层变动可能冲击英伟达利润率及增长前景，并波及整个AI基础设施产业链，还点名CoreWeave、Nebius及台积电为潜在连锁冲击对象。",
+      impact: {
+        direction: "利空（知名空头观点强化AI交易分歧，情绪面承压）",
+        companies: "英伟达、CoreWeave、Nebius、台积电及AI基础设施产业链",
+        industry: "AI加速计算、半导体、数据中心",
+        logic: "Burry作为知名空头的表态将AI热潮与2000年互联网泡沫类比，叠加英伟达领导层危机，进一步放大市场对AI估值泡沫的担忧；但这是个人投资观点，AI需求基本面是否见顶仍需财报与订单数据验证"
+      }
+    },
+    {
+      title: "美国财长贝森特：英伟达须「从外部」物色新CEO，董事会需在10天内回应出口合规疑问",
+      originalTitle: "Bessent says Nvidia must 'go outside the company' to find new CEO",
+      source: "Reuters（路透社英文一手）",
+      time: "2026年11月15日",
       type: "官方",
-      url: "https://english.news.cn/northamerica/20261113/af2c5e850c3c4536b3bfb25a1a40a72e/c.html",
-      link: "https://english.news.cn/northamerica/20261113/af2c5e850c3c4536b3bfb25a1a40a72e/c.html",
-      summary: "美股周四因英伟达CEO黄仁勋辞职而小幅收低。道指跌189.4点（-0.36%）至52,297.09，标普500跌26.98点（-0.35%）至7,592.40，纳指跌100.1点（-0.39%）至25,366.09。英伟达收跌4.34%至166.19美元，盘中一度暴跌14%。并非所有芯片股跟随下跌：AMD涨5.86%、博通涨5.54%，投资者寻找AI龙头动荡中的受益者。Argent Capital基金经理Jed Ellerbroek表示「英伟达一家的命运是一回事，但这场AI革命的规模远大于此，芯片需求不会下降」。交易员继续定价12月加息，1个基点加息概率约91%。10年期美债收益率升至5.1%（此前老兵节债市休市前收于4.98%）。油价因特朗普涉伊帖文飙升，WTI收88.74美元（+2.55%）、布伦特收95.82美元（+3.3%）。AI云公司Nebius财报后大跌16.84%。",
+      url: "https://www.thestar.com.my/tech/tech-news/2026/11/16/bessent-says-nvidia-must-039go-outside-the-company039-to-find-new-ceo",
+      link: "https://www.thestar.com.my/tech/tech-news/2026/11/16/bessent-says-nvidia-must-039go-outside-the-company039-to-find-new-ceo",
+      summary: "美国财政部长贝森特周日（11月15日）在福克斯新闻「Sunday Morning Futures」节目中表示，英伟达在物色接替黄仁勋的新CEO时「需要从公司外部找人」，理由是「鉴于公司内部正在发生的情况，需要一次大刀阔斧的变革」。贝森特同时要求英伟达董事会及外部律师在未来10天内，就其出口限制合规文化相关问题作出回应。此前《金融时报》周五报道，英伟达董事会已接触英国芯片公司Arm CEO雷内·哈斯（Rene Haas），将其列为潜在接替人选，但遴选仍处早期阶段。",
       impact: {
-        direction: "中性（英伟达利空被竞争对手上涨对冲）",
-        companies: "英伟达、AMD、博通、Nebius、存储与光通信产业链",
-        industry: "半导体、AI基础设施、云计算",
-        logic: "英伟达CEO辞职引发AI板块内部剧烈轮动——资金从英伟达及其关联生态（neocloud、存储、设备）流出，转向AMD/博通等替代受益者；同时12月加息概率升至91%、10年期美债升至5.1%的高利率环境持续压制成长股估值中枢"
+        direction: "中性偏空（继任与合规双重不确定性持续）",
+        companies: "英伟达、Arm及AI算力产业链",
+        industry: "GPU、AI加速计算、半导体出口管制",
+        logic: "财长级别官员公开介入英伟达CEO遴选与出口合规，使治理危机升级为「政治+监管」多重风险；外部候选人或带来战略不确定性，但合规问题的明确回应时间表（10天）也为市场提供了短期观察锚点"
       }
     },
     {
-      title: "Baird下调英伟达至「中性」、目标价从500美元砍至200美元，担忧黄仁勋去留与2027年AI资本开支放缓",
-      originalTitle: "Baird downgrades Nvidia on CEO Huang worries, AI uncertainty",
-      source: "CNBC（英文财经媒体一手）",
-      time: "2026年11月11日",
-      type: "财经媒体",
-      url: "https://www.cnbc.com/2026/11/11/nvidia-baird-downgrade-ceo-ai-capex.html",
-      link: "https://www.cnbc.com/2026/11/11/nvidia-baird-downgrade-ceo-ai-capex.html",
-      summary: "投行Baird周三将英伟达评级从「跑赢大盘」下调至「中性」，目标价从500美元大幅砍至200美元。分析师Tristan Gerra在研报中列出的理由包括：超大规模云厂商AI资本开支可能在2027年放缓至同比仅增40%、CEO黄仁勋能否留任存在不确定性、以及对华出口管制的潜在影响——他预测可能出现新的H200对华出口禁令，并估算这可能带来约50亿美元的库存减记，同时预期对东南亚数据中心漏洞实施新的出口限制。据LSEG统计，64位覆盖分析师中仅3位给予「持有/低配」评级，Baird此举使其成为极少数看空者。这是华尔街过去数年「几乎一致看多」英伟达格局下的罕见转向，也预示着机构对其「治理风险」与「需求能见度」的担忧正从情绪层面升级为定价层面。",
+      title: "微软就全球服务中断致歉：Teams/Outlook/Copilot在逾70国中断，称故障与网络攻击无关",
+      originalTitle: "Microsoft apologizes for global outage, says incident not a cyberattack",
+      source: "Reuters / Microsoft官方（英文一手）",
+      time: "2026年11月13日",
+      type: "官方",
+      url: "https://www.tradingeconomics.com/united-states/stock-market/news/601263",
+      link: "https://www.tradingeconomics.com/united-states/stock-market/news/601263",
+      summary: "微软13日就导致数百万用户受影响的全球性服务中断深表歉意，表示故障「与网络攻击或AI Agents无关」，而是由早先一次「网络容量升级」引发。该故障导致Teams、Outlook及AI软件Copilot在至少70个国家无法使用，英国NHS、美国联邦政府及法院系统、日本政府系统等均报告受影响。OpenAI与Anthropic亦表示其服务依赖的微软连接组件出现问题。微软当日股价几乎未受冲击，微涨0.17%至523.88美元，市值约3.89万亿美元。微软14日宣布已完全恢复服务，承诺调查结束后发布完整报告。",
       impact: {
-        direction: "利空（机构信心松动，估值锚下移）",
-        companies: "英伟达及AI硬件产业链、neocloud生态",
-        industry: "GPU、AI加速计算、数据中心",
-        logic: "Baird目标价腰斩至200美元，核心担忧从「需求」转向「黄仁勋去留+对华出口管制+2027年资本开支放缓」，意味着市场对英伟达的定价锚正在重构；但需注意这是分析师观点而非客观事实，且美国本土芯片需求或可部分对冲出口损失"
-      }
-    },
-    {
-      title: "Bernstein将英伟达降至「与大盘持平」、目标价砍半至200美元，成两日内第三家退场的大行",
-      originalTitle: "Bernstein halves Nvidia target to $200, the 3rd broker in 2 days to step back over Huang",
-      source: "Forexlive（英文财经媒体一手，援引Bernstein研报）",
-      time: "2026年11月12日",
-      type: "财经媒体",
-      url: "https://www.forexlive.com/stocks/bernstein-halves-nvidia-target-to-200-the-3rd-broker-in-2-days-to-step-back-over-huang",
-      link: "https://www.forexlive.com/stocks/bernstein-halves-nvidia-target-to-200-the-3rd-broker-in-2-days-to-step-back-over-huang",
-      summary: "Bernstein分析师Stacy Rasgon将英伟达评级从「跑赢大盘」下调至「与大盘持平」，目标价从400美元砍半至200美元，成为继Morgan Stanley（11/11）与Baird之后，两日内第三家退场的华尔街大行。Rasgon明确表示降级「与芯片销售疲软无关」，AI需求依然非常强劲，业绩预测保持不变，真正改变的是估值倍数——他将愿意支付的市盈率从约25.4倍砍至12.7倍，理由是「在无人知道谁将执掌公司的情况下，不愿为未来盈利支付25倍估值」。他坦言「我们的直觉是可能尚未完全了解此事究竟有多深，宁愿暂时退到场边观望」。盘后英伟达跌约8%至约160美元，市值逼近跌破4万亿美元。",
-      impact: {
-        direction: "利空（估值倍数压缩，风险被定性为「英伟达特有」而非「AI需求放缓」）",
-        companies: "英伟达及AI硬件产业链",
-        industry: "GPU、AI加速计算、半导体",
-        logic: "Bernstein的降级方式极具信号意义——保留盈利预测、只砍估值倍数，将问题定性为「英伟达特有的领导层风险」而非「AI需求放缓」，这正是盘后资金轮动至AMD/博通/谷歌的逻辑基础；但需明确这是分析师观点，英伟达11/17财报将是基本面验金石"
-      }
-    },
-    {
-      title: "英伟达盘前「危机董事会会议」悬而未决：NYT再曝第二段婚外情、Warren要求保全对华芯片文件、马斯克称招揽黄仁勋是「荣幸」",
-      originalTitle: "Nerves around Nvidia as investors await the outcome of Board's crisis CEO meeting",
-      source: "CNBC（英文财经媒体一手）",
-      time: "2026年11月12日",
-      type: "财经媒体",
-      url: "https://www.cnbc.com/2026/11/12/nvidia-boards-crisis-meeting.html",
-      link: "https://www.cnbc.com/2026/11/12/nvidia-boards-crisis-meeting.html",
-      summary: "英伟达董事会在周四盘前连夜开会，讨论是否罢免CEO黄仁勋，但迟迟未公布结果，投资者如坐针毡，英伟达盘前一度跌约5%。当日《纽约时报》再曝黄仁勋与直接向其汇报的医疗保健业务副总裁Kimberly Powell存在第二段婚外情。政治压力同步升温：马萨诸塞州参议员伊丽莎白·沃伦要求特朗普政府保全英伟达对华出口先进AI芯片的全部相关文件；北达科他州参议员Kevin Cramer公开呼吁黄仁勋辞职。市场压力累积下，多家投行转向看空——Bernstein目标价从400砍至200、Baird从500砍至200、摩根士丹利移出「首选股」名单、富国降至300、花旗降至285。马斯克则回应网友「请聘用黄仁勋」称「那将是我的荣幸」。",
-      impact: {
-        direction: "利空（治理危机持续升级，多重风险叠加）",
-        companies: "英伟达及AI硬件、neocloud、存储产业链",
-        industry: "GPU、AI加速计算、数据中心",
-        logic: "董事会危机会议、第二段婚外情曝光、国会文件保全要求与多家投行降级形成共振，将英伟达风险从「个人丑闻」升级为「治理+国安+政治」多重危机，是当日AI硬件整体回调、资金轮动至AMD/博通的直接导火索"
-      }
-    },
-    {
-      title: "AMD、博通逆势大涨：黄仁勋辞职推动AI算力「替代受益」交易，SpaceX因「马斯克+黄仁勋」预期上涨",
-      originalTitle: "AMD, Broadcom stocks jump as Nvidia CEO Jensen Huang resigns",
-      source: "Yahoo Finance（英文财经媒体一手）",
-      time: "2026年11月12日",
-      type: "财经媒体",
-      url: "https://finance.yahoo.com/markets/article/amd-broadcom-stocks-jump-as-nvidia-ceo-jensen-huang-resigns-143725561.html",
-      link: "https://finance.yahoo.com/markets/article/amd-broadcom-stocks-jump-as-nvidia-ceo-jensen-huang-resigns-143725561.html",
-      summary: "英伟达CEO黄仁勋辞职后，其竞争对手AMD（盘中涨约3%、盘后一度涨超4%至589美元上方）与博通（最高涨6%至365.92美元）逆势大涨，投资者押注英伟达的竞争对手将在混乱中抢占更大份额。市场情绪在其余AI交易环节则转弱：英伟达投资的neocloud CoreWeave盘中跌12%（回吐前一日超预期财报涨幅），Nebius暴跌19%，台积电跌逾2%，阿斯麦转跌，闪迪盘初跌7%、美光与SK海力士跌约3%，英特尔跌3%。SpaceX盘中涨2%，因马斯克回应网友「请聘用黄仁勋」时表示「那将是我的荣幸」，市场猜测两人未来可能合作。这一分化印证「AI需求真实、但供给端定价权正在分散」的交易逻辑。",
-      impact: {
-        direction: "利好（AMD/博通替代受益）偏分化",
-        companies: "AMD、博通、SpaceX及英伟达关联生态（CoreWeave/Nebius/台积电/存储）",
-        industry: "AI加速计算、半导体、云计算",
-        logic: "英伟达领导层危机引发AI板块内部剧烈轮动——替代供应商（AMD/博通/谷歌TPU）受益，而与英伟达财务绑定的neocloud、存储、设备环节承压；这构成「算力替代」交易的结构性逻辑，但需警惕英伟达风波若迅速平息，替代交易或快速回吐"
+        direction: "中性（股价影响有限，但暴露云服务单点依赖风险）",
+        companies: "微软、OpenAI、Anthropic及依赖Microsoft 365的企业",
+        industry: "云计算、SaaS、AI应用",
+        logic: "微软全球宕机暴露了云服务与AI应用对单一基础设施的高度依赖，但对微软财务影响有限；市场更多关注其Azure增长与AI商业化，而非单次技术故障"
       }
     }
   ],
 
   /* ============ 六、当日最值得关注的 3 个交易逻辑 ============ */
   logics: [
-    { title: "英伟达「关键人风险」落地：从丑闻发酵到CEO辞职，AI算力定价权面临重构",
-      text: "11月12日市场的核心逻辑是英伟达「关键人风险」的正式落地——黄仁勋辞职即刻生效，叠加Baird/Bernstein/花旗罕见集体降级（目标价腰斩至200美元区间），使英伟达从「AI唯一确定性龙头」转为「治理与继任双重不确定」的标的。但市场反应是结构性的而非系统性的：资金并未撤离AI交易，而是从英伟达及其财务绑定的neocloud/存储/设备环节（Nebius-16.84%、CoreWeave-12%、闪迪-4%、美光-1%）轮动至替代受益者（AMD+5.86%、博通+5.54%、谷歌+1.62%）。这印证了「AI需求真实存在、但供给端定价权正在分散」的市场共识，未来英伟达11月17日财报将是检验其基本面能否独立于领导层风波的关键试金石。" },
-    { title: "「AI算力替代」交易的爆发：AMD、博通、谷歌TPU成为英伟达危机的直接受益者",
-      text: "英伟达领导层危机催生了当日的另一条交易主线——「算力替代」。AMD Instinct平台被视为最接近英伟达GPU的可替代方案，过去5日累涨约21%，Wedbush/XTB等机构明确点名为最大受益者；博通凭ASIC定制芯片（与谷歌、Meta、OpenAI合作）及与Anthropic五年约1612亿美元设备租赁合同同步受益；谷歌TPU、联发科、AIchip等定制芯片生态亦获资金追捧。这一逻辑的核心是：英伟达若因治理问题在产品迭代、客户关系或供应链上趋于保守，二线算力供应商将获得结构性份额提升窗口。但其可持续性取决于英伟达风波能否在短期内平息。" },
-    { title: "利率与能源的双重逆风未解：12月加息91%、10年期美债5.1%、油价飙升压制成长股估值",
-      text: "英伟达辞职是当日扰动，但宏观背景的收紧才是压制AI板块的中期主线。12月加息概率已升至约91%，联储官员（哈马克、戴利）明确将「AI投资需求」列为推升通胀的因素，10年期美债收益率升破5.1%，油价因特朗普涉伊言论飙升（布伦特+3.3%至95.82美元）。这意味着AI反弹始终在「需求验证」与「更高更久的利率环境」两种力量之间拉锯——对CoreWeave、Nebius等neocloud的高杠杆模式而言，融资成本抬升与英伟达「循环融资」松动可能形成共振，是AI基建链中期最大的结构性风险。" }
+    { title: "英伟达领导层危机从「个股风险」升级为「系统性AI交易考验」",
+      text: "11月13日市场的核心逻辑，是英伟达危机的传导范围显著扩大——此前两个交易日抛压集中在英伟达本身、资金「轮动」至AMD/博通等替代受益者，而周五抛压扩散至整个半导体链（AMD-8.75%、博通-4.76%、闪迪-5.59%、思科-6.2%、应用材料-2.8%），「替代受益」交易亦遭获利回吐。汇丰、Truist、Melius等又一批大行下调英伟达评级，叠加财长贝森特「须从外部找CEO」的表态，使治理+继任+合规风险进一步叠加。市场分歧在于：这究竟是英伟达特有的「关键人风险」，还是AI资本开支周期见顶的先兆——11月17日盘后财报将成为关键分水岭。" },
+    { title: "通胀黏性与鹰派美联储：利率「更高更久」压制高估值AI资产",
+      text: "10月PPI同比6.5%创近四年新高（虽略低于预期），叠加波士顿联储柯林斯「货币政策方向是走高」的鹰派表态，市场强化了对美联储本轮周期多次加息的预期，10年期美债收益率升至5.12%附近。高利率环境直接压制依赖远期现金流的高估值AI资产，尤其对CoreWeave、Nebius等依靠高杠杆融资的neocloud构成「融资成本抬升+AI叙事降温」的双重压力。这是英伟达危机之外，压制芯片股与科技板块的第二条中期主线。" },
+    { title: "资金防御化转向：从「AI交易」到「避险资产」，苹果/可口可乐/礼来创新高",
+      text: "在芯片股抛售与宏观不确定性交织下，资金明显从高波动科技股转向防御性资产——可口可乐、礼来以及「谨慎回避AI投资」的苹果均刷新收盘历史新高，必需消费与医疗板块领涨。这一轮动反映市场风险偏好急剧收缩，机构资金更偏向「确定性现金流」而非「AI增长叙事」。但需注意，这并非「AI叙事终结」，而是英伟达财报与Anthropic IPO前的观望情绪，若财报强劲、AI订单验证，资金或重新回流科技板块。" }
   ],
 
   /* ============ 七、未来 1—3 个交易日关注事项（具体事件） ============ */
   watchlist: [
-    { date: "11月16日（周一）", event: "美股复市（11月14—15日为周末），英伟达「辞职后」首个完整交易日，AMD/博通等替代受益股能否延续强势", impact: "周末英伟达继任与调查或再有新进展，周一开盘AI板块将对其重新定价；AMD/博通「算力替代」交易能否延续是关键观察点" },
-    { date: "11月18日（周三）", event: "英伟达临时CEO科莱特·克雷斯召开公司会议（原定计划）", impact: "克雷斯对客户承诺、产品路线图与继任进程的表态，将决定英伟达风波是「短期扰动」还是「持久不确定」，直接影响AI硬件板块情绪" },
-    { date: "11月17日（周二）", event: "英伟达2027财年Q3财报（盘后，美东13:20发布）", impact: "数据中心营收、毛利率与下季指引是检验英伟达基本面能否独立于领导层风波的核心；财报强劲或缓解治理担忧、带动芯片板块修复，不及预期则放大下行" },
-    { date: "11月19日（周四）", event: "Anthropic IPO定价（代码ANT，高盛主承销，已获约6倍超额认购）", impact: "史上最大IPO的最终定价是AI资产估值容忍度的试金石；若提价至1.5万亿美元上方或提振AI情绪，折价则反向冲击算力生态与基石投资者" },
-    { date: "持续关注", event: "英伟达新任CEO遴选进展（内部候选人含伊恩·巴克、克雷斯等，外部含Arm CEO哈斯等）", impact: "继任人选的技术背景与对华/客户关系取向，将重塑市场对英伟达长期战略与AI供应链格局的预期，是贯穿未来数周的独立风险因子" }
+    { date: "11月17日（周二）", event: "英伟达2027财年Q3财报（盘后，美东16:20发布、17:00电话会）", impact: "临时CEO科莱特·克雷斯首次主持财报，是检验「无黄仁勋的英伟达」基本面的核心；营收/毛利率/Q4指引及对客户与供应链的表态将决定AI板块能否企稳" },
+    { date: "11月18日（周三）", event: "Anthropic IPO定价（代码ANT，高盛主承销，据报认购约6倍超额）", impact: "史上最大IPO的最终定价是AI资产估值容忍度的试金石；若提价至1万亿美元上方或提振AI情绪，折价则反向冲击算力生态" },
+    { date: "11月18日（周三）", event: "美联储公布10月FOMC会议纪要", impact: "会议纪要将揭示官员对通胀、AI投资需求与加息路径的最新分歧，影响市场对12月加息幅度的定价" },
+    { date: "11月17—18日", event: "APEC工商领导人峰会（深圳，11月17—18日）及第三十三次领导人非正式会议（11月18—19日）", impact: "特朗普拟赴华与习近平会晤，马斯克或同行；若释放AI/芯片/贸易缓和信号，或提振科技板块风险偏好" },
+    { date: "持续关注", event: "英伟达CEO继任进展（外部候选Arm CEO Rene Haas等）及出口合规回应（10天内）", impact: "继任人选的技术背景与对华/客户关系取向，将重塑市场对英伟达长期战略与AI供应链格局的预期" }
   ],
 
   /* ============ 八、页脚免责声明 ============ */
