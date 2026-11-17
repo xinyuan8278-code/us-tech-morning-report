@@ -58,6 +58,15 @@
     .topbar img.logo { height: 22px; width: auto; display: block; }
     .topbar .brand { font-size: 13px; color: var(--ink-soft); letter-spacing: .02em; }
     .topbar .brand b { color: var(--blue-deep); }
+    .topbar-period {
+      font-size: 12px;
+      color: var(--muted);
+      padding-left: 12px;
+      margin-left: 2px;
+      border-left: 1px solid var(--line);
+      white-space: nowrap;
+    }
+    .topbar-period.is-archive { color: var(--blue-deep); }
     .topbar .spacer { flex: 1; }
     .topbar nav a { font-size: 13px; color: var(--ink-soft); margin-left: 16px; }
     .topbar nav a:hover { color: var(--blue); }
@@ -90,13 +99,68 @@
     .cover .subtitle { font-size: 14px; color: var(--ink-soft); margin: 0 0 22px; }
     .cover-info {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: minmax(212px, 1.4fr) 1fr 1fr 0.95fr;
       gap: 16px;
       border-top: 1px solid var(--blue-border);
       padding-top: 18px;
     }
     .cover-info .k { font-size: 11px; color: var(--muted); letter-spacing: .08em; margin-bottom: 4px; }
     .cover-info .v { font-size: 14px; color: var(--ink); font-weight: 500; }
+
+    /* ===== 期次选择（历史归档） ===== */
+    .cover-info .date-item { min-width: 0; }
+    .date-select-wrap { position: relative; display: inline-flex; max-width: 100%; }
+    select#periodSelect {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      font-family: inherit;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--blue-deep);
+      background: #ffffff;
+      border: 1px solid var(--blue-border);
+      border-radius: 3px;
+      padding: 5px 30px 5px 10px;
+      line-height: 1.5;
+      cursor: pointer;
+      max-width: 100%;
+      text-overflow: ellipsis;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    select#periodSelect:hover { border-color: var(--blue); }
+    select#periodSelect:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(31, 111, 178, .12);
+    }
+    .date-select-wrap::after {
+      content: "";
+      position: absolute;
+      right: 11px;
+      top: 50%;
+      width: 6px;
+      height: 6px;
+      border-right: 1.6px solid var(--blue-deep);
+      border-bottom: 1.6px solid var(--blue-deep);
+      transform: translateY(-72%) rotate(45deg);
+      pointer-events: none;
+    }
+    .period-note {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-top: 6px;
+      letter-spacing: .01em;
+    }
+    .cover-note {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--blue-border);
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .cover-note b { color: var(--ink-soft); }
 
     /* ===== 正文布局 ===== */
     .page {
@@ -269,6 +333,8 @@
       .cover-card { padding: 24px 20px 22px; }
       .cover h1 { font-size: 21px; }
       .cover-info { grid-template-columns: repeat(2, 1fr); }
+      .date-select-wrap { display: block; }
+      select#periodSelect { width: 100%; }
       .topbar nav { display: none; }
     }
     @media print {
@@ -286,6 +352,7 @@
     <div class="topbar-inner">
       <img src="assets/logo.png" alt="华泰期货" class="logo" />
       <div class="brand">华泰期货 · <b>研究</b></div>
+      <span class="topbar-period" id="topbarPeriod"></span>
       <div class="spacer"></div>
       <nav>
         <a href="#overview">市场概览</a>
@@ -314,38 +381,268 @@
   </footer>
 
   <script src="data.js"></script>
+  <script src="archive.js"></script>
   <script>
     (function () {
-      const D = window.REPORT_DATA;
-      if (!D) { document.getElementById('content').innerHTML = '<p>未找到 data.js 数据，请检查文件。</p>'; return; }
+      'use strict';
 
-      /* ---- 涨跌色 ---- */
+      var LATEST  = window.REPORT_DATA;
+      var ARCHIVE = Array.isArray(window.REPORT_ARCHIVE) ? window.REPORT_ARCHIVE : [];
+
+      /* ============================================================
+       *  期次列表：最新一期（实时行情）+ 历史归档（只读快照），按日期倒序
+       * ============================================================ */
+      var PERIODS = [];
+
+      function norm(p, isLatest) {
+        var d    = p.data || {};
+        var meta = d.meta || {};
+        return {
+          key:        meta.reportDate || p.key || '',
+          data:       d,
+          meta:       meta,
+          reportDate: meta.reportDate || p.reportDate || '—',
+          tradeDate:  meta.tradeDate  || p.tradeDate  || '—',
+          isLatest:   !!isLatest
+        };
+      }
+
+      if (LATEST) PERIODS.push(norm({ data: LATEST }, true));
+      ARCHIVE.forEach(function (p) {
+        var n = norm(p, false);
+        var dup = PERIODS.some(function (x) { return x.reportDate === n.reportDate; });
+        if (!dup) PERIODS.push(n);
+      });
+
+      var ARCHIVE_COUNT = PERIODS.filter(function (p) { return !p.isLatest; }).length;
+
+      /* ============================================================
+       *  工具
+       * ============================================================ */
       function chgClass(v) {
-        const s = (v || '').trim();
+        var s = (v || '').trim();
         if (!s || s === '0.00%' || s === '-0.00%') return 'flat';
         if (s.startsWith('-')) return 'down';
         if (s.startsWith('+') || /^\d/.test(s)) return 'up';
         return 'flat';
       }
+      function chgText(v) {
+        var s = (v || '').trim();
+        return s ? s : '—';
+      }
+      function optionLabel(p, i) {
+        if (i === 0) return p.reportDate + '（最新）';
+        return p.reportDate + '（' + i + ' 期前）';
+      }
 
-      /* ---- 报头 ---- */
-      const meta = D.meta || {};
-      document.getElementById('cover-card').innerHTML =
-        '<div class="cover-meta">' +
-          '<span class="pill pill-blue">' + (meta.tag || '每日市场跟踪') + '</span>' +
-          '<span class="pill pill-gray">盘前版</span>' +
-        '</div>' +
-        '<h1>' + (meta.title || '') + '</h1>' +
-        '<p class="subtitle">' + (meta.subtitle || '') + '</p>' +
-        '<div class="cover-info">' +
-          '<div class="item"><div class="k">报告日期</div><div class="v">' + (meta.reportDate || '—') + '</div></div>' +
-          '<div class="item"><div class="k">对应交易日</div><div class="v">' + (meta.tradeDate || '—') + '</div></div>' +
-          '<div class="item"><div class="k">研究机构</div><div class="v">' + (meta.author || '—') + '</div></div>' +
-          '<div class="item"><div class="k">报告类型</div><div class="v">每日市场跟踪</div></div>' +
-        '</div>';
+      /* ============================================================
+       *  报头
+       * ============================================================ */
+      function renderCover(p, idx) {
+        var meta = p.meta;
+        var opts = PERIODS.map(function (x, k) {
+          return '<option value="' + x.reportDate + '"' + (k === idx ? ' selected' : '') + '>' +
+            optionLabel(x, k) + '</option>';
+        }).join('');
 
-      /* ---- 目录 ---- */
-      const tocItems = [
+        var noteTxt = '共 ' + PERIODS.length + ' 期 · 已归档 ' + ARCHIVE_COUNT + ' 期';
+
+        var html =
+          '<div class="cover-meta">' +
+            '<span class="pill pill-blue">' + (meta.tag || '每日市场跟踪') + '</span>' +
+            '<span class="pill pill-gray">盘前版</span>' +
+            (p.isLatest ? '' : '<span class="pill pill-gray">历史归档 · 只读快照</span>') +
+          '</div>' +
+          '<h1>' + (meta.title || '') + '</h1>' +
+          '<p class="subtitle">' + (meta.subtitle || '') + '</p>' +
+          '<div class="cover-info">' +
+            '<div class="item date-item">' +
+              '<div class="k">报告日期</div>' +
+              '<div class="v"><span class="date-select-wrap">' +
+                '<select id="periodSelect" aria-label="选择要查看的报告期次">' + opts + '</select>' +
+              '</span></div>' +
+              '<div class="period-note" id="periodNote">' + noteTxt + '</div>' +
+            '</div>' +
+            '<div class="item"><div class="k">对应交易日</div><div class="v">' + (meta.tradeDate || '—') + '</div></div>' +
+            '<div class="item"><div class="k">研究机构</div><div class="v">' + (meta.author || '—') + '</div></div>' +
+            '<div class="item"><div class="k">报告类型</div><div class="v">每日市场跟踪</div></div>' +
+          '</div>' +
+          (p.isLatest ? '' :
+            '<div class="cover-note">当前查看的是<b>历史归档</b>期次（' + p.reportDate + '）。' +
+            '页面内容为该期发布时的原文快照，<b>不随实时行情更新</b>；如需最新行情请在上方「报告日期」中切回最新一期。</div>');
+
+        var box = document.getElementById('cover-card');
+        box.innerHTML = html;
+        var sel = document.getElementById('periodSelect');
+        if (sel) {
+          sel.addEventListener('change', function () {
+            var target = PERIODS.filter(function (x) { return x.reportDate === sel.value; })[0];
+            if (target) { renderAll(target); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+          });
+        }
+      }
+
+      /* ============================================================
+       *  正文
+       * ============================================================ */
+      function renderBody(D) {
+        var h = [];
+        var sec = function (id, title, inner) {
+          return '<section id="' + id + '">' +
+            '<h2 class="sec-title"><span class="bar"></span>' + title + '</h2>' +
+            inner + '</section>';
+        };
+
+        /* 一、市场概览 */
+        var idxList = (D.overview && D.overview.indices) || [];
+        var gapTip = '';
+        var hasGap = idxList.some(function (i) { return !(i.change || '').trim(); }) ||
+                     (D.stocks || []).some(function (s) { return !(s.change || '').trim(); });
+        if (hasGap) {
+          gapTip = '<div class="muted-note">该期原文未记录具体涨跌幅的标的以「—」标示（当日页面由实时行情覆盖显示，原文数据不含数值）。</div>';
+        }
+
+        h.push(sec('overview', '一、市场概览',
+          '<p>' + (D.overview && D.overview.text || '') + '</p>' +
+          (idxList.length ?
+            '<div class="index-grid">' + idxList.map(function (i) {
+              return '<div class="index-card" data-code="' + i.code + '">' +
+                '<div class="nm">' + i.name + '</div>' +
+                '<div class="cd">' + i.code + '</div>' +
+                '<div class="chg ' + chgClass(i.change) + '">' + chgText(i.change) + '</div>' +
+                '</div>';
+            }).join('') + '</div>' : '') +
+          gapTip
+        ));
+
+        /* 二、超涨/超跌提示 */
+        var alerts = (D.alerts || []).filter(function (a) { return a && a.direction && a.name; });
+        var alertInner;
+        if (alerts.length) {
+          alertInner = alerts.map(function (a) {
+            return '<div class="alert-box">' +
+              '<div class="al-head ' + (a.direction === '超涨' ? 'up' : 'down') + '">' +
+                a.name + '（' + a.code + '）｜' + a.direction +
+              '</div>' +
+              '<ul>' +
+                '<li>前一交易日涨跌幅：<b class="chg ' + chgClass(a.change) + '" data-code="' + a.code + '">' + chgText(a.change) + '</b></li>' +
+                '<li>近 5 个交易日表现：' + a.fiveDay + '</li>' +
+                '<li>近期是否创阶段新高/新低：' + a.newHighLow + '</li>' +
+                '<li>成交量是否明显放大：' + a.volume + '</li>' +
+                '<li>主要触发原因：' + a.reason + '</li>' +
+                '<li>对后续走势的潜在影响：' + a.impact + '</li>' +
+              '</ul></div>';
+          }).join('');
+        } else {
+          alertInner = '<div class="muted-note">前一交易日重点科技股未出现需要单独提示的明显超涨或超跌个股。</div>';
+        }
+        h.push(sec('alerts', '二、超涨 / 超跌个股提示', alertInner));
+
+        /* 三、重点公司行情表 */
+        var stocks = D.stocks || [];
+        h.push(sec('stocks', '三、重点公司行情表',
+          '<div class="table-wrap"><table>' +
+          '<thead><tr><th>公司</th><th>股票代码</th><th class="num">前一交易日表现</th><th>主要驱动因素</th></tr></thead>' +
+          '<tbody>' + stocks.map(function (s) {
+            return '<tr data-code="' + s.code + '"><td><b>' + s.name + '</b></td><td>' + s.code + '</td>' +
+              '<td class="num ' + chgClass(s.change) + '">' + chgText(s.change) + '</td>' +
+              '<td>' + s.driver + '</td></tr>';
+          }).join('') + '</tbody></table></div>'
+        ));
+
+        /* 四、新闻 */
+        var news = D.news || [];
+        var newsInner = news.map(function (n, i) {
+          var tagCls = n.type === '官方' ? 'tag-official' : (n.type === '行业媒体' ? 'tag-industry' : 'tag-media');
+          var dirBadge = '';
+          if (n.impact && n.impact.direction) {
+            var dir = n.impact.direction;
+            dirBadge = '<span class="badge ' +
+              (dir.indexOf('利好') === 0 ? 'badge-pos' : (dir.indexOf('利空') === 0 ? 'badge-neg' : 'badge-neu')) + '">' + dir + '</span>';
+          }
+          return '<div class="news-item">' +
+            '<div class="n-title">' + (i + 1) + '. ' + n.title + '</div>' +
+            '<div class="n-meta">' +
+              '<span><b>来源：</b>' + n.source + '</span>' +
+              '<span><b>发布时间：</b>' + n.time + '</span>' +
+              '<span class="tag ' + tagCls + '">' + n.type + '</span>' +
+            '</div>' +
+            '<div class="n-meta"><span><b>原文标题：</b>' + n.originalTitle + '</span></div>' +
+            (n.link ? '<div class="n-meta"><span><b>原文链接：</b><a href="' + n.link + '" target="_blank" rel="noopener">查看原文</a></span>' +
+              (n.url ? '<span><b>URL：</b><span style="font-size:11px;color:var(--muted)">' + n.url + '</span></span>' : '') + '</div>' : '') +
+            '<div style="font-size:13.5px;color:var(--ink-soft)">' + n.summary + '</div>' +
+            (n.impact ? '<div class="impact">' +
+              '<div class="imp-row"><span class="imp-label">市场影响</span>' + dirBadge + '</div>' +
+              '<div class="imp-row"><span class="imp-label">涉及公司</span>' + n.impact.companies + '</div>' +
+              '<div class="imp-row"><span class="imp-label">涉及行业</span>' + n.impact.industry + '</div>' +
+              '<div class="imp-row"><span class="imp-label">影响逻辑</span>' + n.impact.logic + '</div>' +
+            '</div>' : '') +
+          '</div>';
+        }).join('');
+        h.push(sec('news', '四、重要科技与政策新闻', newsInner || '<div class="muted-note">今日暂无需要重点提示的新闻。</div>'));
+
+        /* 五、交易逻辑 */
+        var logics = D.logics || [];
+        h.push(sec('logics', '五、当日最值得关注的 3 个交易逻辑',
+          logics.map(function (l, i) {
+            return '<div class="logic-card"><div class="l-title">' + (i + 1) + '. ' + l.title + '</div>' +
+              '<div class="l-text">' + l.text + '</div></div>';
+          }).join('')
+        ));
+
+        /* 六、关注事项 */
+        var wl = D.watchlist || [];
+        h.push(sec('watchlist', '六、未来 1—3 个交易日关注事项',
+          '<div class="table-wrap"><table>' +
+          '<thead><tr><th style="width:22%">日期</th><th>事件</th><th>可能影响</th></tr></thead>' +
+          '<tbody>' + wl.map(function (w) {
+            return '<tr><td>' + w.date + '</td><td>' + w.event + '</td><td>' + w.impact + '</td></tr>';
+          }).join('') + '</tbody></table></div>'
+        ));
+
+        return h.join('');
+      }
+
+      /* ============================================================
+       *  整页渲染
+       * ============================================================ */
+      function renderAll(p) {
+        var idx = PERIODS.indexOf(p);
+        if (idx < 0) idx = 0;
+
+        window.__ARCHIVE_MODE__ = !p.isLatest;
+
+        renderCover(p, idx);
+        document.getElementById('content').innerHTML = renderBody(p.data);
+        document.getElementById('disc').textContent = p.data.disclaimer || '';
+
+        var meta = p.meta;
+        document.title = (meta.title || '美股科技日报') +
+          (p.isLatest ? '' : ' · ' + p.reportDate + '（归档）') + ' | 华泰期货';
+
+        var tp = document.getElementById('topbarPeriod');
+        if (tp) {
+          tp.textContent = p.reportDate + (p.isLatest ? ' · 最新' : ' · 归档');
+          if (p.isLatest) tp.classList.remove('is-archive');
+          else tp.classList.add('is-archive');
+        }
+
+        /* URL 同步：归档期次带 ?d=报告日期，便于分享与刷新保持 */
+        try {
+          var u = new URL(window.location.href);
+          if (p.isLatest) u.searchParams.delete('d');
+          else u.searchParams.set('d', p.reportDate);
+          window.history.replaceState(null, '', u.toString());
+        } catch (e) { /* 忽略 */ }
+
+        /* 最新一期：套用实时行情 */
+        if (p.isLatest && typeof window.__applyLive === 'function') window.__applyLive();
+      }
+
+      /* ============================================================
+       *  启动
+       * ============================================================ */
+      var tocItems = [
         ['overview', '一、市场概览'],
         ['alerts',   '二、超涨/超跌提示'],
         ['stocks',   '三、重点公司行情表'],
@@ -359,129 +656,28 @@
           return '<a href="#' + it[0] + '"><span class="dot">·</span>' + it[1] + '</a>';
         }).join('');
 
-      /* ---- 正文 ---- */
-      const h = [];
-      const sec = function (id, title, inner) {
-        return '<section id="' + id + '">' +
-          '<h2 class="sec-title"><span class="bar"></span>' + title + '</h2>' +
-          inner + '</section>';
-      };
-
-      /* 一、市场概览 */
-      h.push(sec('overview', '一、市场概览',
-        '<p>' + (D.overview && D.overview.text || '') + '</p>' +
-        (function () {
-          const idx = (D.overview && D.overview.indices) || [];
-          if (!idx.length) return '';
-          return '<div class="index-grid">' + idx.map(function (i) {
-            return '<div class="index-card" data-code="' + i.code + '">' +
-              '<div class="nm">' + i.name + '</div>' +
-              '<div class="cd">' + i.code + '</div>' +
-              '<div class="chg ' + chgClass(i.change) + '">' + i.change + '</div>' +
-              '</div>';
-          }).join('') + '</div>';
-        })()
-      ));
-
-      /* 二、超涨/超跌提示 */
-      const alerts = (D.alerts || []).filter(function (a) { return a && a.direction && a.name; });
-      let alertInner;
-      if (alerts.length) {
-        alertInner = alerts.map(function (a) {
-          return '<div class="alert-box">' +
-            '<div class="al-head ' + (a.direction === '超涨' ? 'up' : 'down') + '">' +
-              a.name + '（' + a.code + '）｜' + a.direction +
-            '</div>' +
-            '<ul>' +
-              '<li>前一交易日涨跌幅：<b class="chg" data-code="' + a.code + '">' + a.change + '</b></li>' +
-              '<li>近 5 个交易日表现：' + a.fiveDay + '</li>' +
-              '<li>近期是否创阶段新高/新低：' + a.newHighLow + '</li>' +
-              '<li>成交量是否明显放大：' + a.volume + '</li>' +
-              '<li>主要触发原因：' + a.reason + '</li>' +
-              '<li>对后续走势的潜在影响：' + a.impact + '</li>' +
-            '</ul></div>';
-        }).join('');
-      } else {
-        alertInner = '<div class="muted-note">前一交易日重点科技股未出现需要单独提示的明显超涨或超跌个股。</div>';
-      }
-      h.push(sec('alerts', '二、超涨 / 超跌个股提示', alertInner));
-
-      /* 三、重点公司行情表 */
-      const stocks = D.stocks || [];
-      h.push(sec('stocks', '三、重点公司行情表',
-        '<div class="table-wrap"><table>' +
-        '<thead><tr><th>公司</th><th>股票代码</th><th class="num">前一交易日表现</th><th>主要驱动因素</th></tr></thead>' +
-        '<tbody>' + stocks.map(function (s) {
-          return '<tr data-code="' + s.code + '"><td><b>' + s.name + '</b></td><td>' + s.code + '</td>' +
-            '<td class="num ' + chgClass(s.change) + '">' + s.change + '</td>' +
-            '<td>' + s.driver + '</td></tr>';
-        }).join('') + '</tbody></table></div>'
-      ));
-
-      /* 四、新闻 */
-      const news = D.news || [];
-      const newsInner = news.map(function (n, i) {
-        const tagCls = n.type === '官方' ? 'tag-official' : (n.type === '行业媒体' ? 'tag-industry' : 'tag-media');
-        let dirBadge = '';
-        if (n.impact && n.impact.direction) {
-          const dir = n.impact.direction;
-          dirBadge = '<span class="badge ' +
-            (dir === '利好' ? 'badge-pos' : (dir === '利空' ? 'badge-neg' : 'badge-neu')) + '">' + dir + '</span>';
-        }
-        return '<div class="news-item">' +
-          '<div class="n-title">' + (i + 1) + '. ' + n.title + '</div>' +
-          '<div class="n-meta">' +
-            '<span><b>来源：</b>' + n.source + '</span>' +
-            '<span><b>发布时间：</b>' + n.time + '</span>' +
-            '<span class="tag ' + tagCls + '">' + n.type + '</span>' +
-          '</div>' +
-          '<div class="n-meta"><span><b>原文标题：</b>' + n.originalTitle + '</span></div>' +
-          (n.link ? '<div class="n-meta"><span><b>原文链接：</b><a href="' + n.link + '" target="_blank" rel="noopener">查看原文</a></span>' +
-            (n.url ? '<span><b>URL：</b><span style="font-size:11px;color:var(--muted)">' + n.url + '</span></span>' : '') + '</div>' : '') +
-          '<div style="font-size:13.5px;color:var(--ink-soft)">' + n.summary + '</div>' +
-          (n.impact ? '<div class="impact">' +
-            '<div class="imp-row"><span class="imp-label">市场影响</span>' + dirBadge + '</div>' +
-            '<div class="imp-row"><span class="imp-label">涉及公司</span>' + n.impact.companies + '</div>' +
-            '<div class="imp-row"><span class="imp-label">涉及行业</span>' + n.impact.industry + '</div>' +
-            '<div class="imp-row"><span class="imp-label">影响逻辑</span>' + n.impact.logic + '</div>' +
-          '</div>' : '') +
-        '</div>';
-      }).join('');
-      h.push(sec('news', '四、重要科技与政策新闻', newsInner || '<div class="muted-note">今日暂无需要重点提示的新闻。</div>'));
-
-      /* 五、交易逻辑 */
-      const logics = D.logics || [];
-      h.push(sec('logics', '五、当日最值得关注的 3 个交易逻辑',
-        logics.map(function (l, i) {
-          return '<div class="logic-card"><div class="l-title">' + (i + 1) + '. ' + l.title + '</div>' +
-            '<div class="l-text">' + l.text + '</div></div>';
-        }).join('')
-      ));
-
-      /* 六、关注事项 */
-      const wl = D.watchlist || [];
-      h.push(sec('watchlist', '六、未来 1—3 个交易日关注事项',
-        '<div class="table-wrap"><table>' +
-        '<thead><tr><th style="width:22%">日期</th><th>事件</th><th>可能影响</th></tr></thead>' +
-        '<tbody>' + wl.map(function (w) {
-          return '<tr><td>' + w.date + '</td><td>' + w.event + '</td><td>' + w.impact + '</td></tr>';
-        }).join('') + '</tbody></table></div>'
-      ));
-
-      document.getElementById('content').innerHTML = h.join('');
-
-      /* 页脚 */
-      document.getElementById('disc').textContent = D.disclaimer || '';
-
-      /* 平滑滚动 */
-      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-        a.addEventListener('click', function (e) {
-          const t = document.querySelector(a.getAttribute('href'));
-          if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-        });
+      /* 目录平滑滚动（事件委托，切换期次后无需重绑） */
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+        if (!a) return;
+        var t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
       });
 
-      document.title = (meta.title || '美股科技日报') + ' | 华泰期货';
+      if (!PERIODS.length) {
+        document.getElementById('content').innerHTML =
+          '<p>未找到 data.js 数据，请检查文件。</p>';
+        return;
+      }
+
+      var want = null;
+      try { want = new URL(window.location.href).searchParams.get('d'); } catch (e) {}
+      var initial = PERIODS[0];
+      if (want) {
+        var hit = PERIODS.filter(function (x) { return x.reportDate === want; })[0];
+        if (hit) initial = hit;
+      }
+      renderAll(initial);
     })();
   </script>
   <script src="live.js"></script>

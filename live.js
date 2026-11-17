@@ -85,8 +85,9 @@
     return map;
   }
 
-  // 把实时涨跌幅写回页面
+  // 把实时涨跌幅写回页面（历史归档期次不套用实时行情）
   function apply(map) {
+    if (window.__ARCHIVE_MODE__) return;
     // 指数卡片
     document.querySelectorAll('.index-card[data-code]').forEach(function (card) {
       var tc = tencentCode(card.getAttribute('data-code'));
@@ -120,10 +121,14 @@
 
   // 在指数网格后插入数据来源提示
   function showSource(map) {
+    if (window.__ARCHIVE_MODE__) return;
+    var old = document.getElementById('live-src-note');
+    if (old && old.parentNode) old.parentNode.removeChild(old);
     var t = '';
     for (var k in map) { if (map[k].time) { t = map[k].time; break; } }
     var note = document.createElement('div');
     note.className = 'muted-note';
+    note.id = 'live-src-note';
     note.style.marginTop = '8px';
     note.innerHTML =
       '行情数据来源：<b>腾讯自选股</b> · 实时涨跌幅' +
@@ -132,6 +137,15 @@
     var grid = document.querySelector('.index-grid');
     if (grid && grid.parentNode) grid.parentNode.insertBefore(note, grid.nextSibling);
   }
+
+  var LIVE_MAP = null;
+
+  // 供页面切换期次时重新套用缓存行情
+  window.__applyLive = function () {
+    if (!LIVE_MAP) return;
+    apply(LIVE_MAP);
+    showSource(LIVE_MAP);
+  };
 
   function run() {
     var codes = buildCodeList();
@@ -145,6 +159,7 @@
         return parse(text);
       })
       .then(function (map) {
+        LIVE_MAP = map;
         apply(map);
         showSource(map);
       })
