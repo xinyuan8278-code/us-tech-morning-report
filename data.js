@@ -1,7 +1,7 @@
 /**
  * ============================================================
  *  美股科技板块前一交易日行情日报 —— 数据文件（每日只需改这里）
- *  （2026-11-20 更新：对应美股交易日 2026-11-19）
+ *  （2026-11-23 更新：对应美股交易日 2026-11-20）
  * ============================================================
  *  使用说明：
  *  1. 打开本文件，替换下方各字段的值即可生成当日日报。
@@ -24,8 +24,8 @@ window.REPORT_DATA = {
   meta: {
     title: "美股科技板块前一交易日行情日报",
     subtitle: "盘前版 · 大型科技 + 半导体存储跟踪",
-    reportDate: "2026年11月20日",   // 报告发布日期（周五）
-    tradeDate: "2026年11月19日",    // 对应美股交易日（前一交易日，周四）
+    reportDate: "2026年11月23日",   // 报告发布日期（周一）
+    tradeDate: "2026年11月20日",    // 对应美股交易日（前一交易日，周五）
     author: "华泰期货 · 研究",
     tag: "每日市场跟踪"
   },
@@ -33,7 +33,7 @@ window.REPORT_DATA = {
   /* ============ 二、市场概览 ============ */
   overview: {
     /* 简短概括：指数变化 + 个股变化 + 重大事件 */
-    text: "11月19日（周四）美股高开低走、三大指数收盘跌幅均超2%：道指-2.19%至49,097.06（失守5万点）、标普500-2.02%至7,175.83（连续第五个交易日下跌、创2025年4月以来最差单周）、纳指-2.25%至23,879.20，费城半导体指数从盘中大涨近5%回落至-2.41%（收9,419.72）。核心事件是史上最大IPO Anthropic（ANT）登陆纳斯达克：开盘价111.5美元（较83美元发行价+34%）、盘中市值一度突破2万亿美元，但冲高回落，收涨17.07%至97.17美元（市值约1.27万亿），其亮眼首秀非但未能提振AI情绪，反而触发资金从科技股撤离——英伟达-3.30%（连续第六日下跌、跌破150美元）、AMD遭做空机构Hunterbrook狙击暴跌7.72%、亚马逊-3.87%、谷歌-3.46%、Meta-3.27%、博通-2.09%，存储走弱（美光、闪迪跌逾2%）。逆势亮点是网络安全：Palo Alto Networks因超预期财报+上调FY2027指引跳涨。宏观层面，美联储12月加息概率升至约94%，市场避险情绪升温。",
+    text: "11月20日（周五）美股遭遇「AI黑色星期五」，三大指数重挫、纳指暴跌5.28%至22,617.73点，抹去年内全部涨幅转跌约2.7%；标普500跌3.70%至6,910.39点、连续第七个交易日下跌并较纪录高位回落超10%进入技术回调，道指跌1.93%至48,147.33点。费城半导体指数狂泻10.73%领跌全场，VIX恐慌指数飙升26.2%至35.89（盘中一度触及40.03、2025年4月以来最高）。核心催化：①路透独家披露SEC正调查英伟达会计问题、司法部审查其129亿美元收购Hugging Face反垄断，英伟达暴跌14.01%至125.53美元（单日市值蒸发约4900亿美元）；②AMD续跌13.25%、博通跌12.19%、美光跌13.89%、闪迪跌16.05%，半导体存储全线崩塌；③史上最大IPO Anthropic上市次日跌8.50%至88.91美元、盘中一度逼近83美元发行价，AI交易情绪彻底转冷；④美联储理事库克称亟需加息压制通胀、12月加息25bp概率升至91.5%，叠加民主党中期选举获胜引发AI监管收紧与数据中心放缓担忧。避险资金涌入债市，10年期美债收益率跌约11bp至4.94%。",
     /* 指数卡片（可增删） */
     indices: [
       { name: "Nasdaq Composite", code: "IXIC", change: "-0.00%" },
@@ -45,124 +45,142 @@ window.REPORT_DATA = {
 
   /* ============ 三、超涨 / 超跌个股提示 ============ */
   alerts: [
-    { name: "AMD", code: "AMD", direction: "超跌", change: "-0.00%", note: "重挫7.72%至约480美元区间（盘中一度暴跌11%至470.56美元，为纳指100成分股跌幅最大），做空机构Hunterbrook Capital披露空头头寸、关联媒体Hunterbrook Media发布调查报告，指控被列入实体清单的中国服务器厂商IEIT Systems（浪潮信息）在被制裁后仍持续获得新版AMD固件，并质疑AMD存在类似英伟达的「循环交易」；AMD否认并称严格遵守出口管制法规。此前AMD被市场视为英伟达风波中的「替代受益者」，如今自身也暴露「中国业务风险」，费半指数受其拖累从涨近5%跳水转跌。" }
+    { name: "NVIDIA", code: "NVDA", direction: "超跌", change: "-0.00%", note: "暴跌14.01%至125.53美元，连续第七个交易日下跌、连续第七周收跌，单日市值蒸发约4900亿美元，创2008年10月以来最差单周（本周累跌近23%）；较10月6日约5.76万亿美元纪录高点累计下跌约47%，市值被苹果、微软、谷歌超越，退居美股第四。核心利空：路透11月20日独家披露SEC执法人员正审查英伟达潜在会计问题（关注其地理营收披露口径调整——去年改以客户总部而非账单地址统计，新加坡从地区营收中移除），司法部同步审查其129亿美元收购开源平台Hugging Face及更广泛反垄断事项；叠加CEO黄仁勋离职后管理层真空、AI循环融资交易争议。" },
+    { name: "SanDisk", code: "SNDK", direction: "超跌", change: "-0.00%", note: "暴跌16.05%，为当日重点科技股中跌幅最大；NAND「存储超级周期」叙事在AI资本开支回报遭集体质疑背景下崩塌，存储板块领跌（美光-13.89%、SK海力士-13.11%、西部数据-12.02%），前期涨幅较大的存储链遭遇集中获利了结与去杠杆。" },
+    { name: "AMD", code: "AMD", direction: "超跌", change: "-0.00%", note: "续跌13.25%至424.39美元，做空机构Hunterbrook前一日报告引发连续第二个交易日重挫；「英伟达替代受益」逻辑被证伪后，出口合规风险溢价叠加AI交易全面退潮，半导体板块系统性抛压集中释放。" }
   ],
 
   /* ============ 四、重点公司行情表 ============ */
   /* 超涨/超跌个股放最上方；无新闻的公司驱动因素简要说明即可 */
   stocks: [
-    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "跌3.30%至约145.98美元、连续第六个交易日下跌，盘中跌破150美元重要支撑位；财报超预期（Q3营收1158亿+103%、Q4指引1300亿）未能扭转跌势，CEO继任真空、商务部东南亚出口新规及Anthropic上市引发的AI资金分流共同压制，市场关注其「中国销售」国会调查进展" },
-    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "跌1.78%，跟随大盘回落；作为Anthropic基石投资者（同步私募配售260亿美元财团成员），Anthropic首日冲高回落未提供持续支撑，高估值资产在美联储12月加息概率升至94%背景下承压" },
-    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "跌0.92%、科技七巨头中跌幅最小；现金流稳健的防御属性在避险情绪升温、利率上行预期背景下相对抗跌" },
-    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "跌3.87%、七巨头中跌幅居前；前期因Anthropic约15%持股价值重估而大涨，今日Anthropic首日冲高回落（收涨17%而非盘中39%高点），获利回吐叠加AI交易降温，前期涨幅部分回吐" },
-    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "跌3.46%；同为Anthropic重要股东（约14%持股），Anthropic首日表现低于市场「引爆AI行情」预期，叠加通信服务板块整体-2.92%领跌，跟随回落" },
-    { name: "Meta",      code: "META",  change: "-0.00%", driver: "跌3.27%；「自研芯片+算力替代」叙事在AI交易降温、英伟达与AMD相继爆出「中国业务风险」后边际退潮，跟随大盘震荡下行" },
-    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "跌2.09%；英伟达财报虽超预期但未能带动算力链，AMD做空风波引发半导体板块整体获利了结，定制ASIC龙头同步承压" },
-    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "重挫7.72%、盘中一度暴跌11%至470.56美元，为纳指100成分股当日跌幅最大；做空机构Hunterbrook披露空头头寸，报告指控其中国业务出口合规风险与「循环交易」，此前「英伟达替代受益」逻辑遭反噬，详见超跌提示" },
-    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "跌逾2%；存储板块整体走弱（闪迪、SK海力士同步跌逾2%），AI交易降温与费半跳水拖累，前期「存储超级周期」涨幅较大、部分资金获利了结" },
-    { name: "SanDisk",   code: "SNDK",  change: "-0.00%", driver: "跌逾2%；NAND「超级周期」叙事在AI资本开支疑虑（Anthropic上市后市场重估AI烧钱可持续性）背景下暂歇，跟随费半与存储板块回落" }
+    { name: "NVIDIA",    code: "NVDA",  change: "-0.00%", driver: "暴跌14.01%至125.53美元、连续第七个交易日下跌，单日市值蒸发约4900亿美元，本周累跌近23%创2008年10月以来最差单周；SEC调查会计问题+司法部审查Hugging Face收购反垄断+CEO继任真空三重利空共振，市值退居美股第四（详见超跌提示）" },
+    { name: "SanDisk",   code: "SNDK",  change: "-0.00%", driver: "暴跌16.05%、重点科技股中跌幅最大；存储「超级周期」叙事崩塌，AI资本开支回报遭质疑引发存储链集中抛售，前期涨幅较大、拥挤交易平仓放大跌势（详见超跌提示）" },
+    { name: "AMD",       code: "AMD",   change: "-0.00%", driver: "续跌13.25%至424.39美元、连续第二个交易日重挫；Hunterbrook做空报告持续发酵，出口合规风险从英伟达扩散至AMD，「替代受益」逻辑被证伪后遭系统性抛售（详见超跌提示）" },
+    { name: "Microsoft", code: "MSFT",  change: "-0.00%", driver: "跌2.77%至484.52美元；作为Anthropic基石投资者与大型云厂商，AI交易退潮与Anthropic次日破发拖累估值，但跌幅相对温和（现金流稳健的云+软件基本盘提供一定防御）" },
+    { name: "Apple",     code: "AAPL",  change: "-0.00%", driver: "跌1.90%至342.56美元、科技七巨头中跌幅最小；现金流充裕、AI叙事暴露度较低的防御属性，在避险情绪升温中相对抗跌" },
+    { name: "Amazon",    code: "AMZN",  change: "-0.00%", driver: "跌4.10%至246.82美元；作为Anthropic重要股东与最大云厂商之一，AI资本开支回报遭质疑、Anthropic上市次日破发引发前期「持仓重估」获利回吐，跌幅居大型科技股前列" },
+    { name: "Alphabet",  code: "GOOGL", change: "-0.00%", driver: "跌2.70%至265.29美元；同为Anthropic重要股东，AI交易全面退潮下跟随回落，但相对亚马逊、Meta抗跌" },
+    { name: "Meta",      code: "META",  change: "-0.00%", driver: "跌5.93%至560.84美元、大型科技股中跌幅较大；「自研芯片+算力替代」叙事在AI资本开支回报质疑中边际退潮，高估值成长属性在利率上行预期下承压" },
+    { name: "Broadcom",  code: "AVGO",  change: "-0.00%", driver: "跌12.19%、费半重挫拖累；定制ASIC龙头跟随半导体板块系统性抛售，AI算力链估值整体下修" },
+    { name: "Micron",    code: "MU",    change: "-0.00%", driver: "跌13.89%；存储板块领跌（与闪迪、SK海力士同步暴跌），「存储超级周期」叙事在AI资本开支回报质疑下崩塌，拥挤交易集中平仓" }
   ],
 
   /* ============ 五、重要科技与政策新闻（一手来源） ============ */
   news: [
     {
-      title: "Anthropic（ANT）登陆纳斯达克首日收涨17%至97.17美元，史上最大IPO募资813亿美元却未能提振AI情绪，盘中市值一度突破2万亿美元",
-      originalTitle: "Wall Street ends sharply lower as Anthropic's debut fails to revive AI fervour",
-      source: "Reuters（英文通讯社一手，经 The Straits Times 转载）",
-      time: "2026年11月19日",
+      title: "路透独家：SEC正调查英伟达会计问题、司法部审查其129亿美元收购Hugging Face，英伟达暴跌14%单日蒸发约4900亿美元",
+      originalTitle: "Exclusive-Nvidia's Accounting Is a Focus of US SEC Investigation, Sources Say",
+      source: "Reuters（英文通讯社一手，经 U.S. News 转载）",
+      time: "2026年11月20日",
       type: "财经媒体",
-      url: "https://www.straitstimes.com/business/companies-markets/wall-street-ends-sharply-lower-as-anthropics-debut-fails-to-revive-ai-fervour",
-      link: "https://www.straitstimes.com/business/companies-markets/wall-street-ends-sharply-lower-as-anthropics-debut-fails-to-revive-ai-fervour",
-      summary: "Anthropic（代码ANT）11月19日在纳斯达克上市，发行价83美元/股、募资813亿美元，为史上最大IPO（超越6月SpaceX）。首日开盘价111.50美元（较发行价+34%），盘中最高115.10美元、市值一度突破2万亿美元，但随后动能衰减，收盘报97.17美元、涨幅收窄至17.07%，市值约1.27万亿美元。其亮眼首秀非但未能重燃AI交易热情，反而引发市场对AI高估值的重新审视——部分投资者「卖科技买Anthropic」的资金腾挪，加剧科技大盘抛压。路透援引Argent Capital基金经理Jed Ellerbroek称，「钱是从别处来的」，其对数据中心资本开支增长预期在过去一两个月已有所下调，认为数据中心建设将更贵、更慢。",
+      url: "https://money.usnews.com/investing/news/articles/2026-11-20/exclusive-us-secs-nvidia-probe-is-examining-potential-accounting-issues-sources-say",
+      link: "https://money.usnews.com/investing/news/articles/2026-11-20/exclusive-us-secs-nvidia-probe-is-examining-potential-accounting-issues-sources-say",
+      summary: "路透11月20日援引两名知情人士独家报道，美国证券交易委员会（SEC）执法人员正在审查英伟达潜在的会计问题，这是调查重点的首次披露。此前《华尔街日报》周二已报道SEC正在调查英伟达，但未能确认调查重点。SEC与英伟达均拒绝置评；路透强调「调查不等于存在不当行为，许多调查最终未导致执法行动」。报道同时指出，司法部（DOJ）正在审查英伟达以129亿美元收购开源平台Hugging Face的交易，并对其收购与经营行为展开更广泛的反垄断调查。市场关注点还包括：英伟达去年将地理营收披露口径由「账单地址」改为「客户总部」，新加坡因此从地区营收明细中移除——而据《金融时报》此前报道，新加坡销售额一度占英伟达全球营收近半，东南亚已成为先进AI芯片转运枢纽。报道刊出前英伟达股价跌幅约6%，消息传出后跌幅扩大至14%以上。",
       impact: {
-        direction: "中性偏空（首日虽涨但未能带动板块，AI估值「试金石」结果平淡）",
-        companies: "Anthropic及基石投资者（谷歌/英伟达/微软/亚马逊/AMD/博通/美光/台积电）、AI算力生态",
+        direction: "利空（监管不确定性叠加管理层真空，进一步打击投资者信心）",
+        companies: "英伟达及AI芯片产业链（AMD、博通、台积电、美光）、CoreWeave等关联数据中心",
+        industry: "GPU/半导体、AI基础设施、数据中心、出口管制",
+        logic: "英伟达在CEO离职、管理层真空、估值高企的背景下再遭SEC会计调查与DOJ反垄断审查双重利空，市场对「AI龙头」公司治理与收入质量的信心被进一步削弱，加速了AI板块的资金撤离；这已从个股风险上升为对整个AI循环融资交易模式（芯片商帮助客户融资购芯建数据中心）的系统性质疑"
+      }
+    },
+    {
+      title: "史上最大IPO Anthropic上市次日跌8.5%至88.91美元、盘中一度逼近83美元发行价，AI交易情绪彻底转冷",
+      originalTitle: "Anthropic stock falls amid AI sell-off as Nvidia, AMD also sink",
+      source: "CNBC（英文财经媒体一手）",
+      time: "2026年11月20日",
+      type: "财经媒体",
+      url: "https://www.cnbc.com/2026/11/20/anthropic-stock-ai-amd-nvidia.html",
+      link: "https://www.cnbc.com/2026/11/20/anthropic-stock-ai-amd-nvidia.html",
+      summary: "CNBC报道，Anthropic（ANT）在纳斯达克上市后的首个完整交易日股价下跌8.5%，收报88.91美元。此前该股周四以83美元发行价融资813亿美元（史上最大IPO），开盘价111.50美元、盘中一度冲至115.10美元，但收盘回落至97.17美元。周五盘中一度跌至83.05美元，距离83美元发行价仅5美分、险些破发。投资者原本寄望Anthropic上市能重燃受压数周的AI交易，但结果相反——芯片股英伟达、AMD均暴跌逾13%，超大规模云厂商亚马逊、谷歌、微软也集体收跌。报道指出，在黄仁勋意外离职、数据中心公众情绪转弱、以及利率上行可能影响数万亿美元AI基础设施建设计划的背景下，AI交易持续承压。美国财长贝森特当日接受CNBC采访，称赞Anthropic是「只有在美国才会发生的故事」，并称该公司「非常配合」特朗普政府提前测试AI模型。分析师评级分歧：Seaport Research给予中性、担忧其营收增速；William Blair给予跑赢大盘、看好其长期盈利能力。",
+      impact: {
+        direction: "利空（AI交易「试金石」失败，板块情绪彻底转冷）",
+        companies: "Anthropic及基石投资者（谷歌/英伟达/微软/亚马逊/AMD等）、AI算力生态、超大规模云厂商",
         industry: "AI大模型、云计算、AI基础设施、数据中心",
-        logic: "史上最大IPO首日「冲高回落」显示一级市场的高估值并未获得二级市场同等认同，资金从其他科技股「腾挪」至Anthropic，反而加剧板块抛压；这是继英伟达财报后，市场对「AI烧钱换规模」可持续性的第二次集中拷问，短期AI板块估值承压"
+        logic: "史上最大IPO上市次日即跌近发行价，传递出关键信号：一级市场对头部AI资产的狂热估值未能在二级市场获得同等承接，「AI烧钱换规模」的可持续性成为定价核心变量；这标志着市场从「AI需求无上限」的单边叙事切换为「资本开支回报 vs 融资可持续性」的双向再定价，对整个算力链估值中枢构成压力"
       }
     },
     {
-      title: "做空机构Hunterbrook狙击AMD：指控被列入实体清单的浪潮信息仍获新版AMD固件、存在「循环交易」，AMD盘中暴跌11%、收跌7.72%并否认指控",
-      originalTitle: "AMD Firmware Found at Blacklisted Chinese Company: Short-Seller Investigation Sends Shares Down",
-      source: "Hunterbrook Media（调查媒体一手，关联对冲基金Hunterbrook Capital已披露AMD空头头寸）",
-      time: "2026年11月19日",
+      title: "美股「AI黑色星期五」：纳指暴跌5.28%抹去年内涨幅、标普500七连跌进入回调，费城半导体指数狂泻10.73%",
+      originalTitle: "Anthropic stock falls amid AI sell-off as Nvidia, AMD also sink",
+      source: "CNBC（英文财经媒体一手）",
+      time: "2026年11月20日",
       type: "财经媒体",
-      url: "https://joho-todai.com/en/amd-firmware-blacklisted-chinese-company-stock-drop",
-      link: "https://joho-todai.com/en/amd-firmware-blacklisted-chinese-company-stock-drop",
-      summary: "调查媒体Hunterbrook Media发布报告，其关联对冲基金Hunterbrook Capital同步披露AMD空头头寸（并做多一篮子可比标的）。核心指控：中国服务器厂商IEIT Systems（浪潮信息）2025年3月被列入美国实体清单后，仍至少六次将新版AMD固件（AGESA）集成进服务器BIOS，最近一次更新于2026年10月19日、包含AMD 7月10日才发布的TurinPI代码；另有Maginfra（中国）、Kaytus（新加坡）、Aivres（美国加州，原Inspur Systems）三家关联公司发布与IEIT 99.94%相同的BIOS文件。报告同时质疑AMD存在类似英伟达的「循环交易」（向采购自家芯片的客户提供融资/担保，虚增需求）。报告自身也承认「这些发现并不必然构成出口违规」。AMD发言人否认指控，称报告「歪曲了公司的业务实践与合作关系」、公司严格遵守美国出口管制法规。受此影响AMD盘中一度暴跌11%至470.56美元、收跌7.72%。",
+      url: "https://www.cnbc.com/2026/11/20/anthropic-stock-ai-amd-nvidia.html",
+      link: "https://www.cnbc.com/2026/11/20/anthropic-stock-ai-amd-nvidia.html",
+      summary: "11月20日美股三大指数全线重挫：纳指跌5.28%至22,617.73点（抹去年内全部涨幅、年内转跌约2.7%）、标普500跌3.70%至6,910.39点（连续第七个交易日下跌、较纪录高位回落超10%进入技术回调）、道指跌1.93%至48,147.33点。费城半导体指数狂泻10.73%领跌全场。芯片股为抛售重灾区：英伟达暴跌14.01%、AMD续跌13.25%、博通跌12.19%、美光跌13.89%、闪迪跌16.05%、ARM跌14.09%、台积电ADR跌9.48%。VIX恐慌指数飙升26.2%至35.89（盘中一度触及40.03、为2025年4月以来最高）。本周纳指累跌约10%、道指累跌8.02%、标普累跌8.61%，均创2025年4月以来（纳指为2020年3月以来）最差单周。避险资金涌入债市，10年期美债收益率日内跌约11个基点至4.94%附近。",
       impact: {
-        direction: "利空（AMD「替代受益」逻辑遭反噬，半导体板块出口合规风险溢价上升）",
-        companies: "AMD及半导体产业链（英伟达、博通、台积电、美光等）",
-        industry: "GPU/CPU、半导体出口管制、AI基础设施、数据中心",
-        logic: "此前市场把AMD视为英伟达「中国业务风波」的替代受益者，Hunterbrook报告证明AMD同样存在中国业务合规风险，市场对「替代」逻辑的定价被逆转；叠加对新加坡等东南亚国家出口新规当日生效，半导体板块整体出口合规风险溢价抬升，费半指数从涨近5%跳水至-2.41%"
+        direction: "利空（AI交易全面退潮，跨资产去杠杆加剧系统性抛售）",
+        companies: "英伟达、AMD、博通、美光、闪迪等半导体存储链及超大规模云厂商、新云公司",
+        industry: "AI、半导体、存储、数据中心、云计算",
+        logic: "Anthropic上市次日破发、英伟达监管调查、AMD做空风波三重利空共振，叠加美联储12月加息概率升至91.5%与民主党中期选举获胜引发的AI监管/数据中心放缓担忧，AI高估值资产的「分子端」资本开支回报与「分母端」利率同时承压，拥挤交易集中平仓放大跌势，形成跨资产去杠杆"
       }
     },
     {
-      title: "美股三大指数收盘跌幅均超2%，标普500五连跌创2025年4月以来最差单周，费城半导体指数从涨近5%跳水至-2.41%",
-      originalTitle: "US stocks slump as Anthropic's super-sized IPO fails to revitalise AI enthusiasm; S&P 500 logs fifth straight loss",
-      source: "Reuters（英文通讯社一手，经 The Straits Times 转载）",
-      time: "2026年11月19日",
+      title: "美联储理事库克：通胀仍过高、亟需加息压制，12月加息25bp概率升至约91.5%",
+      originalTitle: "Fed's Cook says policy rate not yet restraining AI buildout, warns against waiting too long to hike",
+      source: "Reuters（英文通讯社一手，经中文财经媒体交叉核对）",
+      time: "2026年11月20日",
       type: "财经媒体",
-      url: "https://www.straitstimes.com/business/companies-markets/wall-street-ends-sharply-lower-as-anthropics-debut-fails-to-revive-ai-fervour",
-      link: "https://www.straitstimes.com/business/companies-markets/wall-street-ends-sharply-lower-as-anthropics-debut-fails-to-revive-ai-fervour",
-      summary: "11月19日美股三大指数全线重挫：道指跌2.19%至49,097.06点、跌破5万点整数关口；标普500跌2.02%至7,175.83点、连续第五个交易日下跌、创2025年4月以来最大单周跌幅；纳指跌2.25%至23,879.20点；费城半导体指数跌2.41%至9,419.72点（盘中一度涨近5%）。科技七巨头全线下挫，英伟达连续第六日下跌、跌破150美元至约145.98美元。市场避险情绪升温：美联储12月加息概率升至约94%（CME FedWatch），下周将公布PCE通胀数据（市场预期核心PCE同比3.2%）。新云公司CoreWeave、Nebius重挫。逆势上涨的仅有网络安全（Palo Alto Networks）与部分零售。",
+      url: "https://www.reuters.com/markets/",
+      link: "https://www.reuters.com/markets/",
+      summary: "美联储理事丽莎·库克（Lisa Cook）11月20日在智利央行会议上表示，美国通胀已连续五年半高于2%目标，现有数据几乎未显示通胀正在向目标回落；她警告称「在需要调整政策时选择等待是有代价的」，若延迟行动未来可能不得不以更快速度升息。库克估算10月整体PCE同比约3.8%、核心PCE同比约3.2%（均为其基于已公布数据的估算，非官方发布）。她特别指出，美国企业已宣布逾2万亿美元的具名数据中心建设计划，AI投资需求已影响芯片与高科技设备价格、建筑薪资与电价，现行利率尚未明显抑制AI基建。库克在10月会议上曾对「维持利率不变」投反对票、主张加息25bp。同日，密歇根大学11月消费者信心指数终值51.5（高于10月的48.0）。据CME FedWatch，市场对12月8-9日FOMC会议加息25bp的定价概率已升至约91.5%。",
       impact: {
-        direction: "利空（AI交易退潮叠加鹰派利率预期，风险偏好显著收缩）",
-        companies: "英伟达、AMD、亚马逊、谷歌等科技巨头及新云公司、整体科技板块",
-        industry: "AI、半导体、云计算、数据中心、网络安全",
-        logic: "Anthropic上市未能接力AI交易、AMD做空风波、英伟达「中国销售」调查三重利空共振，叠加美联储12月加息概率升至94%，高估值AI资产的贴现率压力与情绪面共振，标普五连跌反映「买预期卖事实」后市场对AI估值与利率的双重再定价"
-      }
-    },
-    {
-      title: "Palo Alto Networks财报超预期、上调FY2027营收指引至145.2—145.7亿美元，并宣布45亿美元收购AI初创Applied Compute，股价跳涨领涨网络安全板块",
-      originalTitle: "Palo Alto Networks Stock Surges on Record Quarter, Raised Outlook and $4.5 Billion Applied Compute AI Deal",
-      source: "International Business Times（英文财经媒体一手）",
-      time: "2026年11月19日",
-      type: "财经媒体",
-      url: "https://www.ibtimes.com.au/palo-alto-networks-record-quarter-ai-acquisition-1878956",
-      link: "https://www.ibtimes.com.au/palo-alto-networks-record-quarter-ai-acquisition-1878956",
-      summary: "Palo Alto Networks（PANW）周四股价跳涨逾4.8%（盘前一度涨超9%），网络安全板块逆势走强。公司2027财年第一财季（截至10月31日）营收34.4亿美元、同比+39%，超预期的33.1亿；调整后EPS 1.05美元，超0.97美元一致预期；下一代安全年度经常性收入（NGS ARR）97.3亿美元、同比+66%。公司将FY2027全年指引上调至营收145.2—145.7亿美元（高于141.6亿预期）、调整后EPS 4.26—4.30美元。公司同时宣布以45亿美元全股票收购AI初创Applied Compute，扩大其在AI安全领域的布局。CEO Nikesh Arora称客户正转向其平台以应对「前所未有的威胁格局」。该涨势带动Rubrik等网络安全股同步上行。",
-      impact: {
-        direction: "利好（网络安全是AI时代少数逆势走强的确定性赛道）",
-        companies: "Palo Alto Networks及网络安全板块（Rubrik、Zscaler、Okta、Cloudflare、SentinelOne）",
-        industry: "网络安全、AI安全、云计算",
-        logic: "在AI交易退潮的背景下，网络安全因「AI放大攻击面→防御支出刚性」的逻辑成为资金避险去处，Palo Alto超预期财报+上调指引+AI收购三重催化，验证网络安全是AI资本开支周期中少有的确定性受益方向，为科技板块提供结构性亮点"
-      }
-    },
-    {
-      title: "美联储12月加息概率升至约94%，市场聚焦下周PCE通胀数据（预期核心PCE同比3.2%），鹰派利率预期压制高估值AI资产",
-      originalTitle: "Markets price ~94% chance of December Fed rate hike; PCE report looms with core inflation seen at 3.2%",
-      source: "Reuters（英文通讯社一手，经 The Straits Times 转载）",
-      time: "2026年11月19日",
-      type: "财经媒体",
-      url: "https://www.straitstimes.com/business/companies-markets/wall-street-ends-sharply-lower-as-anthropics-debut-fails-to-revive-ai-fervour",
-      link: "https://www.straitstimes.com/business/companies-markets/wall-street-ends-sharply-lower-as-anthropics-debut-fails-to-revive-ai-fervour",
-      summary: "继11月18日公布的10月FOMC纪要显示官员希望在通胀回落前继续加息后，市场正在重新校准对利率路径的预期。据CME FedWatch，金融市场目前定价美联储12月会议加息25个基点的概率约为94%，且「超大幅50个基点加息」的概率虽小但在上升。下周美国商务部将公布个人消费支出（PCE）报告，其中包含美联储最看重的通胀指标PCE物价指数，市场预期核心PCE同比为3.2%，远高于2%目标。利率「更高更久」的预期成为压制高估值成长股、尤其是AI资产贴现率的核心宏观约束。",
-      impact: {
-        direction: "利空（鹰派利率预期升温，压制高估值AI资产估值）",
-        companies: "英伟达、微软、亚马逊等高估值AI资产及高杠杆新云、数据中心开发商",
+        direction: "利空（鹰派利率预期升温，压制高估值AI资产的贴现率）",
+        companies: "英伟达、微软、亚马逊等高估值AI资产及高杠杆数据中心开发商",
         industry: "宏观利率、AI基础设施、数据中心、云计算",
-        logic: "12月加息概率升至94%、核心PCE预期3.2%远超目标，意味着「利率更高更久」仍是AI高估值的天花板；AI基建的融资成本与债务可持续性承压，这是Anthropic上市、AMD风波之外，压制AI板块的中期宏观约束，下周PCE数据是验证通胀方向的关键变量"
+        logic: "美联储理事明确鹰派表态叠加12月加息概率升至91.5%，意味着「利率更高更久」仍是AI高估值的刚性天花板；AI基建高度依赖融资，融资成本上升直接抬高数据中心建设与算力扩张的资金压力，这是Anthropic破发、英伟达调查之外压制AI板块最持久的宏观约束"
+      }
+    },
+    {
+      title: "民主党中期选举夺回国会控制权，市场担忧AI监管收紧、数据中心建设放缓，加剧AI板块估值重定价",
+      originalTitle: "Stock Market Crash: Why stock market is crashing today — Democratic wins may slow AI data-center expansion",
+      source: "The Economic Times（英文财经媒体一手）",
+      time: "2026年11月20日",
+      type: "财经媒体",
+      url: "https://economictimes.indiatimes.com/markets/stock-market-crash",
+      link: "https://economictimes.indiatimes.com/markets/stock-market-crash",
+      summary: "The Economic Times报道，美国大选后的市场反弹迅速转为大规模抛售，道指一度暴跌逾千点、纳指进入回调区间。市场担忧，民主党在中期选举中获胜（夺回国会控制权并赢得多个州州长席位）可能导致AI数据中心扩张放缓，从而引发英伟达、AMD、美光及其他AI相关股票的沉重抛压。该逻辑与CNBC、新华社等报道的「民主党胜利→AI行业面临更严格监管、数据中心建设放缓」的判断一致。这一政策预期变化叠加AI资本开支回报遭质疑，成为本周科技股系统性重挫的重要宏观催化。",
+      impact: {
+        direction: "利空（政策预期转鹰，AI监管与数据中心扩张前景蒙阴）",
+        companies: "英伟达、AMD、美光、博通及数据中心开发商、电力设备（卡特彼勒等）",
+        industry: "AI监管、数据中心、半导体、电力能源",
+        logic: "中期选举政治格局变化引入新的政策不确定性——市场预期AI行业将面临更严格监管、数据中心建设节奏放缓，这直接冲击支撑AI估值高企的「算力无限扩张」核心假设；叠加利率上行，AI资本开支链条（芯片→数据中心→电力）的增长预期被系统性下修"
+      }
+    },
+    {
+      title: "美国财长贝森特：Anthropic上市是「只有在美国才会发生的故事」，公司一直积极配合政府AI模型预测试",
+      originalTitle: "Treasury Secretary Bessent: Anthropic IPO is an 'only in America story'",
+      source: "CNBC（英文财经媒体一手）",
+      time: "2026年11月20日",
+      type: "财经媒体",
+      url: "https://www.cnbc.com/2026/11/20/anthropic-stock-ai-amd-nvidia.html",
+      link: "https://www.cnbc.com/2026/11/20/anthropic-stock-ai-amd-nvidia.html",
+      summary: "CNBC报道，美国财政部长斯科特·贝森特（Scott Bessent）11月20日接受CNBC采访，称赞Anthropic的上市是「只有在美国才会发生的故事」（only in America story），并称Anthropic一直「非常配合」特朗普政府提前测试AI模型。贝森特表示：「2021年的Anthropic只是七个在旧金山公园里、新冠疫情期间抱着笔记本电脑追梦的人，而昨天我们见证了史上最有价值的IPO。」报道还提及，Anthropic七位联合创始人之一、首席算力官Tom Brown计划在未来数周向特朗普政府设立的儿童投资账户（Trump Accounts）作出大额捐赠。这一表态反映了特朗普政府与Anthropic关系的缓和——双方9月因CEO Dario Amodei与总统白宫私人晚宴而开始破冰。",
+      impact: {
+        direction: "中性（政府背书提供政策托底信号，但未能扭转当日AI板块抛压）",
+        companies: "Anthropic及AI模型初创公司、超大规模云厂商",
+        industry: "AI大模型、AI监管政策、政府合作",
+        logic: "财政部长的高调背书与「配合政府预测试模型」的表态，暗示Anthropic与特朗普政府在AI监管上形成某种合作框架，为头部AI模型公司提供一定的政策确定性；但在当日市场情绪主导的抛售中，这一利好被AI交易退潮的整体叙事所淹没"
       }
     }
   ],
 
   /* ============ 六、当日最值得关注的 3 个交易逻辑 ============ */
   logics: [
-    { title: "Anthropic「冲高回落」：一级市场高估值未获二级市场同等认同，AI交易进入「拆解再定价」阶段",
-      text: "史上最大IPO Anthropic首日开盘+34%、盘中市值一度突破2万亿美元，但收盘涨幅收窄至17%、并引发科技大盘「卖科技买Anthropic」的资金腾挪。这传递出关键信号：一级市场对头部AI资产趋之若鹜的估值，在二级市场落地时并未得到同等的热情承接——「AI烧钱换规模」能否最终转化为可持续盈利，开始成为二级市场定价的核心变量。市场从「AI需求无上限」的单边叙事，切换为「需求 vs 烧钱可持续性」的双向再定价，这对英伟达、微软乃至整个算力链的估值中枢构成压力。" },
-    { title: "半导体「中国业务风险」从英伟达扩散到AMD：出口合规成为压制芯片股估值的新系统性变量",
-      text: "继英伟达因「中国销售」遭国会调查、黄仁勋辞职风波后，做空机构Hunterbrook将矛头指向AMD，指控被列入实体清单的浪潮信息仍获新版AMD固件、并质疑其存在「循环交易」，AMD盘中暴跌11%。这意味着「中国业务合规风险」已从单一个股（英伟达）扩散为半导体板块的系统性变量——此前市场把AMD视为英伟达的「替代受益者」，如今该逻辑被证伪。叠加对新加坡、马来西亚等东南亚国家出口新规当日生效，半导体板块整体出口合规风险溢价上升，费半指数从涨近5%跳水至-2.41%，出口管制成为压制芯片股估值的新主线。" },
-    { title: "鹰派利率与AI估值的天花板：12月加息概率94%，高估值AI资产面临「分母端」持续收紧",
-      text: "美联储12月加息概率升至约94%、下周PCE核心通胀预期3.2%远超2%目标，利率「更高更久」成为AI高估值资产的刚性天花板。AI基建的融资成本上升、债务可持续性承压，与「AI需求叙事」形成对冲——这正是路透所引基金经理下调数据中心资本开支预期的深层原因。在Anthropic上市、AMD风波之外，鹰派利率预期是压制AI板块最持久、最底层的宏观变量，下周PCE数据将决定利率预期是缓和还是进一步走强，从而决定AI板块的短期方向。" }
+    { title: "AI交易从「需求无上限」到「资本开支回报」的双向再定价：史上最大IPO次日破发成为情绪分水岭",
+      text: "Anthropic上市次日即跌8.5%、盘中一度逼近发行价，叠加英伟达SEC会计调查、AMD做空风波，标志着市场对AI的核心定价逻辑发生根本切换——从过去近两年「算力需求无限扩张、商业化持续超预期」的单边叙事，转向「巨额资本开支何时兑现为利润、循环融资模式能否持续」的双向拷问。大型科技公司过去一年投入逾万亿美元建设数据中心、采购芯片，如今投资者开始追问回报周期。当一级市场趋之若鹜的估值在二级市场得不到同等承接，整个算力链的估值中枢被迫下修，这是本周纳指单周暴跌10%、费半狂泻10.73%的深层驱动。" },
+    { title: "英伟达监管风险从「治理危机」升级为「账目信任危机」，AI循环融资模式遭系统性审视",
+      text: "英伟达的风险已从CEO黄仁勋离职的治理危机，升级为SEC调查会计问题、DOJ审查Hugging Face收购反垄断的账目与合规信任危机。市场关注的核心不仅是英伟达本身，而是其代表的「循环融资」模式——芯片商通过投资、担保等复杂财务安排帮助客户融资购芯、建设数据中心，令投资者难以评估收入质量与真实财务敞口。SEC执法主管David Woodcock上月已明确表示正审查AI公司的企业披露。这标志着监管层开始从「出口管制」延伸到「财务披露」维度审视AI产业链，半导体板块的合规风险溢价全面抬升。" },
+    { title: "鹰派利率与政策预期共振：12月加息概率91.5%+民主党胜选，AI估值面临「分母端」与「政策端」双重收紧",
+      text: "美联储理事库克明确鹰派表态、12月加息25bp概率升至91.5%，叠加民主党中期选举获胜引发AI监管收紧与数据中心放缓的政策预期，AI高估值资产同时承受「分母端」（利率上行压低远期现金流折现）与「政策端」（算力扩张假设被打破）的双重压力。10年期美债收益率虽在避险情绪下回落至4.94%，但更多反映资金避险而非宽松信号。未来一周的10月PCE数据（预期核心同比3.2%）与美联储褐皮书，将成为验证利率预期方向、进而决定AI板块短期走向的关键变量。" }
   ],
 
   /* ============ 七、未来 1—3 个交易日关注事项（具体事件） ============ */
   watchlist: [
-    { date: "11月20日（周五）", event: "美国11月标普全球PMI初值（制造业/服务业，美东9:45）", impact: "PMI初值揭示11月经济扩张动能与通胀压力方向，是12月8-9日FOMC会议前的重要前瞻数据，或强化/缓和12月加息（25bp vs 50bp）的预期，影响高估值AI资产" },
-    { date: "11月20日（周五）", event: "费城联储行长哈克（Patrick Harker）讲话", impact: "哈克为2026年FOMC票委，其表态将进一步校准市场对12月加息幅度的定价，直接影响利率敏感型科技股" },
-    { date: "11月25日（周三）", event: "美国10月PCE物价指数（含核心PCE，市场预期核心同比3.2%）", impact: "美联储最看重的通胀指标，若高于预期将强化12月加息乃至50bp加息预期、进一步压制AI高估值；若降温则提供喘息窗口" },
-    { date: "持续关注", event: "英伟达CEO遴选与「中国销售」国会调查进展、AMD对Hunterbrook指控的正式回应、商务部对新加坡/马来西亚等东南亚国家出口新规实施细则", impact: "半导体板块出口合规风险溢价的关键变量，任一进展都将重塑英伟达、AMD及AI芯片供应链的估值预期" }
+    { date: "11月23日（周一）", event: "美联储11月FOMC会议纪要发布（美东14:00），纽约联储主席威廉姆斯讲话（北京时间周二凌晨5点左右）", impact: "纪要将进一步揭示官员对12月加息幅度（25bp vs 50bp）的分歧，威廉姆斯为FOMC永久票委，其表态将直接校准利率预期，影响利率敏感型科技股" },
+    { date: "11月25日（周三）", event: "美国10月PCE物价指数与第三季度GDP修正值（美东8:30）", impact: "美联储最看重的通胀指标（库克估算核心PCE同比3.2%、整体3.8%），若高于预期将强化12月加息乃至50bp加息预期、进一步压制AI高估值；若降温则提供喘息窗口" },
+    { date: "11月26日（周四）", event: "美联储经济状况褐皮书发布（北京时间周四凌晨3点）", impact: "褐皮书调研窗口覆盖10-11月上旬，将揭示各地企业一线对AI基建、就业、价格的反馈，为12月8-9日FOMC会议提供会前参考，影响AI产业链增长预期定价" },
+    { date: "持续关注", event: "英伟达SEC会计调查与DOJ反垄断审查进展、AMD对Hunterbrook指控的正式回应、Anthropic上市后股价能否企稳、商务部东南亚出口新规实施细则", impact: "半导体板块监管合规风险溢价的关键变量，任一进展都将重塑英伟达、AMD及AI芯片供应链的估值预期" }
   ],
 
   /* ============ 八、页脚免责声明 ============ */
